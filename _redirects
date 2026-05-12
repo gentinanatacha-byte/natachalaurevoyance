@@ -1,0 +1,9 @@
+# Redirections Netlify — Natacha Laure Voyance
+
+# Forcer HTTPS
+http://natachalaurevoyance.fr/* https://natachalaurevoyance.fr/:splat 301!
+http://www.natachalaurevoyance.fr/* https://natachalaurevoyance.fr/:splat 301!
+https://www.natachalaurevoyance.fr/* https://natachalaurevoyance.fr/:splat 301!
+
+# SPA fallback — toutes les routes renvoient vers index.html
+/*    /index.html   200
