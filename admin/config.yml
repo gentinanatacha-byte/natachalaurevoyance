@@ -1,0 +1,72 @@
+# Configuration Decap CMS - Natacha Laure Voyance
+# Backend : Netlify Identity + Git Gateway (pas besoin de Vercel ni d'OAuth GitHub manuel)
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Branche de travail : on commit directement sur main (pas de PR system)
+publish_mode: simple
+
+# Dossier où sont stockées les images uploadées via le CMS
+media_folder: "assets/images/blog"
+public_folder: "/assets/images/blog"
+
+# Interface en français
+locale: fr
+
+# Site live URL pour le bouton "Voir le site"
+site_url: https://natachalaurevoyance.fr
+display_url: https://natachalaurevoyance.fr
+logo_url: https://natachalaurevoyance.fr/assets/images/logo-natacha-laure-transparent.webp
+
+# Collections : ce qu'on peut éditer
+collections:
+  # ─────────────────────────────────────────────────────────
+  # Collection ARTICLES DE BLOG
+  # ─────────────────────────────────────────────────────────
+  - name: "blog"
+    label: "Articles du blog"
+    label_singular: "Article"
+    folder: "_posts"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date | date('DD/MM/YYYY')}}"
+    sortable_fields: ['date', 'title']
+    view_filters:
+      - label: "Articles publiés"
+        field: draft
+        pattern: false
+      - label: "Brouillons"
+        field: draft
+        pattern: true
+
+    fields:
+      - { label: "Titre de l'article", name: "title", widget: "string", hint: "Le titre principal qui s'affiche en haut" }
+
+      - { label: "Titre HTML (avec mise en forme)", name: "title_html", widget: "string", required: false, hint: "Optionnel : version du titre avec balises <em></em> pour mettre certains mots en italique doré. Ex : 'Pourquoi le Tarot nous <em>fascine</em>'" }
+
+      - { label: "Sous-titre (chapeau)", name: "lead", widget: "string", hint: "Une phrase courte qui résume l'article, affichée dans la liste des articles" }
+
+      - { label: "Description SEO (pour Google)", name: "meta_desc", widget: "string", pattern: ['.{50,160}', 'Entre 50 et 160 caractères'], hint: "150 caractères max - apparaît dans les résultats Google" }
+
+      - { label: "Catégorie", name: "category", widget: "select", options: ["Histoire & Symbolisme", "Voyance pratique", "Pratique", "Réflexion", "Comprendre", "Outils & Pratiques", "Histoire"] }
+
+      - { label: "Date de publication", name: "date", widget: "datetime", default: "" }
+
+      - { label: "Temps de lecture", name: "read_time", widget: "string", default: "5 min", hint: "Ex : '5 min', '7 min'" }
+
+      - { label: "Image principale", name: "hero_image", widget: "image", media_folder: "/assets/images/blog", public_folder: "/assets/images/blog", hint: "L'image qui s'affiche en haut de l'article et dans la liste" }
+
+      - { label: "Texte alternatif de l'image", name: "hero_alt", widget: "string", hint: "Description courte de l'image (pour Google et accessibilité)" }
+
+      - { label: "Brouillon (ne pas publier)", name: "draft", widget: "boolean", default: false, hint: "Coche cette case pour garder l'article en brouillon sans le publier" }
+
+      - label: "Contenu de l'article"
+        name: "body"
+        widget: "markdown"
+        hint: "Le contenu principal de l'article. Tu peux mettre du gras, italique, listes, images, citations."
+        buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
+        editor_components: ["image", "code-block"]
+
+      - { label: "Articles connexes (slugs)", name: "related", widget: "list", required: false, hint: "Liste les slugs des articles connexes (ex : tarot-fascine-siecles). Maximum 3." }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace de gestion · Natacha Laure Voyance</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Netlify Identity Widget : gère l'authentification -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    #nc-root { min-height: 100vh; }
+  </style>
+</head>
+<body>
+
+  <!-- Decap CMS chargé depuis CDN officiel -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <script>
+    // Redirection après login : revenir sur /admin/
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+# Configuration Jekyll pour Natacha Laure Voyance
+# Ne modifie ce fichier que si tu sais ce que tu fais
+
+title: Natacha Laure Voyance
+description: Voyante spécialiste du Tarot de Marseille à Nice et par téléphone
+url: https://natachalaurevoyance.fr
+baseurl: ""
+
+# Ne traite que le blog avec Jekyll, le reste du site reste statique
+include:
+  - _posts
+  - _layouts
+  - _includes
+  - admin
+
+# Permaliens : URLs propres pour les articles
+permalink: /blog/:slug/
+
+# Collections : les articles de blog
+collections:
+  posts:
+    output: true
+    permalink: /blog/:slug/
+
+# Variables par défaut pour tous les articles
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Plugins (déjà supportés par GitHub Pages)
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclure ces dossiers/fichiers du build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .gitignore
