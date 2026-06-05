@@ -70,15 +70,15 @@ collections:
         editor_components: ["image", "code-block"]
 
      - label: "Articles connexes"
-        name: "related"
-        widget: "relation"
-        required: false
-        multiple: true
-        collection: "blog"
-        search_fields: ["title"]
-        display_fields: ["title"]
-        value_field: "{{slug}}"
-        filters:
-          - field: draft
-            values: [false]
-        hint: "Cherche un article par son titre et clique pour l'ajouter."
+      name: "related"
+      widget: "relation"
+      required: false
+      multiple: true
+      collection: "blog"
+      search_fields: ["title"]
+      display_fields: ["title"]
+      value_field: "{{slug}}"
+      filters:
+        - field: draft
+          values: [false]
+      hint: "Cherche un article par son titre et clique pour l'ajouter."
