@@ -69,16 +69,4 @@ collections:
         buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
         editor_components: ["image", "code-block"]
 
-     - label: "Articles connexes"
-      name: "related"
-      widget: "relation"
-      required: false
-      multiple: true
-      collection: "blog"
-      search_fields: ["title"]
-      display_fields: ["title"]
-      value_field: "{{slug}}"
-      filters:
-        - field: draft
-          values: [false]
-      hint: "Cherche un article par son titre et clique pour l'ajouter."
+     - { label: "Articles connexes", name: "related", widget: "relation", multiple: true, required: false, collection: "blog", search_fields: ["title"], display_fields: ["title"], value_field: "{{slug}}", hint: "Cherche un article par son titre et clique pour l'ajouter." }
