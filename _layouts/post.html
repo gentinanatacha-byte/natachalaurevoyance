@@ -85,7 +85,8 @@
     <p class="related-articles-subtitle">Articles connexes</p>
     <div class="articles-grid">
       {% for related_slug in page.related %}
-        {% assign related_post = site.posts | where: 'slug', related_slug | first %}
+        {% if related_slug.slug %}{% assign target_slug = related_slug.slug %}{% else %}{% assign target_slug = related_slug %}{% endif %}
+              {% assign related_post = site.posts | where: 'slug', target_slug | first %}
         {% if related_post %}
         <article class="article-card">
           <a href="{{ related_post.url }}" class="article-link">
