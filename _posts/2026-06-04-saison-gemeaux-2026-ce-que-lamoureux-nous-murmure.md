@@ -12,7 +12,9 @@ hero_image: /assets/images/blog/chatgpt-image-4-juin-2026-19_10_04.png
 hero_alt: Arcane L'Amoureux du Tarot de Marseille et symbole Gémeaux
 draft: false
 related:
-  - voyance-sentimentale-tarot tarot-fascine-siecles histoire-tarot-marseille
+  - deroulement-consultation
+  - outils-divinatoires
+  - tarot-fascine-siecles
 ---
 Chaque année, du 20 mai au 21 juin, le soleil traverse le signe des Gémeaux. Et chaque année, dans la tradition hermétique du Tarot, c'est l'arcane VI — L'Amoureux — qui vient escorter cette saison. Cette correspondance n'est pas un hasard romantique. Elle plonge ses racines dans des siècles de pensée symbolique, et elle a beaucoup à nous dire en ce mois où la lumière s'étire vers son sommet.
 
