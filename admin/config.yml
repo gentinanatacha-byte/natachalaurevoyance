@@ -69,4 +69,13 @@ collections:
         buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
         editor_components: ["image", "code-block"]
 
-      - { label: "Articles connexes (slugs)", name: "related", widget: "list", required: false, hint: "Liste les slugs des articles connexes (ex : tarot-fascine-siecles). Maximum 3." }
+      - label: "Articles connexes"
+        name: "related"
+        widget: "list"
+        required: false
+        hint: "Ajoute jusqu'à 3 articles connexes. Clique sur '+ Add Article connexe' pour chaque slug."
+        field:
+          label: "Slug de l'article"
+          name: "slug"
+          widget: "string"
+          hint: "Ex : tarot-fascine-siecles, voyance-sentimentale-tarot"
