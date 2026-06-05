@@ -14,7 +14,9 @@ hero_image: /assets/images/blog/chatgpt-image-5-juin-2026-08_56_50.png
 hero_alt: Tirage du Tarot de Marseille en cours
 draft: false
 related:
-  - deroulement-consultation outils-divinatoires tarot-fascine-siecles
+  - deroulement-consultation
+  - outils-divinatoires
+  - tarot-fascine-siecles
 ---
 Vous envisagez de consulter une voyante, ou simplement de mieux comprendre comment le Tarot fonctionne. Très vite, une question revient : **combien de cartes va-t-on tirer ? Et pourquoi celles-là plutôt que d'autres ?**
 
