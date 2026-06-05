@@ -29,7 +29,9 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-
+# Parser Markdown
+markdown: kramdown
+highlighter: rouge
 # Plugins (déjà supportés par GitHub Pages)
 plugins:
   - jekyll-feed
