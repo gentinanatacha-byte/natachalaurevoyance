@@ -6,6 +6,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://natachalaurevoyance.fr/evenements/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://natachalaurevoyance.fr/blog/</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
