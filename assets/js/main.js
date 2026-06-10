@@ -237,7 +237,20 @@
       ],
       price: '95 €',
       modeLabel: 'Par téléphone · France entière'
-    }
+    },
+   'flash-telephone': {
+       eyebrow: 'Formule Express · 30 min',
+       title: 'Le Tirage Flash',
+       subtitle: 'Une réponse claire · 30 minutes chrono',
+       items: [
+         'Une question brûlante ou deux sujets précis',
+         'Tirage Tarot de Marseille ciblé et lecture directe',
+         'Réponse sans détour, sans superflu',
+         'Règlement par virement avant la séance'
+       ],
+       price: '40 €',
+       modeLabel: 'Par téléphone · France entière'
+  }
   };
 
   const modal = document.getElementById('prestation-modal');
