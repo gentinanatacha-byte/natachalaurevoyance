@@ -250,6 +250,20 @@
        ],
        price: '40 €',
        modeLabel: 'Par téléphone · France entière'
+  },
+   'evenements-domicile': {
+    eyebrow: 'Sur devis · Déplacement inclus',
+    title: 'Voyance & Événements',
+    subtitle: 'Côte d\'Azur · Nice & environs · 15 km',
+    items: [
+      'Tirages individuels ou animation de groupe',
+      'EVJF, anniversaires, soirées privées, mariages',
+      'Séminaires, team building, événements corporate',
+      'Déplacement inclus dans un rayon de 15 km',
+      'Tarif sur devis selon durée et nombre de participants'
+    ],
+    price: 'Sur devis',
+    modeLabel: 'À domicile · Nice, Monaco, Antibes, Cannes et environs'
   }
   };
 
