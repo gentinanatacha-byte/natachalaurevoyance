@@ -469,8 +469,8 @@ h1, h2, h3, h4 {
 
 /* Scroll indicator */
 .hero-scroll {
-  position: absolute;
-  bottom: 2rem;
+  position: fixed;
+  bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
