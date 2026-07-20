@@ -309,20 +309,16 @@
     if (e.key === 'Escape' && modal?.classList.contains('is-open')) closeModal();
   });
 
-  // ─── FORMULAIRE DE CONTACT (mailto:) ───────────────
+  // ─── FORMULAIRE DE CONTACT (Formspree) ───────────────
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', e => {
+    contactForm.addEventListener('submit', async e => {
       e.preventDefault();
 
       const nom = document.getElementById('form-nom').value.trim();
       const email = document.getElementById('form-email').value.trim();
-      const tel = document.getElementById('form-tel').value.trim();
-      const formule = document.getElementById('form-formule').value;
-      const mode = document.getElementById('form-mode').value;
       const message = document.getElementById('form-message').value.trim();
 
-      // Validation minimale
       if (!nom || !email || !message) {
         alert('Merci de remplir au moins votre nom, votre email et votre message.');
         return;
@@ -332,38 +328,35 @@
         return;
       }
 
-      // Construction du sujet et du corps du mail
-      const subject = `Demande de rendez-vous - ${nom}` + (formule ? ` - ${formule}` : '');
-      let body = `Bonjour Natacha,\n\n`;
-      body += `${message}\n\n`;
-      body += `———————————————\n`;
-      body += `Mes coordonnées :\n`;
-      body += `Nom : ${nom}\n`;
-      body += `Email : ${email}\n`;
-      if (tel) body += `Téléphone : ${tel}\n`;
-      if (formule) body += `Formule souhaitée : ${formule}\n`;
-      if (mode) body += `Mode : ${mode}\n`;
-      body += `\nBien à vous,\n${nom}`;
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const btnText = btn.querySelector('span');
+      const originalText = btnText.textContent;
+      btnText.textContent = 'Envoi en cours…';
+      btn.disabled = true;
 
-      // Ouverture du client mail
-      const mailto = `mailto:natachalaure.voyance@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
 
-      // Toast de confirmation
-      showToast('Votre client mail s\'ouvre…');
+        if (response.ok) {
+          contactForm.reset();
+          btnText.textContent = '✓ Message envoyé !';
+          setTimeout(() => {
+            btnText.textContent = originalText;
+            btn.disabled = false;
+          }, 4000);
+        } else {
+          throw new Error('Erreur envoi');
+        }
+      } catch (err) {
+        alert('Une erreur est survenue. Merci de réessayer ou de me contacter directement par téléphone.');
+        btnText.textContent = originalText;
+        btn.disabled = false;
+      }
     });
-  }
-
-  function showToast(message) {
-    let toast = document.querySelector('.form-toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'form-toast';
-      document.body.appendChild(toast);
-    }
-    toast.textContent = message;
-    requestAnimationFrame(() => toast.classList.add('is-visible'));
-    setTimeout(() => toast.classList.remove('is-visible'), 4000);
   }
 
   // ─── SCROLL REVEAL ───────────────────────────────────
