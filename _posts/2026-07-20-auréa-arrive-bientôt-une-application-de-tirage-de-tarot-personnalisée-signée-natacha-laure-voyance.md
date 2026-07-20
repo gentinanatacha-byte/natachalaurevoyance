@@ -16,10 +16,10 @@ hero_image: /assets/images/blog/chatgpt-image-20-juil.-2026-12_29_14.png
 hero_alt: Application voyance Nice Tarot de Marseille
 draft: false
 related:
-  - 2026-05-09-voyance-sentimentale-tarot
-  - 2026-05-08-deroulement-consultation
-  - 2026-05-07-tarot-predit-avenir
-  - 2026-05-05-outils-divinatoires
+  - voyance-sentimentale-tarot
+  - deroulement-consultation
+  - tarot-predit-avenir
+  - outils-divinatoires
 ---
 Après des mois de travail, de réflexion et de développement, je suis heureuse de vous annoncer officiellement l'arrivée prochaine d'**Auréa** — une application de tirage de tarot personnalisé que j'ai entièrement conçue, développée et imaginée pour vous, depuis Nice.
 
