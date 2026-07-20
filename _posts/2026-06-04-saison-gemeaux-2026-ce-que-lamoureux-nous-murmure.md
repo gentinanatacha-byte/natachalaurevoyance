@@ -8,7 +8,7 @@ meta_desc: "Saison Gémeaux et arcane de L'Amoureux : comprendre cette
 category: Histoire & Symbolisme
 date: 2026-06-04T19:06:00.000+02:00
 read_time: 6 min
-hero_image: /assets/images/blog/chatgpt-image-4-juin-2026-19_10_04.png
+hero_image: /assets/images/blog/saison-gemeaux-2026.webp
 hero_alt: Arcane L'Amoureux du Tarot de Marseille et symbole Gémeaux
 draft: false
 related:
