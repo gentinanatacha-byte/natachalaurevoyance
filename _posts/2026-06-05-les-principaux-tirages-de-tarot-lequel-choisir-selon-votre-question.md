@@ -10,7 +10,7 @@ meta_desc: "Tirage en croix, en fer à cheval, celtique : guide pratique des
 category: Pratique
 date: 2026-06-05T08:52:00.000+02:00
 read_time: 6 min
-hero_image: /assets/images/blog/chatgpt-image-5-juin-2026-08_56_50.png
+hero_image: /assets/images/blog/tirage-tarot-pratique.webp
 hero_alt: Tirage du Tarot de Marseille en cours
 draft: false
 related:
