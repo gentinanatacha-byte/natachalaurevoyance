@@ -12,7 +12,7 @@ meta_desc: Découvrez Auréa, la nouvelle application de tirage de tarot
 category: Outils & Pratiques
 date: 2026-07-20T12:30:00.000+02:00
 read_time: 5 min
-hero_image: /assets/images/blog/chatgpt-image-20-juil.-2026-12_29_14.png
+hero_image: /assets/images/blog/aurea-application-tarot.webp
 hero_alt: Application voyance Nice Tarot de Marseille
 draft: false
 related:
