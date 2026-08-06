@@ -1,0 +1,851 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURÉA — Feuille de style du mini-site
+   Volontairement INDÉPENDANTE de styles.css : cette page porte
+   l'identité d'Auréa, pas celle de Natacha Laure Voyance.
+   Tout est préfixé .au- pour qu'aucune règle ne puisse fuir ailleurs.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.au-root {
+  /* Nuit d'Auréa */
+  --nuit:        #08061a;
+  --nuit-2:      #110b24;
+  --nuit-3:      #1b1136;
+  --amethyste:   #7a4fd0;
+  --or:          #d4a574;
+  --or-vif:      #ffd700;
+  --parchemin:   #f2e8d8;
+  --brume:       #b9aecd;
+
+  --serif: 'Cinzel', Georgia, serif;
+  --corps: 'Raleway', system-ui, sans-serif;
+
+  --marge: clamp(1.25rem, 5vw, 5rem);
+  --rythme: clamp(4rem, 9vw, 8rem);
+
+  background: var(--nuit);
+  color: var(--parchemin);
+  font-family: var(--corps);
+  font-weight: 300;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+.au-root *,
+.au-root *::before,
+.au-root *::after { box-sizing: border-box; }
+
+.au-root h1, .au-root h2, .au-root h3, .au-root h4 {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.au-root p { margin: 0 0 1rem; }
+.au-root a { color: var(--or); }
+
+.au-wrap {
+  width: min(1180px, 100% - var(--marge) * 2);
+  margin-inline: auto;
+}
+
+/* Étiquette de section : petite capitale espacée, encadrée de losanges */
+.au-eyebrow {
+  font-family: var(--serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--or-vif);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+.au-eyebrow::before,
+.au-eyebrow::after {
+  content: "";
+  height: 1px;
+  flex: 0 0 34px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.7));
+}
+.au-eyebrow::after { transform: scaleX(-1); }
+.au-eyebrow--center { justify-content: center; }
+
+.au-title {
+  font-size: clamp(1.9rem, 4.4vw, 3.1rem);
+  color: var(--or);
+  margin-bottom: 0.7rem;
+}
+.au-lead {
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  color: var(--brume);
+  max-width: 62ch;
+}
+
+/* ─────────── Barre de navigation ─────────── */
+.au-nav {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem var(--marge);
+  background: rgba(8, 6, 26, 0.78);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(212, 165, 116, 0.22);
+}
+.au-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.au-nav__brand img { width: 40px; height: 40px; object-fit: contain; }
+.au-nav__name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--or);
+  letter-spacing: 0.16em;
+}
+.au-nav__links {
+  display: flex;
+  gap: 1.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.79rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.au-nav__links a {
+  text-decoration: none;
+  color: var(--brume);
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s, border-color 0.25s;
+}
+.au-nav__links a:hover,
+.au-nav__links a:focus-visible { color: var(--or-vif); border-bottom-color: var(--or-vif); }
+.au-nav__back {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--brume);
+  text-decoration: none;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+.au-nav__back:hover { opacity: 1; color: var(--or); }
+@media (max-width: 940px) {
+  .au-nav__links { display: none; }
+}
+
+/* ─────────── Boutons ─────────── */
+.au-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 2.1rem;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s, color 0.25s;
+}
+.au-root .au-btn--or {
+  background: linear-gradient(135deg, var(--or), var(--or-vif));
+  color: #100800;
+  font-weight: 700;
+  text-shadow: none;
+  box-shadow: 0 0 26px rgba(255, 215, 0, 0.26);
+}
+.au-root .au-btn--or:hover { transform: translateY(-2px); box-shadow: 0 0 44px rgba(255, 215, 0, 0.5); }
+.au-root .au-btn--fantome {
+  border-color: rgba(212, 165, 116, 0.55);
+  color: var(--or);
+  background: rgba(212, 165, 116, 0.05);
+}
+.au-root .au-btn--fantome:hover { background: rgba(212, 165, 116, 0.15); border-color: var(--or-vif); color: var(--or-vif); }
+
+/* ─────────── Héros ─────────── */
+.au-hero {
+  position: relative;
+  min-height: min(92vh, 800px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.au-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.au-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 78% center;
+}
+/* Voile double : assombrit la gauche pour le texte, laisse respirer la droite */
+.au-hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(8, 6, 26, 0.98) 4%, rgba(8, 6, 26, 0.9) 34%, rgba(8, 6, 26, 0.42) 66%, rgba(8, 6, 26, 0.15) 100%),
+    linear-gradient(to bottom, transparent 62%, var(--nuit) 99%);
+}
+.au-hero__inner {
+  position: relative;
+  z-index: 2;
+  padding: clamp(4rem, 10vh, 7rem) 0;
+}
+.au-hero__logo {
+  width: clamp(140px, 19vw, 215px);
+  margin-bottom: 1.6rem;
+  filter: drop-shadow(0 6px 34px rgba(255, 215, 0, 0.35));
+}
+.au-hero__titre {
+  font-size: clamp(2.6rem, 7.6vw, 5.2rem);
+  color: var(--parchemin);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.85);
+}
+.au-hero__titre em {
+  font-style: normal;
+  display: block;
+  color: var(--or);
+  font-size: 0.42em;
+  letter-spacing: 0.3em;
+  margin-top: 0.9rem;
+  text-transform: uppercase;
+}
+.au-hero__pitch {
+  font-size: clamp(1rem, 1.9vw, 1.22rem);
+  color: var(--parchemin);
+  max-width: 34ch;
+  margin: 1.4rem 0 2.2rem;
+  opacity: 0.92;
+}
+.au-hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+.au-hero__note {
+  margin-top: 1.7rem;
+  font-size: 0.78rem;
+  color: var(--brume);
+  letter-spacing: 0.05em;
+}
+
+/* ─────────── Bandeau d'offre ─────────── */
+.au-promo {
+  background: linear-gradient(135deg, rgba(122, 79, 208, 0.28), rgba(212, 165, 116, 0.2));
+  border-block: 1px solid rgba(255, 215, 0, 0.4);
+}
+.au-promo__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem 1.4rem;
+  padding: 1.1rem 0;
+  text-align: center;
+}
+.au-promo__tag {
+  font-family: var(--serif);
+  font-size: 0.64rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #150d05;
+  background: var(--or-vif);
+  padding: 0.3rem 0.8rem;
+}
+.au-promo__texte { font-size: 0.94rem; margin: 0; }
+.au-promo__texte strong { color: var(--or-vif); font-weight: 600; }
+.au-promo__texte s { opacity: 0.5; }
+
+/* ─────────── Sections ─────────── */
+.au-section { padding-block: var(--rythme); position: relative; }
+.au-section--alt { background: var(--nuit-2); }
+.au-section__head { margin-bottom: clamp(2.2rem, 5vw, 3.4rem); }
+.au-section__head--center { text-align: center; }
+.au-section__head--center .au-lead { margin-inline: auto; }
+
+/* ─────────── Les trois piliers ─────────── */
+.au-piliers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 1.4rem;
+}
+.au-pilier {
+  border: 1px solid rgba(212, 165, 116, 0.2);
+  background: linear-gradient(180deg, rgba(212, 165, 116, 0.07), transparent 70%);
+  padding: 2rem 1.7rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.au-pilier:hover { border-color: rgba(255, 215, 0, 0.45); transform: translateY(-4px); }
+.au-pilier__num {
+  font-family: var(--serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--or-vif);
+  opacity: 0.75;
+}
+.au-pilier h3 { font-size: 1.16rem; color: var(--or); margin: 0.7rem 0 0.6rem; }
+.au-pilier p { font-size: 0.92rem; color: var(--brume); margin: 0; }
+
+/* ─────────── SIGNATURE : l'écran de sélection des tirages ─────────── */
+.au-arcanes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: 1.1rem;
+}
+.au-arcane {
+  position: relative;
+  isolation: isolate;
+  min-height: 290px;
+  padding: 1.4rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid rgba(212, 165, 116, 0.26);
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(122, 79, 208, 0.32), transparent 62%),
+    linear-gradient(180deg, var(--nuit-3), var(--nuit-2));
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(.2, .8, .3, 1), border-color 0.35s, box-shadow 0.35s;
+}
+.au-arcane::before {
+  /* Voile qui se lève au survol, comme une carte qu'on retourne */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 40%, rgba(8, 6, 26, 0.94));
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.au-arcane:hover,
+.au-arcane:focus-within {
+  transform: translateY(-7px);
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6), 0 0 34px rgba(255, 215, 0, 0.16);
+}
+.au-arcane:hover::before { opacity: 1; }
+
+.au-arcane__sceau {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  font-size: 0.62rem;
+  font-family: var(--serif);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.66rem;
+  border: 1px solid;
+}
+.au-arcane__sceau--libre { color: #8fd8a8; border-color: rgba(143, 216, 168, 0.5); }
+.au-arcane__sceau--premium { color: var(--or-vif); border-color: rgba(255, 215, 0, 0.5); }
+.au-arcane__sceau--venir { color: var(--brume); border-color: rgba(185, 174, 205, 0.35); }
+
+.au-arcane h3 {
+  font-size: 1.08rem;
+  color: var(--or);
+  margin-bottom: 0.5rem;
+}
+.au-arcane p {
+  font-size: 0.84rem;
+  color: var(--brume);
+  margin: 0 0 0.9rem;
+}
+.au-arcane__pied {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(212, 165, 116, 0.2);
+  font-size: 0.76rem;
+}
+.au-arcane__cout {
+  color: var(--or-vif);
+  font-family: var(--serif);
+  letter-spacing: 0.06em;
+}
+.au-arcane__prix { color: var(--brume); }
+.au-arcane--venir { opacity: 0.52; }
+
+
+/* ─────────── Le guide (chapitres annotés) ─────────── */
+.au-guide { display: grid; gap: clamp(3.2rem, 7vw, 5.5rem); }
+
+.au-chapitre {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+  align-items: start;
+}
+@media (min-width: 880px) {
+  .au-chapitre { grid-template-columns: minmax(280px, 5fr) 7fr; gap: 3rem; }
+  .au-chapitre:nth-child(even):not(.au-chapitre--large) .au-chapitre__texte { order: 2; }
+  .au-chapitre--large { grid-template-columns: 1fr; }
+  .au-chapitre--large .au-chapitre__texte { max-width: 72ch; }
+}
+.au-chapitre__num {
+  font-family: var(--serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--or-vif);
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+.au-chapitre h3 { font-size: clamp(1.25rem, 2.6vw, 1.6rem); color: var(--or); margin-bottom: 0.8rem; }
+.au-chapitre p { color: var(--brume); font-size: 0.95rem; }
+.au-chapitre strong { color: var(--parchemin); font-weight: 600; }
+.au-note {
+  border-left: 2px solid var(--or-vif);
+  padding: 0.7rem 1rem;
+  background: rgba(255, 215, 0, 0.06);
+  font-size: 0.88rem;
+}
+
+/* Légende numérotée, en miroir des épingles posées sur la capture */
+ol.au-legende {
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: pin;
+  display: grid;
+  gap: 0.7rem;
+}
+ol.au-legende li {
+  counter-increment: pin;
+  position: relative;
+  padding-left: 2.2rem;
+  color: var(--brume);
+  font-size: 0.9rem;
+}
+ol.au-legende li::before {
+  content: counter(pin);
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #150d05;
+  background: linear-gradient(135deg, var(--or), var(--or-vif));
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+ol.au-legende strong { color: var(--parchemin); }
+
+/* Captures : cadre doré + épingles positionnées en pourcentage (suivent le redimensionnement) */
+.au-fig {
+  position: relative;
+  margin: 0;
+  border: 1px solid rgba(212, 165, 116, 0.35);
+  background: var(--nuit-3);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
+}
+.au-fig img { display: block; width: 100%; height: auto; }
+.au-fig figcaption {
+  padding: 0.7rem 1rem;
+  font-size: 0.76rem;
+  color: var(--brume);
+  border-top: 1px solid rgba(212, 165, 116, 0.25);
+  background: var(--nuit-2);
+}
+.au-fig figcaption strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  font-size: 0.62rem;
+  color: #150d05;
+  background: linear-gradient(135deg, var(--or), var(--or-vif));
+}
+.au-pin {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #150d05;
+  background: linear-gradient(135deg, var(--or), var(--or-vif));
+  border: 2px solid rgba(8, 6, 26, 0.85);
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.28), 0 4px 14px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  animation: au-pin-pulse 2.6s ease-in-out infinite;
+}
+@keyframes au-pin-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.28), 0 4px 14px rgba(0, 0, 0, 0.5); }
+  50%      { box-shadow: 0 0 0 7px rgba(255, 215, 0, 0.12), 0 4px 14px rgba(0, 0, 0, 0.5); }
+}
+
+/* Comparaisons côte à côte */
+.au-duo, .au-trio { display: grid; gap: 1.2rem; }
+@media (min-width: 760px) {
+  .au-duo { grid-template-columns: 1fr 1fr; align-items: start; }
+  .au-trio { grid-template-columns: repeat(3, 1fr); align-items: start; }
+}
+.au-fig--mobile { max-width: 380px; justify-self: center; width: 100%; }
+.au-trio--annexe { margin-top: -1.4rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .au-pin { animation: none; }
+}
+
+/* ─────────── Bandeau vers le guide complet ─────────── */
+.au-vers-guide {
+  display: grid;
+  gap: 1.4rem;
+  align-items: center;
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  background: linear-gradient(135deg, rgba(122, 79, 208, 0.2), rgba(212, 165, 116, 0.12));
+  padding: clamp(1.8rem, 4vw, 2.6rem);
+}
+@media (min-width: 760px) {
+  .au-vers-guide { grid-template-columns: 1fr auto; }
+}
+.au-vers-guide h3 { font-size: clamp(1.2rem, 2.6vw, 1.55rem); color: var(--or); margin-bottom: 0.6rem; }
+.au-vers-guide p { color: var(--brume); font-size: 0.93rem; margin: 0; max-width: 58ch; }
+.au-vers-guide .au-eyebrow { margin-bottom: 0.7rem; }
+
+/* ─────────── Boutique ─────────── */
+.au-boutique { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.au-pack {
+  position: relative;
+  border: 1px solid rgba(212, 165, 116, 0.28);
+  background: linear-gradient(180deg, rgba(212, 165, 116, 0.08), transparent);
+  padding: 1.8rem 1.4rem;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.au-pack:hover { border-color: rgba(255, 215, 0, 0.55); transform: translateY(-4px); }
+.au-pack--phare { border-color: var(--or-vif); background: linear-gradient(180deg, rgba(255, 215, 0, 0.15), transparent); }
+.au-pack__badge {
+  position: absolute;
+  top: -0.65rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: var(--serif);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--or-vif);
+  color: #150d05;
+  padding: 0.25rem 0.75rem;
+}
+.au-pack__nb { font-family: var(--serif); font-size: 2rem; color: var(--or-vif); line-height: 1; }
+.au-pack__label { font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brume); margin: 0.5rem 0 1rem; }
+.au-pack__prix { font-family: var(--serif); font-size: 1.25rem; color: var(--or); }
+.au-pack__unite { font-size: 0.72rem; color: var(--brume); opacity: 0.75; margin-top: 0.3rem; }
+
+.au-offre {
+  margin-top: 2.2rem;
+  border: 1px solid var(--or-vif);
+  background: linear-gradient(135deg, rgba(122, 79, 208, 0.24), rgba(212, 165, 116, 0.16));
+  padding: clamp(1.8rem, 4vw, 2.8rem);
+  text-align: center;
+}
+.au-offre h3 { font-size: clamp(1.3rem, 3vw, 1.8rem); color: var(--or); margin-bottom: 0.8rem; }
+.au-offre__prix { font-family: var(--serif); font-size: clamp(2rem, 5vw, 2.8rem); color: var(--or-vif); }
+.au-offre__prix s { font-size: 0.45em; color: var(--brume); opacity: 0.6; margin-right: 0.6rem; }
+
+/* ─────────── Journal (nouveautés / à venir) ─────────── */
+.au-journal { display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+.au-colonne {
+  border: 1px solid rgba(212, 165, 116, 0.22);
+  background: var(--nuit-2);
+  padding: 1.9rem 1.6rem;
+}
+.au-colonne h3 {
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--or-vif);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(212, 165, 116, 0.25);
+}
+.au-colonne ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.95rem; }
+.au-colonne li { font-size: 0.9rem; color: var(--brume); padding-left: 1.5rem; position: relative; }
+.au-colonne li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  color: var(--or);
+  font-size: 0.62rem;
+}
+.au-colonne--venir li::before { content: "◇"; opacity: 0.7; }
+.au-colonne li strong { color: var(--parchemin); font-weight: 600; }
+
+/* ─────────── FAQ ─────────── */
+.au-faq { max-width: 860px; margin-inline: auto; }
+.au-faq details {
+  border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+}
+.au-faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.3rem 2.5rem 1.3rem 0;
+  position: relative;
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--or);
+  transition: color 0.25s;
+}
+.au-faq summary::-webkit-details-marker { display: none; }
+.au-faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 0.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: var(--or-vif);
+  transition: transform 0.3s;
+}
+.au-faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.au-faq summary:hover { color: var(--or-vif); }
+.au-faq__rep { padding: 0 2.5rem 1.5rem 0; color: var(--brume); font-size: 0.94rem; }
+.au-faq__rep p:last-child { margin-bottom: 0; }
+
+/* ─────────── Appel final ─────────── */
+.au-final {
+  text-align: center;
+  padding-block: clamp(5rem, 11vw, 9rem);
+  background:
+    radial-gradient(80% 120% at 50% 0%, rgba(122, 79, 208, 0.26), transparent 62%),
+    var(--nuit);
+}
+.au-final__logo { width: clamp(110px, 15vw, 160px); margin-bottom: 1.6rem; }
+.au-final h2 { font-size: clamp(1.8rem, 4.5vw, 2.9rem); color: var(--or); margin-bottom: 1rem; }
+.au-final p { color: var(--brume); max-width: 52ch; margin-inline: auto; }
+.au-final__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; margin-top: 2rem; }
+.au-final__legal { margin-top: 2.6rem; font-size: 0.74rem; color: var(--brume); opacity: 0.6; }
+
+/* ─────────── Pied de page du mini-site ─────────── */
+.au-pied {
+  border-top: 1px solid rgba(212, 165, 116, 0.2);
+  padding: 2.2rem var(--marge);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--brume);
+  background: var(--nuit-2);
+}
+.au-pied a { color: var(--or); text-decoration: none; }
+.au-pied a:hover { text-decoration: underline; }
+.au-pied__liens { display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: center; margin-bottom: 1rem; }
+
+/* ─────────── Révélation au défilement ─────────── */
+.au-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(.2, .8, .3, 1);
+}
+.au-reveal.est-visible { opacity: 1; transform: none; }
+
+/* ─────────── Accessibilité ─────────── */
+.au-root :focus-visible {
+  outline: 2px solid var(--or-vif);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .au-root *,
+  .au-root *::before,
+  .au-root *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .au-reveal { opacity: 1; transform: none; }
+}
+
+/* ─────────── Héros en petit écran ─────────── */
+/* En portrait, le texte passe sur la bougie et les cristaux : le voile devient
+   vertical et nettement plus dense, l'image ne servant plus que d'ambiance. */
+@media (max-width: 700px) {
+  .au-hero { min-height: auto; }
+  .au-hero__media::after {
+    background:
+      linear-gradient(to bottom,
+        rgba(8, 6, 26, 0.62) 0%,
+        rgba(8, 6, 26, 0.84) 42%,
+        rgba(8, 6, 26, 0.95) 78%,
+        var(--nuit) 100%);
+  }
+  .au-hero__pitch { max-width: none; }
+  .au-hero__actions .au-btn { flex: 1 1 100%; justify-content: center; }
+  .au-hero__titre em { font-size: 0.36em; letter-spacing: 0.22em; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   GUIDE — captures annotées
+   Les repères sont posés en pourcentage sur l'image : ils suivent donc
+   le redimensionnement, du grand écran au téléphone, sans décalage.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.au-guide-intro {
+  border: 1px solid rgba(212, 165, 116, 0.3);
+  background: linear-gradient(180deg, rgba(212, 165, 116, 0.08), transparent);
+  padding: clamp(1.5rem, 4vw, 2.4rem);
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+.au-guide-intro ol {
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+.au-guide-intro li { font-size: 0.88rem; }
+.au-guide-intro a { text-decoration: none; color: var(--brume); transition: color 0.2s; }
+.au-guide-intro a:hover { color: var(--or-vif); }
+.au-guide-intro b { color: var(--or); font-family: var(--serif); margin-right: 0.5rem; }
+
+/* Une étape du guide */
+.au-pas { padding-block: clamp(2.6rem, 6vw, 4.2rem); border-top: 1px solid rgba(212, 165, 116, 0.16); }
+.au-pas:first-of-type { border-top: none; padding-top: 0; }
+.au-pas__num {
+  font-family: var(--serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  color: var(--or-vif);
+  text-transform: uppercase;
+}
+.au-pas h2 { font-size: clamp(1.4rem, 3.2vw, 2rem); color: var(--or); margin: 0.6rem 0 0.8rem; }
+.au-pas > p { color: var(--brume); max-width: 68ch; }
+
+/* La capture, avec ses repères */
+.au-shot {
+  margin: 1.8rem 0 0;
+  position: relative;
+  border: 1px solid rgba(212, 165, 116, 0.3);
+  background: var(--nuit-2);
+  box-shadow: 0 16px 46px rgba(0, 0, 0, 0.5);
+}
+.au-shot img { display: block; width: 100%; height: auto; }
+@media (max-width: 620px) {
+  .au-pin { width: 1.45rem; height: 1.45rem; font-size: 0.68rem; }
+}
+
+/* La légende des repères (guide : <ul> avec marqueurs <b>) */
+ul.au-legende { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: 0.85rem; }
+ul.au-legende li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  font-size: 0.9rem;
+  color: var(--brume);
+}
+ul.au-legende b {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 215, 0, 0.16);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  color: var(--or-vif);
+  font-family: var(--serif);
+  font-size: 0.74rem;
+  margin-top: 0.1rem;
+}
+ul.au-legende strong { color: var(--parchemin); font-weight: 600; }
+
+/* Deux captures côte à côte (bureau / téléphone) */
+.au-duo { display: grid; gap: 1.6rem; margin-top: 1.8rem; }
+@media (min-width: 860px) { .au-duo { grid-template-columns: 1.35fr 1fr; align-items: start; } }
+.au-duo .au-shot { margin-top: 0; }
+.au-duo__titre {
+  font-family: var(--serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: 0.7rem;
+}
+
+/* Comparatif basique / premium */
+.au-versus { display: grid; gap: 1.4rem; margin-top: 1.8rem; }
+@media (min-width: 820px) { .au-versus { grid-template-columns: 1fr 1fr; } }
+.au-carte-lecture {
+  border: 1px solid rgba(212, 165, 116, 0.28);
+  background: var(--nuit-2);
+  padding: 1.6rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.au-carte-lecture--premium {
+  border-color: var(--or-vif);
+  background: linear-gradient(180deg, rgba(255, 215, 0, 0.11), var(--nuit-2) 60%);
+  box-shadow: 0 0 32px rgba(255, 215, 0, 0.13);
+}
+.au-carte-lecture h3 { font-size: 1.15rem; color: var(--or); margin-bottom: 0.3rem; }
+.au-carte-lecture__prix { font-size: 0.78rem; color: var(--or-vif); letter-spacing: 0.08em; margin-bottom: 1rem; }
+.au-carte-lecture ul { list-style: none; margin: 0 0 1.2rem; padding: 0; display: grid; gap: 0.7rem; }
+.au-carte-lecture li { font-size: 0.88rem; color: var(--brume); padding-left: 1.5rem; position: relative; }
+.au-carte-lecture li::before { content: "·"; position: absolute; left: 0.4rem; color: var(--brume); font-size: 1.4rem; line-height: 0.8; }
+.au-carte-lecture--premium li::before { content: "✦"; font-size: 0.6rem; color: var(--or-vif); line-height: 1.6; }
+.au-carte-lecture__extrait {
+  margin-top: auto;
+  border-left: 2px solid rgba(212, 165, 116, 0.4);
+  padding: 0.9rem 0 0.9rem 1rem;
+  font-size: 0.86rem;
+  font-style: italic;
+  color: var(--parchemin);
+  opacity: 0.9;
+}
+.au-carte-lecture--premium .au-carte-lecture__extrait { border-left-color: var(--or-vif); }
+
+/* Encadré d'attention */
+.au-note {
+  margin-top: 1.6rem;
+  border-left: 3px solid var(--or-vif);
+  background: rgba(255, 215, 0, 0.07);
+  padding: 1.1rem 1.3rem;
+  font-size: 0.88rem;
+  color: var(--brume);
+}
+.au-note strong { color: var(--or-vif); }
+.au-note p:last-child { margin-bottom: 0; }
+
+/* Compatibilité des installations */
+.au-compat { display: grid; gap: 1rem; margin-top: 1.6rem; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); }
+.au-compat div {
+  border: 1px solid rgba(212, 165, 116, 0.24);
+  padding: 1.1rem 1.2rem;
+  background: rgba(212, 165, 116, 0.05);
+}
+.au-compat h4 { font-size: 0.88rem; color: var(--or); margin-bottom: 0.4rem; }
+.au-compat p { font-size: 0.82rem; color: var(--brume); margin: 0; }
