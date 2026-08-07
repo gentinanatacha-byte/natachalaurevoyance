@@ -602,16 +602,121 @@ ol.au-legende strong { color: var(--parchemin); }
 .au-pack__prix { font-family: var(--serif); font-size: 1.25rem; color: var(--or); }
 .au-pack__unite { font-size: 0.72rem; color: var(--brume); opacity: 0.75; margin-top: 0.3rem; }
 
-.au-offre {
-  margin-top: 2.2rem;
-  border: 1px solid var(--or-vif);
-  background: linear-gradient(135deg, rgba(122, 79, 208, 0.24), rgba(212, 165, 116, 0.16));
-  padding: clamp(1.8rem, 4vw, 2.8rem);
-  text-align: center;
+
+/* Visuel des packs de crédits */
+.au-pack__visuel {
+  display: block;
+  width: clamp(74px, 22%, 104px);
+  height: auto;
+  margin: 0 auto 0.9rem;
+  filter: drop-shadow(0 6px 20px rgba(255, 215, 0, 0.28));
+  transition: transform 0.4s cubic-bezier(.2,.8,.3,1);
 }
-.au-offre h3 { font-size: clamp(1.3rem, 3vw, 1.8rem); color: var(--or); margin-bottom: 0.8rem; }
-.au-offre__prix { font-family: var(--serif); font-size: clamp(2rem, 5vw, 2.8rem); color: var(--or-vif); }
-.au-offre__prix s { font-size: 0.45em; color: var(--brume); opacity: 0.6; margin-right: 0.6rem; }
+.au-pack:hover .au-pack__visuel { transform: scale(1.08) rotate(-2deg); }
+.au-pack--phare .au-pack__visuel { width: clamp(86px, 26%, 122px); }
+
+/* Bandeau du pack « Tous les tirages » — texte HTML posé sur l'illustration.
+   L'artwork a sa moitié gauche volontairement vide : c'est là que va le texte,
+   ce qui garde le prix modifiable, lisible par Google et adaptable au mobile. */
+.au-pack-phare {
+  position: relative;
+  isolation: isolate;
+  margin-top: 2.6rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 46px rgba(255, 215, 0, 0.12);
+}
+.au-pack-phare__fond {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.au-pack-phare__fond img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+}
+.au-pack-phare::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg,
+    rgba(8, 6, 26, 0.94) 0%,
+    rgba(8, 6, 26, 0.86) 38%,
+    rgba(8, 6, 26, 0.42) 62%,
+    rgba(8, 6, 26, 0.12) 100%);
+}
+.au-pack-phare__texte {
+  padding: clamp(2rem, 5vw, 3.4rem);
+  max-width: 34rem;
+}
+@media (min-width: 761px) {
+  .au-pack-phare .au-eyebrow { white-space: nowrap; }
+}
+@media (max-width: 480px) {
+  .au-pack-phare .au-eyebrow { letter-spacing: 0.22em; font-size: 0.62rem; }
+  .au-pack-phare .au-eyebrow::before,
+  .au-pack-phare .au-eyebrow::after { flex-basis: 18px; }
+}
+.au-pack-phare h3 {
+  font-size: clamp(1.5rem, 3.6vw, 2.3rem);
+  color: var(--or);
+  margin-bottom: 0.8rem;
+}
+.au-pack-phare p { color: var(--brume); font-size: 0.95rem; max-width: 46ch; }
+.au-pack-phare__prix {
+  font-family: var(--serif);
+  margin: 1.3rem 0 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+}
+.au-pack-phare__prix s { font-size: 1.2rem; color: var(--brume); opacity: 0.6; }
+.au-pack-phare__prix strong {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  color: var(--or-vif);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 0 34px rgba(255, 215, 0, 0.45);
+}
+.au-pack-phare__points {
+  list-style: none;
+  margin: 1.8rem 0 0;
+  padding: 1.3rem 0 0;
+  border-top: 1px solid rgba(212, 165, 116, 0.3);
+  display: grid;
+  gap: 0.6rem;
+}
+.au-pack-phare__points li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.84rem;
+  color: var(--brume);
+}
+.au-pack-phare__points li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--or-vif);
+  font-size: 0.7rem;
+  top: 0.1rem;
+}
+@media (max-width: 760px) {
+  /* En portrait, l'illustration passe en fond plein et le voile devient vertical */
+  .au-pack-phare__fond img { object-position: center 22%; }
+  .au-pack-phare::before {
+    background: linear-gradient(180deg,
+      rgba(8, 6, 26, 0.55) 0%,
+      rgba(8, 6, 26, 0.88) 32%,
+      rgba(8, 6, 26, 0.97) 60%);
+  }
+  .au-pack-phare__texte { padding-top: 42vw; }
+}
+
+/* Les tirages à venir gardent leur illustration mais restent en retrait */
+.au-arcane--venir .au-arcane__vue img { filter: saturate(0.55) brightness(0.72); }
 
 /* ─────────── Journal (nouveautés / à venir) ─────────── */
 .au-journal { display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
