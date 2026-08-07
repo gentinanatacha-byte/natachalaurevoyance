@@ -1686,3 +1686,47 @@ blockquote footer {
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ═══ BANDEAU AURÉA (07.08.2026) ═══
+   Présente l'application sur la page d'accueil, juste avant la FAQ.
+   Emprunte les classes existantes (.container, .eyebrow, .section-title,
+   .gold-divider, .btn) pour rester cohérent avec le reste du site. */
+.aurea-teaser {
+  padding: var(--section-padding, 6rem 0);
+  background:
+    radial-gradient(70% 120% at 15% 50%, rgba(122, 79, 208, 0.16), transparent 62%),
+    rgba(10, 8, 26, 0.4);
+}
+.aurea-teaser__grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .aurea-teaser__grid { grid-template-columns: 0.85fr 1.15fr; gap: 4rem; }
+}
+.aurea-teaser__visuel { text-align: center; }
+.aurea-teaser__visuel img {
+  width: min(300px, 78%);
+  height: auto;
+  filter: drop-shadow(0 10px 44px rgba(255, 215, 0, 0.32));
+}
+.aurea-teaser__points {
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+.aurea-teaser__points li {
+  position: relative;
+  padding-left: 1.7rem;
+}
+.aurea-teaser__points li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: #d4a574;
+  font-size: 0.8rem;
+  top: 0.15rem;
+}
