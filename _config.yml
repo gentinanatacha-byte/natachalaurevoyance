@@ -36,6 +36,7 @@ highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 # Exclure ces dossiers/fichiers du build
 exclude:

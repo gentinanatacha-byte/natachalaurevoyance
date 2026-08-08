@@ -15,6 +15,7 @@ related:
   - tarot-fascine-siecles
   - voyance-sentimentale-tarot
   - taromancie-voyance-mediumnite
+  - tirage-tarot-gratuit-ou-lecture-personnalisee
 ---
 Si je devais nommer la question la plus posée en consultation, ce serait celle-ci : **"Est-ce que ça va arriver ?"**. Question légitime, qui pose en filigrane une autre, plus profonde : le Tarot peut-il vraiment prédire l'avenir ? Et si oui, comment ? Et si non, à quoi sert-il ?
 
@@ -74,3 +75,7 @@ Ces fonctions sont, à mes yeux, infiniment plus précieuses que la prédiction 
 ## En conclusion
 
 Le Tarot ne prédit pas l'avenir au sens où on l'entend dans les films. Il fait quelque chose de plus subtil, de plus respectueux, et de plus utile : il **éclaire les chemins possibles à partir de ce qui se joue maintenant**. À vous, ensuite, de tracer le vôtre.
+
+---
+
+**Pour explorer entre deux consultations**, j'ai créé [Auréa](/aurea/) : une application de tirage de tarot où chaque lecture est écrite à partir des cartes que vous tirez et de la question que vous posez. [Trois tirages y sont offerts](/aurea/).

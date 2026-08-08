@@ -17,6 +17,8 @@ related:
   - deroulement-consultation
   - outils-divinatoires
   - tarot-fascine-siecles
+  - comment-poser-une-bonne-question-au-tarot
+  - tirage-relationnel-sentiments-de-lautre
 ---
 Vous envisagez de consulter une voyante, ou simplement de mieux comprendre comment le Tarot fonctionne. Très vite, une question revient : **combien de cartes va-t-on tirer ? Et pourquoi celles-là plutôt que d'autres ?**
 
@@ -199,3 +201,7 @@ Voici la question à vous poser avant toute consultation :
 
 
 Quel que soit le tirage choisi, l'important n'est jamais le nombre de cartes. C'est **la qualité de l'écoute, la justesse de la question, et la sincérité de la rencontre**. Le Tarot, au fond, n'est qu'un langage. C'est ce qu'on en fait qui compte.
+
+---
+
+**Envie d'essayer par vous-même ?** Les tirages décrits ici — la croix, le tirage en trois cartes, l'éventail — sont tous disponibles dans [Auréa, mon application de tirage de tarot](/aurea/). Trois d'entre eux sont accessibles gratuitement et sans limite.

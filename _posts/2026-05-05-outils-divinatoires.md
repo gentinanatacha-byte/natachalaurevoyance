@@ -15,6 +15,7 @@ related:
   - deroulement-consultation
   - taromancie-voyance-mediumnite
   - histoire-tarot-marseille
+  - application-voyance-tarot-aurea
 ---
 Le Tarot de Marseille est mon outil principal, celui dont je connais chaque lame depuis l'enfance. Mais ce n'est pas le seul. Au fil des années, j'ai intégré d'autres supports qui **complètent ma pratique** et permettent, selon les situations, d'affiner ou de préciser une lecture. Petit tour d'horizon des outils que vous pouvez rencontrer dans mes consultations, et de la philosophie qui les sous-tend.
 
@@ -72,3 +73,7 @@ Pour finir, une vérité que ces années de pratique m'ont apprise : **aucun out
 Un Tarot magnifique manié par quelqu'un de pressé, distrait ou complaisant ne dira rien d'utile. Un jeu modeste utilisé avec attention, sincérité et expérience peut transformer une vie. La différence n'est pas dans les outils : elle est dans la qualité de l'écoute, de la lecture, de la transmission.
 
 Voilà pourquoi, plus que mes jeux, je suis attentive à ma manière d'être avec vous pendant la consultation. **Le vrai instrument, c'est la rencontre.**
+
+---
+
+**À découvrir également :** [Auréa](/aurea/), l'application de tirage de tarot que j'ai conçue pour prolonger cette pratique au quotidien, avec dix tirages et des lectures personnalisées.

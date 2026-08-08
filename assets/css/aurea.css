@@ -214,11 +214,23 @@
   filter: drop-shadow(0 6px 34px rgba(255, 215, 0, 0.35));
 }
 .au-hero__titre {
-  font-size: clamp(2.6rem, 7.6vw, 5.2rem);
+  font-size: clamp(1.9rem, 4.6vw, 3.4rem);
+  max-width: 18ch;
   color: var(--parchemin);
   letter-spacing: 0.02em;
   margin-bottom: 0.5rem;
   text-shadow: 0 4px 40px rgba(0, 0, 0, 0.85);
+}
+.au-hero__signature {
+  font-family: var(--serif);
+  color: var(--or);
+  font-size: clamp(0.68rem, 1.4vw, 0.85rem);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin: 1.3rem 0 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(212, 165, 116, 0.3);
+  display: inline-block;
 }
 .au-hero__titre em {
   font-style: normal;
@@ -844,7 +856,18 @@ ol.au-legende strong { color: var(--parchemin); }
   }
   .au-hero__pitch { max-width: none; }
   .au-hero__actions .au-btn { flex: 1 1 100%; justify-content: center; }
-  .au-hero__titre em { font-size: 0.36em; letter-spacing: 0.22em; }
+  .au-hero__signature {
+  font-family: var(--serif);
+  color: var(--or);
+  font-size: clamp(0.68rem, 1.4vw, 0.85rem);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin: 1.3rem 0 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(212, 165, 116, 0.3);
+  display: inline-block;
+}
+.au-hero__titre em { font-size: 0.36em; letter-spacing: 0.22em; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════

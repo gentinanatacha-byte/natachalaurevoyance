@@ -15,6 +15,7 @@ related:
   - deroulement-consultation
   - tarot-predit-avenir
   - outils-divinatoires
+  - tirage-relationnel-sentiments-de-lautre
 ---
 Les questions sentimentales représentent, et de loin, le motif le plus fréquent de consultation. Cela ne m'étonne pas : nos relations amoureuses concentrent ce qu'il y a de plus beau et de plus déstabilisant dans notre existence. C'est dans ce domaine, plus que tout autre, qu'on cherche à **comprendre, anticiper, apaiser**. Et c'est précisément là où le Tarot révèle toute sa finesse.
 
@@ -71,3 +72,7 @@ La Lune, dans une lecture sentimentale, alerte. Elle signale les zones floues : 
 Concrètement, lorsque vous me consultez pour une question d'amour, je vous propose d'abord d'expliciter votre question — même très simplement. Plus la question est claire, plus la lecture sera précise. Puis je procède à un tirage, généralement entre cinq et dix cartes selon la profondeur souhaitée.
 
 Au fur et à mesure du tirage, je vous transmets ce que je vois, je vous demande votre ressenti, et nous construisons ensemble la compréhension de la situation. Une consultation sentimentale dure généralement entre une heure et une heure trente, le temps que les vraies réponses émergent.
+
+---
+
+**Le Tirage Amour et le Tirage Relationnel** dont il est question ici existent aussi dans [Auréa, mon application de tarot](/aurea/) — de quoi interroger les cartes quand la question ne peut pas attendre.
