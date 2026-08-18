@@ -71,3 +71,7 @@ Je vous remets parfois un compte-rendu écrit (pour la formule Guidance Complèt
 ## Après la consultation
 
 Dans les jours qui suivent, il est fréquent que les éléments du tirage continuent à infuser. Vous pouvez avoir des prises de conscience, des rêves significatifs, ou simplement une sensation d'apaisement diffus. C'est normal : une consultation ne s'arrête pas à la dernière minute de la séance, elle continue à travailler en vous.
+
+---
+
+**Prête à franchir le pas ?** Choisissez votre formule [à domicile sur Nice](/#nice) ou [par téléphone](/#telephone) — et si une question vous retient encore, la réponse est peut-être déjà dans [la FAQ](/#faq).

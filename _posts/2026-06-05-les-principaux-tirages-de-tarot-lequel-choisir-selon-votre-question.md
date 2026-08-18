@@ -205,3 +205,5 @@ Quel que soit le tirage choisi, l'important n'est jamais le nombre de cartes. C'
 ---
 
 **Envie d'essayer par vous-même ?** Les tirages décrits ici — la croix, le tirage en trois cartes, l'éventail — sont tous disponibles dans [Auréa, mon application de tirage de tarot](/aurea/). Trois d'entre eux sont accessibles gratuitement et sans limite.
+
+Et si vous voulez apprendre à poser ces tirages vous-même, à les lire et à les croiser, c'est exactement l'objet du [cours d'initiation à la tarologie](/#cours-tarot).

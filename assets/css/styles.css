@@ -1905,3 +1905,69 @@ blockquote footer {
   .cours-tarot-offre { flex-direction: row; align-items: baseline; justify-content: space-between; flex-wrap: wrap; }
   .cours-tarot-detail { flex-basis: 100%; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   LIENS DANS LE TEXTE (18.08.2026)
+
+   Le site n'avait AUCUNE règle pour les liens ordinaires : ceux placés
+   dans un paragraphe héritaient donc du style par défaut du navigateur —
+   bleu, et VIOLET une fois visités. Sur fond sombre, illisible.
+
+   On ne cible que les liens du contenu : les boutons, la navigation et
+   le pied de page ont déjà leurs propres styles, qu'il ne faut pas
+   écraser. D'où la liste d'exclusions.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.intro-text a:not([class]),
+.article-body a:not([class]),
+.prestations-intro a:not([class]),
+.mode-content a:not([class]),
+.faq-answer a:not([class]),
+.aurea-content a:not([class]),
+.legal-content a:not([class]),
+.cours-tarot-content a:not([class]),
+.section-text a:not([class]),
+.about-text a:not([class]) {
+  color: var(--or-cl);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184, 132, 58, 0.45);
+  padding-bottom: 1px;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Le point essentiel : un lien visité garde EXACTEMENT la même couleur.
+   Sans cette règle, le navigateur reprend la main et repasse en violet. */
+.intro-text a:not([class]):visited,
+.article-body a:not([class]):visited,
+.prestations-intro a:not([class]):visited,
+.mode-content a:not([class]):visited,
+.faq-answer a:not([class]):visited,
+.aurea-content a:not([class]):visited,
+.legal-content a:not([class]):visited,
+.cours-tarot-content a:not([class]):visited,
+.section-text a:not([class]):visited,
+.about-text a:not([class]):visited {
+  color: var(--or-cl);
+}
+
+.intro-text a:not([class]):hover,
+.article-body a:not([class]):hover,
+.prestations-intro a:not([class]):hover,
+.mode-content a:not([class]):hover,
+.faq-answer a:not([class]):hover,
+.aurea-content a:not([class]):hover,
+.legal-content a:not([class]):hover,
+.cours-tarot-content a:not([class]):hover,
+.section-text a:not([class]):hover,
+.about-text a:not([class]):hover {
+  color: var(--or-pale);
+  border-color: var(--or-pale);
+}
+
+/* Filet de sécurité : tout lien de contenu oublié ailleurs reste lisible
+   plutôt que de retomber sur le bleu et le violet du navigateur. */
+main a:not([class]):visited,
+section p a:not([class]):visited,
+section li a:not([class]):visited {
+  color: var(--or-cl);
+}

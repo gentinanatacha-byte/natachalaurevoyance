@@ -121,3 +121,7 @@ Que vous me consultiez à domicile sur Nice ou par téléphone partout en France
 
 
 Bonne saison Gémeaux à toutes et à tous. Que L'Amoureux vous inspire des décisions justes. 🎴
+
+---
+
+**Pour une lecture personnelle de votre saison**, [réservez une consultation](/#contact) : L'Amoureux ne dit pas la même chose à chacun, et c'est bien là tout l'intérêt.

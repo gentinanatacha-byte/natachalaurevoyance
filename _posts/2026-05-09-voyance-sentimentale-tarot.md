@@ -76,3 +76,5 @@ Au fur et à mesure du tirage, je vous transmets ce que je vois, je vous demande
 ---
 
 **Le Tirage Amour et le Tirage Relationnel** dont il est question ici existent aussi dans [Auréa, mon application de tarot](/aurea/) — de quoi interroger les cartes quand la question ne peut pas attendre.
+
+Pour une lecture sentimentale complète, en tête-à-tête, [voici mes formules de consultation](/#services).

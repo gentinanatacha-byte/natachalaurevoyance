@@ -79,3 +79,5 @@ Le Tarot ne prédit pas l'avenir au sens où on l'entend dans les films. Il fait
 ---
 
 **Pour explorer entre deux consultations**, j'ai créé [Auréa](/aurea/) : une application de tirage de tarot où chaque lecture est écrite à partir des cartes que vous tirez et de la question que vous posez. [Trois tirages y sont offerts](/aurea/).
+
+Et pour une lecture menée à quatre yeux, avec le temps d'aller au fond des choses, [prenons rendez-vous](/#contact).

@@ -86,3 +86,7 @@ Si vous hésitez sur qui consulter, voici quelques repères simples :
 - Pour comprendre votre **profil profond** et votre chemin de vie, l'astrologie ou la numérologie offrent des entrées complémentaires.
 
 Dans tous les cas, le plus important est de choisir une personne dont le **ton, la philosophie et la pratique vous rassurent**. Une bonne consultation passe d'abord par la confiance.
+
+---
+
+**Vous savez maintenant ce que vous cherchez ?** Je pratique la taromancie et la voyance intuitive avec le Tarot de Marseille — [voir mes formules](/#services). Et pour apprendre à tirer les cartes vous-même, il y a désormais [le cours d'initiation à la tarologie](/#cours-tarot).

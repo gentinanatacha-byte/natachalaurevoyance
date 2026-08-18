@@ -73,3 +73,7 @@ Aujourd'hui, des millions de personnes dans le monde consultent régulièrement 
 Quand je tire les cartes pour vous, je m'inscris dans cette histoire millénaire. Mon Tarot de Marseille est l'héritier des prêtres de Babylone, des pythies de Delphes, des sages chinois du Yi King. Cette filiation me rappelle l'humilité nécessaire : **nous ne sommes que des passeurs** dans une tradition qui nous dépasse infiniment.
 
 C'est aussi ce qui rend chaque consultation précieuse. Vous ne consultez pas seulement Natacha Laure : vous renouez avec un **geste humain fondamental**, celui de chercher des repères dans l'invisible. Et ça, mon métier consiste à le faire avec sérieux, sincérité et profondeur.
+
+---
+
+**Pour inscrire votre propre question dans cette histoire :** découvrez [mes formules de consultation](/#services), à domicile sur Nice ou par téléphone partout en France.

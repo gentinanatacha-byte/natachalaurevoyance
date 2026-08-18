@@ -73,3 +73,7 @@ Beaucoup me demandent pourquoi je n'utilise pas plutôt un Tarot plus moderne, p
 Sa rigueur. Sa profondeur. Le fait que les arcanes mineurs ne soient pas illustrés oblige à entrer dans une lecture vraiment symbolique, à mobiliser les correspondances numériques et élémentaires, à **développer une compréhension structurelle** plutôt que de se contenter de lire ce qui est dessiné.
 
 Et puis il y a la continuité. Quand je manie ces images, je sais que je manipule des symboles qui ont traversé six siècles, qui ont été tenus par des dizaines de générations avant moi. **Cette continuité donne de la densité à chaque tirage.**
+
+---
+
+**Envie de voir ces arcanes à l'œuvre ?** C'est ce jeu, et lui seul, que j'utilise en [consultation à Nice et par téléphone](/#services). Et si c'est l'histoire des cartes qui vous passionne, vous pouvez aussi [apprendre à les lire vous-même](/#cours-tarot).

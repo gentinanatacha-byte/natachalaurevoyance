@@ -49,3 +49,7 @@ Cette précision, je l'ai vécue mille fois dans mes années de pratique. Elle n
 Dans un monde saturé d'informations, de notifications, de sollicitations, le Tarot offre l'inverse : un temps d'arrêt, un silence habité, une attention portée à soi. C'est peut-être ça, sa modernité paradoxale. Plus le monde s'accélère, plus on a besoin de ralentir. Plus l'extérieur nous saisit, plus on a besoin de revenir à l'intérieur.
 
 Voilà pourquoi, après six siècles, ces cartes continuent d'attirer toutes les générations, des plus rationnelles aux plus mystiques. Le Tarot n'est pas une croyance : c'est une **pratique d'attention**. Et cette pratique, plus que jamais, nous est utile.
+
+---
+
+**Si cette fascination vous gagne à votre tour**, deux chemins s'offrent à vous : venir [consulter les cartes](/#services), ou [apprendre à les lire](/#cours-tarot) lors d'une leçon particulière d'une heure, en visio ou à domicile entre Nice et Saint-Laurent-du-Var.

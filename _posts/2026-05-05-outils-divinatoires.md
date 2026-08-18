@@ -77,3 +77,5 @@ Voilà pourquoi, plus que mes jeux, je suis attentive à ma manière d'être ave
 ---
 
 **À découvrir également :** [Auréa](/aurea/), l'application de tirage de tarot que j'ai conçue pour prolonger cette pratique au quotidien, avec dix tirages et des lectures personnalisées.
+
+Et si vous préférez que je manie ces outils pour vous, [réservons un rendez-vous](/#contact).
