@@ -839,19 +839,30 @@ sitemap: true
             <span class="form-label">Formule souhaitée</span>
             <select name="formule" id="form-formule">
               <option value="">Choisir une formule…</option>
-              <option value="Voyance Générale">Voyance Générale (1h)</option>
-              <option value="Voyance Approfondie">Voyance Approfondie (1h30)</option>
-              <option value="Guidance Complète">Guidance Complète (2h)</option>
-              <option value="Voyance Libre">Voyance Libre (1h30)</option>
+              <optgroup label="Consultation de voyance">
+                <option value="Tirage Flash (30 min) — 40 €">Tirage Flash · 30 min — 40 €</option>
+                <option value="Voyance Générale (1h) — 80 € à domicile / 70 € par téléphone">Voyance Générale · 1h — 80 € / 70 €</option>
+                <option value="Voyance Approfondie (1h30) — 105 € à domicile / 95 € par téléphone">Voyance Approfondie · 1h30 — 105 € / 95 €</option>
+                <option value="Guidance Complète (2h) — 145 € à domicile / 135 € par téléphone">Guidance Complète · 2h — 145 € / 135 €</option>
+                <option value="Voyance Libre (1h30) — 105 € à domicile / 95 € par téléphone">Voyance Libre · 1h30 — 105 € / 95 €</option>
+              </optgroup>
+              <optgroup label="Apprendre le Tarot">
+                <option value="Cours d'initiation à la tarologie (1h) — 40 € en visio / 45 € à domicile">Cours d'initiation à la tarologie · 1h — 40 € / 45 €</option>
+              </optgroup>
+              <optgroup label="Sur devis">
+                <option value="Voyance &amp; Événements (mariage, EVJF, séminaire…)">Voyance &amp; Événements · sur devis</option>
+              </optgroup>
               <option value="Je ne sais pas encore">Je ne sais pas encore</option>
             </select>
+            <small class="form-hint">Le premier prix correspond au déplacement à domicile, le second à distance.</small>
           </label>
           <label class="form-field">
             <span class="form-label">Mode</span>
             <select name="mode" id="form-mode">
               <option value="">Choisir le mode…</option>
-              <option value="À domicile sur Nice">À domicile sur Nice</option>
+              <option value="À domicile sur Nice et sa région">À domicile · Nice et sa région</option>
               <option value="Par téléphone">Par téléphone</option>
+              <option value="En visio">En visio</option>
               <option value="Indifférent">Indifférent</option>
             </select>
           </label>

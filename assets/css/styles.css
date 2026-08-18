@@ -1971,3 +1971,40 @@ section p a:not([class]):visited,
 section li a:not([class]):visited {
   color: var(--or-cl);
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   FORMULAIRE — GROUPES DE FORMULES ET INDICATION DE TARIF (18.08.2026)
+
+   Les <optgroup> et <option> d'une liste déroulante sont dessinés par le
+   SYSTÈME, pas par la page : sur Windows et Android, le fond reste blanc
+   quoi qu'en dise le CSS du site. On force donc des couleurs sombres
+   explicitement, sans quoi les libellés dorés hérités du champ
+   deviendraient illisibles sur ce fond clair.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.form-field select optgroup {
+  background: #16120e;
+  color: var(--or-cl);
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.form-field select option {
+  background: #16120e;
+  color: var(--blanc);
+  font-weight: 400;
+  padding: 6px 8px;
+}
+
+/* Précision de tarif sous la liste : discrète, mais elle évite la question
+   « et à domicile, ça fait combien ? » qui revenait par email. */
+.form-hint {
+  display: block;
+  margin-top: 6px;
+  color: var(--gris);
+  font-size: 0.74rem;
+  font-style: italic;
+  line-height: 1.45;
+}
