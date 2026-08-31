@@ -324,6 +324,13 @@
             '<p class="rd-prize-desc"></p>' +
             '<div class="rd-code-wrap"></div>' +
             '<a class="rd-cta" href="#"></a>' +
+            '<div class="rd-spam">' +
+              '<span class="rd-spam-ico">📬</span>' +
+              '<span>Votre email arrive dans l’instant. S’il n’est pas dans votre ' +
+              'boîte de réception, regardez dans les <strong>indésirables</strong> ' +
+              'ou l’onglet <strong>Promotions</strong> — c’est souvent là qu’atterrit ' +
+              'un premier message.</span>' +
+            '</div>' +
             '<p class="rd-mailnote"></p>' +
           '</div>' +
 
@@ -438,9 +445,10 @@
         }
         rendreLaMain();
         if (d.raison === 'deja_joue') {
-          erreur('Cette adresse a déjà fait tourner la roue. ' +
-            'Un seul tour par adresse — mais votre lot reste valable, il est dans votre boîte mail. ' +
-            'Pensez à regarder dans les indésirables.');
+          erreur('Cette adresse a déjà fait tourner la roue. Un seul tour par adresse — ' +
+            'mais votre lot reste valable&nbsp;: il vous a été envoyé par email. ' +
+            'S’il est introuvable, cherchez dans vos <strong>indésirables</strong> et ' +
+            'dans l’onglet <strong>Promotions</strong>.');
         } else if (d.raison === 'trop_de_tentatives') {
           erreur('Trop de participations depuis cet appareil aujourd’hui. Réessayez demain.');
         } else if (d.raison === 'email_invalide') {
@@ -592,10 +600,13 @@
       cta.addEventListener('click', function () { setTimeout(fermer, 60); });
     }
 
+    var encadre = q('.rd-spam');
+    if (encadre) encadre.style.display = extra.demo ? 'none' : '';
+
     q('.rd-mailnote').innerHTML = extra.demo
       ? '<strong>Mode démonstration.</strong> En conditions réelles, un email récapitulatif partirait immédiatement.'
-      : 'Un email récapitulatif vient de partir vers <strong>' + (extra.email || 'votre adresse') +
-        '</strong>. Pensez à regarder dans vos indésirables et à conserver votre code.';
+      : 'Envoyé à <strong>' + (extra.email || 'votre adresse') +
+        '</strong>. Conservez votre code&nbsp;: c’est lui qui vous identifie.';
   }
 
   function afficherGainEnregistre(brut) {
