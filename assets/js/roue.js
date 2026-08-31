@@ -24,7 +24,7 @@
                        ⚠️ À ne passer à false QU'UNE FOIS le serveur
                        branché (réglage 2), sinon tes visiteurs
                        gagnent des lots qu'ils ne reçoivent jamais. */
-    PRIVE: true,
+    PRIVE: false,
 
     /* ══ RÉGLAGE 2 — LE SERVEUR ═════════════════════════════
        Vide          → mode démonstration : la roue tourne, mais aucun
