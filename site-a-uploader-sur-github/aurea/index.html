@@ -1,0 +1,725 @@
+---
+layout: null
+sitemap: true
+---
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Auréa — Application de tirage de tarot personnalisé en ligne</title>
+<meta name="description" content="Auréa : application de tirage de tarot personnalisé. 10 tirages, dont 3 gratuits, et des lectures écrites pour vous. Sur mobile et ordinateur.">
+<meta name="keywords" content="application tarot, tirage de tarot personnalisé, tirage tarot en ligne, tirage tarot gratuit, application tarot de Marseille, tirage amour en ligne, lecture tarot personnalisée, Auréa">
+
+<link rel="canonical" href="https://natachalaurevoyance.fr/aurea/">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<meta name="theme-color" content="#08061a">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://natachalaurevoyance.fr/aurea/">
+<meta property="og:title" content="Auréa — L'art divinatoire au service de votre évolution">
+<meta property="og:description" content="10 tirages de tarot, des lectures écrites pour vous, un premier tirage offert. L'application de Natacha Laure.">
+<meta property="og:image" content="https://natachalaurevoyance.fr/assets/images/aurea/hero.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Auréa par Natacha Laure Voyance">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Données structurées : l'application + la FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Auréa",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web, Android, iOS",
+  "url": "https://aurea.natachalaurevoyance.fr",
+  "description": "Application de tirage de tarot proposant dix tirages et des lectures personnalisées, éditée par Natacha Laure Voyance.",
+  "inLanguage": "fr-FR",
+  "author": {
+    "@type": "Person",
+    "name": "Natacha Laure",
+    "url": "https://natachalaurevoyance.fr"
+  },
+  "offers": [
+    { "@type": "Offer", "name": "Tirages gratuits", "price": "0", "priceCurrency": "EUR" },
+    { "@type": "Offer", "name": "1 crédit de lecture", "price": "2.99", "priceCurrency": "EUR" },
+    { "@type": "Offer", "name": "Pack Tous les tirages", "price": "13.99", "priceCurrency": "EUR" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Auréa est-elle gratuite ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Trois tirages sont accessibles gratuitement et sans limite : Situation générale, Amour et Croix classique. La création d'un compte offre en plus une lecture personnalisée. Les tirages premium et les lectures supplémentaires sont payants." }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il installer quelque chose ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Non. Auréa fonctionne directement dans le navigateur, sur mobile comme sur ordinateur. Vous pouvez aussi l'installer comme une application, avec son icône sur votre écran d'accueil." }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment sont écrites les lectures ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Les lectures premium sont générées par une intelligence artificielle à partir des cartes tirées, de leur position et de votre question. Elles sont proposées à titre de divertissement et de réflexion personnelle." }
+    },
+    {
+      "@type": "Question",
+      "name": "Auréa remplace-t-elle une consultation ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Non. Auréa éclaire et accompagne au quotidien, mais elle ne dialogue pas. Une consultation avec Natacha Laure, à Nice, par téléphone ou en visio, reste un échange avec une personne qui écoute et répond." }
+    },
+    {
+      "@type": "Question",
+      "name": "Les crédits expirent-ils ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Non. Les crédits restent sur votre compte sans limite de durée. Les tirages débloqués vous sont acquis définitivement." }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/assets/css/aurea.css">
+</head>
+
+<body class="au-root">
+
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav class="au-nav" aria-label="Navigation Auréa">
+  <a href="/aurea/" class="au-nav__brand">
+    <img src="/assets/images/aurea/logo.webp" alt="" width="320" height="284">
+    <span class="au-nav__name">AURÉA</span>
+  </a>
+  <ul class="au-nav__links">
+    <li><a href="#decouvrir">Découvrir</a></li>
+    <li><a href="#tirages">Les tirages</a></li>
+    <li><a href="#demarrer">Premiers pas</a></li>
+    <li><a href="/aurea/guide/">Guide</a></li>
+    <li><a href="#boutique">Boutique</a></li>
+    <li><a href="#journal">Nouveautés</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="/" class="au-nav__back">← Natacha Laure Voyance</a>
+</nav>
+
+<!-- ═══════════ HÉROS ═══════════ -->
+<header class="au-hero">
+  <div class="au-hero__media">
+    <picture>
+      <source media="(max-width: 700px)" srcset="/assets/images/aurea/hero-mobile.webp">
+      <img src="/assets/images/aurea/hero.webp" alt="Boule de cristal, grimoire ouvert et cristaux d'améthyste éclairés à la bougie" width="830" height="1024" fetchpriority="high">
+    </picture>
+  </div>
+  <div class="au-wrap au-hero__inner">
+    <img src="/assets/images/aurea/logo.webp" alt="Auréa" class="au-hero__logo" width="320" height="284">
+    <h1 class="au-hero__titre">
+      Auréa, l'application de tirage de tarot personnalisé
+    </h1>
+    <p class="au-hero__signature">Les cartes vous attendent · Oracle · Tarot · Guidance</p>
+    <p class="au-hero__pitch">
+      Dix tirages de Tarot de Marseille, vingt-deux arcanes majeurs, et une lecture
+      personnalisée écrite à partir de vos cartes et de votre question.
+    </p>
+    <div class="au-hero__actions">
+      <a class="au-btn au-btn--or" href="https://aurea.natachalaurevoyance.fr/?jeu=site">Tirer mes cartes</a>
+      <a class="au-btn au-btn--fantome" href="#decouvrir">Découvrir Auréa</a>
+    </div>
+    <p class="au-hero__note">Trois tirages gratuits, sans limite · Aucune installation nécessaire</p>
+  </div>
+</header>
+
+<!-- ═══════════ OFFRE EN COURS ═══════════ -->
+<aside class="au-promo">
+  <div class="au-wrap au-promo__inner">
+    <span class="au-promo__tag">Offre d'ouverture</span>
+    <p class="au-promo__texte">
+      Les cinq tirages premium débloqués à vie, plus six crédits offerts —
+      <s>27,95 €</s> <strong>13,99 €</strong>
+    </p>
+    <a class="au-btn au-btn--fantome" href="https://aurea.natachalaurevoyance.fr/?jeu=site" style="padding:.6rem 1.3rem;font-size:.72rem;">En profiter</a>
+  </div>
+</aside>
+
+<!-- ═══════════ DÉCOUVRIR ═══════════ -->
+<section class="au-section" id="decouvrir">
+  <div class="au-wrap">
+    <div class="au-section__head au-section__head--center au-reveal">
+      <p class="au-eyebrow au-eyebrow--center">Ce qu'est Auréa</p>
+      <h2 class="au-title">Le tarot, chez vous, quand vous en avez besoin</h2>
+      <p class="au-lead">
+        Auréa reprend le tarot que Natacha Laure pratique en consultation depuis plus de dix ans
+        et le met entre vos mains. Vous tirez vos cartes, elles se posent une à une, et une lecture
+        s'écrit à partir de ce que vous avez tiré — pas d'un texte préparé à l'avance.
+      </p>
+    </div>
+
+    <div class="au-piliers">
+      <article class="au-pilier au-reveal">
+        <span class="au-pilier__num">I</span>
+        <h3>Vous tirez vraiment</h3>
+        <p>
+          Les vingt-deux arcanes majeurs sont mélangés à chaque partie. Vous choisissez vos cartes
+          une à une dans l'éventail, et elles se déposent à leur place dans le tirage. Rien n'est décidé
+          avant que votre main ne se pose.
+        </p>
+      </article>
+      <article class="au-pilier au-reveal">
+        <span class="au-pilier__num">II</span>
+        <h3>Une lecture pour vous</h3>
+        <p>
+          Chaque carte est lue selon sa position : le Bateleur en Conseil ne dit pas la même chose
+          qu'en Obstacle. La lecture croise vos cartes entre elles, tient compte de votre question,
+          et se conclut par une synthèse et un conseil.
+        </p>
+      </article>
+      <article class="au-pilier au-reveal">
+        <span class="au-pilier__num">III</span>
+        <h3>Rien ne se perd</h3>
+        <p>
+          Vos tirages sont conservés dans votre compte. Vous pouvez y revenir des semaines plus tard,
+          relire ce qui vous avait été dit, et mesurer le chemin parcouru. Vos lectures peuvent aussi
+          vous être lues à voix haute.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LES TIRAGES ═══════════ -->
+<section class="au-section au-section--alt" id="tirages">
+  <div class="au-wrap">
+    <div class="au-section__head au-reveal">
+      <p class="au-eyebrow">Les tirages</p>
+      <h2 class="au-title">Dix façons d'interroger les cartes</h2>
+      <p class="au-lead">
+        Chaque tirage a sa forme, son nombre de cartes et sa question. Trois sont ouverts à tous.
+        Les autres se débloquent une fois et vous appartiennent ensuite pour toujours.
+      </p>
+    </div>
+
+    <div class="au-arcanes">
+
+      <article class="au-arcane au-arcane--illustre au-reveal">
+        <figure class="au-arcane__vue"><img src="/assets/images/aurea/tirages/situation.webp" alt="Disposition des cartes du Situation générale" loading="lazy" width="460" height="345"></figure>
+        <span class="au-arcane__sceau au-arcane__sceau--libre">Libre</span>
+        <h3>Situation générale</h3>
+        <p>Un tirage rapide : d'où vous venez, où vous en êtes, vers quoi cela penche.</p>
+        <div class="au-arcane__pied"><span class="au-arcane__cout">3 cartes</span><span class="au-arcane__prix">Gratuit</span></div>
+      </article>
+
+      <article class="au-arcane au-arcane--illustre au-reveal">
+        <figure class="au-arcane__vue"><img src="/assets/images/aurea/tirages/amour.webp" alt="Disposition des cartes du Tirage Amour" loading="lazy" width="460" height="345"></figure>
+        <span class="au-arcane__sceau au-arcane__sceau--libre">Libre</span>
+        <h3>Tirage Amour</h3>
+        <p>Pour une relation naissante ou installée : ce qui vous lie, ce qui bloque, ce qui vient.</p>
+        <div class="au-arcane__pied"><span class="au-arcane__cout">4 cartes</span><span class="au-arcane__prix">Gratuit</span></div>
+      </article>
+
+      <article class="au-arcane au-arcane--illustre au-reveal">
+        <figure class="au-arcane__vue"><img src="/assets/images/aurea/tirages/croix.webp" alt="Disposition des cartes du Croix classique" loading="lazy" width="460" height="345"></figure>
+        <span class="au-arcane__sceau au-arcane__sceau--libre">Libre</span>
+        <h3>Croix classique</h3>
+        <p>Vous posez une question précise, les cartes y répondent. Le tirage le plus direct.</p>
+        <div class="au-arcane__pied"><span class="au-arcane__cout">5 cartes</span><span class="au-arcane__prix">Gratuit</span></div>
+      </article>
+
+      <article class="au-arcane au-arcane--illustre au-reveal">
+        <figure class="au-arcane__vue"><img src="/assets/images/aurea/tirages/karmique.webp" alt="Disposition des cartes du Tirage Karmique" loading="lazy" width="460" height="345"></figure>
+        <span class="au-arcane__sceau au-arcane__sceau--premium">Premium</span>
+        <h3>Tirage Karmique</h3>
+        <p>Remonte à l'origine de ce que vous vivez et nomme la leçon qui cherche à être comprise.</p>
+        <div class="au-arcane__pied"><span class="au-arcane__cout">6 cartes</span><span class="au-arcane__prix">4,99 €</span></div>
+      </article>
+
+      <article class="au-arcane au-arcane--illustre au-reveal">
+        <figure class="au-arcane__vue"><img src="/assets/images/aurea/tirages/relationnel.webp" alt="Disposition des cartes du Tirage Relationnel" loading="lazy" width="460" height="345"></figure>
+        <span class="au-arcane__sceau au-arcane__sceau--premium">Premium</span>
+        <h3>Tirage Relationnel</h3>
+        <p>Ce que l'autre ressent, attend et redoute. Le tirage des questions qu'on n'ose pas poser.</p>
+        <div class="au-arcane__pied"><span class="au-arcane__cout">6 cartes</span><span class="au-arcane__prix">4,99 €</span></div>
+      </article>
+
+      <article class="au-arcane au-arcane--illustre au-reveal">
+        <figure class="au-arcane__vue"><img src="/assets/images/aurea/tirages/evolution.webp" alt="Disposition des cartes du Évolution de la relation" loading="lazy" width="460" height="345"></figure>
+        <span class="au-arcane__sceau au-arcane__sceau--premium">Premium</span>
+        <h3>Évolution de la relation</h3>
+        <p>Les besoins et les attentes de chacun, le défi commun, le soutien, et le conseil.</p>
+        <div class="au-arcane__pied"><span class="au-arcane__cout">8 cartes</span><span class="au-arcane__prix">4,99 €</span></div>
+      </article>
+
+      <article class="au-arcane au-arcane--illustre au-reveal">
+        <figure class="au-arcane__vue"><img src="/assets/images/aurea/tirages/croix-affinee.webp" alt="Disposition des cartes du Croix affinée" loading="lazy" width="460" height="345"></figure>
+        <span class="au-arcane__sceau au-arcane__sceau--premium">Premium</span>
+        <h3>Croix affinée</h3>
+        <p>La croix, en plus détaillé : l'ambiance, les forces extérieures, un présent lu à trois cartes.</p>
+        <div class="au-arcane__pied"><span class="au-arcane__cout">9 cartes</span><span class="au-arcane__prix">4,99 €</span></div>
+      </article>
+
+      <article class="au-arcane au-arcane--illustre au-reveal">
+        <figure class="au-arcane__vue"><img src="/assets/images/aurea/tirages/eventail.webp" alt="Disposition des cartes du Tirage en éventail" loading="lazy" width="460" height="345"></figure>
+        <span class="au-arcane__sceau au-arcane__sceau--premium">Premium</span>
+        <h3>Tirage en éventail</h3>
+        <p>Les vingt-deux arcanes déployés en sept branches. La lecture la plus complète d'Auréa.</p>
+        <div class="au-arcane__pied"><span class="au-arcane__cout">22 cartes</span><span class="au-arcane__prix">7,99 €</span></div>
+      </article>
+
+      <article class="au-arcane au-arcane--illustre au-arcane--venir au-reveal">
+        <figure class="au-arcane__vue"><img src="/assets/images/aurea/tirages/mystere.webp" alt="Tirage encore tenu secret" loading="lazy" width="460" height="345"></figure>
+        <span class="au-arcane__sceau au-arcane__sceau--venir">Bientôt</span>
+        <h3>Tirage professionnel</h3>
+        <p>Votre carrière, vos projets, ce qui les freine et ce qui les porte.</p>
+        <div class="au-arcane__pied"><span class="au-arcane__cout">En préparation</span></div>
+      </article>
+
+      <article class="au-arcane au-arcane--illustre au-arcane--venir au-reveal">
+        <figure class="au-arcane__vue"><img src="/assets/images/aurea/tirages/mystere.webp" alt="Tirage encore tenu secret" loading="lazy" width="460" height="345"></figure>
+        <span class="au-arcane__sceau au-arcane__sceau--venir">Bientôt</span>
+        <h3>Tirage spirituel</h3>
+        <p>Votre chemin, votre part d'ombre, votre don, votre ancrage.</p>
+        <div class="au-arcane__pied"><span class="au-arcane__cout">En préparation</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LE GUIDE ═══════════ -->
+<section class="au-section" id="demarrer">
+  <div class="au-wrap">
+    <div class="au-section__head au-reveal">
+      <p class="au-eyebrow">Premiers pas</p>
+      <h2 class="au-title">De votre prénom à votre première lecture</h2>
+      <p class="au-lead">
+        Cinq chapitres, captures à l'appui, pour arriver à votre première lecture.
+        Le guide complet — installation, boutique, espace — vous attend juste après.
+      </p>
+    </div>
+
+    <div class="au-guide">
+
+      <!-- Chapitre 1 -->
+      <article class="au-chapitre au-reveal">
+        <div class="au-chapitre__texte">
+          <span class="au-chapitre__num">Chapitre I</span>
+          <h3>Entrez, on vous attend</h3>
+          <p>
+            Un prénom suffit pour commencer : Auréa s'en sert pour s'adresser à vous
+            dans chaque lecture. Pas de compte obligatoire pour le premier tirage —
+            l'inscription vient plus tard, quand vous voudrez conserver vos lectures,
+            et elle offre un crédit de bienvenue.
+          </p>
+        </div>
+        <figure class="au-fig">
+          <img src="/assets/images/aurea/app-accueil.webp" alt="Écran d'accueil d'Auréa : logo, champ prénom et bouton Commencer" loading="lazy" width="900" height="867">
+        </figure>
+      </article>
+
+      <!-- Chapitre 2 -->
+      <article class="au-chapitre au-reveal">
+        <div class="au-chapitre__texte">
+          <span class="au-chapitre__num">Chapitre II</span>
+          <h3>Votre galerie, tout part d'ici</h3>
+          <p>
+            La galerie rassemble les dix tirages. Autour d'elle, quatre repères
+            à connaître :
+          </p>
+          <ol class="au-legende">
+            <li><strong>Vos crédits</strong> — votre solde, toujours visible. Le <strong>+</strong> ouvre aussi la boutique.</li>
+            <li><strong>La boutique</strong> — la vignette à gauche de l'engrenage : crédits, tirages et offres.</li>
+            <li><strong>Mon Espace</strong> — l'engrenage : réglages, collection, historique, installation.</li>
+            <li><strong>L'offre en cours</strong> — le bandeau doré, accessible en un geste.</li>
+          </ol>
+        </div>
+        <figure class="au-fig">
+          <img src="/assets/images/aurea/app-galerie.webp" alt="Galerie des tirages d'Auréa avec la pastille de crédits, l'icône profil, les réglages et le bandeau d'offre" loading="lazy" width="900" height="893">
+          <span class="au-pin" style="left:9%;top:3.5%;">1</span>
+          <span class="au-pin" style="left:89.5%;top:4.5%;">2</span>
+          <span class="au-pin" style="left:94.6%;top:4.5%;">3</span>
+          <span class="au-pin" style="left:31%;top:17%;">4</span>
+        </figure>
+      </article>
+
+      <!-- Chapitre 3 -->
+      <article class="au-chapitre au-chapitre--large au-reveal">
+        <div class="au-chapitre__texte">
+          <span class="au-chapitre__num">Chapitre III</span>
+          <h3>Tirer vos cartes, à la souris ou au doigt</h3>
+          <p>
+            Sur <strong>ordinateur</strong>, l'éventail complet des vingt-deux arcanes se déploie
+            sous vos yeux : cliquez sur les cartes qui vous appellent.
+          </p>
+          <p>
+            Sur <strong>téléphone</strong>, les cartes défilent en ruban :
+            <strong>faites-les glisser du doigt</strong> pour parcourir tout le jeu,
+            puis touchez celles que vous choisissez. Le geste est indiqué à l'écran
+            la première fois.
+          </p>
+        </div>
+        <div class="au-duo">
+          <figure class="au-fig">
+            <img src="/assets/images/aurea/app-tirage-bureau.webp" alt="Le tirage sur ordinateur : l'éventail des 22 cartes déployé" loading="lazy" width="900" height="868">
+            <figcaption>Sur ordinateur — l'éventail déployé</figcaption>
+          </figure>
+          <figure class="au-fig au-fig--mobile">
+            <img src="/assets/images/aurea/app-tirage-mobile.webp" alt="Le tirage sur téléphone : les cartes défilent, on les fait glisser du doigt" loading="lazy" width="764" height="1121">
+            <span class="au-pin" style="left:30%;top:78.5%;">1</span>
+            <figcaption>Sur téléphone — <strong>1</strong> faites glisser les cartes</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Chapitre 4 -->
+      <article class="au-chapitre au-reveal">
+        <div class="au-chapitre__texte">
+          <span class="au-chapitre__num">Chapitre IV</span>
+          <h3>La révélation</h3>
+          <p>
+            Vos cartes se retournent une à une et prennent leur place — chaque position
+            porte son nom : Passé, Présent, Futur, Conseil… C'est le moment suspendu
+            d'Auréa, celui où le tirage devient le vôtre.
+          </p>
+          <p>
+            Puis vient le choix qui compte : comment lire ce que les cartes ont à dire.
+          </p>
+        </div>
+        <figure class="au-fig">
+          <img src="/assets/images/aurea/app-revelation.webp" alt="Trois cartes révélées : Passé, Présent, Futur, avec le bouton Lecture du tirage" loading="lazy" width="900" height="865">
+        </figure>
+      </article>
+
+      <!-- Chapitre 5 -->
+      <article class="au-chapitre au-chapitre--large au-reveal">
+        <div class="au-chapitre__texte">
+          <span class="au-chapitre__num">Chapitre V</span>
+          <h3>Basique ou Premium : la vraie différence</h3>
+          <p>
+            La <strong>lecture basique</strong> est gratuite, et honnête sur ce qu'elle est :
+            la signification générale de chaque carte selon sa position. Des mots-clés,
+            une direction — les mêmes pour tout le monde.
+          </p>
+          <p>
+            La <strong>lecture Premium</strong> est un autre monde. Auréa vous appelle par votre
+            prénom, part de <em>votre</em> question, croise vos cartes entre elles au lieu de les
+            lire séparément, et se termine par une synthèse et un conseil qui n'existent que
+            pour ce tirage-là. C'est une interprétation, pas une définition.
+          </p>
+          <p class="au-note">
+            1 crédit par lecture — à partir de 1,75 € le crédit selon le pack.
+            La toute première est offerte à l'inscription : jugez sur pièce.
+          </p>
+        </div>
+        <div class="au-duo">
+          <figure class="au-fig">
+            <img src="/assets/images/aurea/app-lecture-basique.webp" alt="Lecture basique : mots-clés généraux par carte — énergie, message, amour, travail, conseil" loading="lazy" width="900" height="881">
+            <figcaption>Basique — la signification des cartes, en mots-clés</figcaption>
+          </figure>
+          <figure class="au-fig">
+            <img src="/assets/images/aurea/app-lecture-premium.webp" alt="Lecture premium : un texte personnalisé qui part de votre question et vous appelle par votre prénom, avec le bouton Écouter ma lecture" loading="lazy" width="900" height="836">
+            <span class="au-pin" style="left:38%;top:20.3%;">1</span>
+            <figcaption>Premium — écrite pour vous · <strong>1</strong> le bouton « Écouter ma lecture » vous la lit à voix haute</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Vers le guide complet -->
+      <div class="au-vers-guide au-reveal">
+        <div>
+          <p class="au-eyebrow">La suite</p>
+          <h3>Le guide complet, en images</h3>
+          <p>
+            Installer Auréa sur votre téléphone ou votre ordinateur, gérer votre espace,
+            débloquer un tirage, acheter des crédits : tout y est, capture par capture,
+            avec chaque bouton annoté.
+          </p>
+        </div>
+        <a class="au-btn au-btn--or" href="/aurea/guide/">Lire le guide</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BOUTIQUE ═══════════ -->
+<section class="au-section au-section--alt" id="boutique">
+  <div class="au-wrap">
+    <div class="au-section__head au-reveal">
+      <p class="au-eyebrow">La boutique</p>
+      <h2 class="au-title">Des crédits, pas un abonnement</h2>
+      <p class="au-lead">
+        Un crédit finance une lecture personnalisée. Vous en achetez quand vous en voulez,
+        ils ne périment jamais, et rien ne se renouvelle sans que vous le décidiez.
+      </p>
+    </div>
+
+    <div class="au-boutique">
+      <div class="au-pack au-reveal">
+        <img class="au-pack__visuel" src="/assets/images/aurea/credit.webp" alt="" loading="lazy" width="126" height="160">
+        <div class="au-pack__nb">1</div>
+        <div class="au-pack__label">crédit</div>
+        <div class="au-pack__prix">2,99 €</div>
+      </div>
+      <div class="au-pack au-reveal">
+        <img class="au-pack__visuel" src="/assets/images/aurea/credit.webp" alt="" loading="lazy" width="126" height="160">
+        <div class="au-pack__nb">5</div>
+        <div class="au-pack__label">crédits</div>
+        <div class="au-pack__prix">11,99 €</div>
+        <div class="au-pack__unite">2,40 € le crédit</div>
+      </div>
+      <div class="au-pack au-pack--phare au-reveal">
+        <span class="au-pack__badge">Le plus choisi</span>
+        <img class="au-pack__visuel" src="/assets/images/aurea/credit.webp" alt="" loading="lazy" width="126" height="160">
+        <div class="au-pack__nb">12</div>
+        <div class="au-pack__label">crédits</div>
+        <div class="au-pack__prix">23,99 €</div>
+        <div class="au-pack__unite">2,00 € le crédit</div>
+      </div>
+      <div class="au-pack au-reveal">
+        <img class="au-pack__visuel" src="/assets/images/aurea/credit.webp" alt="" loading="lazy" width="126" height="160">
+        <div class="au-pack__nb">20</div>
+        <div class="au-pack__label">crédits</div>
+        <div class="au-pack__prix">34,99 €</div>
+        <div class="au-pack__unite">1,75 € le crédit</div>
+      </div>
+    </div>
+
+    <aside class="au-pack-phare au-reveal">
+      <picture class="au-pack-phare__fond">
+        <source media="(max-width: 760px)" srcset="/assets/images/aurea/pack-fond-mobile.webp">
+        <img src="/assets/images/aurea/pack-fond.webp" alt="" loading="lazy" width="1400" height="788">
+      </picture>
+      <div class="au-pack-phare__texte">
+        <p class="au-eyebrow">Offre d'ouverture</p>
+        <h3>Pack « Tous les tirages »</h3>
+        <p>
+          Les cinq tirages premium débloqués à vie, et six crédits offerts pour en profiter
+          tout de suite. L'offre couvre les tirages disponibles aujourd'hui.
+        </p>
+        <p class="au-pack-phare__prix"><s>27,95 €</s><strong>13,99 €</strong></p>
+        <a class="au-btn au-btn--or" href="https://aurea.natachalaurevoyance.fr/?jeu=site">Ouvrir la boutique</a>
+        <ul class="au-pack-phare__points">
+          <li>5 tirages premium débloqués à vie</li>
+          <li>6 crédits offerts pour commencer</li>
+          <li>Accès aux tirages disponibles aujourd'hui</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ═══════════ JOURNAL ═══════════ -->
+<section class="au-section" id="journal">
+  <div class="au-wrap">
+    <div class="au-section__head au-reveal">
+      <p class="au-eyebrow">Le journal d'Auréa</p>
+      <h2 class="au-title">Ce qui vient d'arriver, ce qui arrive</h2>
+      <p class="au-lead">Auréa évolue en continu. Voici ce qui a changé récemment et ce qui se prépare.</p>
+    </div>
+
+    <div class="au-journal">
+      <div class="au-colonne au-reveal">
+        <h3>Nouveau</h3>
+        <ul>
+          <li><strong>Auréa s'installe</strong> — une icône sur votre écran d'accueil, sur mobile comme sur ordinateur, et l'application s'ouvre en plein écran.</li>
+          <li><strong>Lecture à voix haute</strong> — vos analyses peuvent vous être lues, pour fermer les yeux et écouter.</li>
+          <li><strong>Mot de passe oublié</strong> — vous récupérez votre compte en un clic depuis votre boîte mail.</li>
+          <li><strong>Un crédit offert</strong> — à la première vérification de votre adresse email.</li>
+        </ul>
+      </div>
+      <div class="au-colonne au-colonne--venir au-reveal">
+        <h3>Bientôt</h3>
+        <ul>
+          <li><strong>Deux nouveaux tirages</strong> — Professionnel et Spirituel rejoindront la galerie.</li>
+          <li><strong>Partage de vos tirages</strong> — pour montrer une carte marquante à qui vous voulez.</li>
+          <li><strong>Le brassage animé</strong> — voir les cartes se mélanger et se couper avant de tirer.</li>
+          <li><strong>Les arcanes mineurs</strong> — pour des lectures encore plus fines.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="au-section au-section--alt" id="faq">
+  <div class="au-wrap">
+    <div class="au-section__head au-section__head--center au-reveal">
+      <p class="au-eyebrow au-eyebrow--center">Questions fréquentes</p>
+      <h2 class="au-title">Tout ce qu'on nous demande</h2>
+    </div>
+
+    <div class="au-faq au-reveal">
+      <details>
+        <summary>Auréa est-elle gratuite ?</summary>
+        <div class="au-faq__rep">
+          <p>
+            Trois tirages sont ouverts à tous, sans limite : Situation générale, Amour et Croix classique.
+            En créant votre compte, vous recevez en plus une lecture personnalisée offerte.
+          </p>
+          <p>
+            Les tirages premium se débloquent une fois pour toutes, et les lectures personnalisées
+            se paient en crédits. Il n'y a pas d'abonnement.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Faut-il installer quelque chose ?</summary>
+        <div class="au-faq__rep">
+          <p>
+            Non. Auréa s'ouvre dans votre navigateur, sur téléphone comme sur ordinateur.
+          </p>
+          <p>
+            Si vous préférez l'avoir sous la main, elle s'installe comme une application : une icône
+            sur votre écran d'accueil et une ouverture en plein écran. La proposition se trouve
+            dans Mon Espace.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Qui écrit les lectures ?</summary>
+        <div class="au-faq__rep">
+          <p>
+            Les lectures premium sont générées par une intelligence artificielle, à partir des cartes
+            que vous avez tirées, de leur position dans le tirage, de votre question et de ce que vous
+            avez indiqué de vous.
+          </p>
+          <p>
+            Elles sont proposées comme un support de réflexion et de divertissement. Pour une véritable
+            consultation, <a href="/#contact">Natacha vous reçoit</a> en visio, par téléphone ou à Nice.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Mes crédits peuvent-ils expirer ?</summary>
+        <div class="au-faq__rep">
+          <p>
+            Non. Vos crédits restent sur votre compte sans limite de durée, et les tirages que vous
+            débloquez vous sont acquis définitivement. Rien ne se renouvelle automatiquement et
+            aucun prélèvement ne se déclenche sans votre accord.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Le tirage est-il vraiment aléatoire ?</summary>
+        <div class="au-faq__rep">
+          <p>
+            Oui. Les vingt-deux arcanes majeurs sont mélangés à chaque nouvelle partie, et vous
+            choisissez vous-même chaque carte dans l'éventail. Rien n'est déterminé à l'avance,
+            et deux tirages identiques ne donnent pas la même lecture selon la question posée.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Que deviennent mes données ?</summary>
+        <div class="au-faq__rep">
+          <p>
+            Votre compte, vos tirages et vos lectures vous appartiennent. Vos coordonnées bancaires
+            ne transitent jamais par Auréa : les paiements sont traités par Stripe.
+          </p>
+          <p>
+            Le détail figure dans la <a href="/confidentialite/">politique de confidentialité</a>.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Où en apprendre plus sur le tarot ?</summary>
+        <div class="au-faq__rep">
+          <p>
+            Natacha écrit régulièrement sur sa pratique : l'histoire du Tarot de Marseille,
+            le sens des arcanes, le choix du tirage selon la question, ce que le tarot peut
+            et ne peut pas dire.
+          </p>
+          <p>
+            <a href="/blog/">Lire le blog de Natacha Laure</a> ·
+            <a href="/blog/les-principaux-tirages-de-tarot-lequel-choisir-selon-votre-question/">Quel tirage choisir selon votre question ?</a>
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Puis-je consulter Natacha en personne ?</summary>
+        <div class="au-faq__rep">
+          <p>
+            Bien sûr, et c'est autre chose. Auréa vous accompagne au quotidien ; une consultation
+            avec Natacha, c'est un échange avec quelqu'un qui vous écoute et vous répond.
+            Elle reçoit à Nice, se déplace à domicile, et consulte par téléphone ou en visio partout en France.
+          </p>
+          <p><a href="/#contact">Prendre rendez-vous avec Natacha</a></p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ APPEL FINAL ═══════════ -->
+<section class="au-final">
+  <div class="au-wrap">
+    <img src="/assets/images/aurea/logo.webp" alt="" class="au-final__logo au-reveal" width="320" height="284">
+    <h2 class="au-reveal">Les cartes n'attendent que vous</h2>
+    <p class="au-reveal">
+      Trois tirages gratuits, une lecture personnalisée offerte à l'inscription,
+      et rien à installer. Il suffit d'un prénom pour commencer.
+    </p>
+    <div class="au-final__actions au-reveal">
+      <a class="au-btn au-btn--or" href="https://aurea.natachalaurevoyance.fr/?jeu=site">Ouvrir Auréa</a>
+      <a class="au-btn au-btn--fantome" href="/#contact">Consulter Natacha</a>
+    </div>
+    <p class="au-final__legal">
+      Auréa est une application de divertissement. Les lectures ne constituent ni un avis médical,
+      ni psychologique, ni juridique, ni financier. Service réservé aux personnes majeures.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ PIED ═══════════ -->
+<footer class="au-pied">
+  <div class="au-pied__liens">
+    <a href="/">Natacha Laure Voyance</a>
+    <a href="/blog/">Blog</a>
+    <a href="/#contact">Rendez-vous</a>
+    <a href="/mentions-legales/">Mentions légales</a>
+    <a href="/cgv/">CGV</a>
+    <a href="/confidentialite/">Confidentialité</a>
+    <a href="/reglement-jeu/">Règlement du jeu</a>
+  </div>
+  <p>© 2026 Auréa · édité par Natacha Laure Voyance · Nice</p>
+</footer>
+
+<script>
+  // Révélation au défilement — sans dépendance, et neutralisée si la personne
+  // a demandé moins d'animations dans son système.
+  (function () {
+    var cibles = document.querySelectorAll('.au-reveal');
+    if (!('IntersectionObserver' in window) ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      cibles.forEach(function (el) { el.classList.add('est-visible'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function (entrees) {
+      entrees.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('est-visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px' });
+    cibles.forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i % 4, 3) * 70) + 'ms';
+      obs.observe(el);
+    });
+  })();
+</script>
+
+<script src="/assets/js/roue.js" data-popup="non" defer></script>
+</body>
+</html>

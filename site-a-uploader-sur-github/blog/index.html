@@ -1,0 +1,89 @@
+---
+layout: null
+permalink: /blog/
+---
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Natacha Laure Voyance | Tarot, voyance et divination</title>
+<meta name="description" content="Explorez l'univers du Tarot de Marseille, de la voyance et de la cartomancie Articles, conseils et histoire de la divination par Natacha Laure, voyante à Nice.">
+<link rel="canonical" href="https://natachalaurevoyance.fr/blog/">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://natachalaurevoyance.fr/blog/">
+<meta property="og:title" content="Blog — Natacha Laure Voyance">
+<meta property="og:description" content="Tarot, voyance, divination : explorez l'univers de Natacha Laure, voyante à Nice.">
+<meta property="og:image" content="https://natachalaurevoyance.fr/assets/images/hero-cartes-noir-or.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="stylesheet" href="/assets/css/blog.css">
+
+{% include netlify-identity.html %}
+</head>
+<body>
+
+<canvas id="stars-canvas" aria-hidden="true"></canvas>
+
+{% include header.html %}
+
+<!-- HERO BLOG -->
+<section class="blog-hero">
+  <div class="container">
+    <p class="eyebrow reveal">Le Journal de Natacha</p>
+    <h1 class="reveal" data-delay="100">Carnet de <em>voyance</em> et de <em>Tarot</em></h1>
+    <div class="gold-divider center reveal" data-delay="150"></div>
+    <p class="blog-hero-lead reveal" data-delay="200">
+      Réflexions, conseils et histoires autour du Tarot de Marseille, de la voyance et de la divination.
+      Un espace pour mieux comprendre ces arts ancestraux et l'accompagnement que je vous propose.
+    </p>
+  </div>
+</section>
+
+<!-- LISTE DES ARTICLES (générée automatiquement par Jekyll) -->
+<section class="blog-listing">
+  <div class="container">
+    <div class="articles-grid">
+      {% assign published_posts = site.posts | where_exp: "post", "post.draft != true" %}
+      {% for post in published_posts %}
+      <article class="article-card reveal">
+        <a href="{{ post.url }}" class="article-link">
+          <div class="article-image">
+            <img src="{{ post.hero_image }}" alt="{{ post.hero_alt }}" loading="lazy" width="600" height="400">
+          </div>
+          <div class="article-content">
+            <span class="article-category">{{ post.category }}</span>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.lead }}</p>
+            <span class="article-meta">Lecture · {{ post.read_time }}</span>
+          </div>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA RETOUR ACCUEIL -->
+<section class="blog-cta">
+  <div class="container text-center">
+    <h2 class="section-title reveal">Une question vous <em>traverse&nbsp;?</em></h2>
+    <p class="reveal" data-delay="100">Prenez rendez-vous pour une consultation personnalisée, à domicile sur Nice ou par téléphone partout en France.</p>
+    <a href="/#contact" class="btn btn-gold reveal" data-delay="200"><span>Prendre rendez-vous</span></a>
+  </div>
+</section>
+
+{% include footer.html %}
+{% include floating-actions.html %}
+
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/roue.js" defer></script>
+</body>
+</html>
