@@ -30,8 +30,7 @@
        Vide          → mode démonstration : la roue tourne, mais aucun
                        email n'est envoyé et aucune adresse enregistrée.
        Rempli        → en service : une adresse = un tour, email envoyé. */
-    API: '',
-    // Exemple : 'https://aurea.natachalaurevoyance.fr/api/roue'
+    API: 'https://aurea.natachalaurevoyance.fr/api/roue',
 
     CSS: '/assets/css/roue.css',
     DELAI_BUREAU: 5000,      // ms avant l'ouverture automatique sur ordinateur
