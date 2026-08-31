@@ -1,0 +1,368 @@
+/* ═══════════════════════════════════════════════════════════
+   CARTE CADEAU — styles propres à /carte-cadeau/
+   Réutilise les variables et les classes de styles.css
+   (.container, .eyebrow, .section-title, .btn, .form-field…)
+   Tous les sélecteurs sont préfixés .cc- pour ne rien casser.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Hero ──────────────────────────────────────────────── */
+.cc-hero {
+  padding: calc(var(--section-pad) * 0.9) 0 var(--section-pad);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(184, 132, 58, 0.16), transparent 62%),
+    linear-gradient(180deg, var(--noir) 0%, var(--brun-prof) 100%);
+  text-align: center;
+}
+.cc-hero-inner { max-width: 760px; }
+.cc-lede {
+  max-width: 58ch;
+  margin: 1.2rem auto 1.8rem;
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--beige-cl);
+}
+.cc-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 2rem;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+}
+.cc-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--blanc);
+}
+.cc-points span { color: var(--or-cl); flex: 0 0 auto; }
+
+.cc-h2 { text-align: center; margin-bottom: 1rem; }
+.cc-sub {
+  text-align: center;
+  color: var(--beige-cl);
+  font-size: 0.92rem;
+  margin-bottom: 2.6rem;
+}
+
+/* ─── Les 3 étapes ──────────────────────────────────────── */
+.cc-etapes { padding: var(--section-pad) 0; background: var(--noir-2); }
+.cc-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.6rem;
+  margin-top: 2.4rem;
+}
+.cc-step {
+  position: relative;
+  padding: 2.2rem 1.6rem 1.7rem;
+  border: 1px solid rgba(184, 132, 58, 0.22);
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(46, 34, 24, 0.5), rgba(14, 11, 8, 0.5));
+  text-align: center;
+}
+.cc-step-n {
+  position: absolute;
+  top: -20px; left: 50%;
+  transform: translateX(-50%);
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--or-pale), var(--or));
+  color: #241706;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+.cc-step h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--blanc);
+  margin-bottom: 0.6rem;
+}
+.cc-step p { font-size: 0.88rem; line-height: 1.7; color: var(--beige-cl); }
+
+/* ─── Grille formulaire / aperçu ────────────────────────── */
+.cc-form-section { padding: var(--section-pad) 0; }
+.cc-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 2.6rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .cc-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .cc-apercu-col { order: -1; }
+}
+
+.cc-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+.cc-fieldset legend {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--or-pale);
+  letter-spacing: 0.02em;
+}
+
+/* ─── Choix de la formule ───────────────────────────────── */
+.cc-formules { display: grid; gap: 0.6rem; }
+.cc-formule {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(184, 132, 58, 0.26);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+.cc-formule:hover { border-color: rgba(184, 132, 58, 0.6); background: rgba(184, 132, 58, 0.06); }
+.cc-formule input { accent-color: var(--or); flex: 0 0 auto; }
+.cc-formule.cc-actif {
+  border-color: var(--or-cl);
+  background: rgba(184, 132, 58, 0.12);
+  box-shadow: 0 0 0 1px rgba(184, 132, 58, 0.3);
+}
+.cc-f-txt { flex: 1 1 auto; min-width: 0; }
+.cc-f-nom {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.94rem;
+  color: var(--blanc);
+  line-height: 1.35;
+}
+.cc-f-duree { display: block; font-size: 0.76rem; color: var(--gris); margin-top: 0.15rem; }
+.cc-f-prix {
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--or-pale);
+  white-space: nowrap;
+}
+
+.cc-libre { margin-top: 1rem; }
+
+/* ─── Modes ─────────────────────────────────────────────── */
+.cc-modes { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.cc-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.95rem;
+  border: 1px solid rgba(184, 132, 58, 0.26);
+  border-radius: 999px;
+  font-size: 0.84rem;
+  color: var(--beige-cl);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.cc-radio input { accent-color: var(--or); }
+.cc-radio:has(input:checked) {
+  border-color: var(--or-cl);
+  background: rgba(184, 132, 58, 0.12);
+  color: var(--blanc);
+}
+
+/* ─── Cases à cocher ────────────────────────────────────── */
+.cc-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--beige-cl);
+  cursor: pointer;
+}
+.cc-check input { margin-top: 0.2rem; accent-color: var(--or); flex: 0 0 auto; }
+
+.cc-pot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.cc-erreur {
+  display: none;
+  margin: 1.2rem 0 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(201, 106, 90, 0.45);
+  border-radius: 12px;
+  background: rgba(201, 106, 90, 0.1);
+  color: #f0c4bb;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.cc-erreur.cc-on { display: block; }
+
+.cc-legal {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--gris);
+  text-align: center;
+}
+.cc-legal a { color: var(--or-cl); }
+
+/* ─── Aperçu de la carte ────────────────────────────────── */
+.cc-apercu-col { position: sticky; top: 100px; }
+@media (max-width: 900px) { .cc-apercu-col { position: static; } }
+
+.cc-apercu-titre {
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--or-cl);
+  text-align: center;
+  margin-bottom: 0.9rem;
+}
+.cc-carte {
+  aspect-ratio: 5 / 7;
+  padding: 10px;
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(184, 132, 58, 0.24), transparent 60%),
+    linear-gradient(165deg, #241a12 0%, #140f0a 60%, #0d0a07 100%);
+  border: 1px solid rgba(184, 132, 58, 0.45);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), var(--shadow-gold);
+}
+.cc-carte-cadre {
+  height: 100%;
+  border: 1px solid rgba(184, 132, 58, 0.32);
+  border-radius: 8px;
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.35rem;
+}
+.cc-carte-lune { font-size: 1.5rem; color: var(--or-pale); line-height: 1; }
+.cc-carte-marque {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  color: var(--or-pale);
+  letter-spacing: 0.03em;
+}
+.cc-carte-sous {
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--beige);
+}
+.cc-carte-sep {
+  width: 54px; height: 1px;
+  margin: 0.7rem 0;
+  background: linear-gradient(90deg, transparent, var(--or), transparent);
+}
+.cc-carte-pour { font-size: 0.82rem; color: var(--beige-cl); }
+.cc-carte-pour strong { color: var(--blanc); font-weight: 500; font-size: 1rem; }
+.cc-carte-formule {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: var(--or-pale);
+  margin: 0.4rem 0;
+}
+.cc-carte-mot {
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: var(--beige-cl);
+  font-style: italic;
+  max-width: 26ch;
+  overflow-wrap: anywhere;
+}
+.cc-carte-de { font-size: 0.76rem; color: var(--beige); }
+.cc-carte-de strong { color: var(--blanc); font-weight: 500; }
+.cc-carte-val {
+  margin-top: 0.5rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+.cc-apercu-note {
+  margin-top: 0.9rem;
+  font-size: 0.74rem;
+  line-height: 1.6;
+  color: var(--gris);
+  text-align: center;
+}
+
+/* ─── Confirmation ──────────────────────────────────────── */
+.cc-merci {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 3rem 1.8rem;
+  text-align: center;
+  border: 1px solid rgba(184, 132, 58, 0.35);
+  border-radius: 18px;
+  background: linear-gradient(165deg, rgba(46, 34, 24, 0.55), rgba(14, 11, 8, 0.55));
+}
+.cc-merci-ico {
+  display: block;
+  font-size: 2.4rem;
+  color: var(--or-pale);
+  margin-bottom: 0.8rem;
+}
+.cc-merci h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--blanc);
+  margin-bottom: 0.9rem;
+}
+.cc-merci p { font-size: 0.92rem; line-height: 1.75; color: var(--beige-cl); margin-bottom: 1rem; }
+.cc-merci-spam {
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(184, 132, 58, 0.3);
+  border-radius: 12px;
+  background: rgba(184, 132, 58, 0.08);
+  font-size: 0.82rem !important;
+  text-align: left;
+}
+.cc-merci-spam strong { color: var(--or-pale); font-weight: 500; }
+
+/* ─── FAQ ───────────────────────────────────────────────── */
+.cc-faq { padding: var(--section-pad) 0; background: var(--noir-2); }
+.cc-faq details {
+  border-bottom: 1px solid rgba(184, 132, 58, 0.16);
+  padding: 1.1rem 0;
+}
+.cc-faq summary {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  color: var(--blanc);
+  list-style: none;
+  position: relative;
+  padding-right: 2rem;
+}
+.cc-faq summary::-webkit-details-marker { display: none; }
+.cc-faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 0; top: 50%;
+  transform: translateY(-50%);
+  color: var(--or-cl);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+.cc-faq details[open] summary::after { content: '−'; }
+.cc-faq details p {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--beige-cl);
+}
+
+@media (max-width: 560px) {
+  .cc-formule { padding: 0.75rem 0.8rem; gap: 0.6rem; }
+  .cc-f-prix { font-size: 0.95rem; }
+  .cc-carte-cadre { padding: 1.2rem 0.9rem; }
+}
