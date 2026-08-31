@@ -472,6 +472,25 @@ body.rd-lock { overflow: hidden; }
 .rd-cta:hover, .rd-cta:visited { color: #241706; }
 .rd-cta:hover { filter: brightness(1.12); transform: translateY(-2px); }
 
+/* ─── Encadré « regardez dans vos indésirables » ────────── */
+.rd-spam {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  max-width: 400px;
+  margin: 1.2rem auto 0;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(184, 132, 58, 0.34);
+  border-radius: 12px;
+  background: rgba(184, 132, 58, 0.09);
+  text-align: left;
+  font-size: 0.79rem;
+  line-height: 1.6;
+  color: var(--rd-beige);
+}
+.rd-spam strong { color: var(--rd-or-pale); font-weight: 500; }
+.rd-spam-ico { flex: 0 0 auto; font-size: 1.1rem; line-height: 1.4; }
+
 .rd-mailnote {
   margin-top: 1rem;
   font-size: 0.76rem;
