@@ -1,6 +1,6 @@
 /* Cache hors ligne du Registre. La version change a chaque livraison :
    le telephone telecharge alors la nouvelle et jette l'ancienne, tout seul. */
-const VERSION = "registre-20260909-0708";
+const VERSION = "registre-20260909-0740";
 const FICHIERS = ["./", "./index.html", "./icone-192.png", "./icone-512.png", "./manifest.webmanifest"];
 
 self.addEventListener("install", (e) => {
