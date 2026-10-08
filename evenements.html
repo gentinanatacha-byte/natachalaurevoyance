@@ -1,6 +1,6 @@
 ---
-title: "Voyance & Événements Nice — Cartomancienne Côte d'Azur | Natacha Laure"
-description: "Natacha Laure, cartomancienne à Nice, anime vos événements privés et corporate sur la Côte d'Azur. EVJF, anniversaires, séminaires — Monaco, Antibes, Cannes. Sur devis."
+title: "Animation voyance & tarot pour vos événements | Nice, Cannes, Monaco"
+description: "Cartomancienne à Nice, j'anime vos soirées d'entreprise, mariages et événements privés au Tarot de Marseille. Dès 450 € tout compris, de Cannes à Monaco."
 permalink: /evenements/
 ---
 <!DOCTYPE html>
@@ -8,337 +8,546 @@ permalink: /evenements/
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voyance & Événements Nice — Cartomancienne Côte d'Azur | Natacha Laure</title>
-<meta name="description" content="Natacha Laure, cartomancienne à Nice, anime vos événements privés et corporate sur la Côte d'Azur. EVJF, anniversaires, séminaires — Monaco, Antibes, Cannes. Sur devis.">
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
 <link rel="canonical" href="https://natachalaurevoyance.fr/evenements/">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://natachalaurevoyance.fr/evenements/">
-<meta property="og:title" content="Voyance & Événements Nice — Cartomancienne Côte d'Azur | Natacha Laure">
-<meta property="og:description" content="Cartomancienne à Nice pour vos événements privés et corporate. EVJF, anniversaires, séminaires sur la Côte d'Azur. Sur devis.">
-<meta property="og:image" content="https://natachalaurevoyance.fr/assets/images/natacha-portrait.webp">
 <meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Natacha Laure Voyance">
+<meta property="og:url" content="https://natachalaurevoyance.fr/evenements/">
+<meta property="og:title" content="Animation voyance & tarot pour vos événements · Nice, Cannes, Monaco">
+<meta property="og:description" content="Une animation originale et élégante pour vos soirées d'entreprise, mariages et événements privés. Mini-consultations au Tarot de Marseille, dès 450 € tout compris.">
+<meta property="og:image" content="https://natachalaurevoyance.fr/assets/images/evenements/natacha-animation.jpg">
+<meta property="og:image:alt" content="Natacha Laure, cartomancienne à Nice, en animation lors d'une réception">
+<meta name="twitter:card" content="summary_large_image">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- Données structurées événements -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Natacha Laure - Voyance & Événements Nice",
-  "image": "https://natachalaurevoyance.fr/assets/images/natacha-portrait.webp",
-  "telephone": "+33627815276",
-  "email": "natachalaure.voyance@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Nice",
-    "addressRegion": "Alpes-Maritimes",
-    "addressCountry": "FR"
-  },
-  "areaServed": ["Nice", "Monaco", "Menton", "Antibes", "Cannes", "Cagnes-sur-Mer", "Saint-Laurent-du-Var", "Villefranche-sur-Mer", "Beaulieu-sur-Mer", "Villeneuve-Loubet"],
-  "description": "Cartomancienne à Nice pour vos événements privés et corporate sur la Côte d'Azur. EVJF, anniversaires, séminaires, team building. Déplacement inclus dans un rayon de 15 km.",
-  "priceRange": "Sur devis"
-}
-</script>
-
 <link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="stylesheet" href="/assets/css/evenements.css">
 </head>
 <body>
 
-<!-- Canvas étoiles -->
+<!-- Canvas étoiles (commun à tout le site) -->
 <canvas id="stars-canvas" aria-hidden="true"></canvas>
 <div class="cursor-dot" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>
 
-<!-- NAVIGATION -->
-<header class="site-header">
-  <a href="/" class="brand">
-    <img src="/assets/images/logo-natacha-laure-transparent.webp" alt="" class="brand-logo" width="48" height="48">
-    <span class="brand-text">
-      <span class="brand-name">Natacha Laure</span>
-      <span class="brand-tagline">Voyante · Médium · Nice</span>
-    </span>
-  </a>
-  <nav class="main-nav" aria-label="Navigation principale">
-    <ul>
-      <li><a href="/">Accueil</a></li>
-      <li><a href="/#a-propos">À propos</a></li>
-      <li><a href="/#services">Services</a></li>
-      <li><a href="/aurea/">Auréa</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/#faq">FAQ</a></li>
-      <li><a href="/carte-cadeau/">Carte cadeau</a></li>
-      <li><a href="/evenements/" class="nav-active">Événements</a></li>
-      <li><a href="/#contact" class="nav-cta">Rendez-vous</a></li>
-    </ul>
-  </nav>
-  <button class="nav-burger" id="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</header>
+{% include header.html %}
 
-<!-- HERO ÉVÉNEMENTS -->
-<section class="hero" id="accueil">
-  <div class="hero-bg" aria-hidden="true">
-    <img src="/assets/images/hero-cartes-noir-or.webp" alt="" loading="eager" fetchpriority="high">
+<!-- ═══════════ BANDEAU ═══════════ -->
+<section class="ev-hero">
+  <div class="ev-hero-bg">
+    <picture>
+      <source srcset="/assets/images/evenements/evenements-bandeau.webp" type="image/webp">
+      <img src="/assets/images/evenements/evenements-bandeau.jpg"
+           alt="Table de cartomancie dressée aux chandelles lors d'une réception élégante sur la Côte d'Azur"
+           width="1920" height="799" fetchpriority="high">
+    </picture>
   </div>
-  <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="hero-aura" aria-hidden="true"></div>
-  <div class="container hero-inner">
-    <img src="/assets/images/logo-natacha-laure-transparent.webp" alt="Natacha Laure Voyance - Cartomancienne Nice" class="hero-logo reveal" data-delay="50" width="500" height="500" fetchpriority="high">
-    <p class="eyebrow reveal" data-delay="200">Cartomancienne à Nice · Côte d'Azur</p>
-    <h1 class="hero-tagline reveal" data-delay="300">
-      <em>Voyance &amp; Événements</em>
-    </h1>
-    <p class="hero-lead reveal" data-delay="350">
-      Offrez à vos invités une expérience de cartomancie authentique et mémorable. EVJF, anniversaires, séminaires — je me déplace sur Nice et la Côte d'Azur dans un rayon de 15 km.
-    </p>
-    <div class="hero-badges reveal" data-delay="500">
-      <span class="badge">EVJF &amp; Anniversaires</span>
-      <span class="badge">Séminaires &amp; Corporate</span>
-      <span class="badge">Côte d'Azur · 15 km</span>
-      <span class="badge">Sur devis</span>
-    </div>
-    <div class="hero-ctas reveal" data-delay="650">
-      <a href="#contact" class="btn btn-gold">
-        <span>Demander un devis</span>
-      </a>
-      <a href="#formules" class="btn btn-ghost">
-        <span>Découvrir les formules</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- INTRO -->
-<section class="intro" id="apropos">
-  <div class="container intro-grid">
-    <div class="intro-visual reveal from-left">
-      <div class="intro-image">
-        <img src="/assets/images/about-mains-tarot.webp" alt="Cartomancienne Nice - Natacha Laure animation événement tarot" loading="lazy" width="600" height="600">
-      </div>
-      <div class="intro-frame" aria-hidden="true"></div>
-      <div class="intro-badge">
-        <strong>15 km</strong>
-        <span>autour de Nice</span>
-      </div>
-    </div>
-    <div class="intro-text reveal from-right">
-      <p class="eyebrow">Cartomancienne à Nice depuis 10 ans</p>
-      <h2 class="section-title">Une expérience <em>authentique et mémorable</em></h2>
-      <div class="gold-divider"></div>
-      <p>Vous organisez un événement sur la Côte d'Azur et cherchez une animation originale, élégante et qui marque les esprits ? La cartomancie en événement offre à vos invités un moment d'introspection sincère — loin des clichés, ancré dans une pratique authentique du Tarot de Marseille.</p>
-      <p>Voyante et cartomancienne à <strong>Nice</strong> depuis plus de 10 ans, j'interviens lors de vos soirées privées, EVJF, anniversaires et événements corporate à <strong>Nice, Monaco, Antibes, Cannes, Cagnes-sur-Mer, Villefranche-sur-Mer, Menton</strong> et dans toute la région Côte d'Azur dans un rayon de 15 km. Le cadre est festif, le don reste entier.</p>
-      <a href="#contact" class="btn btn-gold" style="margin-top:1.5rem">
-        <span>Demander un devis</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- FORMULES -->
-<section class="specialities" id="formules">
-  <div class="container text-center">
-    <p class="eyebrow reveal">Ce que je propose</p>
-    <h2 class="section-title reveal" data-delay="100">Mes <em>formules événements</em></h2>
-    <div class="gold-divider center reveal" data-delay="150"></div>
-
-    <div class="cards-grid">
-      <article class="card reveal" data-delay="100">
-        <span class="card-icon">🎴</span>
-        <h3>Tirages individuels</h3>
-        <p>Je réalise des mini-consultations individuelles pour chaque invité qui le souhaite — 10 à 15 minutes par personne, un tirage ciblé et une lecture sincère. Idéal pour les soirées privées et les EVJF.</p>
-      </article>
-      <article class="card reveal" data-delay="200">
-        <span class="card-icon">✨</span>
-        <h3>Animation de groupe</h3>
-        <p>Initiation collective au Tarot de Marseille, découverte des arcanes, lecture partagée autour d'une question commune. Une expérience conviviale et enrichissante pour un groupe de 5 à 20 personnes.</p>
-      </article>
-      <article class="card reveal" data-delay="300">
-        <span class="card-icon">💼</span>
-        <h3>Événements corporate</h3>
-        <p>Séminaires, team building, soirées d'entreprise — offrez à vos collaborateurs une expérience originale qui sort des sentiers battus. Toujours dans le respect du don et de chaque participant.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- VILLES -->
-<section class="consult-modes" id="zones">
+  <div class="ev-hero-overlay"></div>
   <div class="container">
-    <p class="eyebrow text-center reveal">Zone d'intervention</p>
-    <h2 class="section-title text-center reveal" data-delay="100">Nice et toute la <em>Côte d'Azur</em></h2>
-    <div class="gold-divider center reveal" data-delay="150"></div>
-    <p class="text-center reveal" data-delay="200" style="max-width:700px;margin:0 auto 3rem;">
-      Je me déplace à votre domicile, lieu de réception ou salle d'événement dans un rayon de 15 km autour de Nice — couvrant l'ensemble du corridor Monaco–Antibes.
-    </p>
-    <div class="cards-grid">
-      <article class="card reveal" data-delay="100">
-        <span class="card-icon">📍</span>
-        <h3>Nice &amp; agglomération</h3>
-        <p>Nice, Saint-Laurent-du-Var, Cagnes-sur-Mer, Villeneuve-Loubet — votre domicile, villa, hôtel ou salle de réception.</p>
-      </article>
-      <article class="card reveal" data-delay="200">
-        <span class="card-icon">🎰</span>
-        <h3>Monaco &amp; Est</h3>
-        <p>Monaco, Menton, Beaulieu-sur-Mer, Villefranche-sur-Mer, Èze — pour vos événements les plus prestigieux sur la Riviera.</p>
-      </article>
-      <article class="card reveal" data-delay="300">
-        <span class="card-icon">🌊</span>
-        <h3>Antibes &amp; Ouest</h3>
-        <p>Antibes, Juan-les-Pins, Cannes — pour vos soirées privées, EVJF ou événements corporate sur la Côte d'Azur.</p>
-      </article>
+    <div class="ev-hero-inner">
+      <p class="eyebrow">Animations voyance · Événements &amp; Entreprises</p>
+      <p class="ev-baseline">L'art de la voyance au service de vos événements</p>
+      <h1>Animation voyance et tarot<br><em>pour vos événements</em><br>Nice, Cannes, Monaco</h1>
+      <p class="ev-hero-lead">Offrez à vos invités une expérience élégante, originale et inoubliable.
+        Des mini-consultations individuelles au Tarot de Marseille, conduites avec discrétion,
+        qui créent du lien et laissent une empreinte bien après la soirée.</p>
+      <a href="#devis" class="btn btn-gold"><span>Demander un devis</span></a>
+    </div>
+    <div class="ev-contextes">
+      <div><b>Soirées</b>d'entreprise et CSE</div>
+      <div><b>Événements</b>privés et anniversaires</div>
+      <div><b>Mariages</b>et EVJF</div>
+      <div><b>Lancements</b>de produits, salons</div>
+      <div><b>Hôtels</b>casinos, lieux d'exception</div>
     </div>
   </div>
 </section>
 
-<!-- FAQ ÉVÉNEMENTS -->
-<section class="faq-section" id="faq">
+<!-- ═══════════ FORMULES ═══════════ -->
+<section class="ev-section" id="formules">
   <div class="container">
-    <p class="eyebrow text-center reveal">Vos questions</p>
-    <h2 class="section-title text-center reveal" data-delay="100">Questions <em>fréquentes</em></h2>
-    <div class="gold-divider center reveal" data-delay="150"></div>
+    <div class="ev-intro">
+      <p class="eyebrow text-center reveal">Des prestations sur mesure</p>
+      <h2 class="section-title text-center reveal" data-delay="100">Des formules adaptées à <em>vos événements</em></h2>
+      <p class="reveal" data-delay="150">Que vous souhaitiez une touche de mystère ou une expérience complète,
+        l'animation s'adapte à votre public, à votre thème et à la durée de votre soirée.</p>
+    </div>
 
+    <div class="ev-formules">
+      <article class="ev-formule reveal">
+        <div class="ev-formule-img">
+          <picture>
+            <source srcset="/assets/images/evenements/formule-decouverte.webp" type="image/webp">
+            <img src="/assets/images/evenements/formule-decouverte.jpg"
+                 alt="Coupes de champagne et jeu de tarot posé sur une table lors d'un cocktail d'entreprise"
+                 width="1000" height="666" loading="lazy">
+          </picture>
+        </div>
+        <div class="ev-formule-body">
+          <h3>Animation Découverte</h3>
+          <p class="ev-formule-duree">2 heures</p>
+          <p class="ev-formule-prix">à partir de 450 €<small>TOUT COMPRIS · DÉPLACEMENT INCLUS</small></p>
+          <p>Des mini-consultations individuelles de 5 à 10 minutes qui circulent parmi vos invités.
+             Le format idéal pour un cocktail, une soirée d'entreprise ou un anniversaire :
+             chacun repart avec son moment, sans que la soirée s'arrête.</p>
+          <a href="#devis" class="btn btn-ghost"><span>Demander un devis</span></a>
+        </div>
+      </article>
+
+      <article class="ev-formule reveal" data-delay="100">
+        <div class="ev-formule-img">
+          <picture>
+            <source srcset="/assets/images/evenements/formule-soiree.webp" type="image/webp">
+            <img src="/assets/images/evenements/formule-soiree.jpg"
+                 alt="Coin salon isolé avec deux fauteuils de velours pour des consultations de tarot pendant une réception"
+                 width="1000" height="666" loading="lazy">
+          </picture>
+        </div>
+        <div class="ev-formule-body">
+          <h3>Animation Soirée</h3>
+          <p class="ev-formule-duree">3 à 4 heures</p>
+          <p class="ev-formule-prix">Sur devis<small>SELON DURÉE, LIEU ET NOMBRE D'INVITÉS</small></p>
+          <p>Des consultations plus longues, dans un espace dédié et à l'écart. Vos invités
+             viennent à leur rythme, s'installent, prennent le temps. L'animation devient
+             un véritable rendez-vous dans la soirée.</p>
+          <a href="#devis" class="btn btn-ghost"><span>Demander un devis</span></a>
+        </div>
+      </article>
+
+      <article class="ev-formule reveal" data-delay="200">
+        <div class="ev-formule-img">
+          <picture>
+            <source srcset="/assets/images/evenements/formule-premium.webp" type="image/webp">
+            <img src="/assets/images/evenements/formule-premium.jpg"
+                 alt="Espace de voyance scénographié aux chandelles, velours et miroir ancien pour une soirée à thème"
+                 width="1000" height="666" loading="lazy">
+          </picture>
+        </div>
+        <div class="ev-formule-body">
+          <h3>Événement Premium</h3>
+          <p class="ev-formule-duree">Sur mesure</p>
+          <p class="ev-formule-prix">Sur devis<small>SCÉNOGRAPHIE ET OPTIONS COMPRISES</small></p>
+          <p>Soirée complète avec mise en scène de l'espace : étoffes, bougies, décor accordé
+             à votre thème. Tenue adaptée sur demande, supports personnalisés, et la possibilité
+             de prévoir du contenu pour vos réseaux sociaux.</p>
+          <a href="#devis" class="btn btn-ghost"><span>Demander un devis</span></a>
+        </div>
+      </article>
+    </div>
+
+    <p class="ev-note reveal">
+      <b>Déplacement inclus de Cannes à Monaco</b> — Nice, Antibes, Juan-les-Pins, Cagnes-sur-Mer,
+      Saint-Laurent-du-Var, Villeneuve-Loubet, Mougins, Villefranche-sur-Mer, Beaulieu-sur-Mer, Èze, Menton.
+      Au-delà, et partout en France, sur devis.<br>
+      Option : <b>tenue accordée au thème de votre soirée, 50 €</b>. TVA non applicable, article 293 B du CGI.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ REPÈRES ═══════════ -->
+<div class="container">
+  <div class="ev-reperes reveal">
+    <div><b>Originale</b><span>Une expérience que vos invités n'ont jamais vécue en soirée</span></div>
+    <div><b>Clé en main</b><span>Aucune logistique de votre côté, j'apporte tout</span></div>
+    <div><b>Adaptable</b><span>À tous vos publics, tous vos thèmes, tous vos formats</span></div>
+    <div><b>Fédératrice</b><span>Les conversations démarrent toutes seules autour de la table</span></div>
+  </div>
+</div>
+
+<!-- ═══════════ RÉCIT ═══════════ -->
+<section class="ev-section ev-section--alt">
+  <div class="container">
+    <div class="ev-recit">
+      <div>
+        <p class="eyebrow reveal">Bien plus qu'une animation</p>
+        <h2 class="section-title reveal" data-delay="100">Un moment unique qui <em>marque les esprits</em></h2>
+        <p class="reveal" data-delay="150">Une animation voyance ne distrait pas vos invités : elle les rassemble.
+          Chacun attend son tour, compare, raconte. Les conversations démarrent toutes seules,
+          y compris entre des gens qui ne se seraient jamais adressé la parole.</p>
+        <p class="reveal" data-delay="200">Je travaille au Tarot de Marseille, avec une règle unique :
+          la bienveillance. Pas de prédiction brutale, pas de mise en scène inquiétante.
+          Un moment juste, personnel, et qu'on se raconte encore le lendemain.</p>
+        <p class="reveal" data-delay="250">Cartomancienne et tarologue installée à Nice, j'interviens sur
+          toute la Côte d'Azur, aussi bien pour des soirées privées que pour des entreprises,
+          des hôtels et des agences événementielles.</p>
+        <p class="ev-signature reveal" data-delay="300">Natacha Laure</p>
+      </div>
+      <div class="ev-bande reveal" data-delay="150">
+        <figure class="ev-vedette">
+          <picture>
+            <source srcset="/assets/images/evenements/natacha-animation.webp" type="image/webp">
+            <img src="/assets/images/evenements/natacha-animation.jpg"
+                 alt="Natacha Laure, cartomancienne à Nice, en pleine animation tarot auprès d'une invitée lors d'une réception en extérieur"
+                 width="1000" height="1333" loading="lazy">
+          </picture>
+          <figcaption>Natacha Laure, en animation</figcaption>
+        </figure>
+        <figure class="ev-appoint">
+          <picture>
+            <source srcset="/assets/images/evenements/evenements-espace.webp" type="image/webp">
+            <img src="/assets/images/evenements/evenements-espace.jpg"
+                 alt="Espace de consultation de tarot aménagé dans un salon d'hôtel, bougies et paravent"
+                 width="900" height="1200" loading="lazy">
+          </picture>
+        </figure>
+        <figure class="ev-appoint">
+          <picture>
+            <source srcset="/assets/images/evenements/evenements-soiree.webp" type="image/webp">
+            <img src="/assets/images/evenements/evenements-soiree.jpg"
+                 alt="Invités en tenue de soirée lors d'une réception privée animée par une cartomancienne"
+                 width="900" height="1200" loading="lazy">
+          </picture>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECTEURS ═══════════ -->
+<section class="ev-section">
+  <div class="container">
+    <div class="ev-intro">
+      <h2 class="section-title text-center reveal">J'interviens <em>pour</em></h2>
+      <p class="reveal" data-delay="100">Des contextes variés, une même exigence :
+        une animation élégante, discrète et sur mesure.</p>
+    </div>
+    <div class="ev-secteurs reveal">
+      <div>Casinos</div>
+      <div>Hôtels</div>
+      <div>Entreprises &amp; CSE</div>
+      <div>Agences événementielles</div>
+      <div>Wedding planners</div>
+      <div>Particuliers</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="ev-section ev-section--alt faq-section">
+  <div class="container">
+    <div class="ev-intro">
+      <p class="eyebrow text-center reveal">Vos questions</p>
+      <h2 class="section-title text-center reveal" data-delay="100">Ce que les <em>organisateurs</em> me demandent</h2>
+    </div>
     <div class="faq-list">
-      <details class="faq-item reveal">
-        <summary>
-          <span>Comment se déroule une animation cartomancie lors d'un événement ?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </summary>
-        <div class="faq-answer">
-          <p>Je m'installe dans un espace dédié de votre lieu de réception (un coin salon, une table à l'écart…) et reçois vos invités en mini-consultations individuelles de 10 à 15 minutes. Chaque tirage est personnalisé et confidentiel. Pour les animations de groupe, je propose une initiation collective adaptée à votre programme.</p>
-        </div>
+      <details class="faq-item reveal" open>
+        <summary>Combien de temps dure une mini-consultation ?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>Entre 5 et 10 minutes en format Découverte, davantage en format Soirée.
+          Le rythme se cale sur le nombre d'invités et sur la durée de votre événement :
+          nous en parlons ensemble avant de fixer le format, pour que personne ne reste sur sa faim.</p></div>
       </details>
-
-      <details class="faq-item reveal">
-        <summary>
-          <span>Combien de personnes pouvez-vous recevoir lors d'un événement ?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </summary>
-        <div class="faq-answer">
-          <p>Pour les tirages individuels, je peux accompagner entre 8 et 15 personnes par heure selon la durée des consultations. Pour les animations de groupe, une session convient à un groupe de 5 à 20 participants. Le devis est établi selon la durée souhaitée et le nombre de participants.</p>
-        </div>
+      <details class="faq-item reveal" data-delay="60">
+        <summary>De quoi avez-vous besoin sur place ?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>D'un coin un peu à l'écart, d'une table et de deux chaises, et d'une
+          lumière douce. J'apporte le reste : jeux, étoffes, bougies et petite décoration.
+          Si votre lieu impose des contraintes particulières, dites-le-moi, je m'adapte.</p></div>
       </details>
-
-      <details class="faq-item reveal">
-        <summary>
-          <span>La voyance en événement est-elle sérieuse ou juste une animation ?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </summary>
-        <div class="faq-answer">
-          <p>C'est la question clé — et c'est exactement ce qui me différencie. Je suis cartomancienne depuis plus de 10 ans, issue d'une lignée de pratiquantes. Même lors d'un événement festif, chaque tirage est réel, sincère et respectueux. Le cadre est convivial, la pratique reste entière. Je ne fais pas de "voyance de foire" — chaque invité repart avec une lecture authentique.</p>
-        </div>
+      <details class="faq-item reveal" data-delay="120">
+        <summary>Intervenez-vous en dehors de Nice ?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>Oui. Le déplacement est inclus dans le tarif de Cannes à Monaco :
+          Antibes, Juan-les-Pins, Cagnes-sur-Mer, Saint-Laurent-du-Var, Villeneuve-Loubet,
+          Mougins, Villefranche-sur-Mer, Beaulieu-sur-Mer, Èze, Menton. Au-delà et partout
+          en France, c'est possible, sur devis.</p></div>
       </details>
-
-      <details class="faq-item reveal">
-        <summary>
-          <span>Quel est le tarif pour une animation événement ?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </summary>
-        <div class="faq-answer">
-          <p>Le tarif est établi sur devis selon la durée de l'animation, le nombre de participants et le lieu. Le déplacement est inclus dans un rayon de 15 km autour de Nice. Contactez-moi avec les détails de votre événement pour recevoir un devis personnalisé sous 24h.</p>
-        </div>
+      <details class="faq-item reveal" data-delay="180">
+        <summary>L'animation convient-elle à un public d'entreprise ?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>Tout à fait, et c'est un cadre que j'aime particulièrement.
+          L'approche y est volontairement ludique et bienveillante : on parle d'intuition,
+          de chemin, d'élan — jamais de prédiction brutale. Vos collaborateurs repartent
+          avec un bon moment, pas avec une inquiétude.</p></div>
+      </details>
+      <details class="faq-item reveal" data-delay="240">
+        <summary>Pouvez-vous adapter votre tenue au thème de la soirée ?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>Oui : soirée Gatsby, Halloween, bohème, cabaret, vénitienne…
+          La tenue accordée à votre thème est une option à 50 €. Dites-moi l'univers de
+          votre événement et je vous propose quelque chose.</p></div>
+      </details>
+      <details class="faq-item reveal" data-delay="300">
+        <summary>Comment se passe la réservation ?<span class="faq-icon" aria-hidden="true"></span></summary>
+        <div class="faq-answer"><p>Vous remplissez le formulaire ci-dessous, je vous réponds sous 24 heures
+          avec un devis personnalisé. La date est bloquée à la signature du devis.
+          TVA non applicable, article 293 B du Code général des impôts.</p></div>
       </details>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
+<!-- ═══════════ DEVIS ═══════════ -->
+<section class="ev-section" id="devis">
   <div class="container">
-    <p class="eyebrow text-center reveal">Votre événement</p>
-    <h2 class="section-title text-center reveal" data-delay="100">Demandez votre <em>devis personnalisé</em></h2>
-    <div class="gold-divider center reveal" data-delay="150"></div>
-    <p class="contact-lead text-center reveal" data-delay="200">Décrivez votre événement (date, lieu, nombre de participants, format souhaité) et je vous réponds sous 24h avec un devis détaillé.</p>
-
-    <div class="contact-cards reveal" data-delay="300">
-      <a href="tel:+33627815276" class="contact-card">
-        <span class="contact-icon">📞</span>
-        <span class="contact-label">Téléphone</span>
-        <span class="contact-value">+33 (0)6 27 81 52 76</span>
-      </a>
-      <a href="mailto:natachalaure.voyance@gmail.com" class="contact-card">
-        <span class="contact-icon">✉</span>
-        <span class="contact-label">Email</span>
-        <span class="contact-value">Écrivez-moi</span>
-      </a>
-      <a href="https://wa.me/33627815276" class="contact-card" target="_blank" rel="noopener">
-        <span class="contact-icon">💬</span>
-        <span class="contact-label">WhatsApp</span>
-        <span class="contact-value">Message direct</span>
-      </a>
+    <div class="ev-intro">
+      <p class="eyebrow text-center reveal">Parlons de votre événement</p>
+      <h2 class="section-title text-center reveal" data-delay="100">Demander un <em>devis</em></h2>
+      <p class="reveal" data-delay="150">Quelques informations et je reviens vers vous sous 24 heures
+        avec une proposition adaptée à votre soirée.</p>
     </div>
 
-    <p class="contact-hours reveal" data-delay="500">
-      Réponse sous 24h · Devis gratuit et sans engagement.
-    </p>
+    <div class="ev-devis reveal">
+      <form class="contact-form" id="devis-form" action="https://formspree.io/f/mvzerbkz" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Demande de devis — Événement">
+        <input type="hidden" name="origine" value="Page Événements & Entreprises">
+
+        <div class="ev-grille">
+          <label class="form-field">
+            <span class="form-label">Votre nom *</span>
+            <input type="text" name="nom" id="dv-nom" required autocomplete="name">
+          </label>
+          <label class="form-field">
+            <span class="form-label">Société, agence ou organisation</span>
+            <input type="text" name="societe" autocomplete="organization">
+          </label>
+
+          <label class="form-field">
+            <span class="form-label">Email *</span>
+            <input type="email" name="email" id="dv-email" required autocomplete="email">
+          </label>
+          <label class="form-field">
+            <span class="form-label">Téléphone</span>
+            <input type="tel" name="telephone" autocomplete="tel">
+          </label>
+
+          <label class="form-field">
+            <span class="form-label">Type d'événement *</span>
+            <select name="type" id="dv-type" required>
+              <option value="">Choisissez…</option>
+              <option>Soirée d'entreprise</option>
+              <option>Comité d'entreprise / CSE</option>
+              <option>Lancement de produit, salon</option>
+              <option>Mariage</option>
+              <option>EVJF / EVJG</option>
+              <option>Anniversaire</option>
+              <option>Soirée privée</option>
+              <option>Hôtel, casino, lieu d'exception</option>
+              <option>Autre</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span class="form-label">Formule envisagée</span>
+            <select name="formule">
+              <option value="">Je ne sais pas encore</option>
+              <option>Animation Découverte — 2 h</option>
+              <option>Animation Soirée — 3 à 4 h</option>
+              <option>Événement Premium — sur mesure</option>
+            </select>
+          </label>
+
+          <label class="form-field">
+            <span class="form-label">Date de l'événement</span>
+            <input type="date" name="date">
+          </label>
+          <label class="form-field">
+            <span class="form-label">Horaires souhaités</span>
+            <input type="text" name="horaires" placeholder="Par exemple : 20 h – 23 h">
+          </label>
+
+          <label class="form-field">
+            <span class="form-label">Lieu *</span>
+            <input type="text" name="lieu" id="dv-lieu" required placeholder="Ville, et nom du lieu si vous le connaissez">
+          </label>
+          <label class="form-field">
+            <span class="form-label">Nombre d'invités approximatif</span>
+            <input type="text" name="invites" placeholder="Par exemple : 60">
+          </label>
+
+          <label class="form-field ev-large">
+            <span class="form-label">Thème ou ambiance de la soirée</span>
+            <input type="text" name="theme" placeholder="Gatsby, bohème, Halloween, vénitienne, aucun thème précis…">
+          </label>
+
+          <label class="form-field ev-large">
+            <span class="form-label">Votre projet en quelques mots</span>
+            <textarea name="message" rows="5" placeholder="Ce que vous imaginez, vos contraintes de lieu ou d'horaires, vos questions…"></textarea>
+          </label>
+
+          <label class="form-field ev-pot" aria-hidden="true">
+            <span class="form-label">Ne pas remplir</span>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          </label>
+        </div>
+
+        <p class="form-consent">
+          <small>Vos informations restent strictement confidentielles et ne servent qu'à établir
+          votre devis. <a href="/confidentialite/">Politique de confidentialité</a></small>
+        </p>
+
+        <button type="submit" class="btn btn-gold btn-block btn-form">
+          <span>Envoyer ma demande</span>
+        </button>
+      </form>
+      <div class="ev-msg" id="dv-msg" role="status"></div>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <span class="brand-name">Natacha Laure</span>
-        <span class="brand-tagline">Voyante · Médium · Nice</span>
-        <p>Cartomancienne à Nice pour vos événements privés et corporate sur la Côte d'Azur. Déplacement inclus dans un rayon de 15 km.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/#services">Services</a></li>
-          <li><a href="/aurea/">Auréa · l'application</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/evenements/">Événements</a></li>
-          <li><a href="/#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Zones</h4>
-        <ul>
-          <li>Nice &amp; agglomération</li>
-          <li>Monaco &amp; Menton</li>
-          <li>Antibes &amp; Cannes</li>
-          <li>Villefranche · Beaulieu</li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+33627815276">+33 (0)6 27 81 52 76</a></li>
-          <li><a href="mailto:natachalaure.voyance@gmail.com">Me contacter par email</a></li>
-          <li><a href="https://wa.me/33627815276" target="_blank" rel="noopener">WhatsApp</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Natacha Laure Voyance · <a href="/">Retour à l'accueil</a> · <a href="/mentions-legales/">Mentions légales</a> · <a href="/confidentialite/">Confidentialité</a> · <a href="/cgv/">CGV</a> · <a href="/reglement-jeu/">Règlement du jeu</a> · <a href="/carte-cadeau/">Carte cadeau</a></p>
-    </div>
+<!-- ═══════════ BANDEAU FINAL ═══════════ -->
+<section class="ev-final">
+  <div class="ev-final-bg">
+    <picture>
+      <source srcset="/assets/images/evenements/evenements-bandeau-bas.webp" type="image/webp">
+      <img src="/assets/images/evenements/evenements-bandeau-bas.jpg"
+           alt="Croissant de lune au-dessus des collines et de la mer sur la Côte d'Azur"
+           width="1920" height="640" loading="lazy">
+    </picture>
   </div>
-</footer>
+  <div class="ev-final-overlay"></div>
+  <div class="container">
+    <h2>Créons ensemble un événement qui vous ressemble</h2>
+    <p>Réponse sous 24 heures · Devis personnalisé et gratuit</p>
+    <a href="#devis" class="btn btn-gold"><span>Demander un devis</span></a>
+  </div>
+</section>
 
+{% include footer.html %}
+
+<!-- Contact rapide, avec un message pré-rempli propre à cette page -->
 <div class="floating-actions" aria-label="Contacts rapides">
-  <a href="https://wa.me/33627815276?text=Bonjour%20Natacha%2C%20je%20souhaite%20un%20devis%20pour%20un%20événement"
-     class="float-btn float-whatsapp"
-     target="_blank"
-     rel="noopener"
-     aria-label="Me contacter sur WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-    </svg>
+  <a href="https://wa.me/33627815276?text=Bonjour%20Natacha%2C%20je%20souhaite%20un%20devis%20pour%20l%27animation%20d%27un%20%C3%A9v%C3%A9nement"
+     class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Demander un devis sur WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <span class="float-tooltip">WhatsApp</span>
+  </a>
+  <a href="https://www.instagram.com/natachalaure.voyance/" class="float-btn float-instagram"
+     target="_blank" rel="noopener" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    <span class="float-tooltip">Instagram</span>
   </a>
 </div>
 
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Service",
+      "@id":"https://natachalaurevoyance.fr/evenements/#service",
+      "name":"Animation voyance et tarot pour événements et entreprises",
+      "serviceType":"Animation événementielle de cartomancie et tarologie",
+      "description":"Mini-consultations individuelles au Tarot de Marseille pour soirées d'entreprise, mariages, EVJF, anniversaires et événements privés sur la Côte d'Azur.",
+      "url":"https://natachalaurevoyance.fr/evenements/",
+      "provider":{
+        "@type":"ProfessionalService",
+        "name":"Natacha Laure Voyance",
+        "description":"Voyante, cartomancienne et tarologue à Nice",
+        "url":"https://natachalaurevoyance.fr/",
+        "image":"https://natachalaurevoyance.fr/assets/images/evenements/natacha-animation.jpg",
+        "telephone":"+33627815276",
+        "email":"natachalaure.voyance@gmail.com",
+        "founder":{"@type":"Person","name":"Natacha Laure","jobTitle":"Cartomancienne et tarologue"},
+        "address":{"@type":"PostalAddress","addressLocality":"Nice","addressRegion":"Alpes-Maritimes","addressCountry":"FR"},
+        "priceRange":"€€"
+      },
+      "areaServed":[
+        {"@type":"City","name":"Nice"},{"@type":"City","name":"Cannes"},
+        {"@type":"City","name":"Antibes"},{"@type":"City","name":"Juan-les-Pins"},
+        {"@type":"City","name":"Cagnes-sur-Mer"},{"@type":"City","name":"Saint-Laurent-du-Var"},
+        {"@type":"City","name":"Villeneuve-Loubet"},{"@type":"City","name":"Mougins"},
+        {"@type":"City","name":"Villefranche-sur-Mer"},{"@type":"City","name":"Beaulieu-sur-Mer"},
+        {"@type":"City","name":"Èze"},{"@type":"City","name":"Menton"},
+        {"@type":"City","name":"Monaco"}
+      ],
+      "offers":{
+        "@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":"450",
+        "offerCount":"3","availability":"https://schema.org/InStock"
+      },
+      "hasOfferCatalog":{
+        "@type":"OfferCatalog",
+        "name":"Formules d'animation événementielle",
+        "itemListElement":[
+          {"@type":"Offer","name":"Animation Découverte — 2 heures","price":"450","priceCurrency":"EUR",
+           "description":"Mini-consultations individuelles de 5 à 10 minutes parmi vos invités. Déplacement inclus de Cannes à Monaco."},
+          {"@type":"Offer","name":"Animation Soirée — 3 à 4 heures",
+           "description":"Consultations plus longues dans un espace dédié et isolé."},
+          {"@type":"Offer","name":"Événement Premium — sur mesure",
+           "description":"Soirée complète avec scénographie de l'espace et tenue accordée au thème."}
+        ]
+      }
+    },
+    {
+      "@type":"FAQPage",
+      "@id":"https://natachalaurevoyance.fr/evenements/#faq",
+      "mainEntity":[
+        {"@type":"Question","name":"Combien de temps dure une mini-consultation ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Entre 5 et 10 minutes en format Découverte, davantage en format Soirée. Le rythme se cale sur le nombre d'invités et la durée de l'événement."}},
+        {"@type":"Question","name":"De quoi avez-vous besoin sur place ?",
+         "acceptedAnswer":{"@type":"Answer","text":"D'un coin un peu à l'écart, d'une table, de deux chaises et d'une lumière douce. Les jeux, étoffes, bougies et décoration sont apportés sur place."}},
+        {"@type":"Question","name":"Intervenez-vous en dehors de Nice ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui. Le déplacement est inclus dans le tarif de Cannes à Monaco : Antibes, Juan-les-Pins, Cagnes-sur-Mer, Saint-Laurent-du-Var, Villeneuve-Loubet, Mougins, Villefranche-sur-Mer, Beaulieu-sur-Mer, Èze, Menton. Au-delà et partout en France, sur devis."}},
+        {"@type":"Question","name":"L'animation convient-elle à un public d'entreprise ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui. L'approche y est volontairement ludique et bienveillante : on parle d'intuition, de chemin et d'élan, jamais de prédiction brutale."}},
+        {"@type":"Question","name":"Pouvez-vous adapter votre tenue au thème de la soirée ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui : Gatsby, Halloween, bohème, cabaret, vénitienne. La tenue accordée au thème est une option à 50 €."}},
+        {"@type":"Question","name":"Comment se passe la réservation ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Une demande via le formulaire de devis, une réponse sous 24 heures avec un devis personnalisé, et la date est bloquée à la signature. TVA non applicable, article 293 B du CGI."}}
+      ]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://natachalaurevoyance.fr/"},
+        {"@type":"ListItem","position":2,"name":"Événements & Entreprises","item":"https://natachalaurevoyance.fr/evenements/"}
+      ]
+    }
+  ]
+}
+</script>
+
 <script src="/assets/js/main.js" defer></script>
-<script src="/assets/js/roue.js" defer></script>
+<script>
+/* Envoi du formulaire de devis — même principe que le formulaire de contact
+   de l'accueil : Formspree en arrière-plan, sans quitter la page. */
+document.addEventListener('DOMContentLoaded', function () {
+  var f = document.getElementById('devis-form');
+  if (!f) return;
+  var msg = document.getElementById('dv-msg');
+  var btn = f.querySelector('button[type="submit"]');
+  var btnTxt = btn.querySelector('span');
+  var txtInit = btnTxt.textContent;
+
+  function dire(t, ko) { msg.textContent = t; msg.className = 'ev-msg vu' + (ko ? ' ko' : ''); }
+
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nom = document.getElementById('dv-nom').value.trim();
+    var email = document.getElementById('dv-email').value.trim();
+    var type = document.getElementById('dv-type').value;
+    var lieu = document.getElementById('dv-lieu').value.trim();
+
+    if (!nom || !email || !type || !lieu) {
+      dire('Merci de renseigner au moins votre nom, votre email, le type d\u2019événement et le lieu.', true); return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      dire('Cette adresse email ne semble pas valide.', true); return;
+    }
+
+    btnTxt.textContent = 'Envoi en cours…';
+    btn.disabled = true;
+
+    fetch(f.action, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error('envoi');
+        f.reset();
+        btnTxt.textContent = '✓ Demande envoyée !';
+        dire('Merci, votre demande est bien partie. Je vous réponds sous 24 heures.');
+        setTimeout(function () { btnTxt.textContent = txtInit; btn.disabled = false; }, 5000);
+      })
+      .catch(function () {
+        dire('L\u2019envoi n\u2019a pas abouti. Écrivez-moi à natachalaure.voyance@gmail.com ou au 06 27 81 52 76.', true);
+        btnTxt.textContent = txtInit;
+        btn.disabled = false;
+      });
+  });
+});
+</script>
 </body>
 </html>

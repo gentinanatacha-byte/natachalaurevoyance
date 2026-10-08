@@ -1,0 +1,142 @@
+/* ═══════════════════════════════════════════════════════════
+   NATACHA LAURE VOYANCE — PAGE ÉVÉNEMENTS & ENTREPRISES
+   Reprend les variables de styles.css (--or, --noir, etc.)
+   Tous les sélecteurs sont préfixés .ev- pour ne rien casser.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Bandeau d'en-tête ─── */
+.ev-hero{position:relative;min-height:clamp(540px,85vh,720px);display:flex;align-items:center;overflow:hidden}
+.ev-hero-bg{position:absolute;inset:0;z-index:0}
+.ev-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:72% center}
+.ev-hero-overlay{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(100deg,rgba(14,11,8,.97) 0%,rgba(14,11,8,.93) 32%,rgba(14,11,8,.58) 58%,rgba(14,11,8,.22) 100%)}
+.ev-hero .container{position:relative;z-index:2;padding-top:clamp(3rem,8vh,5rem);padding-bottom:clamp(2rem,5vh,3rem)}
+.ev-hero-inner{max-width:650px}
+.ev-baseline{font-family:var(--font-display);font-style:italic;color:var(--or-pale);
+  font-size:clamp(1rem,2vw,1.25rem);margin:0 0 1rem;opacity:.92}
+.ev-hero h1{font-family:var(--font-display);font-weight:400;line-height:1.18;
+  font-size:clamp(1.9rem,5vw,3.25rem);margin:0 0 1.1rem;color:var(--blanc)}
+.ev-hero h1 em{font-style:italic;color:var(--or-cl)}
+.ev-hero-lead{font-size:clamp(1rem,1.6vw,1.1rem);color:var(--blanc);opacity:.88;
+  max-width:54ch;margin:0 0 2rem;line-height:1.7}
+
+.ev-contextes{display:flex;flex-wrap:wrap;border-top:1px solid var(--brun-lt);margin-top:clamp(2rem,5vh,3.25rem)}
+.ev-contextes div{flex:1 1 150px;padding:1.1rem 1rem .9rem;border-right:1px solid var(--brun-lt);
+  font-size:.8rem;color:var(--gris);line-height:1.45}
+.ev-contextes div:last-child{border-right:none}
+.ev-contextes b{display:block;color:var(--or-pale);font-family:var(--font-display);
+  font-size:.88rem;font-weight:400;margin-bottom:.15rem}
+@media(max-width:760px){
+  .ev-contextes div{flex:1 1 46%;border-bottom:1px solid var(--brun-lt)}
+  .ev-contextes div:nth-child(2n){border-right:none}
+}
+
+/* ─── Sections ─── */
+.ev-section{padding:var(--section-pad) 0}
+.ev-section--alt{background:var(--noir-2)}
+.ev-intro{max-width:760px;margin:0 auto 3.25rem;text-align:center}
+.ev-intro p{color:var(--gris);font-size:1.05rem;line-height:1.75;margin:.9rem 0 0}
+
+/* ─── Formules ─── */
+.ev-formules{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+@media(max-width:920px){.ev-formules{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+.ev-formule{background:var(--brun-prof);border:1px solid var(--brun-lt);
+  display:flex;flex-direction:column;transition:border-color var(--transition),transform var(--transition)}
+.ev-formule:hover{border-color:var(--or);transform:translateY(-4px)}
+.ev-formule-img{aspect-ratio:3/2;overflow:hidden}
+.ev-formule-img img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease-out}
+@media(prefers-reduced-motion:no-preference){.ev-formule:hover .ev-formule-img img{transform:scale(1.07)}}
+.ev-formule-body{padding:1.7rem 1.5rem 1.8rem;display:flex;flex-direction:column;flex:1}
+.ev-formule h3{font-family:var(--font-display);font-weight:400;font-size:1.35rem;
+  color:var(--blanc);margin:0 0 .3rem}
+.ev-formule-duree{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--beige);margin-bottom:1rem}
+.ev-formule-prix{font-family:var(--font-display);font-size:1.45rem;color:var(--or-cl);margin-bottom:1rem}
+.ev-formule-prix small{display:block;font-family:var(--font-body);font-size:.68rem;
+  letter-spacing:.1em;color:var(--beige);margin-top:.25rem}
+.ev-formule p{font-size:.94rem;color:var(--gris);line-height:1.7;margin:0 0 1.5rem;flex:1}
+.ev-formule .btn{align-self:flex-start}
+
+.ev-note{text-align:center;max-width:780px;margin:2.2rem auto 0;
+  color:var(--gris);font-size:.9rem;line-height:1.8}
+.ev-note b{color:var(--or-pale);font-weight:600}
+
+/* ─── Repères ─── */
+.ev-reperes{display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--brun-lt);border-bottom:1px solid var(--brun-lt)}
+.ev-reperes div{padding:1.9rem 1.3rem;border-right:1px solid var(--brun-lt);text-align:center}
+.ev-reperes div:last-child{border-right:none}
+.ev-reperes b{display:block;font-family:var(--font-display);font-weight:400;
+  font-size:1.02rem;color:var(--or-pale);margin-bottom:.45rem}
+.ev-reperes span{font-size:.85rem;color:var(--gris);line-height:1.6}
+@media(max-width:880px){
+  .ev-reperes{grid-template-columns:1fr 1fr}
+  .ev-reperes div:nth-child(2n){border-right:none}
+  .ev-reperes div:nth-child(-n+2){border-bottom:1px solid var(--brun-lt)}
+}
+
+/* ─── Récit + bande d'images ─── */
+.ev-recit{display:grid;grid-template-columns:1fr 1.12fr;gap:clamp(2rem,5vw,3.5rem);align-items:center}
+@media(max-width:980px){.ev-recit{grid-template-columns:1fr}}
+.ev-recit p{color:var(--gris);font-size:1rem;line-height:1.8;margin:0 0 1rem}
+.ev-signature{font-family:var(--font-display);font-style:italic;color:var(--or-cl);
+  font-size:1.05rem;margin-top:1.6rem}
+
+.ev-bande{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto;gap:.9rem}
+.ev-bande figure{margin:0;position:relative;overflow:hidden}
+.ev-bande img{width:100%;height:100%;object-fit:cover;display:block}
+.ev-vedette{grid-row:1/3;aspect-ratio:3/4}
+.ev-appoint{aspect-ratio:4/3}
+/* voile discret : accorde la photo au fond sombre, sans la retoucher */
+.ev-vedette::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(14,11,8,.16) 0%,rgba(14,11,8,0) 34%,rgba(14,11,8,.46) 100%)}
+.ev-bande figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1rem 1.1rem;
+  font-family:var(--font-display);font-size:.82rem;color:var(--or-pale);
+  letter-spacing:.06em;text-shadow:0 1px 12px rgba(14,11,8,.95)}
+@media(max-width:620px){
+  .ev-bande{grid-template-columns:1fr}
+  .ev-vedette{grid-row:auto}
+  .ev-appoint{aspect-ratio:3/2}
+}
+
+/* ─── Secteurs ─── */
+.ev-secteurs{display:flex;flex-wrap:wrap;border:1px solid var(--brun-lt)}
+.ev-secteurs div{flex:1 1 150px;padding:1.7rem .9rem;text-align:center;
+  border-right:1px solid var(--brun-lt);font-family:var(--font-display);
+  font-size:.82rem;letter-spacing:.12em;color:var(--or-pale);text-transform:uppercase}
+.ev-secteurs div:last-child{border-right:none}
+@media(max-width:780px){
+  .ev-secteurs div{flex:1 1 50%;border-bottom:1px solid var(--brun-lt)}
+  .ev-secteurs div:nth-child(2n){border-right:none}
+}
+
+/* ─── Formulaire de devis ─── */
+.ev-devis{max-width:860px;margin:0 auto;background:var(--brun-prof);
+  border:1px solid var(--brun-lt);padding:clamp(1.5rem,4vw,2.4rem)}
+.ev-grille{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+@media(max-width:640px){.ev-grille{grid-template-columns:1fr}}
+.ev-large{grid-column:1/-1}
+.ev-devis select{width:100%;font-family:var(--font-body);font-size:1rem;
+  padding:.85rem .9rem;background:var(--noir);border:1px solid var(--brun-lt);
+  color:var(--blanc);border-radius:0;appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--or) 50%),
+    linear-gradient(135deg,var(--or) 50%,transparent 50%);
+  background-position:calc(100% - 20px) calc(50% + 2px),calc(100% - 15px) calc(50% + 2px);
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:2.6rem}
+.ev-devis select:focus{border-color:var(--or);outline:none}
+.ev-pot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.ev-msg{margin-top:1.1rem;padding:.9rem 1rem;font-size:.92rem;
+  border-left:3px solid var(--or);background:var(--noir-2);display:none}
+.ev-msg.vu{display:block}
+.ev-msg.ko{border-left-color:#b8382c}
+
+/* ─── Bandeau final ─── */
+.ev-final{position:relative;min-height:360px;display:flex;align-items:center;
+  text-align:center;overflow:hidden}
+.ev-final-bg{position:absolute;inset:0;z-index:0}
+.ev-final-bg img{width:100%;height:100%;object-fit:cover}
+.ev-final-overlay{position:absolute;inset:0;z-index:1;background:rgba(14,11,8,.64)}
+.ev-final .container{position:relative;z-index:2}
+.ev-final h2{font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(1.4rem,3.4vw,2.1rem);color:var(--or-pale);margin:0 0 .6rem}
+.ev-final p{color:var(--gris);margin:0 0 1.8rem}
