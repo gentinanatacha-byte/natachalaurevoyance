@@ -1,0 +1,304 @@
+/* ═══════════════════════════════════════════════════════════════
+   LECTURE DE TIRAGE PAR UNE TAROLOGUE — /lecture-de-tirage/
+   Préfixe .lt- sur tous les sélecteurs, pour qu'aucune règle d'ici
+   ne puisse en atteindre une autre page du site.
+   Reprend les variables de styles.css, aucune couleur en dur.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── HERO ──────────────────────────────────────────────────── */
+.lt-hero {
+  position: relative;
+  padding: calc(var(--section-pad) * 0.9) 0 calc(var(--section-pad) * 0.7);
+  /* Le voile est volontairement plus léger en haut qu'en bas : il doit rendre
+     le titre lisible sans effacer l'image, qui est l'argument de vente. Le
+     cadrage est décalé à gauche parce que le tiers droit de la photo a été
+     laissé vide exprès — centré, on n'y verrait que du velours. */
+  background:
+    linear-gradient(180deg, rgba(14, 11, 8, 0.55) 0%, rgba(14, 11, 8, 0.42) 38%, rgba(14, 11, 8, 0.88) 82%, var(--noir) 100%),
+    url("/assets/images/hero-lecture-site.webp") 32% center / cover no-repeat;
+  text-align: center;
+  overflow: hidden;
+}
+@media (min-width: 900px) {
+  .lt-hero { background-position: center, center; }
+}
+
+/* Le titre et le prix posés sur la photo ont besoin d'une ombre portée :
+   sans elle, une lettre claire tombant sur une bougie devient illisible. */
+.lt-hero .section-title,
+.lt-hero-texte,
+.lt-prix strong {
+  text-shadow: 0 2px 14px rgba(14, 11, 8, 0.85);
+}
+.lt-hero-inner { position: relative; z-index: 2; }
+
+.lt-hero-texte {
+  max-width: 34rem;
+  margin: 1.4rem auto 0;
+  color: var(--blanc);
+  font-size: clamp(1rem, 2.2vw, 1.12rem);
+  line-height: 1.85;
+}
+
+.lt-prix {
+  margin: 1.9rem 0 0.4rem;
+  font-family: var(--font-display);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.lt-prix s { color: var(--beige); font-size: 1.25rem; }
+.lt-prix strong { color: var(--or-pale); font-size: clamp(2.2rem, 7vw, 3rem); line-height: 1; }
+.lt-prix span {
+  font-family: var(--font-body);
+  color: var(--or-cl);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.lt-hero-note {
+  color: var(--beige-cl);
+  font-size: 0.92rem;
+  margin-top: 0.3rem;
+}
+
+/* ── LES TROIS PORTES ──────────────────────────────────────── */
+.lt-portes { padding: var(--section-pad) 0; background: var(--brun-prof); }
+
+.lt-sous-titre {
+  text-align: center;
+  color: var(--beige-cl);
+  max-width: 34rem;
+  margin: 0.9rem auto 2.8rem;
+  line-height: 1.8;
+}
+
+.lt-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.4rem;
+}
+
+.lt-porte {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 2.1rem 1.8rem 1.7rem;
+  border: 1px solid rgba(184, 132, 58, 0.3);
+  border-radius: 4px;
+  background: linear-gradient(165deg, var(--brun-cl), var(--brun));
+  text-decoration: none;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.lt-porte:hover,
+.lt-porte:focus-visible {
+  border-color: var(--or);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-gold);
+}
+
+.lt-porte-icone {
+  font-size: 1.7rem;
+  color: var(--or-cl);
+  line-height: 1;
+  margin-bottom: 0.9rem;
+}
+
+.lt-porte h3 {
+  font-family: var(--font-display);
+  color: var(--or-pale);
+  font-size: 1.22rem;
+  margin: 0 0 0.7rem;
+}
+
+.lt-porte p {
+  color: var(--beige-cl);
+  font-size: 0.93rem;
+  line-height: 1.75;
+  margin: 0 0 1.4rem;
+  flex: 1 1 auto;
+}
+
+.lt-porte-lien {
+  color: var(--or-cl);
+  font-size: 0.84rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── LES TROIS ÉTAPES ──────────────────────────────────────── */
+.lt-etapes { padding: var(--section-pad) 0; background: var(--noir); }
+
+.lt-liste-etapes {
+  list-style: none;
+  margin: 2.6rem auto 0;
+  padding: 0;
+  max-width: 44rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+.lt-liste-etapes li {
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+}
+.lt-liste-etapes li > div { min-width: 0; }
+
+.lt-num {
+  flex: 0 0 auto;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid var(--or);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--or-pale);
+}
+
+.lt-liste-etapes h3 {
+  font-family: var(--font-display);
+  color: var(--or-pale);
+  font-size: 1.14rem;
+  margin: 0.35rem 0 0.5rem;
+}
+.lt-liste-etapes p {
+  color: var(--beige-cl);
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ── GARANTIES ─────────────────────────────────────────────── */
+.lt-garanties { padding: var(--section-pad) 0; background: var(--brun-prof); }
+
+.lt-grille-garanties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1.6rem;
+  margin-top: 2.6rem;
+}
+.lt-garantie {
+  min-width: 0;
+  padding-left: 1.2rem;
+  border-left: 2px solid var(--or);
+}
+.lt-garantie h3 {
+  font-family: var(--font-display);
+  color: var(--or-pale);
+  font-size: 1.08rem;
+  margin: 0 0 0.6rem;
+}
+.lt-garantie p {
+  color: var(--beige-cl);
+  font-size: 0.94rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── FAQ ───────────────────────────────────────────────────── */
+.lt-faq { padding: var(--section-pad) 0; background: var(--noir); }
+
+.lt-faq details {
+  max-width: 44rem;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(184, 132, 58, 0.22);
+}
+.lt-faq details:first-of-type { border-top: 1px solid rgba(184, 132, 58, 0.22); margin-top: 2.4rem; }
+
+.lt-faq summary {
+  cursor: pointer;
+  padding: 1.25rem 2rem 1.25rem 0;
+  position: relative;
+  color: var(--blanc);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  list-style: none;
+}
+.lt-faq summary::-webkit-details-marker { display: none; }
+.lt-faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 1.1rem;
+  color: var(--or-cl);
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: transform var(--transition);
+}
+.lt-faq details[open] summary::after { transform: rotate(45deg); }
+.lt-faq summary:focus-visible { outline: 2px solid var(--or); outline-offset: 3px; }
+
+.lt-faq details p {
+  color: var(--beige-cl);
+  line-height: 1.85;
+  margin: 0 0 1.4rem;
+  padding-right: 2rem;
+}
+.lt-faq details a { color: var(--or-cl); }
+
+/* ── RAPPEL FINAL ──────────────────────────────────────────── */
+.lt-final {
+  padding: var(--section-pad) 0;
+  background: linear-gradient(180deg, var(--brun-prof), var(--noir));
+  text-align: center;
+}
+.lt-final-texte {
+  max-width: 32rem;
+  margin: 1.1rem auto 2.2rem;
+  color: var(--beige-cl);
+  line-height: 1.85;
+}
+
+.lt-bouton {
+  display: inline-block;
+  padding: 1.05rem 2.6rem;
+  background: linear-gradient(135deg, var(--or), var(--or-cl));
+  color: var(--noir);
+  font-family: var(--font-display);
+  font-size: 1.04rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: filter var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.lt-bouton:hover,
+.lt-bouton:focus-visible {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.lt-final-note {
+  margin-top: 1.3rem;
+  color: var(--beige);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+.lt-final-note s { opacity: 0.7; }
+
+.lt-mentions {
+  max-width: 40rem;
+  margin: 2.6rem auto 0;
+  color: var(--gris);
+  font-size: 0.78rem;
+  line-height: 1.75;
+}
+.lt-mentions a { color: var(--beige-cl); }
+
+/* ── Écrans étroits ────────────────────────────────────────── */
+@media (max-width: 560px) {
+  .lt-liste-etapes li { gap: 1rem; }
+  .lt-num { width: 2.3rem; height: 2.3rem; font-size: 1rem; }
+  .lt-porte { padding: 1.7rem 1.4rem 1.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lt-porte, .lt-bouton, .lt-faq summary::after { transition: none; }
+  .lt-porte:hover, .lt-bouton:hover { transform: none; }
+}
