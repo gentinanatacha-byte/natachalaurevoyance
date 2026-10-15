@@ -13,14 +13,34 @@
      le titre lisible sans effacer l'image, qui est l'argument de vente. Le
      cadrage est décalé à gauche parce que le tiers droit de la photo a été
      laissé vide exprès — centré, on n'y verrait que du velours. */
-  background:
-    linear-gradient(180deg, rgba(14, 11, 8, 0.55) 0%, rgba(14, 11, 8, 0.42) 38%, rgba(14, 11, 8, 0.88) 82%, var(--noir) 100%),
-    url("/assets/images/hero-lecture-site.webp") 32% center / cover no-repeat;
+  background: linear-gradient(180deg, rgba(14, 11, 8, 0.55) 0%, rgba(14, 11, 8, 0.42) 38%, rgba(14, 11, 8, 0.88) 82%, var(--noir) 100%);
   text-align: center;
   overflow: hidden;
 }
+
+/* Effet Ken Burns : l'image vit dans un calque sous le voile et dérive très
+   lentement. Une photo fixe qui respire — l'illusion d'une vidéo pour le
+   poids d'une image. Le cadrage est décalé à gauche parce que le tiers droit
+   a été laissé vide exprès ; centré, on n'y verrait que du velours. */
+.lt-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("/assets/images/hero-lecture-site.webp") 32% center / cover no-repeat;
+  transform: scale(1.06);
+  animation: lt-ken-burns 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
 @media (min-width: 900px) {
-  .lt-hero { background-position: center, center; }
+  .lt-hero::before { background-position: center; }
+}
+@keyframes lt-ken-burns {
+  from { transform: scale(1.04) translate3d(0, 0, 0); }
+  to   { transform: scale(1.13) translate3d(-1.5%, -1%, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lt-hero::before { animation: none; transform: scale(1.04); }
 }
 
 /* Le titre et le prix posés sur la photo ont besoin d'une ombre portée :
@@ -129,8 +149,88 @@
   text-transform: uppercase;
 }
 
+/* Deux portes seulement : on borne la grille pour que les cartes ne
+   s'étirent pas sur toute la largeur d'un écran de bureau. */
+.lt-grille-deux {
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  max-width: 54rem;
+  margin-inline: auto;
+}
+
+/* Le nom du tirage et son prix habituel — l'argument qui fait la valeur
+   de l'offre, donc il mérite d'être lisible, pas relégué en note. */
+.lt-porte-tirage {
+  display: block;
+  margin: 0 0 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(184, 132, 58, 0.22);
+  color: var(--beige);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.lt-inclus {
+  max-width: 40rem;
+  margin: 2.2rem auto 0;
+  text-align: center;
+  color: var(--beige-cl);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+.lt-inclus strong { color: var(--or-pale); }
+
 /* ── LES TROIS ÉTAPES ──────────────────────────────────────── */
 .lt-etapes { padding: var(--section-pad) 0; background: var(--noir); }
+
+/* L'image à gauche, les étapes à droite. Elle est collante sur grand écran :
+   on la garde sous les yeux pendant qu'on lit les trois temps. */
+.lt-etapes-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .lt-etapes-inner { grid-template-columns: minmax(0, 1fr); }
+  .lt-etapes-image { max-width: 24rem; margin-inline: auto; }
+}
+.lt-etapes-image { min-width: 0; }
+@media (min-width: 861px) {
+  .lt-etapes-image { position: sticky; top: 6rem; }
+}
+.lt-etapes-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid rgba(184, 132, 58, 0.3);
+}
+.lt-etapes-texte { min-width: 0; }
+.lt-etapes-texte .section-title { text-align: left; }
+
+/* Bande de respiration entre deux sections */
+.lt-bande {
+  margin: 0;
+  background: var(--noir);
+  padding-bottom: clamp(2rem, 6vh, 4rem);
+}
+.lt-bande img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+.lt-bande figcaption {
+  max-width: var(--max-width);
+  margin: 1rem auto 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  text-align: center;
+  color: var(--beige);
+  font-size: 0.85rem;
+  font-style: italic;
+}
 
 .lt-liste-etapes {
   list-style: none;
@@ -199,6 +299,27 @@
   font-size: 0.94rem;
   line-height: 1.8;
   margin: 0;
+}
+
+/* La garantie des 48 h porte le sablier : c'est la promesse qui rassure le
+   plus, elle mérite l'image. */
+.lt-garantie-image {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+}
+.lt-garantie-image > div { min-width: 0; }
+.lt-garantie-image img {
+  flex: 0 0 auto;
+  width: 5.5rem;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid rgba(184, 132, 58, 0.3);
+}
+@media (max-width: 420px) {
+  .lt-garantie-image { flex-direction: column; }
+  .lt-garantie-image img { width: 7rem; }
 }
 
 /* ── FAQ ───────────────────────────────────────────────────── */
@@ -272,6 +393,24 @@
   filter: brightness(1.1);
   transform: translateY(-2px);
   box-shadow: var(--shadow-gold);
+}
+
+.lt-deux-boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+}
+
+.lt-bouton-second {
+  background: transparent;
+  color: var(--or-pale);
+  border: 1px solid var(--or);
+}
+.lt-bouton-second:hover,
+.lt-bouton-second:focus-visible {
+  background: rgba(184, 132, 58, 0.12);
+  filter: none;
 }
 
 .lt-final-note {
