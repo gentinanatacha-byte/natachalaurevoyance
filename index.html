@@ -140,7 +140,7 @@ sitemap: true
       <li><a href="#a-propos">À propos</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="/aurea/">Auréa</a></li>
-      <li><a href="/lecture-de-tirage/">Lecture écrite</a></li>
+      <li><a href="/lecture-de-tirage/" class="nav-phare">Lecture écrite <span>10&nbsp;€</span></a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="/carte-cadeau/">Carte cadeau</a></li>
@@ -186,6 +186,20 @@ sitemap: true
         <span>Découvrir mes services</span>
       </a>
     </div>
+    <!-- L'offre à 10 €, dès le premier écran. Elle était tout en bas : il
+         fallait dérouler cinq sections pour la trouver, autant dire jamais.
+         Volontairement présentée en lien clair plutôt qu'en troisième bouton :
+         trois boutons de même poids, on n'en clique aucun. -->
+    <p class="hero-lecture reveal" data-delay="800">
+      <a href="/lecture-de-tirage/">
+        <span class="hero-lecture-puce" aria-hidden="true">✦</span>
+        <span class="hero-lecture-texte">
+          <strong>Faites lire votre tirage par moi, en ligne</strong>
+          Vous tirez vos cartes, je vous écris sous 48 h
+        </span>
+        <span class="hero-lecture-prix"><s>29&nbsp;€</s> 10&nbsp;€</span>
+      </a>
+    </p>
   </div>
   <div class="hero-scroll" aria-hidden="true">
     <span>Découvrir</span>
@@ -283,6 +297,32 @@ sitemap: true
         <h3>Tarot de Marseille</h3>
         <p>Spécialiste du Tarot de Marseille depuis l'enfance, j'utilise sa richesse symbolique pour des lectures précises, structurées et personnalisées.</p>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LECTURE DE TIRAGE ÉCRITE (service à distance, via Auréa) ═══
+     Bande autonome, posée AVANT les formules de consultation (remontée le
+     15.10.2026 : elle était en bas de page, après cinq sections, autant dire
+     invisible). Elle reste hors du système d'onglets des prestations : ce
+     service n'est ni « à domicile » ni « par téléphone ». -->
+<section class="lecture-ecrite">
+  <div class="container lecture-ecrite-inner">
+    <div class="lecture-ecrite-image">
+      <img src="/assets/images/lecture-humaine.webp"
+           alt="Deux mains ouvertes au-dessus d'un éventail de cartes de tarot, à la lueur des bougies"
+           width="520" height="520" loading="lazy">
+    </div>
+    <div class="lecture-ecrite-texte">
+      <p class="eyebrow">Nouveau · à distance</p>
+      <h2 class="section-title">Faites lire votre tirage, <em>sans rendez-vous</em></h2>
+      <p>
+        Vous tirez vos cartes vous-même dans mon application Auréa, vous posez votre
+        question, et je vous écris ce qu'elles racontent. Réponse par e-mail sous
+        48 heures, à lire et à relire quand vous voulez.
+      </p>
+      <p class="lecture-ecrite-prix"><s>29 €</s> <strong>10 €</strong> <span>offre de lancement</span></p>
+      <a class="btn-gold" href="/lecture-de-tirage/">Découvrir le service</a>
     </div>
   </div>
 </section>
@@ -582,30 +622,6 @@ sitemap: true
   </div>
 </section>
 
-<!-- ═══ LECTURE DE TIRAGE ÉCRITE (service à distance, via Auréa) ═══
-     Bande autonome, posée après les formules de consultation plutôt qu'à
-     l'intérieur : ce service n'est ni « à domicile » ni « par téléphone »,
-     il n'entre donc pas dans le système d'onglets ci-dessus. -->
-<section class="lecture-ecrite">
-  <div class="container lecture-ecrite-inner">
-    <div class="lecture-ecrite-image">
-      <img src="/assets/images/lecture-humaine.webp"
-           alt="Deux mains ouvertes au-dessus d'un éventail de cartes de tarot, à la lueur des bougies"
-           width="520" height="520" loading="lazy">
-    </div>
-    <div class="lecture-ecrite-texte">
-      <p class="eyebrow">Nouveau · à distance</p>
-      <h2 class="section-title">Faites lire votre tirage, <em>sans rendez-vous</em></h2>
-      <p>
-        Vous tirez vos cartes vous-même dans mon application Auréa, vous posez votre
-        question, et je vous écris ce qu'elles racontent. Réponse par e-mail sous
-        48 heures, à lire et à relire quand vous voulez.
-      </p>
-      <p class="lecture-ecrite-prix"><s>29 €</s> <strong>10 €</strong> <span>offre de lancement</span></p>
-      <a class="btn-gold" href="/lecture-de-tirage/">Découvrir le service</a>
-    </div>
-  </div>
-</section>
 
 <!-- ═══ DEUX MODES DE CONSULTATION ═══ -->
 <section class="consult-modes">

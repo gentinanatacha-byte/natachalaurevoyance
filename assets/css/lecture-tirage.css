@@ -277,11 +277,69 @@
 /* ── GARANTIES ─────────────────────────────────────────────── */
 .lt-garanties { padding: var(--section-pad) 0; background: var(--brun-prof); }
 
+/* ── La signature ──────────────────────────────────────────── */
+.lt-signature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1fr);
+  gap: clamp(1.6rem, 4vw, 3rem);
+  align-items: center;
+  margin-top: 2.6rem;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  border: 1px solid rgba(184, 132, 58, 0.3);
+  border-radius: 4px;
+  background: linear-gradient(140deg, rgba(46, 34, 24, 0.55), rgba(26, 21, 16, 0.3));
+}
+@media (max-width: 760px) {
+  .lt-signature { grid-template-columns: minmax(0, 1fr); }
+  .lt-signature-image { max-width: 19rem; margin-inline: auto; }
+}
+.lt-signature-image { min-width: 0; }
+.lt-signature-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+/* Une vraie photo de Natacha en pleine lecture : on la laisse rectangulaire,
+   toute la scène fait l'intérêt (les cartes posées, les bougies, la cliente
+   de dos). Un filet doré discret la rattache à la charte du site. */
+.lt-signature-portrait { text-align: center; }
+.lt-signature-portrait img {
+  max-width: 22rem;
+  margin-inline: auto;
+  border-radius: 3px;
+  border: 1px solid rgba(184, 132, 58, 0.45);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.35);
+}
+.lt-signature-legende {
+  margin: 0.9rem 0 0;
+  color: var(--or-pale);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.lt-signature-texte { min-width: 0; }
+.lt-signature-texte h3 {
+  font-family: var(--font-display);
+  color: var(--or-pale);
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  margin: 0 0 0.9rem;
+}
+.lt-signature-texte p {
+  color: var(--beige-cl);
+  line-height: 1.85;
+  margin: 0 0 0.9rem;
+}
+.lt-signature-texte p:last-child { margin-bottom: 0; }
+
 .lt-grille-garanties {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   gap: 1.6rem;
-  margin-top: 2.6rem;
+  margin-top: 1.8rem;
 }
 .lt-garantie {
   min-width: 0;

@@ -579,6 +579,13 @@ section {
   top: 2rem; left: 2rem;
   right: -2rem; bottom: -2rem;
 }
+/* Ce cadre déborde volontairement de 1,5 rem (24 px) vers la droite — c'est
+   l'effet recherché. Mais sur téléphone la marge du conteneur ne fait que
+   20 px : il sortait donc de 4 px, et la page entière se dézoomait d'autant.
+   On garde l'effet, décalage réduit. (Le survol ne s'applique pas au tactile.) */
+@media (max-width: 767px) {
+  .intro-frame { top: 1rem; left: 1rem; right: -0.75rem; bottom: -0.75rem; }
+}
 .intro-badge {
   position: absolute;
   bottom: -1rem;
@@ -1343,16 +1350,33 @@ blockquote footer {
   flex-direction: column;
   gap: 1.2rem;
 }
+/* CORRECTION DU 15.10.2026 — défilement latéral sur téléphone.
+   Le formulaire de contact forçait la page entière à 431 px de large, sur
+   TOUS les téléphones : à 320 px elle débordait de 111 px, à 390 px de 41.
+   Deux causes, les deux nécessaires :
+     1. cette grille restait à deux colonnes jusqu'à 320 px ;
+     2. un enfant de grille vaut `min-width: auto` par défaut, donc le
+        <select> « Formule souhaitée » imposait la largeur de son option la
+        plus longue — la colonne ne pouvait pas rétrécir, quoi qu'on fasse.
+   Mesuré avant/après, de 320 à 1920 px. */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.2rem;
 }
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: minmax(0, 1fr); }
+}
 .form-field {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  min-width: 0;   /* sans ceci, le <select> dicte la largeur de la page */
 }
+/* Le champ lui-même ne doit jamais dépasser sa colonne. */
+.form-field input,
+.form-field select,
+.form-field textarea { max-width: 100%; }
 .form-label {
   font-size: 0.72rem;
   letter-spacing: 0.2em;
@@ -1610,6 +1634,15 @@ blockquote footer {
 .reveal.is-visible {
   opacity: 1;
   transform: translate(0);
+}
+/* Sur téléphone, le glissement LATÉRAL d'apparition poussait les blocs 20 px
+   au-delà du bord droit tant qu'ils n'étaient pas révélés. La page mesurait
+   donc 340 px sur un écran de 320, et le navigateur la DÉZOOMAIT de 6 % pour
+   la faire entrer — tout le texte s'affichait plus petit que prévu.
+   On garde l'animation, mais verticale : même effet, zéro débordement. */
+@media (max-width: 767px) {
+  .reveal.from-left,
+  .reveal.from-right { transform: translateY(30px); }
 }
 
 @keyframes fadeUp {
@@ -2010,6 +2043,67 @@ section li a:not([class]):visited {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   ACCROCHE « LECTURE DE TIRAGE » DANS LE HÉROS (15.10.2026)
+   L'offre vivait uniquement en bas de page. Ici, sur le premier
+   écran, sous les deux boutons existants — sans leur voler la
+   vedette : c'est un lien habillé, pas un troisième bouton.
+   ═══════════════════════════════════════════════════════════════ */
+.hero-lecture { margin: 1.5rem 0 0; }
+.hero-lecture a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  max-width: 100%;
+  padding: 0.75rem 1.15rem;
+  border: 1px solid rgba(184, 132, 58, 0.45);
+  border-radius: 999px;
+  background: rgba(22, 18, 14, 0.55);
+  text-decoration: none;
+  text-align: left;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+.hero-lecture a:hover,
+.hero-lecture a:focus-visible {
+  border-color: var(--or-pale);
+  background: rgba(40, 30, 20, 0.75);
+  transform: translateY(-2px);
+}
+.hero-lecture-puce { color: var(--or-pale); flex: 0 0 auto; }
+.hero-lecture-texte {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: var(--beige-cl);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.hero-lecture-texte strong {
+  color: var(--or-pale);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+.hero-lecture-prix {
+  flex: 0 0 auto;
+  color: var(--or-pale);
+  font-size: 1.05rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.hero-lecture-prix s { color: var(--beige); font-size: 0.78rem; font-weight: 400; margin-right: 0.3rem; }
+
+/* Sous 560 px, la pastille passe en colonne : sur une seule ligne, le prix
+   compressait le texte jusqu'à casser les mots. */
+@media (max-width: 560px) {
+  .hero-lecture a {
+    flex-direction: column;
+    gap: 0.45rem;
+    border-radius: 14px;
+    text-align: center;
+  }
+  .hero-lecture-texte { align-items: center; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
    BANDE « LECTURE DE TIRAGE ÉCRITE » (accueil, après les formules)
    Ajoutée le 15.10.2026. Tous les sélecteurs sont préfixés
    .lecture-ecrite pour ne rien pouvoir atteindre d'autre.
@@ -2089,3 +2183,33 @@ section li a:not([class]):visited {
     font-size: 0.8rem;
   }
 }
+
+/* Le lien phare du menu : la lecture écrite à 10 €. Le menu suit le
+   défilement, c'est donc le seul endroit du site qui reste visible en
+   permanence — mieux qu'une place dans le héros, déjà plus haut que l'écran
+   sur tous les formats mesurés (même ses propres boutons tombent sous le pli).
+   Un seul lien mis en avant : deux, et aucun ne ressort plus. */
+.main-nav a.nav-phare {
+  color: var(--or-pale);
+  border: 1px solid rgba(184, 132, 58, 0.5);
+  border-radius: 999px;
+  background: rgba(184, 132, 58, 0.1);
+}
+.main-nav a.nav-phare span {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: 999px;
+  background: var(--or-pale);
+  color: var(--noir);
+  font-weight: 700;
+  font-size: 0.78em;
+  letter-spacing: 0.03em;
+}
+.main-nav a.nav-phare:hover,
+.main-nav a.nav-phare:focus-visible {
+  border-color: var(--or-pale);
+  background: rgba(184, 132, 58, 0.22);
+}
+/* Le soulignement animé des autres liens ferait double emploi avec la pastille. */
+.main-nav a.nav-phare::after { display: none; }
