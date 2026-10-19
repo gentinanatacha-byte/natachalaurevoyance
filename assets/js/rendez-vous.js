@@ -15,8 +15,9 @@
   "use strict";
 
   var CONFIG = {
-    ETAT: "https://aurea.natachalaurevoyance.fr/api/consultation-etat",
-    RESERVER: "https://aurea.natachalaurevoyance.fr/api/consultation-reserver",
+    // Une seule adresse pour les deux gestes : GET pour lire l'agenda,
+    // POST pour réserver. Vercel limite le plan gratuit à douze fonctions.
+    API: "https://aurea.natachalaurevoyance.fr/api/consultations",
     // Nombre de jours affichés d'emblée. Au-delà, un bouton « voir plus ».
     // Trop de choix fait hésiter ; trop peu fait partir.
     JOURS_VISIBLES: 3,
@@ -317,7 +318,7 @@
     el.payer.disabled = true;
     el.payer.querySelector(".rv-payer-texte").textContent = "Ouverture du paiement…";
 
-    fetch(CONFIG.RESERVER, {
+    fetch(CONFIG.API, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -411,7 +412,7 @@
   // ─── Chargement ──────────────────────────────────────────────────────
 
   function charger() {
-    fetch(CONFIG.ETAT, { cache: "no-store" })
+    fetch(CONFIG.API, { cache: "no-store" })
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (data && data.erreur) throw new Error(data.erreur);
