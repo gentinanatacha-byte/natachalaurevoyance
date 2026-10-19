@@ -1,0 +1,431 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   PAGE DE PRISE DE RENDEZ-VOUS — natachalaurevoyance.fr/rendez-vous/
+   19.10.2026
+
+   Feuille de style autonome : elle ne dépend pas de styles.css. La page
+   est ouverte depuis un lien WhatsApp, souvent sur un téléphone en 4G
+   médiocre — moins elle charge, plus de monde arrive jusqu'au bout.
+
+   Deux partis pris d'ergonomie, pris pour un public qui n'est pas celui
+   du reste du site (les clientes d'une dame, souvent de 50 à 80 ans) :
+     — corps de texte à 17 px minimum, jamais de gris clair sur fond clair ;
+     — toute zone à toucher fait au moins 52 px de haut. En dessous, on
+       rate sa cible, on retouche, on s'agace, on part.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --rv-noir:    #0e0b08;
+  --rv-noir-2:  #16120e;
+  --rv-brun:    #221a12;
+  --rv-brun-cl: #2e2218;
+  --rv-or:      #b8843a;
+  --rv-or-cl:   #cc9e58;
+  --rv-or-pale: #e0c088;
+  --rv-blanc:   #f4efe6;
+  --rv-gris:    #bdaa96;
+  --rv-vert:    #7fbf8f;
+  --rv-rouge:   #e08a7a;
+  --rv-serif:   'Cinzel', 'Times New Roman', serif;
+  --rv-sans:    'Raleway', system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+.rv-body {
+  margin: 0;
+  background: var(--rv-noir);
+  color: var(--rv-blanc);
+  font-family: var(--rv-sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  /* Un halo doré très diffus en haut : la page n'est pas un formulaire
+     administratif, elle doit avoir une âme — sans coûter une image. */
+  background-image:
+    radial-gradient(70% 45% at 50% 0%, rgba(184,132,58,.17), transparent 70%);
+  background-repeat: no-repeat;
+}
+
+.rv-page { max-width: 660px; margin: 0 auto; padding: 0 18px 56px; }
+
+/* ─── 1. L'accroche ─────────────────────────────────────────────────── */
+
+.rv-hero { padding: 34px 0 8px; text-align: center; }
+
+.rv-portrait {
+  width: 158px; height: auto;
+  border-radius: 50%;
+  object-fit: cover; aspect-ratio: 1;
+  border: 2px solid var(--rv-or);
+  box-shadow: 0 0 0 7px rgba(184,132,58,.11), 0 14px 38px rgba(0,0,0,.55);
+  /* Son visage est dans le haut du cadrage : sans ce décalage, le cercle
+     couperait le front. */
+  object-position: center 22%;
+}
+
+.rv-recommandation {
+  margin: 20px 0 6px;
+  font-size: 14px; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--rv-or-pale);
+}
+.rv-recommandation strong { color: var(--rv-or-cl); font-weight: 600; }
+
+.rv-hero h1 {
+  margin: 6px 0 14px;
+  font-family: var(--rv-serif); font-weight: 400;
+  font-size: clamp(1.85rem, 7.4vw, 2.6rem);
+  line-height: 1.22; color: var(--rv-blanc);
+}
+
+.rv-chapeau {
+  margin: 0 auto 22px; max-width: 30em;
+  font-size: 17px; color: #dcd0c0;
+}
+
+/* Le prix. Gros, net, sans fioritures : c'est l'information qu'on cherche. */
+.rv-prix {
+  margin: 0 0 24px;
+  display: flex; align-items: baseline; justify-content: center;
+  gap: 12px; flex-wrap: wrap;
+}
+.rv-prix-montant {
+  font-family: var(--rv-serif);
+  font-size: clamp(2.5rem, 11vw, 3.4rem); line-height: 1;
+  color: var(--rv-or-cl); font-weight: 600;
+}
+.rv-prix-barre {
+  font-size: 1.2rem; color: #9a8878; text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+.rv-prix-note {
+  flex-basis: 100%; margin: 8px 0 0;
+  font-size: 14.5px; color: var(--rv-gris);
+}
+.rv-prix-chargement { font-size: 16px; color: var(--rv-gris); }
+
+.rv-cta-haut {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 58px; padding: 0 36px;
+  background: linear-gradient(135deg, var(--rv-or), #96682a);
+  color: #1a1208; font-weight: 700; font-size: 18px;
+  letter-spacing: .02em; text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(184,132,58,.34);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.rv-cta-haut:active { transform: translateY(2px); box-shadow: 0 4px 16px rgba(184,132,58,.3); }
+
+/* ─── 2. Rassurance ────────────────────────────────────────────────── */
+
+.rv-rassurance { margin: 30px 0 8px; }
+.rv-rassurance ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.rv-rassurance li {
+  display: grid; grid-template-columns: 40px 1fr; align-items: start;
+  gap: 4px 14px;
+  padding: 15px 17px;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(184,132,58,.19);
+  border-radius: 13px;
+}
+.rv-puce {
+  grid-row: span 2; align-self: center;
+  font-size: 23px; color: var(--rv-or-cl); text-align: center;
+}
+.rv-rassurance strong { font-size: 16.5px; color: var(--rv-blanc); font-weight: 600; }
+.rv-rassurance em { font-style: normal; font-size: 15px; color: var(--rv-gris); }
+
+/* ─── Blocs ────────────────────────────────────────────────────────── */
+
+.rv-bloc { margin: 34px 0 0; }
+.rv-bloc h2 {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0 0 18px;
+  font-family: var(--rv-serif); font-weight: 400; font-size: 1.42rem;
+  color: var(--rv-blanc);
+}
+.rv-etape {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; flex: 0 0 32px;
+  border: 1.5px solid var(--rv-or); border-radius: 50%;
+  font-family: var(--rv-sans); font-size: 15px; font-weight: 700;
+  color: var(--rv-or-cl);
+}
+
+/* Le bloc 2 est éteint jusqu'au choix d'un créneau : on ne peut pas
+   remplir ses coordonnées pour un rendez-vous qui n'existe pas encore.
+   Éteint et non masqué — voir d'avance ce qui reste à faire rassure. */
+.rv-bloc-inactif { opacity: .38; pointer-events: none; }
+.rv-bloc-inactif.rv-ouvert { opacity: 1; pointer-events: auto; }
+
+/* ─── 3. L'agenda ──────────────────────────────────────────────────── */
+
+.rv-attente, .rv-vide { color: var(--rv-gris); font-size: 16px; margin: 0; }
+
+.rv-jour { margin: 0 0 20px; }
+.rv-jour-titre {
+  margin: 0 0 10px;
+  font-size: 15px; font-weight: 700; letter-spacing: .05em;
+  text-transform: uppercase; color: var(--rv-or-pale);
+}
+.rv-heures { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.rv-heure {
+  min-height: 54px; min-width: 96px; padding: 0 20px;
+  background: rgba(255,255,255,.05);
+  border: 1.5px solid rgba(184,132,58,.34);
+  border-radius: 11px;
+  color: var(--rv-blanc);
+  font-family: var(--rv-sans); font-size: 18px; font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: background .16s ease, border-color .16s ease, transform .16s ease;
+}
+.rv-heure:hover { background: rgba(184,132,58,.17); border-color: var(--rv-or); }
+.rv-heure[aria-pressed="true"] {
+  background: linear-gradient(135deg, var(--rv-or), #96682a);
+  border-color: var(--rv-or-cl); color: #1a1208;
+  box-shadow: 0 6px 20px rgba(184,132,58,.33);
+  transform: translateY(-1px);
+}
+
+.rv-plus {
+  min-height: 52px; width: 100%; margin-top: 4px;
+  background: none; border: 1px dashed rgba(184,132,58,.42);
+  border-radius: 11px; color: var(--rv-or-pale);
+  font-family: var(--rv-sans); font-size: 16px; cursor: pointer;
+}
+.rv-plus:hover { background: rgba(184,132,58,.09); }
+
+/* ─── 4. Le formulaire ─────────────────────────────────────────────── */
+
+.rv-choisi {
+  margin: 0 0 20px; padding: 14px 17px;
+  background: rgba(127,191,143,.1);
+  border: 1px solid rgba(127,191,143,.33);
+  border-left: 3px solid var(--rv-vert);
+  border-radius: 10px;
+  font-size: 16.5px; color: #e8f2ea;
+}
+.rv-choisi strong { color: #fff; }
+
+.rv-champ { display: block; margin: 0 0 18px; }
+.rv-champ > span {
+  display: block; margin-bottom: 7px;
+  font-size: 15.5px; font-weight: 600; color: var(--rv-blanc);
+}
+.rv-champ > span em {
+  font-style: normal; font-weight: 400; color: var(--rv-gris); font-size: 14.5px;
+}
+.rv-champ input {
+  width: 100%; min-height: 56px; padding: 0 16px;
+  background: rgba(255,255,255,.055);
+  border: 1.5px solid rgba(184,132,58,.3);
+  border-radius: 11px;
+  color: var(--rv-blanc);
+  font-family: var(--rv-sans);
+  /* 17 px et pas moins : en dessous de 16 px, Safari iOS zoome
+     automatiquement à la mise au point et la page part de travers. */
+  font-size: 17px;
+}
+.rv-champ input:focus {
+  outline: none; border-color: var(--rv-or-cl);
+  background: rgba(255,255,255,.085);
+  box-shadow: 0 0 0 3px rgba(184,132,58,.2);
+}
+.rv-champ input::placeholder { color: #7d6d5d; }
+.rv-champ.rv-faux input { border-color: var(--rv-rouge); }
+
+/* Le pays et le numéro, côte à côte. Le menu garde une largeur fixe pour
+   que le champ du numéro ne saute pas d'un pays à l'autre. */
+/* ⚠️ Le sélecteur doit être `.rv-champ > .rv-tel-ligne` et non
+   `.rv-tel-ligne` seul : la règle `.rv-champ > span { display: block }`
+   plus haut est PLUS spécifique (0,1,1 contre 0,1,0) et l'emportait.
+   Le menu du pays se retrouvait sous le champ au lieu d'être à côté. */
+.rv-champ > .rv-tel-ligne { display: flex; gap: 9px; }
+.rv-tel-ligne select {
+  flex: 0 0 auto; width: 108px; min-height: 56px; padding: 0 8px;
+  background: rgba(255,255,255,.055);
+  border: 1.5px solid rgba(184,132,58,.3);
+  border-radius: 11px;
+  color: var(--rv-blanc);
+  font-family: var(--rv-sans); font-size: 17px;
+  cursor: pointer;
+}
+.rv-tel-ligne select:focus { outline: none; border-color: var(--rv-or-cl); }
+/* Le menu déroulant natif s'affiche avec les couleurs du système :
+   sur fond clair, du texte clair serait illisible. */
+.rv-tel-ligne select option { background: #1c1510; color: var(--rv-blanc); }
+.rv-tel-ligne input { flex: 1 1 auto; min-width: 0; }
+.rv-champ-tel.rv-faux .rv-tel-ligne input { border-color: var(--rv-rouge); }
+
+.rv-facultatif { margin: 0 0 20px; }
+.rv-facultatif summary {
+  /* flex-wrap, sinon « (facultatif) » part seul à droite sur une ligne
+     vide dès que le libellé passe à la ligne, à 390 px notamment. */
+  min-height: 48px; display: flex; flex-wrap: wrap;
+  align-items: center; gap: 0 6px;
+  font-size: 15.5px; color: var(--rv-or-pale); cursor: pointer;
+}
+.rv-facultatif summary em { font-style: normal; color: var(--rv-gris); }
+.rv-facultatif textarea {
+  width: 100%; margin-top: 8px; padding: 13px 16px;
+  background: rgba(255,255,255,.055);
+  border: 1.5px solid rgba(184,132,58,.3);
+  border-radius: 11px;
+  color: var(--rv-blanc); font-family: var(--rv-sans); font-size: 17px;
+  resize: vertical;
+}
+.rv-facultatif textarea:focus { outline: none; border-color: var(--rv-or-cl); }
+
+.rv-erreur {
+  margin: 0 0 16px; padding: 14px 16px;
+  background: rgba(224,138,122,.13);
+  border: 1px solid rgba(224,138,122,.42);
+  border-radius: 10px;
+  color: #ffd8cf; font-size: 16px;
+}
+
+/* La case de renonciation. Toute la ligne est cliquable (c'est un
+   <label>), donc la cible fait la largeur de l'écran et non 20 px. */
+.rv-accord {
+  display: flex; gap: 13px; align-items: flex-start;
+  margin: 0 0 18px; padding: 14px 16px;
+  background: rgba(255,255,255,.035);
+  border: 1.5px solid rgba(184,132,58,.26);
+  border-radius: 12px;
+  font-size: 15px; line-height: 1.55; color: #d6cabb;
+  cursor: pointer;
+}
+.rv-accord input {
+  flex: 0 0 auto; width: 26px; height: 26px; margin: 0;
+  accent-color: var(--rv-or); cursor: pointer;
+}
+.rv-accord em {
+  display: block; margin-top: 5px;
+  font-style: normal; font-size: 14px; color: var(--rv-or-pale);
+}
+.rv-accord.rv-faux {
+  border-color: var(--rv-rouge);
+  background: rgba(224,138,122,.09);
+}
+
+.rv-payer {
+  width: 100%; min-height: 64px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  background: linear-gradient(135deg, var(--rv-or), #96682a);
+  border: none; border-radius: 13px;
+  color: #1a1208; font-family: var(--rv-sans);
+  font-size: 19px; font-weight: 700; letter-spacing: .01em;
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(184,132,58,.33);
+  transition: transform .16s ease, filter .16s ease;
+}
+.rv-payer:active { transform: translateY(2px); }
+.rv-payer[disabled] { filter: grayscale(.55) brightness(.8); cursor: progress; }
+.rv-payer-montant {
+  padding: 4px 11px; border-radius: 7px;
+  background: rgba(26,18,8,.19);
+  font-variant-numeric: tabular-nums;
+}
+
+.rv-mentions {
+  margin: 15px 0 0; font-size: 14px; line-height: 1.6; color: var(--rv-gris);
+  text-align: center;
+}
+.rv-mentions a { color: var(--rv-or-pale); }
+
+/* ─── 5. À propos ──────────────────────────────────────────────────── */
+
+.rv-apropos {
+  margin-top: 44px; padding: 26px 22px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(184,132,58,.17);
+  border-radius: 15px;
+}
+.rv-apropos p { margin: 0 0 14px; font-size: 16.5px; color: #d6cabb; }
+.rv-contact, .rv-retour { font-size: 16px !important; }
+.rv-contact a, .rv-retour a { color: var(--rv-or-cl); font-weight: 600; }
+.rv-retour { margin: 20px 0 0 !important; text-align: center; }
+
+/* ─── Écran de confirmation ────────────────────────────────────────── */
+
+/* ⚠️ Cette règle doit rester AVANT .rv-voile, et surtout exister.
+   Sans elle, le « display: flex » ci-dessous l'emporte sur l'attribut
+   hidden (qui ne vaut qu'un display:none de la feuille du navigateur,
+   battu par n'importe quelle classe). Le voile restait alors présent,
+   invisible mais au-dessus de tout, et interceptait chaque clic de la
+   page : plus aucun créneau cliquable. Défaut trouvé au banc d'essai. */
+.rv-voile[hidden] { display: none !important; }
+
+.rv-voile {
+  position: fixed; inset: 0; z-index: 90;
+  display: flex; align-items: center; justify-content: center;
+  padding: 22px;
+  background: rgba(6,4,2,.88);
+  backdrop-filter: blur(5px);
+}
+.rv-voile-carte {
+  width: 100%; max-width: 430px; padding: 34px 26px 28px;
+  background: linear-gradient(170deg, var(--rv-brun-cl), var(--rv-noir-2));
+  border: 1px solid rgba(184,132,58,.42);
+  border-radius: 19px; text-align: center;
+  box-shadow: 0 26px 70px rgba(0,0,0,.65);
+  animation: rv-monte .4s cubic-bezier(.2,.9,.3,1) both;
+}
+@keyframes rv-monte { from { opacity: 0; transform: translateY(18px) scale(.97); } }
+
+.rv-voile-sceau {
+  margin: 0 auto 18px;
+  width: 66px; height: 66px;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--rv-vert); border-radius: 50%;
+  font-size: 32px; color: var(--rv-vert);
+}
+.rv-voile.rv-neutre .rv-voile-sceau { border-color: var(--rv-or); color: var(--rv-or-cl); }
+.rv-voile-carte h2 {
+  margin: 0 0 12px; font-family: var(--rv-serif); font-weight: 400;
+  font-size: 1.52rem; color: var(--rv-blanc);
+}
+.rv-voile-carte p { margin: 0 0 22px; font-size: 16.5px; color: #d6cabb; }
+.rv-voile-fermer {
+  min-height: 54px; width: 100%;
+  background: rgba(184,132,58,.17);
+  border: 1.5px solid var(--rv-or); border-radius: 11px;
+  color: var(--rv-or-pale); font-family: var(--rv-sans);
+  font-size: 17px; font-weight: 600; cursor: pointer;
+}
+
+/* ─── Accessibilité ────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+:focus-visible { outline: 3px solid var(--rv-or-cl); outline-offset: 2px; }
+
+/* ─── Grand écran ──────────────────────────────────────────────────── */
+
+@media (min-width: 720px) {
+  /* Plus large qu'en lecture seule : avec le portrait à gauche, une
+     colonne de texte de 390 px cassait le titre en trois lignes. */
+  .rv-page { max-width: 860px; }
+  .rv-hero { display: grid; grid-template-columns: 210px 1fr; gap: 36px;
+             align-items: center; text-align: left; padding: 52px 0 12px; }
+  .rv-portrait { width: 200px; }
+  .rv-prix { justify-content: flex-start; }
+  .rv-chapeau { margin-left: 0; }
+  .rv-rassurance ul { grid-template-columns: repeat(3, 1fr); }
+  .rv-rassurance li { grid-template-columns: 1fr; text-align: center; }
+  .rv-puce { grid-row: auto; }
+}
+
+/* L'aperçu du numéro réécrit en entier, sous le champ. Il n'apparaît que
+   lorsque le numéro est plausible : clignoter à chaque frappe
+   inquiéterait plus que ça ne rassure. */
+/* Même précaution de spécificité que pour .rv-tel-ligne : sans le
+   `.rv-champ >`, l'aperçu héritait du gras blanc des libellés de champ. */
+.rv-champ > .rv-apercu-tel {
+  display: block; margin-top: 7px; min-height: 20px;
+  font-size: 14.5px; font-weight: 400; color: var(--rv-or-pale);
+  font-variant-numeric: tabular-nums;
+}
