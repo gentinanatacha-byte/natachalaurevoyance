@@ -75,6 +75,14 @@
     return (v % 1 === 0 ? String(v) : v.toFixed(2).replace(".", ",")) + " €";
   }
 
+  // Le groupe déclaré par la page (<meta name="rv-groupe">). Une page qui
+  // l'oublierait n'empêcherait pas de réserver : on renvoie simplement
+  // rien, et l'espace pro affichera « Offre privée ».
+  function groupeDeLaPage() {
+    var m = document.querySelector('meta[name="rv-groupe"]');
+    return (m && m.getAttribute("content")) || null;
+  }
+
   // ─── Le numéro au format international ──────────────────────────────
   //  WhatsApp exige un numéro complet, sans espaces ni zéro initial :
   //  « 078 615 78 58 » devient « 41786157858 ». Sans le pays, ce numéro
@@ -327,12 +335,15 @@
         email: el.email.value.trim(),
         debut: choix,
         message: el.message.value.trim() || null,
-        // Toujours « promo » : cette page n'est accessible que par le lien
-        // envoyé en privé, et elle n'est pas indexée. Qui arrive ici vient
-        // forcément de la recommandation. L'étiquette ne donne droit à
-        // aucune remise — le montant vient de la base — elle sert à ce que
-        // Natacha reconnaisse ces clientes d'un coup d'œil.
+        // Toujours « promo » : ces pages ne sont accessibles que par un
+        // lien envoyé en privé, et elles ne sont pas indexées. Qui arrive
+        // ici vient forcément d'une recommandation. L'étiquette ne donne
+        // droit à aucune remise — le montant vient de la base.
         source: "promo",
+        // Et le NOM du groupe, déclaré dans l'en-tête de chaque page.
+        // Sans lui, deux liens privés rempliraient la même case et on ne
+        // saurait plus lequel a amené la cliente.
+        groupe: groupeDeLaPage(),
         origin: window.location.origin,
       }),
     })
