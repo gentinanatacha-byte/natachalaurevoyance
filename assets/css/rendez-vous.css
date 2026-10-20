@@ -429,3 +429,146 @@
   font-size: 14.5px; font-weight: 400; color: var(--rv-or-pale);
   font-variant-numeric: tabular-nums;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LE CHOIX DE LA FORMULE, L'ADRESSE ET LE RÈGLEMENT
+   Ajoutés pour la page publique. Les deux pages privées portent le même
+   balisage mais le gardent masqué : elles n'offrent qu'une formule.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.rv-formules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+.rv-formule {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "nom prix" "duree prix";
+  gap: 2px 12px;
+  align-items: center;
+  text-align: left;
+  padding: 14px 16px;
+  background: var(--rv-noir-2);
+  border: 1px solid var(--rv-brun-cl);
+  border-left: 2px solid var(--rv-brun-cl);
+  border-radius: 3px;
+  color: var(--rv-blanc);
+  font-family: var(--rv-sans);
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, transform .15s ease;
+  min-width: 0;
+}
+.rv-formule:hover { background: var(--rv-brun); border-color: var(--rv-or); }
+.rv-formule:focus-visible { outline: 2px solid var(--rv-or-cl); outline-offset: 2px; }
+/* L'état retenu doit se voir d'un coup d'œil : c'est lui qui commande
+   l'agenda affiché juste en dessous. */
+.rv-formule[aria-pressed="true"] {
+  border-color: var(--rv-or);
+  border-left-color: var(--rv-or-pale);
+  background: linear-gradient(135deg, rgba(184,132,58,.12), rgba(46,34,24,.4));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rv-formule:active { transform: scale(.985); }
+}
+
+.rv-f-nom {
+  grid-area: nom;
+  font-family: var(--rv-serif);
+  font-size: 1rem;
+  color: var(--rv-or-pale);
+  line-height: 1.25;
+}
+.rv-f-duree {
+  grid-area: duree;
+  font-size: .82rem;
+  color: var(--rv-gris);
+}
+.rv-f-prix {
+  grid-area: prix;
+  font-family: var(--rv-serif);
+  font-size: 1.15rem;
+  color: var(--rv-blanc);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.rv-f-barre {
+  display: block;
+  font-size: .8rem;
+  color: var(--rv-gris);
+  font-family: var(--rv-sans);
+}
+
+/* ── L'adresse ───────────────────────────────────────────────────────── */
+.rv-aide {
+  display: block;
+  margin-top: 6px;
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--rv-gris);
+}
+
+/* ── Le mode de règlement ────────────────────────────────────────────── */
+/* fieldset porte des marges et une bordure par défaut que les navigateurs
+   dessinent différemment : on remet tout à plat. */
+.rv-reglement {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.rv-reglement legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-size: .92rem;
+  color: var(--rv-or-pale);
+}
+.rv-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 13px;
+  margin-bottom: 8px;
+  background: var(--rv-noir-2);
+  border: 1px solid var(--rv-brun-cl);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: .94rem;
+  line-height: 1.45;
+  transition: border-color .2s ease;
+}
+.rv-radio:hover { border-color: var(--rv-or); }
+.rv-radio:has(input:checked) {
+  border-color: var(--rv-or);
+  background: linear-gradient(135deg, rgba(184,132,58,.10), rgba(46,34,24,.35));
+}
+.rv-radio:has(input:focus-visible) { outline: 2px solid var(--rv-or-cl); outline-offset: 2px; }
+/* ⚠ Le groupe porte la classe .rv-champ, qui donne « width: 100% » à tous
+   les champs du formulaire. Sans cette remise à zéro, le petit rond du
+   bouton radio s'étire sur 326 px et pousse son libellé hors de l'écran. */
+.rv-radio input[type="radio"] {
+  width: auto;
+  min-width: 0;
+  margin: 3px 0 0;
+  padding: 0;
+  accent-color: var(--rv-or);
+  flex: 0 0 auto;
+}
+/* Sans min-width: 0, un élément flex refuse de descendre sous la largeur
+   de son texte : « En espèces, sur place le jour du rendez-vous » poussait
+   alors la page de 60 px vers la droite sur téléphone.
+   Et « flex: 1 » ne convient pas ici : sa base vaut zéro, ce qui écrase le
+   texte dans une boîte de largeur nulle d'où il déborde quand même. Il faut
+   « 1 1 auto » — la base reste le contenu, le rétrécissement est autorisé. */
+.rv-radio > span {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+/* [hidden] doit l'emporter sur les display des règles ci-dessus, sinon un
+   champ masqué reste visible. Même piège que pour le voile. */
+.rv-champ[hidden],
+.rv-reglement[hidden],
+.rv-bloc[hidden] { display: none !important; }

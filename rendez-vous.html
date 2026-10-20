@@ -16,6 +16,7 @@ sitemap: false
      sont partagés. Le script lit ce nom et le transmet à la réservation,
      pour que Natacha sache de quel lien vient chaque cliente. -->
 <meta name="rv-groupe" content="Club Med'Or">
+<meta name="rv-lien" content="club-medor">
 
 <!-- Cette page n'a pas à être trouvée par Google : elle est réservée aux
      personnes qui reçoivent le lien. L'indexer rendrait l'offre publique. -->
@@ -94,6 +95,14 @@ sitemap: false
        remplit ensuite ses coordonnées pour tenir un rendez-vous qu'on
        s'est déjà représenté, pas pour « voir ».
        ═══════════════════════════════════════════════════════════════════ -->
+  <!-- Le choix de la formule. Masqué tant que le lien n'en propose qu'une :
+       les deux pages privées n'offrent que l'heure au téléphone, et leur
+       parcours ne doit pas s'allonger d'un geste. -->
+  <section class="rv-bloc" id="rv-bloc-formules" hidden>
+    <h2><span class="rv-etape">1</span> Votre formule</h2>
+    <div id="rv-formules" class="rv-formules"></div>
+  </section>
+
   <section class="rv-bloc" id="rv-creneaux">
     <h2><span class="rv-etape">1</span> Votre créneau</h2>
 
@@ -166,6 +175,29 @@ sitemap: false
            Elle coûte une tape. On la rend donc large, claire, et on ne
            bloque jamais en silence : le bouton reste cliquable et explique
            ce qui manque. -->
+      <!-- Adresse et règlement : seulement pour un rendez-vous à domicile.
+           Le script les révèle selon la formule choisie. -->
+      <label class="rv-champ" id="rv-champ-adresse" hidden>
+        <span>Où dois-je venir ?</span>
+        <input type="text" id="rv-adresse" name="adresse" autocomplete="street-address"
+               maxlength="300" placeholder="Numéro, rue, code postal et ville">
+        <span class="rv-aide">Je me déplace dans un rayon de 15 km autour de
+          Saint-Laurent-du-Var. L'adresse est vérifiée tout de suite : si elle
+          est en dehors, vous le saurez avant de payer.</span>
+      </label>
+
+      <fieldset class="rv-champ rv-reglement" id="rv-champ-reglement" hidden>
+        <legend>Comment souhaitez-vous régler ?</legend>
+        <label class="rv-radio">
+          <input type="radio" name="rv-reglement" value="en_ligne" checked>
+          <span>En ligne maintenant, par carte</span>
+        </label>
+        <label class="rv-radio">
+          <input type="radio" name="rv-reglement" value="especes">
+          <span>En espèces, sur place le jour du rendez-vous</span>
+        </label>
+      </fieldset>
+
       <label class="rv-accord" id="rv-accord-ligne">
         <input type="checkbox" id="rv-accord">
         <span>
@@ -234,6 +266,6 @@ sitemap: false
   </div>
 </div>
 
-<script src="/assets/js/rendez-vous.js" defer></script>
+<script src="/assets/js/reservation.js" defer></script>
 </body>
 </html>
