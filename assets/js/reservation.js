@@ -185,22 +185,44 @@
 
   // ─── Le choix de la formule ──────────────────────────────────────────
 
+  // Les formules sont présentées en DEUX menus distincts — à domicile d'un
+  // côté, par téléphone de l'autre — et non en une seule liste mélangée :
+  // le premier choix réel d'une visiteuse, c'est « est-ce qu'elle vient chez
+  // moi ou est-ce qu'on s'appelle », pas la durée.
+  function carteFormule(f) {
+    var barre = f.prix_barre_cents && f.prix_barre_cents > f.prix_cents
+      ? '<s class="rv-f-barre">' + euros(f.prix_barre_cents) + "</s>" : "";
+    return '<button type="button" class="rv-formule" data-code="' + escapeHtml(f.code) + '"' +
+      (f.code === formule ? ' aria-pressed="true"' : ' aria-pressed="false"') + ">" +
+      '<span class="rv-f-nom">' + escapeHtml(f.nom) + "</span>" +
+      '<span class="rv-f-duree">' + f.duree_minutes + " minutes</span>" +
+      '<span class="rv-f-prix">' + euros(f.prix_cents) + barre + "</span>" +
+      "</button>";
+  }
+
+  function groupeFormules(titre, precision, liste) {
+    if (!liste.length) return "";
+    var cartes = "";
+    for (var i = 0; i < liste.length; i++) cartes += carteFormule(liste[i]);
+    return '<div class="rv-groupe">' +
+      '<p class="rv-groupe-titre">' + escapeHtml(titre) +
+      '<span class="rv-groupe-precision">' + escapeHtml(precision) + "</span></p>" +
+      '<div class="rv-groupe-cartes">' + cartes + "</div></div>";
+  }
+
   function afficherFormules() {
     if (!el.formules) return;
-    var html = "";
+    var domicile = [], telephone = [];
     for (var i = 0; i < offre.formules.length; i++) {
-      var f = offre.formules[i];
-      var barre = f.prix_barre_cents && f.prix_barre_cents > f.prix_cents
-        ? '<s class="rv-f-barre">' + euros(f.prix_barre_cents) + "</s>" : "";
-      html +=
-        '<button type="button" class="rv-formule" data-code="' + escapeHtml(f.code) + '"' +
-        (f.code === formule ? ' aria-pressed="true"' : ' aria-pressed="false"') + ">" +
-        '<span class="rv-f-nom">' + escapeHtml(f.nom) + "</span>" +
-        '<span class="rv-f-duree">' + f.duree_minutes + " min · " +
-        (f.mode === "domicile" ? "chez vous" : "par téléphone") + "</span>" +
-        '<span class="rv-f-prix">' + euros(f.prix_cents) + barre + "</span>" +
-        "</button>";
+      (offre.formules[i].mode === "domicile" ? domicile : telephone)
+        .push(offre.formules[i]);
     }
+    // Un seul mode proposé : pas de titre de groupe, ce serait du bruit.
+    var html = (domicile.length && telephone.length)
+      ? groupeFormules("Chez vous", "dans un rayon de 15 km autour de Saint-Laurent-du-Var", domicile) +
+        groupeFormules("Par téléphone", "partout en France", telephone)
+      : groupeFormules("", "", domicile.concat(telephone))
+          .replace(/<p class="rv-groupe-titre">.*?<\/p>/, "");
     el.formules.innerHTML = html;
     var boutons = el.formules.querySelectorAll(".rv-formule");
     for (var j = 0; j < boutons.length; j++) {

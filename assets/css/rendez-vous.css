@@ -572,3 +572,37 @@
 .rv-champ[hidden],
 .rv-reglement[hidden],
 .rv-bloc[hidden] { display: none !important; }
+
+/* ─── Les deux menus : chez vous / par téléphone ─────────────────────────
+   La liste unique des sept formules mélangeait les deux modes. Le premier
+   choix réel est le mode, pas la durée : on les sépare donc visiblement. */
+.rv-formules { display: block; }
+.rv-groupe + .rv-groupe { margin-top: 22px; }
+.rv-groupe-titre {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin: 0 0 10px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--rv-brun-cl);
+  font-family: var(--rv-serif);
+  font-size: .95rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--rv-or-pale);
+}
+.rv-groupe-precision {
+  font-size: .72rem;
+  letter-spacing: .04em;
+  text-transform: none;
+  color: var(--rv-gris, #9a8878);
+}
+.rv-groupe-cartes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+@media (max-width: 420px) {
+  .rv-groupe-titre { font-size: .88rem; }
+}
