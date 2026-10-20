@@ -145,7 +145,7 @@ sitemap: true
       <li><a href="#faq">FAQ</a></li>
       <li><a href="/carte-cadeau/">Carte cadeau</a></li>
       <li><a href="/evenements/">Événements</a></li>
-      <li><a href="#contact" class="nav-cta">Rendez-vous</a></li>
+      <li><a href="/reserver/" class="nav-cta">Réserver</a></li>
     </ul>
   </nav>
   <button class="nav-burger" id="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -179,7 +179,7 @@ sitemap: true
       <span class="badge">Nice &amp; téléphone</span>
     </div>
     <div class="hero-ctas reveal" data-delay="650">
-      <a href="#contact" class="btn btn-gold">
+      <a href="/reserver/" class="btn btn-gold">
         <span>Prendre rendez-vous</span>
       </a>
       <a href="#services" class="btn btn-ghost">
@@ -252,7 +252,7 @@ sitemap: true
       <p>Depuis plus de 10 ans, j'accompagne mes consultants à Nice et partout en France, dans un cadre <strong>confidentiel, respectueux et sans jugement</strong>. Chaque séance est un espace de vérité, d'écoute et de lumière.</p>
       <p>Ma spécialité : la <strong>guidance sentimentale et amoureuse</strong>, les périodes de transition, et les questions professionnelles. Je travaille principalement avec le Tarot de Marseille, le pendule et l'Oracle de Belline.</p>
       <p>J'ai aussi voulu rendre le tarot accessible entre deux consultations : je suis à l'origine d'<a href="/aurea/"><strong>Auréa</strong></a>, une application de tirage qui reprend ma façon de lire les cartes. <a href="/aurea/">Trois tirages y sont offerts</a>, sans inscription.</p>
-      <a href="#contact" class="btn btn-gold" style="margin-top:1.5rem">
+      <a href="/reserver/" class="btn btn-gold" style="margin-top:1.5rem">
         <span>Prendre rendez-vous</span>
       </a>
     </div>
@@ -384,7 +384,7 @@ sitemap: true
         <p>30 min d'analyse de votre chemin de vie et de votre situation actuelle + 30 min de questions libres. Idéale pour une première consultation ou un bilan ponctuel.</p>
         <div class="prestation-actions">
           <button class="btn btn-ghost btn-details" data-prestation="generale-domicile"><span>Détails</span></button>
-          <a href="#contact" class="btn btn-gold"><span>Réserver</span></a>
+          <a href="/reserver/?formule=generale-dom" class="btn btn-gold"><span>Réserver</span></a>
         </div>
       </article>
 
@@ -404,7 +404,7 @@ sitemap: true
         <p>45 min d'analyse complète + 45 min de questions libres. Pour explorer plusieurs aspects de votre vie en profondeur.</p>
         <div class="prestation-actions">
           <button class="btn btn-ghost btn-details" data-prestation="approfondie-domicile"><span>Détails</span></button>
-          <a href="#contact" class="btn btn-gold"><span>Réserver</span></a>
+          <a href="/reserver/?formule=approfondie-dom" class="btn btn-gold"><span>Réserver</span></a>
         </div>
       </article>
 
@@ -423,7 +423,7 @@ sitemap: true
         <p>1h d'analyse approfondie + 1h de questions libres. La formule la plus exhaustive pour un bilan de vie complet.</p>
         <div class="prestation-actions">
           <button class="btn btn-ghost btn-details" data-prestation="complete-domicile"><span>Détails</span></button>
-          <a href="#contact" class="btn btn-gold"><span>Réserver</span></a>
+          <a href="/reserver/?formule=guidance-dom" class="btn btn-gold"><span>Réserver</span></a>
         </div>
       </article>
 
@@ -483,7 +483,7 @@ sitemap: true
         <p>Une question brûlante ? Deux sujets précis ? En 30 minutes chrono, un tirage ciblé et une réponse claire — sans détour.</p>
         <div class="prestation-actions">
           <button class="btn btn-ghost btn-details" data-prestation="flash-telephone"><span>Détails</span></button>
-          <a href="#contact" class="btn btn-gold"><span>Réserver</span></a>
+          <a href="/reserver/?formule=flash-tel" class="btn btn-gold"><span>Réserver</span></a>
         </div>
       </article><article class="prestation-card">
         <div class="prestation-header">
@@ -500,7 +500,7 @@ sitemap: true
         <p>30 min d'analyse de votre chemin de vie et de votre situation actuelle + 30 min de questions libres. Accessible depuis toute la France.</p>
         <div class="prestation-actions">
           <button class="btn btn-ghost btn-details" data-prestation="generale-telephone"><span>Détails</span></button>
-          <a href="#contact" class="btn btn-gold"><span>Réserver</span></a>
+          <a href="/reserver/?formule=generale-tel" class="btn btn-gold"><span>Réserver</span></a>
         </div>
       </article>
 
@@ -520,7 +520,7 @@ sitemap: true
         <p>45 min d'analyse complète + 45 min de questions libres. Pour explorer plusieurs aspects de votre vie en profondeur.</p>
         <div class="prestation-actions">
           <button class="btn btn-ghost btn-details" data-prestation="approfondie-telephone"><span>Détails</span></button>
-          <a href="#contact" class="btn btn-gold"><span>Réserver</span></a>
+          <a href="/reserver/?formule=approfondie-tel" class="btn btn-gold"><span>Réserver</span></a>
         </div>
       </article>
 
@@ -539,7 +539,7 @@ sitemap: true
         <p>1h d'analyse approfondie + 1h de questions libres. La formule la plus exhaustive pour un bilan de vie complet.</p>
         <div class="prestation-actions">
           <button class="btn btn-ghost btn-details" data-prestation="complete-telephone"><span>Détails</span></button>
-          <a href="#contact" class="btn btn-gold"><span>Réserver</span></a>
+          <a href="/reserver/?formule=guidance-tel" class="btn btn-gold"><span>Réserver</span></a>
         </div>
       </article>
 
@@ -837,6 +837,29 @@ sitemap: true
     <div class="gold-divider center reveal" data-delay="150"></div>
     <p class="contact-lead text-center reveal" data-delay="200">À domicile sur Nice et sa région, ou par téléphone partout en France. Un espace de confiance, de clarté et d'écoute.</p>
 
+    <!-- Le chemin le plus court : choisir son créneau et repartir. Les
+         cartes de contact restent dessous pour celles qui préfèrent parler
+         à quelqu'un avant de réserver. -->
+    <div class="reserver-panneau reveal" data-delay="250">
+      <p class="reserver-chapeau">Le plus simple</p>
+      <h3 class="reserver-titre">Choisissez votre créneau en ligne</h3>
+      <p class="reserver-texte">
+        Sept formules, de 30 minutes à 2 heures. <strong>Chez vous</strong> dans un
+        rayon de 15 km autour de Saint-Laurent-du-Var, ou <strong>par téléphone</strong>
+        partout en France. Vous voyez mes disponibilités réelles et vous réservez
+        en deux minutes.
+      </p>
+      <a href="/reserver/" class="btn btn-gold reserver-bouton">
+        <span>Voir mes disponibilités</span>
+      </a>
+      <p class="reserver-rassure">
+        Aucun compte à créer · Paiement sécurisé par carte, ou en espèces sur place
+        pour les rendez-vous à domicile · Annulation gratuite jusqu'à la veille
+      </p>
+    </div>
+
+    <p class="reserver-ou reveal" data-delay="280">ou joignez-moi directement</p>
+
     <div class="contact-cards reveal" data-delay="300">
       <a href="tel:+33627815276" class="contact-card">
         <span class="contact-icon">📞</span>
@@ -960,7 +983,7 @@ sitemap: true
         <ul>
           <li><a href="#nice">Voyance à Nice</a></li>
           <li><a href="#telephone">Voyance par téléphone</a></li>
-          <li><a href="#contact">Prendre rendez-vous</a></li>
+          <li><a href="/reserver/">Réserver en ligne</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -999,6 +1022,10 @@ sitemap: true
 
 <!-- ═══ BOUTONS FLOTTANTS (WhatsApp + Instagram) ═══ -->
 <div class="floating-actions" aria-label="Contacts rapides">
+  <a href="/reserver/" class="float-btn float-reserver" aria-label="Prendre rendez-vous en ligne">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/><path d="m9.5 15.5 1.8 1.8 3.5-3.6"/></svg>
+    <span class="float-tooltip">Prendre rendez-vous</span>
+  </a>
   <a href="https://wa.me/33627815276?text=Bonjour%20Natacha%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20une%20consultation" 
      class="float-btn float-whatsapp" 
      target="_blank" 

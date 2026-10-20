@@ -210,6 +210,31 @@
     }
   }
 
+  function existeFormule(code) {
+    if (!offre || !offre.formules) return false;
+    for (var i = 0; i < offre.formules.length; i++) {
+      if (offre.formules[i].code === code) return true;
+    }
+    return false;
+  }
+
+  // Quand on arrive d'un bouton « Réserver » de l'accueil, la formule est
+  // déjà cochée mais elle se trouve plus bas que l'écran : sans ce geste, on
+  // croit que le clic n'a rien fait. On respecte le réglage système de ceux
+  // qui ont désactivé les animations.
+  function amenerALaFormule() {
+    if (!el.blocFormules) return;
+    var doux = !(window.matchMedia &&
+                 window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    setTimeout(function () {
+      try {
+        el.blocFormules.scrollIntoView({
+          behavior: doux ? "smooth" : "auto", block: "start"
+        });
+      } catch (e) { el.blocFormules.scrollIntoView(); }
+    }, 250);
+  }
+
   function choisirFormule(code) {
     formule = code;
     choix = null;
@@ -538,10 +563,13 @@
       el.voileSceau.textContent = "✓";
       el.voile.classList.remove("rv-neutre");
       el.voileTitre.textContent = "C'est noté, votre rendez-vous est pris";
+      // Ce texte s'affiche aussi bien après un rendez-vous par téléphone
+      // qu'après un rendez-vous à domicile : il ne doit donc promettre ni un
+      // appel ni une visite. Le détail exact est dans l'e-mail.
       el.voileTexte.textContent =
-        "Vous allez recevoir un e-mail de confirmation avec la date et l'heure. " +
-        "Natacha vous appellera elle-même au numéro que vous avez indiqué — " +
-        "vous n'avez plus rien à faire.";
+        "Vous allez recevoir un e-mail de confirmation avec la date, l'heure " +
+        "et tout ce qu'il faut savoir pour le jour J. " +
+        "Vous n'avez plus rien à faire.";
     } else {
       el.voileSceau.textContent = "↺";
       el.voile.classList.add("rv-neutre");
@@ -615,6 +643,19 @@
         if (el.blocFormules) el.blocFormules.hidden = false;
         renumeroterEtapes();
         afficherFormules();
+
+        // Une formule peut être demandée dans l'adresse de la page :
+        // /reserver/?formule=generale-dom. Les boutons « Réserver » de
+        // l'accueil s'en servent pour amener la visiteuse directement sur la
+        // bonne ligne au lieu de la faire rechoisir ce qu'elle vient déjà de
+        // choisir. Un code inconnu est ignoré sans rien casser.
+        var demandee = new URLSearchParams(window.location.search).get("formule");
+        if (demandee && existeFormule(demandee)) {
+          choisirFormule(demandee);
+          amenerALaFormule();
+          return;
+        }
+
         el.prix.innerHTML =
           '<span class="rv-prix-chargement">Choisissez votre formule ci-dessous</span>';
         el.agenda.innerHTML =
