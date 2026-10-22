@@ -13,7 +13,8 @@
 (function () {
   "use strict";
 
-  var API = "https://aurea.natachalaurevoyance.fr/api/carte-registre";
+  /* Greffé sur carte-cadeau : voir la note dans achat-noel.js. */
+  var API = "https://aurea.natachalaurevoyance.fr/api/carte-cadeau?quoi=registre";
   var BOITE = "nl-cle-registre";
 
   var porte    = document.getElementById("reg-porte");

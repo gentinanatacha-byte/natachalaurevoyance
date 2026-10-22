@@ -13,7 +13,10 @@
 (function () {
   "use strict";
 
-  var API = "https://aurea.natachalaurevoyance.fr/api/carte-noel";
+  /* Les routes de Noël sont greffées sur carte-cadeau, qui existait
+     déjà : le plan Vercel du projet plafonne à douze fonctions, et il y
+     était. Le paramètre « quoi » dit laquelle on appelle. */
+  var API = "https://aurea.natachalaurevoyance.fr/api/carte-cadeau";
 
   var form    = document.getElementById("noel-form");
   var carte   = document.getElementById("carte");
@@ -99,7 +102,7 @@
     var libelle = bouton.textContent;
     bouton.textContent = "Ouverture du paiement…";
 
-    fetch(API, {
+    fetch(API + "?quoi=noel", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -135,7 +138,7 @@
   /* ── L'état de l'offre ───────────────────────────────────────────
      Le serveur fait foi : si l'offre est close, la page se ferme même
      si quelqu'un a gardé l'onglet ouvert depuis des semaines. */
-  fetch(API, { headers: { Accept: "application/json" } })
+  fetch(API + "?quoi=offre", { headers: { Accept: "application/json" } })
     .then(function (r) { return r.json(); })
     .then(function (o) {
       if (!o) return;

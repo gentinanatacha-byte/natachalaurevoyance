@@ -15,7 +15,8 @@
 (function () {
   "use strict";
 
-  var API = "https://aurea.natachalaurevoyance.fr/api/carte-bon";
+  /* Greffé sur carte-cadeau : voir la note dans achat-noel.js. */
+  var API = "https://aurea.natachalaurevoyance.fr/api/carte-cadeau?quoi=bon";
 
   var attente = document.getElementById("bon-attente");
   var contenu = document.getElementById("bon-contenu");
@@ -46,7 +47,7 @@
 
   function demander() {
     essai++;
-    fetch(API + "?c=" + encodeURIComponent(code), { headers: { Accept: "application/json" } })
+    fetch(API + "&c=" + encodeURIComponent(code), { headers: { Accept: "application/json" } })
       .then(function (r) { return r.json().catch(function () { return {}; }); })
       .then(function (bon) {
         if (bon && bon.trouve) return afficher(bon);
