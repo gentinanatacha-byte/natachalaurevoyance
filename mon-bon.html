@@ -1,0 +1,104 @@
+---
+layout: null
+permalink: /mon-bon/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votre carte cadeau — Natacha Laure Voyance</title>
+
+<!-- Une page de bon ne doit JAMAIS se retrouver dans Google : elle porte
+     le prénom du destinataire et le mot que l'acheteur a écrit. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://aurea.natachalaurevoyance.fr">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/carte-noel.css">
+</head>
+<body class="noel-body">
+
+<main class="bon-page" id="bon-page">
+
+  <!-- ── 1. Pendant que le paiement se confirme ──────────────────────
+       Stripe renvoie l'acheteur ici tout de suite, parfois avant même
+       que sa notification de paiement ne nous soit parvenue. On ne lui
+       montre donc pas « carte introuvable » : on patiente, et on
+       redemande, jusqu'à une trentaine de secondes. -->
+  <section class="bon-attente" id="bon-attente">
+    <div class="rond" aria-hidden="true"></div>
+    <p>Votre carte se prépare…</p>
+    <p style="color:var(--noel-gris);font-size:.88rem;">Quelques secondes, le temps que le paiement soit confirmé.</p>
+  </section>
+
+  <!-- ── 2. Le bon ──────────────────────────────────────────────────── -->
+  <section id="bon-contenu" hidden>
+
+    <header class="bon-entete">
+      <p id="bon-sceau"></p>
+      <h1 id="bon-titre">Votre carte cadeau est prête</h1>
+      <p id="bon-chapeau"></p>
+    </header>
+
+    <!-- C'est ce bloc, et lui seul, qui part à l'imprimante. -->
+    <div class="bon-impression">
+      <div class="carte noel-cadre" id="carte" style="padding:0;border:0;">
+        <img class="carte-fond" id="carte-fond"
+             src="/assets/images/carte-noel.jpg"
+             alt="Carte cadeau Natacha Laure Voyance : une heure de voyance par téléphone">
+        <div class="carte-champ carte-pour" id="carte-pour"></div>
+        <div class="carte-champ carte-mot"  id="carte-mot"></div>
+        <div class="carte-champ carte-code" id="carte-code"></div>
+      </div>
+    </div>
+
+    <div class="bon-actions">
+      <button type="button" class="noel-bouton" id="bon-imprimer">Imprimer la carte</button>
+      <button type="button" class="bon-second" id="bon-copier">Copier le lien</button>
+    </div>
+
+    <div class="bon-mode-emploi">
+      <p style="margin:0 0 12px;"><strong>Comment l'offrir</strong><br>
+      Imprimez la carte (de préférence en couleur, sur papier épais si vous en avez), ou
+      envoyez simplement cette page à la personne à qui vous l'offrez.</p>
+
+      <p style="margin:0 0 12px;"><strong>Comment elle l'utilise</strong><br>
+      Elle m'appelle ou m'écrit au <a href="tel:+33627815276">06 27 81 52 76</a>
+      — ou sur <a href="https://wa.me/33627815276" target="_blank" rel="noopener">WhatsApp</a> —
+      en me donnant le code de la carte. Nous convenons du jour et de l'heure ensemble,
+      et il n'y a plus rien à régler.</p>
+
+      <p style="margin:0;" id="bon-validite"></p>
+    </div>
+  </section>
+
+  <!-- ── 3. Code inconnu ─────────────────────────────────────────────── -->
+  <section class="bon-absent" id="bon-absent" hidden>
+    <h1 style="font-family:Cinzel,serif;font-weight:500;font-size:1.4rem;">Cette carte reste introuvable</h1>
+    <p style="color:var(--noel-gris);line-height:1.8;max-width:470px;margin:14px auto 0;">
+      Le code ne correspond à aucune carte émise. Vérifiez-le dans l'e-mail que vous avez reçu —
+      il s'écrit sous la forme <code style="color:var(--noel-or-clair);">CC-ABC-123</code>.
+      <br><br>
+      Si vous venez de payer et que rien n'apparaît,
+      écrivez-moi au <a href="tel:+33627815276" style="color:var(--noel-or-clair);">06 27 81 52 76</a> :
+      je retrouve votre carte et je vous la renvoie.
+    </p>
+  </section>
+
+  <p class="noel-pied" style="padding-top:38px;">
+    <a href="/">Natacha Laure Voyance</a> ·
+    <a href="/carte-noel/">Offrir une autre carte</a>
+  </p>
+
+</main>
+
+<script src="/assets/js/carte-noel.js" defer></script>
+<script src="/assets/js/mon-bon.js" defer></script>
+</body>
+</html>

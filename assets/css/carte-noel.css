@@ -1,0 +1,459 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   carte-noel.css — l'offre de Noël : page d'achat, bon imprimable, registre
+
+   Trois pages partagent ce fichier parce qu'elles partagent l'essentiel :
+   LA CARTE. Son dessin est écrit une seule fois, et sert aussi bien à
+   l'aperçu en direct pendant la saisie qu'au bon final que l'on imprime.
+   C'est ce qui garantit que ce que l'acheteur voit est exactement ce qui
+   sortira de son imprimante.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --noel-or:        #c9a24d;
+  --noel-or-clair:  #e8cf96;
+  --noel-violet:    #2a1b3d;
+  --noel-nuit:      #120f16;
+  --noel-nuit-2:    #1b1622;
+  --noel-creme:     #f6f1e8;
+  --noel-gris:      #a3947f;
+  --noel-encre:     #2b1a0d;   /* l'encre des champs remplis, relevée du visuel */
+  --noel-parchemin: #fef1d8;   /* le beige des encadrés, relevé du visuel */
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   1. LA CARTE
+   Toutes les positions sont exprimées en pourcentage du visuel, mesuré
+   au pixel sur l'original (1536 × 1024). La carte peut donc être
+   affichée à n'importe quelle taille — vignette, plein écran, page A4 —
+   le texte reste exactement au même endroit.
+
+   Les tailles de texte sont en cqw : 1 cqw = 1 % de la largeur de la
+   carte. Sans cela, il faudrait recalculer les corps en JavaScript à
+   chaque redimensionnement, et le texte sauterait à l'impression.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.carte {
+  position: relative;
+  width: 100%;
+  container-type: inline-size;
+  line-height: 1;
+  /* Le visuel est en 3:2. On réserve la place avant même qu'il arrive,
+     pour que la page ne sursaute pas au chargement. */
+  aspect-ratio: 1536 / 1024;
+  background: #0d0a12;
+  overflow: hidden;
+}
+
+/* Le visuel est une VRAIE image, pas un fond CSS : les navigateurs
+   n'impriment les fonds que si l'on coche « graphiques d'arrière-plan »
+   dans la fenêtre d'impression, ce que personne ne fait. Une balise
+   <img>, elle, s'imprime toujours. */
+.carte-fond {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carte-champ {
+  position: absolute;
+  color: var(--noel-encre);
+  font-family: Georgia, "Times New Roman", serif;
+  /* Police système volontaire : une police web qui n'arrive pas, et
+     c'est une carte imprimée de travers, sans rattrapage possible. */
+  overflow: hidden;
+}
+
+/* ── « Pour : » ─────────────────────────────────────────────────────
+   Le trait d'écriture est à y = 512 px sur l'original. Le bloc s'arrête
+   juste au-dessus, aligné par le bas, pour que le prénom pose sur le
+   trait au lieu de flotter. */
+.carte-pour {
+  left: 32.6%;
+  right: 20.2%;
+  top: 42.4%;
+  height: 7.6%;          /* bas du bloc à y = 512 px : exactement le trait */
+  display: flex;
+  align-items: flex-end;
+  font-size: 2.7cqw;
+  white-space: nowrap;
+}
+
+/* ── « Un petit mot : » ─────────────────────────────────────────────
+   La première ligne commence après le libellé (263 px sur 935 px de
+   largeur utile, soit 28 %) ; les suivantes repartent du bord gauche
+   de l'encadré. C'est exactement ce que fait text-indent. */
+.carte-mot {
+  left: 21%;             /* aligné sous le lotus gravé, pas collé au liseré */
+  right: 20.3%;
+  top: 58.6%;            /* la 1re ligne pose sur la même base que le libellé */
+  height: 15.3%;
+  font-size: 2.25cqw;
+  line-height: 1.38;
+  text-indent: 29%;      /* la 1re ligne démarre après « Un petit mot : » */
+  text-align: left;
+  hyphens: none;
+}
+
+/* ── Le code ────────────────────────────────────────────────────────── */
+.carte-code {
+  left: 32.6%;
+  width: 26.5%;
+  top: 77.8%;
+  height: 10.1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.1cqw;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  color: #3a2410;
+}
+
+/* Les navigateurs d'avant 2023 ne connaissent pas cqw : le script pose
+   alors une taille en pixels, et cette classe lui laisse la main. */
+.carte.sans-cqw .carte-pour,
+.carte.sans-cqw .carte-mot,
+.carte.sans-cqw .carte-code { font-size: inherit; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   2. LA PAGE D'ACHAT
+   ═══════════════════════════════════════════════════════════════════ */
+
+.noel-body {
+  margin: 0;
+  background: var(--noel-nuit);
+  color: var(--noel-creme);
+  font-family: "Raleway", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.noel-page { max-width: 1120px; margin: 0 auto; padding: 0 0 70px; }
+
+/* ── Bandeau ────────────────────────────────────────────────────────
+   Deux découpes du même visuel : la large pour les écrans d'ordinateur,
+   la resserrée (titre + lune) pour les téléphones, où la version large
+   réduirait le titre à quelques pixels de haut. */
+.noel-hero { display: block; }
+.noel-hero img { width: 100%; height: auto; display: block; }
+
+/* ── La frise des cinq promesses ────────────────────────────────────
+   Entièrement redessinée en HTML et en SVG, et non découpée dans
+   l'image : sur un téléphone, cinq colonnes gravées dans une image
+   deviennent illisibles. Ici elles se replient toutes seules. */
+.noel-frise {
+  background: var(--noel-creme);
+  color: #4a3a22;
+  padding: 26px 16px;
+}
+.noel-frise-liste {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+.noel-frise li { text-align: center; font-size: 0.82rem; line-height: 1.45; }
+.noel-frise svg { width: 42px; height: 42px; margin: 0 auto 10px; display: block; }
+@media (max-width: 860px) { .noel-frise-liste { grid-template-columns: repeat(2, 1fr); gap: 20px 10px; } }
+/* En dessous de 360 px, deux colonnes casseraient les mots ; au-dessus,
+   elles évitent une frise de cinq lignes qu'il faut faire défiler. */
+@media (max-width: 360px) { .noel-frise-liste { grid-template-columns: 1fr; } }
+
+/* ── L'offre ───────────────────────────────────────────────────────── */
+.noel-offre { text-align: center; padding: 54px 20px 10px; }
+.noel-offre h1 {
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-size: clamp(1.6rem, 4.6vw, 2.5rem);
+  font-weight: 500;
+  margin: 0 0 14px;
+  color: var(--noel-creme);
+}
+.noel-prix { display: flex; align-items: baseline; justify-content: center; gap: 14px; margin: 18px 0 10px; }
+.noel-prix-barre { font-size: 1.3rem; color: var(--noel-gris); text-decoration: line-through; }
+.noel-prix-vif {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2.4rem, 8vw, 3.4rem);
+  color: var(--noel-or-clair);
+  line-height: 1;
+}
+.noel-echeance {
+  display: inline-block;
+  border: 1px solid rgba(201, 162, 77, .45);
+  border-radius: 999px;
+  padding: 7px 20px;
+  font-size: 0.85rem;
+  letter-spacing: .06em;
+  color: var(--noel-or-clair);
+  margin-top: 6px;
+}
+.noel-sous { color: var(--noel-gris); max-width: 540px; margin: 18px auto 0; line-height: 1.7; }
+
+/* ── Les trois panneaux d'ambiance ──────────────────────────────────── */
+.noel-panneaux {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 44px 16px 0;
+}
+.noel-panneaux img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block; }
+@media (max-width: 760px) { .noel-panneaux { grid-template-columns: 1fr; } }
+
+/* ── L'atelier : aperçu + formulaire ────────────────────────────────── */
+.noel-atelier {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 38px;
+  align-items: start;
+  padding: 52px 16px 0;
+}
+@media (max-width: 900px) { .noel-atelier { grid-template-columns: 1fr; gap: 26px; } }
+
+.noel-colonne-apercu { position: sticky; top: 22px; }
+@media (max-width: 900px) { .noel-colonne-apercu { position: static; } }
+
+.noel-cadre {
+  border: 1px solid rgba(201, 162, 77, .28);
+  border-radius: 16px;
+  padding: 14px;
+  background: var(--noel-nuit-2);
+}
+.noel-legende {
+  text-align: center;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--noel-gris);
+  margin: 0 0 12px;
+}
+
+.noel-form { background: var(--noel-nuit-2); border: 1px solid rgba(201,162,77,.28); border-radius: 16px; padding: 26px 24px 28px; }
+.noel-form h2 {
+  font-family: "Cinzel", serif; font-weight: 500; font-size: 1.15rem;
+  margin: 0 0 4px; color: var(--noel-creme);
+}
+.noel-form .aide { color: var(--noel-gris); font-size: .86rem; margin: 0 0 22px; line-height: 1.6; }
+
+.noel-champ { margin: 0 0 18px; }
+.noel-champ label { display: block; font-size: .83rem; letter-spacing: .04em; color: var(--noel-or-clair); margin: 0 0 7px; }
+.noel-champ input,
+.noel-champ textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: #0f0c14;
+  border: 1px solid rgba(201,162,77,.3);
+  border-radius: 9px;
+  padding: 13px 14px;
+  color: var(--noel-creme);
+  font: 400 1rem/1.5 "Raleway", system-ui, sans-serif;
+  transition: border-color .18s;
+}
+.noel-champ input:focus,
+.noel-champ textarea:focus { outline: none; border-color: var(--noel-or); }
+.noel-champ textarea { resize: vertical; min-height: 92px; }
+.noel-champ .indice { display: flex; justify-content: space-between; gap: 10px; font-size: .76rem; color: var(--noel-gris); margin-top: 6px; }
+.noel-compteur.serre { color: #e0a95f; }
+.noel-compteur.plein { color: #e07a5f; }
+
+.noel-consent { display: flex; gap: 11px; align-items: flex-start; font-size: .82rem; color: var(--noel-gris); line-height: 1.6; margin: 4px 0 20px; }
+.noel-consent input { margin-top: 3px; flex: 0 0 auto; width: 17px; height: 17px; accent-color: var(--noel-or); }
+.noel-consent a { color: var(--noel-or-clair); }
+
+.noel-bouton {
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  padding: 17px 20px;
+  background: linear-gradient(135deg, #d9b465, #b8893c);
+  color: #1a1410;
+  font: 600 1.02rem/1 "Raleway", system-ui, sans-serif;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s, opacity .15s;
+  box-shadow: 0 8px 26px rgba(201,162,77,.22);
+}
+.noel-bouton:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,162,77,.32); }
+.noel-bouton:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+
+.noel-rassurance { font-size: .76rem; color: var(--noel-gris); text-align: center; margin: 14px 0 0; line-height: 1.6; }
+.noel-erreur {
+  background: rgba(224,122,95,.12);
+  border: 1px solid rgba(224,122,95,.4);
+  border-radius: 9px;
+  padding: 12px 14px;
+  font-size: .86rem;
+  color: #f0b9a6;
+  margin: 0 0 16px;
+}
+.noel-erreur[hidden] { display: none; }
+
+/* ── Les questions ──────────────────────────────────────────────────── */
+.noel-questions { padding: 56px 16px 0; max-width: 760px; margin: 0 auto; }
+.noel-questions h2 { font-family: "Cinzel", serif; font-weight: 500; text-align: center; font-size: 1.4rem; margin: 0 0 24px; }
+.noel-questions details {
+  border-bottom: 1px solid rgba(201,162,77,.18);
+  padding: 15px 0;
+}
+.noel-questions summary { cursor: pointer; color: var(--noel-creme); font-size: .98rem; list-style: none; position: relative; padding-right: 26px; }
+.noel-questions summary::-webkit-details-marker { display: none; }
+.noel-questions summary::after { content: "+"; position: absolute; right: 2px; color: var(--noel-or); font-size: 1.2rem; line-height: 1; }
+.noel-questions details[open] summary::after { content: "–"; }
+.noel-questions p { color: var(--noel-gris); line-height: 1.75; margin: 12px 0 0; font-size: .92rem; }
+
+.noel-pied { text-align: center; padding: 50px 16px 0; color: var(--noel-gris); font-size: .88rem; line-height: 1.8; }
+.noel-pied a { color: var(--noel-or-clair); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   3. LE BON — page /mon-bon/
+   ═══════════════════════════════════════════════════════════════════ */
+
+.bon-page { max-width: 880px; margin: 0 auto; padding: 34px 16px 60px; }
+.bon-entete { text-align: center; margin: 0 0 26px; }
+.bon-entete h1 { font-family: "Cinzel", serif; font-weight: 500; font-size: 1.5rem; margin: 0 0 8px; }
+.bon-entete p { color: var(--noel-gris); margin: 0; line-height: 1.7; }
+
+.bon-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 26px 0 0; }
+.bon-actions .noel-bouton { width: auto; min-width: 230px; }
+.bon-second {
+  background: transparent;
+  border: 1px solid rgba(201,162,77,.45);
+  color: var(--noel-or-clair);
+  border-radius: 999px;
+  padding: 16px 26px;
+  font: 500 .96rem/1 "Raleway", sans-serif;
+  cursor: pointer;
+}
+
+.bon-mode-emploi {
+  margin: 34px auto 0;
+  max-width: 620px;
+  background: var(--noel-nuit-2);
+  border: 1px solid rgba(201,162,77,.24);
+  border-radius: 14px;
+  padding: 22px 24px;
+  color: var(--noel-gris);
+  line-height: 1.8;
+  font-size: .92rem;
+}
+.bon-mode-emploi strong { color: var(--noel-creme); }
+.bon-mode-emploi a { color: var(--noel-or-clair); }
+
+.bon-attente, .bon-absent { text-align: center; padding: 70px 20px; }
+.bon-attente .rond {
+  width: 42px; height: 42px; margin: 0 auto 20px;
+  border: 2px solid rgba(201,162,77,.25);
+  border-top-color: var(--noel-or);
+  border-radius: 50%;
+  animation: bon-tourne .9s linear infinite;
+}
+@keyframes bon-tourne { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .bon-attente .rond { animation-duration: 3s; } }
+
+.bon-sceau {
+  display: inline-block; margin: 0 0 14px; padding: 6px 16px;
+  border-radius: 999px; font-size: .76rem; letter-spacing: .12em; text-transform: uppercase;
+}
+.bon-sceau.utilisee { background: rgba(163,148,127,.16); color: var(--noel-gris); border: 1px solid rgba(163,148,127,.4); }
+.bon-sceau.expire   { background: rgba(224,122,95,.14); color: #f0b9a6; border: 1px solid rgba(224,122,95,.4); }
+
+/* ── L'IMPRESSION ───────────────────────────────────────────────────
+   Tout disparaît sauf la carte, posée seule au milieu d'une feuille
+   paysage. Elle est volontairement tirée à 190 mm de large et non en
+   pleine page : le visuel fait 1536 px, ce qui donne environ 205 points
+   par pouce à cette taille — net — contre 131 seulement s'il était
+   étiré sur toute la largeur d'une A4. */
+@media print {
+  @page { size: A4 landscape; margin: 10mm; }
+
+  html, body {
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+  }
+
+  /* On RETIRE les éléments inutiles au lieu de les rendre invisibles.
+     Un élément seulement invisible occupe toujours sa place : la page
+     restait assez haute pour déborder sur une deuxième feuille, et les
+     fonds sombres bavaient en bas de la première.
+     Attention : seuls les FRÈRES de la carte sont retirés. Un parent en
+     display:none emporterait la carte avec lui, et la feuille sortirait
+     blanche. */
+  .bon-entete, .bon-actions, .bon-mode-emploi, .noel-pied,
+  .bon-attente, .bon-absent { display: none !important; }
+
+  /* Les parents gardent leur affichage et perdent seulement leurs marges. */
+  .bon-page { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+
+  /* La carte, seule au milieu de la feuille.
+     180 mm de large et non la pleine page : le visuel fait 1536 px, ce
+     qui donne 217 points par pouce à cette taille — net — contre 131
+     seulement s'il était étiré d'un bord à l'autre d'une A4.
+     Les marges verticales la posent au centre tout en laissant de la
+     réserve : même si l'imprimante ajoute ses propres marges, le tout
+     tient encore sur une seule feuille. */
+  .bon-impression {
+    width: 180mm;
+    margin: 32mm auto !important;   /* la pose au centre de la feuille */
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+  .bon-impression .carte { box-shadow: none; border-radius: 0; }
+
+  /* Sans cela, Chrome et Safari « économisent l'encre » et sortent une
+     carte délavée. Les navigateurs qui l'ignorent ne risquent rien. */
+  .carte, .carte-fond { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   4. LE REGISTRE — page /mes-cartes/
+   ═══════════════════════════════════════════════════════════════════ */
+
+.reg-page { max-width: 1000px; margin: 0 auto; padding: 32px 16px 70px; }
+.reg-page h1 { font-family: "Cinzel", serif; font-weight: 500; font-size: 1.5rem; margin: 0 0 6px; }
+.reg-page .chapeau { color: var(--noel-gris); margin: 0 0 26px; }
+
+.reg-bilan { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 0 0 26px; }
+.reg-bilan div {
+  background: var(--noel-nuit-2); border: 1px solid rgba(201,162,77,.22);
+  border-radius: 12px; padding: 15px 12px; text-align: center;
+}
+.reg-bilan b { display: block; font-family: "Cinzel", serif; font-size: 1.5rem; color: var(--noel-or-clair); }
+.reg-bilan span { font-size: .74rem; letter-spacing: .06em; color: var(--noel-gris); text-transform: uppercase; }
+@media (max-width: 680px) { .reg-bilan { grid-template-columns: repeat(2, 1fr); } }
+
+.reg-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.reg-table th {
+  text-align: left; padding: 10px 10px; color: var(--noel-gris);
+  font-weight: 500; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase;
+  border-bottom: 1px solid rgba(201,162,77,.24);
+}
+.reg-table td { padding: 13px 10px; border-bottom: 1px solid rgba(255,255,255,.06); vertical-align: top; }
+.reg-table code { font: 700 .95rem/1 "Courier New", monospace; letter-spacing: 1px; color: var(--noel-or-clair); }
+.reg-table .faite { opacity: .5; }
+.reg-table .faite code { text-decoration: line-through; }
+.reg-mini {
+  border: 1px solid rgba(201,162,77,.4); background: transparent; color: var(--noel-or-clair);
+  border-radius: 999px; padding: 7px 14px; font-size: .78rem; cursor: pointer; white-space: nowrap;
+}
+.reg-mini:hover { background: rgba(201,162,77,.12); }
+.reg-perime { color: #e07a5f; font-size: .78rem; }
+
+@media (max-width: 760px) {
+  .reg-table thead { display: none; }
+  .reg-table, .reg-table tbody, .reg-table tr, .reg-table td { display: block; width: 100%; box-sizing: border-box; }
+  .reg-table tr { border: 1px solid rgba(201,162,77,.2); border-radius: 12px; margin: 0 0 12px; padding: 6px 10px; }
+  .reg-table td { border: 0; padding: 7px 2px; }
+  .reg-table td::before { content: attr(data-titre) " "; color: var(--noel-gris); font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; }
+}
+
+.reg-porte { max-width: 420px; margin: 70px auto; text-align: center; }
+.reg-porte input {
+  width: 100%; box-sizing: border-box; background: #0f0c14;
+  border: 1px solid rgba(201,162,77,.3); border-radius: 9px; padding: 13px 14px;
+  color: var(--noel-creme); font: 400 1rem/1.5 "Raleway", sans-serif; margin: 14px 0;
+}

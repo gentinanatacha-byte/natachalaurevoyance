@@ -1,0 +1,77 @@
+---
+layout: null
+permalink: /mes-cartes/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon registre des cartes cadeaux</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/carte-noel.css">
+</head>
+<body class="noel-body">
+
+<main class="reg-page">
+
+  <!-- ── La porte ───────────────────────────────────────────────────
+       Une clé, pas un compte : Natacha n'a pas d'identifiants sur le
+       site vitrine, et monter une authentification complète pour une
+       page et une personne serait beaucoup d'ennuis pour peu de chose.
+       Le navigateur retient la clé ; elle ne la retape qu'au premier
+       passage, ou si elle change d'appareil. -->
+  <section class="reg-porte" id="reg-porte" hidden>
+    <h1>Mon registre</h1>
+    <p class="chapeau">Collez votre clé d'accès pour afficher les cartes vendues.</p>
+    <input type="password" id="reg-cle" placeholder="Clé d'accès" autocomplete="current-password">
+    <button type="button" class="noel-bouton" id="reg-entrer">Ouvrir</button>
+    <p class="noel-rassurance" id="reg-souci" style="color:#f0b9a6;min-height:1.3em;"></p>
+  </section>
+
+  <!-- ── Le registre ────────────────────────────────────────────────── -->
+  <section id="reg-contenu" hidden>
+    <h1>Les cartes cadeaux vendues</h1>
+    <p class="chapeau">
+      Quand quelqu'un vous donne un code, cherchez-le ici. Une fois la consultation faite,
+      marquez la carte comme utilisée&nbsp;: elle ne pourra plus servir deux fois.
+    </p>
+
+    <div class="reg-bilan" id="reg-bilan"></div>
+
+    <div class="noel-champ" style="max-width:340px;">
+      <label for="reg-chercher">Chercher un code, un prénom</label>
+      <input id="reg-chercher" type="search" placeholder="CC-ABC-123 ou Camille" autocomplete="off">
+    </div>
+
+    <table class="reg-table">
+      <thead>
+        <tr>
+          <th>Code</th><th>Pour</th><th>Offert par</th>
+          <th>Valable jusqu'au</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="reg-lignes"></tbody>
+    </table>
+
+    <p id="reg-vide" class="chapeau" style="text-align:center;padding:40px 0;" hidden>
+      Aucune carte vendue pour l'instant.
+    </p>
+
+    <p class="noel-pied" style="padding-top:36px;">
+      <button type="button" class="bon-second" id="reg-sortir">Oublier la clé sur cet appareil</button>
+    </p>
+  </section>
+
+</main>
+
+<script src="/assets/js/carte-noel.js" defer></script>
+<script src="/assets/js/mes-cartes.js" defer></script>
+</body>
+</html>
