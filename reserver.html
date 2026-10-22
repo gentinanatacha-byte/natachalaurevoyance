@@ -69,14 +69,17 @@ permalink: /reserver/
        ═══════════════════════════════════════════════════════════════════ -->
   <section class="rv-rassurance">
     <ul>
+      <!-- Cette page sert les deux modes et quatre durées : ces trois
+           lignes doivent rester vraies dans tous les cas. Le script les
+           précise une fois la formule choisie. -->
       <li><span class="rv-puce">☎</span>
-        <strong>Je vous appelle sur WhatsApp</strong>
-        <em>Vous n'avez rien à composer. L'appel est gratuit, même entre pays.</em></li>
+        <strong id="rv-atout1-titre">Par téléphone ou chez vous</strong>
+        <em id="rv-atout1-texte">Partout en France au téléphone, à domicile dans un rayon de 15 km autour de Saint-Laurent-du-Var.</em></li>
       <li><span class="rv-puce">⏱</span>
-        <strong>Une heure entière</strong>
-        <em>Le temps de poser vos questions et d'entendre les réponses.</em></li>
+        <strong id="rv-atout2-titre">De 30 minutes à 2 heures</strong>
+        <em id="rv-atout2-texte">Vous choisissez le temps dont vous avez besoin.</em></li>
       <li><span class="rv-puce">↺</span>
-        <strong>Déplaçable librement</strong>
+        <strong>Annulable jusqu'à 24 h avant</strong>
         <em>Un empêchement ? Vous me prévenez, on décale.</em></li>
     </ul>
   </section>
@@ -128,7 +131,7 @@ permalink: /reserver/
            ambigu : suisse ou français ? Le menu est préréglé sur la
            Suisse, d'où viennent les membres du Club Med'Or. -->
       <label class="rv-champ rv-champ-tel">
-        <span>Votre numéro WhatsApp <em>— c'est là que je vous appellerai</em></span>
+        <span id="rv-tel-libelle">Votre numéro de téléphone</span>
         <span class="rv-tel-ligne">
           <select id="rv-pays" aria-label="Pays du numéro">
             <option value="41" data-trunc="1" selected>🇨🇭 +41</option>
@@ -174,7 +177,8 @@ permalink: /reserver/
         <span>Où dois-je venir ?</span>
         <input type="text" id="rv-adresse" name="adresse" autocomplete="street-address"
                maxlength="300" placeholder="Numéro, rue, code postal et ville">
-              </label>
+        <span class="rv-aide">Dans un rayon de 15 km autour de Saint-Laurent-du-Var.</span>
+      </label>
 
       <fieldset class="rv-champ rv-reglement" id="rv-champ-reglement" hidden>
         <legend>Comment souhaitez-vous régler ?</legend>
