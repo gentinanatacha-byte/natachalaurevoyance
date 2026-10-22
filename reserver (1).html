@@ -1,0 +1,266 @@
+---
+layout: null
+permalink: /reserver/
+---
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prendre rendez-vous — Natacha Laure, voyante à Nice</title>
+<meta name="description" content="Prenez rendez-vous avec Natacha Laure, voyante et cartomancienne à Nice : par téléphone partout en France, ou à domicile autour de Saint-Laurent-du-Var. Choisissez votre formule et votre créneau.">
+<link rel="canonical" href="https://natachalaurevoyance.fr/reserver/">
+
+<!-- Le lien d'où vient la cliente. « public » = plein tarif, toutes les
+     formules. Le script le transmet, mais c'est la base qui décide du prix. -->
+<meta name="rv-lien" content="public">
+
+
+
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- On préconnecte à l'API : la liste des créneaux part ainsi quelques
+     dizaines de millisecondes plus tôt. Sur un téléphone en 4G, cela se voit. -->
+<link rel="preconnect" href="https://aurea.natachalaurevoyance.fr">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/rendez-vous.css">
+</head>
+<body class="rv-body">
+
+<main class="rv-page">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       1. L'ACCROCHE
+       Le visage d'abord. La personne arrive d'un message WhatsApp envoyé
+       par quelqu'un en qui elle a confiance : la première chose à faire
+       est de montrer à qui elle va parler.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <header class="rv-hero">
+    <img class="rv-portrait" src="/assets/images/natacha-lecture.webp"
+         alt="Natacha Laure, tarologue et médium" width="340" height="476"
+         fetchpriority="high" decoding="async">
+
+    <div class="rv-hero-texte">
+
+      <h1>Prendre rendez-vous<br>avec Natacha Laure</h1>
+      <p class="rv-chapeau">
+        Je suis voyante et cartomancienne à Nice. Choisissez la formule qui vous
+        convient, puis votre créneau : par téléphone où que vous soyez, ou
+        chez vous si vous habitez la région.
+      </p>
+
+      <!-- Le prix est affiché tout de suite. Le cacher plus bas ne fait
+           pas vendre : cela fait descendre en cherchant le piège. -->
+      <p class="rv-prix" id="rv-prix" aria-live="polite">
+        <span class="rv-prix-chargement">Chargement du tarif…</span>
+      </p>
+
+      <a class="rv-cta-haut" href="#rv-bloc-formules">Choisir ma formule</a>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       2. CE QUE C'EST
+       Trois lignes, pas trois paragraphes. La personne a déjà décidé
+       d'être intéressée : elle a besoin d'être rassurée, pas convaincue.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="rv-rassurance">
+    <ul>
+      <!-- Cette page sert les deux modes et quatre durées : ces trois
+           lignes doivent rester vraies dans tous les cas. Le script les
+           précise une fois la formule choisie. -->
+      <li><span class="rv-puce">☎</span>
+        <strong id="rv-atout1-titre">Par téléphone ou chez vous</strong>
+        <em id="rv-atout1-texte">Partout en France au téléphone, à domicile dans un rayon de 15 km autour de Saint-Laurent-du-Var.</em></li>
+      <li><span class="rv-puce">⏱</span>
+        <strong id="rv-atout2-titre">De 30 minutes à 2 heures</strong>
+        <em id="rv-atout2-texte">Vous choisissez le temps dont vous avez besoin.</em></li>
+      <li><span class="rv-puce">↺</span>
+        <strong>Annulable jusqu'à 24 h avant</strong>
+        <em>Un empêchement ? Vous me prévenez, on décale.</em></li>
+    </ul>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       3. LE CRÉNEAU
+       Avant le formulaire, et non après. Choisir une date engage : on
+       remplit ensuite ses coordonnées pour tenir un rendez-vous qu'on
+       s'est déjà représenté, pas pour « voir ».
+       ═══════════════════════════════════════════════════════════════════ -->
+  <!-- Le choix de la formule. Masqué tant que le lien n'en propose qu'une :
+       les deux pages privées n'offrent que l'heure au téléphone, et leur
+       parcours ne doit pas s'allonger d'un geste. -->
+  <section class="rv-bloc" id="rv-bloc-formules">
+    <h2><span class="rv-etape">1</span> Votre formule</h2>
+    <div id="rv-formules" class="rv-formules"></div>
+  </section>
+
+  <section class="rv-bloc" id="rv-creneaux">
+    <h2><span class="rv-etape">1</span> Votre créneau</h2>
+
+    <div id="rv-agenda" class="rv-agenda" aria-live="polite">
+      <p class="rv-attente">Je regarde mes disponibilités…</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       4. LES COORDONNÉES
+       Trois champs. Pas de nom de famille, pas d'adresse, pas de mot de
+       passe, pas de compte à créer : chaque champ supprimé est une
+       personne de plus qui va jusqu'au bout.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="rv-bloc rv-bloc-inactif" id="rv-bloc-coordonnees" aria-hidden="true">
+    <h2><span class="rv-etape">2</span> Vos coordonnées</h2>
+
+    <p class="rv-choisi" id="rv-choisi"></p>
+
+    <form id="rv-form" novalidate>
+      <label class="rv-champ">
+        <span>Votre prénom</span>
+        <input type="text" id="rv-prenom" name="prenom" autocomplete="given-name"
+               required maxlength="80" enterkeyhint="next">
+      </label>
+
+      <!-- Le pays est demandé parce qu'un appel WhatsApp exige le numéro
+           au format international. Sans lui, « 078 615 78 58 » est
+           ambigu : suisse ou français ? Le menu est préréglé sur la
+           Suisse, d'où viennent les membres du Club Med'Or. -->
+      <label class="rv-champ rv-champ-tel">
+        <span id="rv-tel-libelle">Votre numéro de téléphone</span>
+        <span class="rv-tel-ligne">
+          <select id="rv-pays" aria-label="Pays du numéro">
+            <option value="41" data-trunc="1" selected>🇨🇭 +41</option>
+            <option value="33" data-trunc="1">🇫🇷 +33</option>
+            <option value="32" data-trunc="1">🇧🇪 +32</option>
+            <option value="352" data-trunc="0">🇱🇺 +352</option>
+            <option value="377" data-trunc="0">🇲🇨 +377</option>
+          </select>
+          <input type="tel" id="rv-telephone" name="telephone" autocomplete="tel-national"
+                 inputmode="tel" required maxlength="30" enterkeyhint="next"
+                 placeholder="078 615 78 58">
+        </span>
+        <span class="rv-apercu-tel" id="rv-apercu-tel" aria-live="polite"></span>
+      </label>
+
+      <label class="rv-champ">
+        <span>Votre e-mail <em>— pour recevoir la confirmation</em></span>
+        <input type="email" id="rv-email" name="email" autocomplete="email"
+               inputmode="email" required maxlength="200" enterkeyhint="done"
+               placeholder="vous@exemple.fr">
+      </label>
+
+      <!-- Replié : facultatif, donc invisible par défaut. Un champ
+           facultatif ouvert se lit comme un champ à remplir. -->
+      <details class="rv-facultatif">
+        <summary>Ajouter un mot sur ce dont vous voulez parler <em>(facultatif)</em></summary>
+        <textarea id="rv-message" maxlength="1000" rows="4"
+                  placeholder="Si vous préférez, vous pouvez aussi m'en parler de vive voix."></textarea>
+      </details>
+
+      <p class="rv-erreur" id="rv-erreur" role="alert" hidden></p>
+
+      <!-- La case exigée par l'article L221-25 du code de la consommation
+           (demande expresse d'exécution avant la fin des 14 jours), et
+           déjà promise par l'article 6.3 des CGV du site : « une case à
+           cocher distincte et non pré-cochée ».
+           Elle coûte une tape. On la rend donc large, claire, et on ne
+           bloque jamais en silence : le bouton reste cliquable et explique
+           ce qui manque. -->
+      <!-- Adresse et règlement : seulement pour un rendez-vous à domicile.
+           Le script les révèle selon la formule choisie. -->
+      <label class="rv-champ" id="rv-champ-adresse" hidden>
+        <span>Où dois-je venir ?</span>
+        <input type="text" id="rv-adresse" name="adresse" autocomplete="street-address"
+               maxlength="300" placeholder="Numéro, rue, code postal et ville">
+        <span class="rv-aide">Dans un rayon de 15 km autour de Saint-Laurent-du-Var.</span>
+      </label>
+
+      <fieldset class="rv-champ rv-reglement" id="rv-champ-reglement" hidden>
+        <legend>Comment souhaitez-vous régler ?</legend>
+        <label class="rv-radio">
+          <input type="radio" name="rv-reglement" value="en_ligne" checked>
+          <span>En ligne maintenant, par carte</span>
+        </label>
+        <label class="rv-radio">
+          <input type="radio" name="rv-reglement" value="especes">
+          <span>En espèces, sur place le jour du rendez-vous</span>
+        </label>
+      </fieldset>
+
+      <label class="rv-accord" id="rv-accord-ligne">
+        <input type="checkbox" id="rv-accord">
+        <span>
+          Je demande que ma consultation ait lieu à la date choisie, même si
+          elle tombe avant la fin du délai de rétractation de 14 jours, et je
+          renonce à ce délai pour cette date. J'accepte les
+          <a href="/cgv/" target="_blank" rel="noopener">conditions de vente</a>.
+          <em>Vous gardez l'annulation gratuite jusqu'à 24 h avant.</em>
+        </span>
+      </label>
+
+      <button type="submit" class="rv-payer" id="rv-payer">
+        <span class="rv-payer-texte">Réserver et régler</span>
+        <span class="rv-payer-montant" id="rv-payer-montant"></span>
+      </button>
+
+      <!-- Court : la rétractation est déjà portée par la case ci-dessus.
+           La répéter ici alourdissait le bas de page juste avant le
+           paiement, à l'endroit où il faut rassurer, pas expliquer. -->
+      <p class="rv-mentions">
+        Paiement sécurisé par Stripe. Vos coordonnées bancaires ne passent
+        ni par ce site ni par moi.<br>
+        <strong>Annulation gratuite jusqu'à 24 h avant</strong>, d'un simple appel —
+        remboursement intégral. Au-delà, la consultation est due.<br>
+        <a href="/cgv/" target="_blank" rel="noopener">Conditions de vente</a>
+      </p>
+    </form>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       5. QUI JE SUIS — après le formulaire, pas avant.
+       Celle qui est décidée a déjà réservé. Celle qui hésite descend
+       jusqu'ici : c'est pour elle.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="rv-bloc rv-apropos">
+    <h2>Si vous hésitez encore</h2>
+    <p>
+      Je pratique le tarot et la voyance depuis des années, à Nice et par
+      téléphone. Je ne promets pas de miracles et je ne fais pas peur :
+      j'éclaire ce qui est déjà là et je vous aide à y voir clair.
+    </p>
+    <p>
+      Pendant l'heure, vous posez les questions que vous voulez. Si à un
+      moment vous préférez qu'on arrête, on arrête.
+    </p>
+    <p class="rv-contact">
+      Une question avant de réserver ?
+      <a href="tel:+33627815276">06 27 81 52 76</a> ·
+      <a href="https://wa.me/33627815276" target="_blank" rel="noopener">WhatsApp</a>
+    </p>
+    <p class="rv-retour"><a href="/">Voir tout mon site</a></p>
+  </section>
+
+</main>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     ÉCRAN DE CONFIRMATION — affiché au retour du paiement (?etat=confirme)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<div class="rv-voile" id="rv-voile" hidden>
+  <div class="rv-voile-carte" role="dialog" aria-modal="true" aria-labelledby="rv-voile-titre">
+    <p class="rv-voile-sceau" id="rv-voile-sceau">✓</p>
+    <h2 id="rv-voile-titre"></h2>
+    <p id="rv-voile-texte"></p>
+    <button type="button" class="rv-voile-fermer" id="rv-voile-fermer">Fermer</button>
+  </div>
+</div>
+
+<script src="/assets/js/reservation.js" defer></script>
+</body>
+</html>
