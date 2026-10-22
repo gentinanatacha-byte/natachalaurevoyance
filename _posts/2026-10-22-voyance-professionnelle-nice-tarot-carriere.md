@@ -46,7 +46,7 @@ Recevoir une proposition peut créer une joie réelle et une anxiété tout auss
        srcset="/assets/images/blog/voyance-professionnelle-nice-03-760.webp 760w, /assets/images/blog/voyance-professionnelle-nice-03-1400.webp 1400w"
        sizes="(max-width: 800px) 100vw, 760px"
        alt="Téléphone et Tarot de Marseille pour une consultation à distance sur le travail"
-       width="1400" height="933" loading="lazy" decoding="async">
+       width="1400" height="826" loading="lazy" decoding="async">
 </figure>
 
 Le Tarot propose des images qui encouragent parfois à regarder un dilemme autrement. Une carte évoquant le mouvement peut faire réfléchir à l'élan, tandis qu'une autre peut inviter à considérer la patience ou la prudence. Mais aucune carte, isolée ou combinée, ne peut connaître avec certitude le comportement d'un futur manager ni annoncer le succès d'une embauche. Ce qui m'intéresse est votre façon de réagir à ce qui apparaît : quelles perspectives s'ouvrent dans l'échange ? Quels doutes reviennent ? Si vous souhaitez en savoir plus sur ma pratique, découvrez [mes outils divinatoires](/blog/outils-divinatoires/).
@@ -66,7 +66,7 @@ Créer son entreprise attire autant qu'il inquiète. On s'imagine son premier cl
        srcset="/assets/images/blog/voyance-professionnelle-nice-04-760.webp 760w, /assets/images/blog/voyance-professionnelle-nice-04-1400.webp 1400w"
        sizes="(max-width: 800px) 100vw, 760px"
        alt="Cartes au carrefour de plusieurs voies pour symboliser un choix de carrière"
-       width="1400" height="933" loading="lazy" decoding="async">
+       width="1400" height="826" loading="lazy" decoding="async">
 </figure>
 
 Je vous encourage à préparer des éléments précis : activité envisagée, horizon de lancement, ressources disponibles, contraintes familiales et questions prioritaires. Si une carte vous fait penser à la nécessité de ralentir, utilisez cette idée pour vérifier votre trésorerie ; si elle évoque le mouvement, réfléchissez à un test commercial limité. La carte ne constitue pas une preuve : elle devient un point de départ à approfondir avec des données et des conseils adaptés. C'est aussi la différence entre une séance qui vous rend acteur de vos décisions et une consultation qui vous ferait dépendre de réponses répétées.

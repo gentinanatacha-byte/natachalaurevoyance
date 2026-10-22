@@ -257,7 +257,9 @@
     }, 250);
   }
 
-  function choisirFormule(code) {
+  // `dejaCharge` est la réponse du serveur quand elle contient déjà les
+  // créneaux de cette formule. Dans ce cas on n'en redemande pas.
+  function choisirFormule(code, dejaCharge) {
     formule = code;
     choix = null;
     toutAfficher = false;
@@ -268,6 +270,7 @@
     // pour une formule d'une autre durée.
     el.bloc2.classList.add("rv-bloc-inactif");
     el.bloc2.setAttribute("aria-hidden", "true");
+    if (dejaCharge) { etat = dejaCharge; afficherAgenda(); return; }
     el.agenda.innerHTML = '<p class="rv-attente">Je regarde mes disponibilités…</p>';
     chargerCreneaux();
   }
@@ -678,7 +681,14 @@
   }
 
   function charger() {
-    fetch(CONFIG.API + "?lien=" + encodeURIComponent(lienDeLaPage()),
+    // Quand l'adresse nomme déjà une formule — c'est le cas des boutons
+    // « Réserver » de l'accueil — on demande AUSSI les créneaux dès le
+    // premier appel. Le serveur sait renvoyer les deux ensemble, et ça
+    // économise un aller-retour complet, soit environ une seconde
+    // d'attente avant que l'agenda s'affiche.
+    var voulue = new URLSearchParams(window.location.search).get("formule");
+    fetch(CONFIG.API + "?lien=" + encodeURIComponent(lienDeLaPage()) +
+          (voulue ? "&formule=" + encodeURIComponent(voulue) : ""),
           { cache: "no-store" })
       .then(function (r) { return r.json(); })
       .then(function (data) {
@@ -720,7 +730,9 @@
         // choisir. Un code inconnu est ignoré sans rien casser.
         var demandee = new URLSearchParams(window.location.search).get("formule");
         if (demandee && existeFormule(demandee)) {
-          choisirFormule(demandee);
+          // Les créneaux sont déjà dans cette réponse : on les affiche
+          // sans redemander quoi que ce soit au serveur.
+          choisirFormule(demandee, data.creneaux ? data : null);
           amenerALaFormule();
           return;
         }
