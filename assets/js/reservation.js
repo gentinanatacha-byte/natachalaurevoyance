@@ -281,6 +281,53 @@
       if (!chez && el.adresse) el.adresse.value = "";
     }
     if (el.champReglement) el.champReglement.hidden = !chez;
+    adapterLesMots(chez);
+  }
+
+  // Une page qui sert les deux modes ne peut pas promettre un appel
+  // WhatsApp à quelqu'un qui a demandé une visite à domicile. Tant
+  // qu'aucune formule n'est choisie, les textes restent neutres.
+  function adapterLesMots(chez) {
+    var f = formuleRetenue();
+    var dit = function (id, texte) {
+      var n = document.getElementById(id);
+      if (n && texte) n.textContent = texte;
+    };
+    if (!f) return;
+
+    var lib = document.getElementById("rv-tel-libelle");
+    if (lib) {
+      lib.innerHTML = chez
+        ? "Votre numéro de téléphone <em>— au cas où je doive vous joindre</em>"
+        : "Votre numéro WhatsApp <em>— c'est là que je vous appellerai</em>";
+    }
+
+    dit("rv-atout1-titre", chez ? "Je viens chez vous" : "Je vous appelle sur WhatsApp");
+    dit("rv-atout1-texte", chez
+      ? "Dans un rayon de 15 km autour de Saint-Laurent-du-Var."
+      : "Vous n'avez rien à composer. L'appel est gratuit, même entre pays.");
+    dit("rv-atout2-titre", dureeEnMots(f.duree_minutes));
+    dit("rv-atout2-texte", "Le temps de poser vos questions et d'entendre les réponses.");
+  }
+
+  function formuleRetenue() {
+    if (!offre || !offre.formules) return null;
+    for (var i = 0; i < offre.formules.length; i++) {
+      if (offre.formules[i].code === formule) return offre.formules[i];
+    }
+    return null;
+  }
+
+  function dureeEnMots(min) {
+    var connus = {
+      30: "Une demi-heure", 45: "Trois quarts d'heure",
+      60: "Une heure entière", 90: "Une heure et demie",
+      120: "Deux heures entières", 180: "Trois heures entières"
+    };
+    if (connus[min]) return connus[min];
+    if (min < 60) return min + " minutes";
+    if (min % 60 === 0) return (min / 60) + " heures entières";
+    return Math.floor(min / 60) + " h " + (min % 60);
   }
 
   function reglementChoisi() {
