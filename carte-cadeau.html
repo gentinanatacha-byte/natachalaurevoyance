@@ -29,6 +29,40 @@ permalink: /carte-cadeau/
 <link rel="stylesheet" href="/assets/css/styles.css">
 <link rel="stylesheet" href="/assets/css/carte-cadeau.css">
 
+<!-- Le bandeau de Noël. Écrit ici plutôt que dans carte-cadeau.css :
+     c'est saisonnier, et le jour où il faudra le retirer, tout tient
+     dans ce seul fichier — rien à chercher ailleurs.
+     À retirer après le 25 décembre, avec le <aside class="cc-noel"> du
+     corps de page. -->
+<style>
+  .cc-noel {
+    background: linear-gradient(135deg, #1b1622, #2a1b3d);
+    border: 1px solid rgba(201, 162, 77, .38);
+    border-radius: 12px;
+    padding: 14px 20px;
+    margin: 0 0 22px;
+    text-align: center;
+  }
+  .cc-noel p {
+    margin: 0;
+    color: #e8cf96;
+    font: 400 .97rem/1.6 'Raleway', system-ui, sans-serif;
+  }
+  .cc-noel strong { color: #f6f1e8; font-weight: 600; }
+  .cc-noel a {
+    color: #d9b465;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  .cc-noel a:hover { color: #f0d79a; }
+  @media (max-width: 600px) {
+    .cc-noel { padding: 13px 15px; }
+    .cc-noel p { font-size: .9rem; }
+  }
+</style>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -93,24 +127,10 @@ permalink: /carte-cadeau/
 <body>
 {% include header.html %}
 
-<!-- ══ BANDEAU DE NOËL ════════════════════════════════════
-     Cette page-ci reste celle des demandes sur mesure, qui se règlent
-     sous 48 h. Beaucoup de visiteurs arrivent pourtant ici en voulant
-     simplement offrir une heure de voyance, tout de suite : on les
-     envoie directement vers l'offre en achat immédiat.
-     À retirer après le 25 décembre. ═══════════════════════════════ -->
-<aside style="background:linear-gradient(135deg,#1b1622,#2a1b3d);border-bottom:1px solid rgba(201,162,77,.35);padding:16px 18px;text-align:center;">
-  <p style="margin:0;color:#e8cf96;font:400 .98rem/1.6 'Raleway',system-ui,sans-serif;">
-    <strong style="color:#f6f1e8;">Offre de Noël</strong> — une heure de voyance par téléphone à
-    <strong style="color:#f6f1e8;">50&nbsp;€</strong> au lieu de 70&nbsp;€, carte reçue
-    <strong style="color:#f6f1e8;">immédiatement</strong> après le paiement.
-    <a href="/carte-noel/" style="color:#c9a24d;text-decoration:underline;white-space:nowrap;">J'en profite&nbsp;→</a>
-  </p>
-</aside>
-
 <!-- ══ HERO ═══════════════════════════════════════════════ -->
 <section class="cc-hero">
   <div class="container cc-hero-inner">
+
     <span class="eyebrow">Un cadeau qui ne s'oublie pas</span>
     <h1 class="section-title">Offrir une <em>carte cadeau</em> voyance</h1>
     <p class="cc-lede">
@@ -123,6 +143,33 @@ permalink: /carte-cadeau/
       <li><span>✦</span> Valable un an, à domicile sur Nice ou par téléphone</li>
       <li><span>✦</span> Envoyée par email sous 48 h, prête à offrir</li>
     </ul>
+    <!-- ══ BANDEAU DE NOËL ════════════════════════════════
+         Cette page reste celle des demandes sur mesure, réglées sous
+         48 h. Beaucoup de visiteurs arrivent pourtant ici en voulant
+         simplement offrir une heure de voyance tout de suite : on les
+         envoie vers l'offre en achat immédiat.
+
+         ⚠ POURQUOI ICI, JUSTE AVANT LE BOUTON, ET PAS EN HAUT DE PAGE.
+         L'en-tête du site est en position:fixed et occupe 91 px sur
+         téléphone, 126 px sur ordinateur. Or le hero ne réserve que
+         76 px au-dessus de son contenu : tout ce qui est placé en haut
+         passe sous l'en-tête. C'est même déjà le cas du titre de la
+         page, dont la première ligne est voilée par le flou de
+         l'en-tête — un défaut qui existait avant cette offre.
+         Placé ici, le bandeau est totalement dégagé, et il arrive au
+         moment exact où la personne s'apprête à cliquer.
+
+         À retirer après le 25 décembre, avec le <style> de l'en-tête
+         de ce fichier. ════════════════════════════════════════════ -->
+    <aside class="cc-noel">
+      <p>
+        <strong>Offre de Noël</strong> — une heure de voyance par téléphone à
+        <strong>50&nbsp;€</strong> au lieu de 70&nbsp;€, carte reçue
+        <strong>immédiatement</strong> après le paiement.
+        <a href="/carte-noel/">J'en profite&nbsp;→</a>
+      </p>
+    </aside>
+
     <a href="#commander" class="btn btn-gold"><span>Composer ma carte</span></a>
   </div>
 </section>
