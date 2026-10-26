@@ -112,6 +112,9 @@ sitemap: true
 </script>
 
 <link rel="stylesheet" href="/assets/css/styles.css">
+<!-- Offre de Noël — à retirer après le 25 décembre, avec le bloc
+     <a class="noel-promo"> dans le hero. -->
+<link rel="stylesheet" href="/assets/css/noel-bandeau.css">
 </head>
 <body>
 
@@ -143,6 +146,12 @@ sitemap: true
       <li><a href="/lecture-de-tirage/" class="nav-phare">Lecture écrite <span>10&nbsp;€</span></a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="#faq">FAQ</a></li>
+      <!-- Offre de Noël — à retirer après le 25 décembre.
+           Ce menu est recopié en dur ici : index.html n'utilise PAS
+           _includes/header.html comme les autres pages. Toute entrée
+           ajoutée au menu commun doit donc l'être ici aussi, sinon
+           elle n'apparaît nulle part sur l'accueil. -->
+      <li><a href="/carte-noel/" class="nav-phare">Carte de Noël <span>50&nbsp;€</span></a></li>
       <li><a href="/carte-cadeau/">Carte cadeau</a></li>
       <li><a href="/evenements/">Événements</a></li>
       <li><a href="/reserver/" class="nav-cta">Réserver</a></li>
@@ -164,6 +173,30 @@ sitemap: true
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-aura" aria-hidden="true"></div>
   <div class="container hero-inner">
+
+    <!-- ═══ BANDEAU DE NOËL ═══════════════════════════════════════════
+         Annonce l'offre dès le premier écran, sans faire défiler.
+
+         ⚠ IL EST DANS .hero-inner, PAS AU-DESSUS DU HERO.
+         L'en-tête du site est en position:fixed et occupe 91 px sur
+         téléphone, 99 px sur ordinateur. Tout ce qu'on place avant le
+         hero passe dessous et devient invisible. .hero-inner, lui,
+         commence à 112 px : il est déjà dégagé.
+
+         À retirer après le 25 décembre : ce bloc + ses styles dans
+         assets/css/noel-bandeau.css. ══════════════════════════════ -->
+    <a href="/carte-noel/" class="noel-promo">
+      <span class="noel-promo-texte">
+        <span class="noel-promo-titre">Carte cadeau de Noël</span>
+        <span class="noel-promo-sous">Une heure de voyance par téléphone, à offrir</span>
+      </span>
+      <span class="noel-promo-prix">
+        <s>70&nbsp;€</s>
+        <strong>50&nbsp;€</strong>
+      </span>
+      <span class="noel-promo-cta">Cliquez ici&nbsp;→</span>
+    </a>
+
     <img src="/assets/images/logo-natacha-laure-transparent.webp" alt="Natacha Laure Voyance - Voyante Cartomancienne Nice" class="hero-logo reveal" data-delay="50" width="500" height="500" fetchpriority="high">
     <h1 class="eyebrow reveal" data-delay="200">Voyante &amp; Cartomancienne à Nice · Tarot de Marseille</h1>
     <p class="hero-tagline reveal" data-delay="300">
@@ -984,6 +1017,8 @@ sitemap: true
           <li><a href="#nice">Voyance à Nice</a></li>
           <li><a href="#telephone">Voyance par téléphone</a></li>
           <li><a href="/reserver/">Réserver en ligne</a></li>
+          <!-- À retirer après le 25 décembre. -->
+          <li><a href="/carte-noel/">Carte cadeau de Noël</a></li>
         </ul>
       </div>
       <div class="footer-col">

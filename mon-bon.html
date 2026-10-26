@@ -20,11 +20,17 @@ sitemap: false
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://aurea.natachalaurevoyance.fr">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Le CSS du site pour l'en-tête, chargé avant le mien. Voir la même
+     remarque dans carte-noel.html. -->
+<link rel="stylesheet" href="/assets/css/styles.css">
 <link rel="stylesheet" href="/assets/css/carte-noel.css">
 </head>
 <body class="noel-body">
 
-<main class="bon-page" id="bon-page">
+{% include header.html %}
+
+<main class="bon-page avec-entete" id="bon-page">
 
   <!-- ── 1. Pendant que le paiement se confirme ──────────────────────
        Stripe renvoie l'acheteur ici tout de suite, parfois avant même
@@ -98,6 +104,44 @@ sitemap: false
 
 </main>
 
+<!-- Le menu de téléphone — voir la remarque dans carte-noel.html. -->
+<script>
+  (function () {
+    var b = document.getElementById("nav-burger"),
+        n = document.querySelector(".main-nav");
+    if (!b || !n) return;
+    b.addEventListener("click", function () {
+      var ouvert = n.classList.toggle("open");
+      b.setAttribute("aria-expanded", ouvert ? "true" : "false");
+    });
+    n.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        n.classList.remove("open");
+        b.setAttribute("aria-expanded", "false");
+      });
+    });
+    var h = document.querySelector(".site-header");
+    if (!h) return;
+
+    // L'en-tête se densifie au défilement, comme sur le reste du site.
+    window.addEventListener("scroll", function () {
+      h.classList.toggle("scrolled", window.scrollY > 50);
+    }, { passive: true });
+
+    // Sa hauteur est MESURÉE, jamais supposée : elle varie avec la
+    // largeur de l'écran et avec le nombre d'entrées du menu (sur
+    // ordinateur la navigation passe sur deux lignes). Le CSS s'en sert
+    // pour réserver la place sous l'en-tête fixe.
+    var mesurer = function () {
+      document.documentElement.style.setProperty("--entete-h", h.offsetHeight + "px");
+    };
+    mesurer();
+    window.addEventListener("resize", mesurer, { passive: true });
+    if (window.ResizeObserver) new ResizeObserver(mesurer).observe(h);
+    // Les polices arrivent après : elles peuvent changer la hauteur.
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(mesurer);
+  })();
+</script>
 <script src="/assets/js/carte-noel.js" defer></script>
 <script src="/assets/js/mon-bon.js" defer></script>
 </body>

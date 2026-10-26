@@ -29,39 +29,11 @@ permalink: /carte-cadeau/
 <link rel="stylesheet" href="/assets/css/styles.css">
 <link rel="stylesheet" href="/assets/css/carte-cadeau.css">
 
-<!-- Le bandeau de Noël. Écrit ici plutôt que dans carte-cadeau.css :
-     c'est saisonnier, et le jour où il faudra le retirer, tout tient
-     dans ce seul fichier — rien à chercher ailleurs.
-     À retirer après le 25 décembre, avec le <aside class="cc-noel"> du
-     corps de page. -->
-<style>
-  .cc-noel {
-    background: linear-gradient(135deg, #1b1622, #2a1b3d);
-    border: 1px solid rgba(201, 162, 77, .38);
-    border-radius: 12px;
-    padding: 14px 20px;
-    margin: 0 0 22px;
-    text-align: center;
-  }
-  .cc-noel p {
-    margin: 0;
-    color: #e8cf96;
-    font: 400 .97rem/1.6 'Raleway', system-ui, sans-serif;
-  }
-  .cc-noel strong { color: #f6f1e8; font-weight: 600; }
-  .cc-noel a {
-    color: #d9b465;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    white-space: nowrap;
-    font-weight: 600;
-  }
-  .cc-noel a:hover { color: #f0d79a; }
-  @media (max-width: 600px) {
-    .cc-noel { padding: 13px 15px; }
-    .cc-noel p { font-size: .9rem; }
-  }
-</style>
+<!-- Offre de Noël — le même bandeau que sur l'accueil, pour que les deux
+     pages racontent visiblement la même offre.
+     À retirer après le 25 décembre, avec le bloc <a class="noel-promo">
+     du corps de page. -->
+<link rel="stylesheet" href="/assets/css/noel-bandeau.css">
 
 <script type="application/ld+json">
 {
@@ -161,14 +133,17 @@ permalink: /carte-cadeau/
 
          À retirer après le 25 décembre, avec le <style> de l'en-tête
          de ce fichier. ════════════════════════════════════════════ -->
-    <aside class="cc-noel">
-      <p>
-        <strong>Offre de Noël</strong> — une heure de voyance par téléphone à
-        <strong>50&nbsp;€</strong> au lieu de 70&nbsp;€, carte reçue
-        <strong>immédiatement</strong> après le paiement.
-        <a href="/carte-noel/">J'en profite&nbsp;→</a>
-      </p>
-    </aside>
+    <a href="/carte-noel/" class="noel-promo">
+      <span class="noel-promo-texte">
+        <span class="noel-promo-titre">Carte cadeau de Noël</span>
+        <span class="noel-promo-sous">Une heure par téléphone, reçue immédiatement après le paiement</span>
+      </span>
+      <span class="noel-promo-prix">
+        <s>70&nbsp;€</s>
+        <strong>50&nbsp;€</strong>
+      </span>
+      <span class="noel-promo-cta">Cliquez ici&nbsp;→</span>
+    </a>
 
     <a href="#commander" class="btn btn-gold"><span>Composer ma carte</span></a>
   </div>

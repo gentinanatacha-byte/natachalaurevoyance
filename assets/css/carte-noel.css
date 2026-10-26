@@ -132,6 +132,31 @@
 
 .noel-page { max-width: 1120px; margin: 0 auto; padding: 0 0 70px; }
 
+/* ── Dégagement sous l'en-tête du site ───────────────────────────────
+   L'en-tête est en position:fixed : il flotte au-dessus de la page et
+   ne pousse rien. Sans cette réserve, le haut de la page passe dessous.
+
+   Sa hauteur n'est PAS écrite en dur ici, et c'est volontaire : elle
+   change avec la largeur de l'écran (91 px sur téléphone) mais aussi
+   avec le NOMBRE D'ENTRÉES DU MENU — sur ordinateur, les deux pastilles
+   « Lecture écrite » et « Carte de Noël » font passer la navigation sur
+   deux lignes, et l'en-tête grandit à 126 px. Une valeur figée serait
+   fausse le jour où une entrée est ajoutée ou retirée.
+
+   Le petit script en bas de page mesure donc l'en-tête et pose sa
+   hauteur dans --entete-h. La valeur de repli ci-dessous sert le temps
+   que le script s'exécute, et si jamais il ne tourne pas. */
+.noel-page.avec-entete { padding-top: calc(var(--entete-h, 126px) + 4px); }
+.bon-page.avec-entete  { padding-top: calc(var(--entete-h, 126px) + 34px); }
+
+/* Le CSS du site, chargé pour l'en-tête, impose un fond et une police à
+   la page entière. On rend à ces pages leur propre identité. */
+body.noel-body {
+  background: var(--noel-nuit);
+  color: var(--noel-creme);
+  font-family: "Raleway", system-ui, sans-serif;
+}
+
 /* ── Bandeau ────────────────────────────────────────────────────────
    Deux découpes du même visuel : la large pour les écrans d'ordinateur,
    la resserrée (titre + lune) pour les téléphones, où la version large
@@ -373,6 +398,22 @@
     margin: 0 !important;
     padding: 0 !important;
     height: auto !important;
+    /* styles.css impose une hauteur minimale au corps (100 vh) : à
+       l'écran c'est utile, à l'impression cela réserve une feuille
+       entière avant même le premier contenu. */
+    min-height: 0 !important;
+  }
+
+  /* styles.css donne 90 px de marge intérieure, en haut ET en bas, à
+     toutes les <section>. Sur cette page cela ajoutait 180 px invisibles
+     autour de la carte : le total dépassait la hauteur d'une A4 et le
+     bon sortait sur deux feuilles, la seconde entièrement vide.
+     On remet tout à plat ; la carte porte ses propres marges. */
+  .bon-page, .bon-page section, .bon-page div {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: 0 !important;
+    background: none !important;
   }
 
   /* On RETIRE les éléments inutiles au lieu de les rendre invisibles.
@@ -383,10 +424,14 @@
      display:none emporterait la carte avec lui, et la feuille sortirait
      blanche. */
   .bon-entete, .bon-actions, .bon-mode-emploi, .noel-pied,
-  .bon-attente, .bon-absent { display: none !important; }
+  .bon-attente, .bon-absent,
+  .site-header, .nav-burger, .floating-actions { display: none !important; }
 
-  /* Les parents gardent leur affichage et perdent seulement leurs marges. */
+  /* Les parents gardent leur affichage et perdent seulement leurs marges.
+     La réserve sous l'en-tête saute aussi : l'en-tête ne s'imprime pas,
+     elle laisserait une bande blanche de 99 px en haut de la feuille. */
   .bon-page { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+  .bon-page.avec-entete { padding-top: 0 !important; }
 
   /* La carte, seule au milieu de la feuille.
      180 mm de large et non la pleine page : le visuel fait 1536 px, ce
@@ -397,7 +442,11 @@
      tient encore sur une seule feuille. */
   .bon-impression {
     width: 180mm;
-    margin: 32mm auto !important;   /* la pose au centre de la feuille */
+    /* 28 mm plutôt que 32 : la carte fait 120 mm de haut, une A4 paysage
+       en offre 190 utilisables. 28 + 120 + 28 = 176 mm, ce qui laisse
+       14 mm de réserve — assez pour que la feuille tienne même si
+       l'imprimante ajoute ses propres marges. */
+    margin: 28mm auto !important;
     padding: 0;
     border: 0;
     background: none;

@@ -1,0 +1,141 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   noel-bandeau.css — le bandeau promotionnel de l'offre de Noël
+
+   Un seul composant, utilisé à deux endroits :
+     · en haut du hero de l'accueil (index.html)
+     · juste avant le bouton de la page carte cadeau (carte-cadeau.html)
+
+   APRÈS LE 25 DÉCEMBRE : retirer les deux blocs <a class="noel-promo">
+   dans ces deux pages, ainsi que les deux <link> vers ce fichier. Le
+   fichier lui-même peut rester, il ne pèse rien s'il n'est pas appelé.
+
+   ⚠ CE BANDEAU NE DOIT JAMAIS ÊTRE PLACÉ AVANT LE HERO D'UNE PAGE.
+   L'en-tête du site est en position:fixed (91 px sur téléphone, 99 à
+   126 px sur ordinateur selon la page). Tout ce qui est posé en haut du
+   flux passe dessous et disparaît. Il se place DANS le conteneur du
+   hero, qui est déjà dégagé de l'en-tête.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.noel-promo {
+  /* Le fond : un morceau du visuel de Noël, sans texte gravé — la partie
+     photo (cadeau, boules dorées, bokeh). Le dégradé par-dessus assure
+     que le texte reste lisible quelle que soit la zone de l'image qui
+     tombe sous les mots après recadrage. */
+  background:
+    linear-gradient(90deg, rgba(18, 14, 24, .94) 0%, rgba(26, 20, 38, .80) 55%, rgba(26, 20, 38, .55) 100%),
+    url("/assets/images/noel-strip.jpg") center right / cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+
+  width: 100%;
+  max-width: 760px;
+  box-sizing: border-box;
+  margin: 0 auto 26px;
+  padding: 15px 22px;
+
+  border: 1px solid rgba(201, 162, 77, .45);
+  border-radius: 14px;
+  text-decoration: none;
+  color: #f6f1e8;
+
+  /* Le hero de l'accueil empile plusieurs calques décoratifs (voile,
+     halo). Sans cette pile explicite, l'un d'eux peut passer par-dessus
+     et avaler le clic : le bandeau resterait visible mais ne ferait
+     plus rien, ce qui est pire qu'un bandeau absent.
+     Pas de classe « reveal » non plus sur ce bloc : une annonce qui
+     attend une animation pour apparaître est une annonce qu'on risque
+     de ne jamais voir. */
+  position: relative;
+  z-index: 3;
+
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.noel-promo:hover,
+.noel-promo:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(201, 162, 77, .85);
+  box-shadow: 0 12px 34px rgba(201, 162, 77, .24);
+}
+
+.noel-promo-texte {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+  min-width: 0;          /* sans ça, un texte long force le bandeau à déborder */
+}
+
+.noel-promo-titre {
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  font-size: 1.08rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: #f6f1e8;
+  line-height: 1.25;
+}
+
+.noel-promo-sous {
+  font-family: 'Raleway', system-ui, sans-serif;
+  font-size: .82rem;
+  color: #bdab93;
+  line-height: 1.4;
+}
+
+.noel-promo-prix {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  white-space: nowrap;
+}
+
+.noel-promo-prix s {
+  font-family: 'Raleway', system-ui, sans-serif;
+  font-size: .95rem;
+  color: #9a8872;
+  text-decoration-thickness: 1.5px;
+}
+
+.noel-promo-prix strong {
+  font-family: 'Cinzel', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #e8cf96;
+  line-height: 1;
+}
+
+.noel-promo-cta {
+  font-family: 'Raleway', system-ui, sans-serif;
+  font-size: .88rem;
+  font-weight: 600;
+  color: #1a1410;
+  background: linear-gradient(135deg, #d9b465, #b8893c);
+  padding: 10px 18px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ── Téléphone ───────────────────────────────────────────────────────
+   Trois colonnes deviennent illisibles sous 560 px : on empile, et le
+   bouton prend toute la largeur pour rester facile à viser du pouce. */
+@media (max-width: 560px) {
+  .noel-promo {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px 18px;
+    text-align: center;
+  }
+  .noel-promo-texte { text-align: center; }
+  .noel-promo-titre { font-size: 1.02rem; }
+  .noel-promo-prix  { justify-content: center; }
+  .noel-promo-cta   { text-align: center; padding: 12px 18px; }
+}
+
+/* Le bandeau est décoratif et promotionnel : à l'impression, il n'a
+   rien à faire sur la feuille. */
+@media print { .noel-promo { display: none !important; } }

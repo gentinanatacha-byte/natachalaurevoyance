@@ -24,11 +24,18 @@ permalink: /carte-noel/
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://aurea.natachalaurevoyance.fr">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Le CSS du site est chargé AVANT le mien, et uniquement pour l'en-tête :
+     sans lui, le menu n'aurait aucune allure. L'ordre compte — mes règles
+     passent après et l'emportent partout où les deux se croisent. -->
+<link rel="stylesheet" href="/assets/css/styles.css">
 <link rel="stylesheet" href="/assets/css/carte-noel.css">
 </head>
 <body class="noel-body">
 
-<main class="noel-page">
+{% include header.html %}
+
+<main class="noel-page avec-entete">
 
   <!-- ═══════════════════════════════════════════════════════════════
        1. LE BANDEAU
@@ -281,6 +288,45 @@ permalink: /carte-noel/
 
 </main>
 
+<!-- Le menu de téléphone, en dix lignes. On ne charge pas main.js (16 Ko)
+     pour cela seul : cette page n'a besoin de rien d'autre de ce fichier. -->
+<script>
+  (function () {
+    var b = document.getElementById("nav-burger"),
+        n = document.querySelector(".main-nav");
+    if (!b || !n) return;
+    b.addEventListener("click", function () {
+      var ouvert = n.classList.toggle("open");
+      b.setAttribute("aria-expanded", ouvert ? "true" : "false");
+    });
+    n.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        n.classList.remove("open");
+        b.setAttribute("aria-expanded", "false");
+      });
+    });
+    var h = document.querySelector(".site-header");
+    if (!h) return;
+
+    // L'en-tête se densifie au défilement, comme sur le reste du site.
+    window.addEventListener("scroll", function () {
+      h.classList.toggle("scrolled", window.scrollY > 50);
+    }, { passive: true });
+
+    // Sa hauteur est MESURÉE, jamais supposée : elle varie avec la
+    // largeur de l'écran et avec le nombre d'entrées du menu (sur
+    // ordinateur la navigation passe sur deux lignes). Le CSS s'en sert
+    // pour réserver la place sous l'en-tête fixe.
+    var mesurer = function () {
+      document.documentElement.style.setProperty("--entete-h", h.offsetHeight + "px");
+    };
+    mesurer();
+    window.addEventListener("resize", mesurer, { passive: true });
+    if (window.ResizeObserver) new ResizeObserver(mesurer).observe(h);
+    // Les polices arrivent après : elles peuvent changer la hauteur.
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(mesurer);
+  })();
+</script>
 <script src="/assets/js/carte-noel.js" defer></script>
 <script src="/assets/js/achat-noel.js" defer></script>
 </body>
