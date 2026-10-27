@@ -401,7 +401,17 @@
         }
       });
     }, { threshold: 0.5 });
-    counters.forEach(c => co.observe(c));
+    counters.forEach(c => {
+      // ⚠ Le chiffre final est désormais écrit DANS LA PAGE, pour que Google
+      // et tout outil qui ne lance pas le JavaScript lisent « 98 % » et non
+      // « 0 % ». On ne le remet à zéro qu'au dernier moment, et seulement
+      // pour les compteurs encore sous le pli : un chiffre déjà lu par la
+      // visiteuse ne doit pas retomber à zéro sous ses yeux.
+      const r = c.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) return;
+      c.textContent = '0' + (c.dataset.suffix || '');
+      co.observe(c);
+    });
   }
 
   // ─── SCROLL DOUX POUR ANCRES ────────────────────────
