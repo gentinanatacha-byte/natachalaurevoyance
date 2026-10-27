@@ -61,9 +61,25 @@
   }
 
   function afficher(bon) {
+    /* Deux dessins, deux géométries. On bascule AVANT de remplir : le
+       script de remplissage lit la classe pour choisir les corps de
+       texte, et l'image doit être en place pour que la carte garde ses
+       proportions. */
+    var standard = bon.canal !== "noel";
+    var fond = document.getElementById("carte-fond");
+    carte.classList.toggle("carte--standard", standard);
+    carte.setAttribute("data-mot-max", standard ? "100" : "140");
+    if (fond) {
+      fond.src = standard ? "/assets/images/carte-cadeau.jpg" : "/assets/images/carte-noel.jpg";
+      fond.alt = "Carte cadeau Natacha Laure Voyance" +
+        (bon.formule_nom ? " — " + bon.formule_nom : "");
+    }
+
     CarteNoel.remplir(carte, {
       destinataire: bon.destinataire,
       mot: bon.mot,
+      duree: standard ? (bon.duree_texte || "") : "",
+      modalite: standard ? (bon.mode_label || "") : "",
       code: bon.reference,
     });
 
@@ -91,8 +107,12 @@
       titre.textContent = retourDePaiement
         ? "Merci — votre carte est prête"
         : "Votre carte cadeau";
-      chapeau.textContent = "Pour " + bon.destinataire +
-        " · valable jusqu'au " + CarteNoel.dateLisible(bon.valide_jusqu_au) + ".";
+      chapeau.textContent = [
+        bon.formule_nom ? bon.formule_nom : null,
+        bon.duree_texte, bon.mode_label,
+        "pour " + bon.destinataire,
+        "valable jusqu'au " + CarteNoel.dateLisible(bon.valide_jusqu_au),
+      ].filter(Boolean).join(" · ") + ".";
     }
 
     if (validite) {

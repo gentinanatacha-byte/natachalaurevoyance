@@ -18,10 +18,24 @@
      tranche — jamais l'inverse. */
   var LIMITES = { destinataire: 24, mot: 140 };
 
+  /* La carte habituelle a un encadré « petit mot » deux fois moins haut
+     que celle de Noël : 96 px contre 185 sur l'original. On lit donc la
+     limite sur la carte elle-même (data-mot-max) quand elle en porte
+     une, plutôt que d'imposer la même à deux dessins différents. */
+  function limiteMot(carte) {
+    var v = carte && carte.getAttribute ? parseInt(carte.getAttribute("data-mot-max"), 10) : NaN;
+    return isNaN(v) ? LIMITES.mot : v;
+  }
+
   /* Corps de départ, en pourcentage de la largeur de la carte. Ce sont
      les valeurs du fichier CSS ; elles ne sont rappelées ici que pour
      pouvoir les réduire quand un mot déborde. */
-  var CORPS = { pour: 2.7, mot: 2.25, code: 2.1 };
+  var CORPS = { pour: 2.7, mot: 2.25, code: 2.1, duree: 2.5, modalite: 2.5 };
+
+  /* La carte habituelle est plus large (1672 px contre 1536) : à
+     pourcentage égal le texte y serait plus gros. Ses corps propres
+     sont donc déclarés à part. */
+  var CORPS_STANDARD = { pour: 2.5, mot: 1.95, code: 2.0, duree: 2.5, modalite: 2.5 };
 
   /* Les unités « cqw » (1 % de la largeur du conteneur) laissent le
      navigateur recalculer les tailles tout seul, y compris au moment de
@@ -76,32 +90,47 @@
   function remplir(carte, donnees) {
     if (!carte) return;
     var d = donnees || {};
+    var C = carte.classList && carte.classList.contains("carte--standard")
+      ? CORPS_STANDARD : CORPS;
 
-    var pour = carte.querySelector(".carte-pour");
-    var mot  = carte.querySelector(".carte-mot");
-    var code = carte.querySelector(".carte-code");
+    var pour     = carte.querySelector(".carte-pour");
+    var mot      = carte.querySelector(".carte-mot");
+    var code     = carte.querySelector(".carte-code");
+    var duree    = carte.querySelector(".carte-duree");
+    var modalite = carte.querySelector(".carte-modalite");
 
     if (pour) {
       pour.textContent = String(d.destinataire || "").slice(0, LIMITES.destinataire);
-      poserCorps(carte, pour, CORPS.pour);
+      poserCorps(carte, pour, C.pour);
       // Un prénom très long ne doit pas sortir de l'encadré : on le
       // resserre horizontalement au lieu de le couper.
       pour.style.transform = "";
       var large = pour.scrollWidth, dispo = pour.clientWidth;
       if (dispo && large > dispo) {
-        poserCorps(carte, pour, CORPS.pour * Math.max(0.6, dispo / large));
+        poserCorps(carte, pour, C.pour * Math.max(0.6, dispo / large));
       }
     }
 
     if (mot) {
-      mot.textContent = String(d.mot || "").slice(0, LIMITES.mot);
-      ajuster(carte, mot, CORPS.mot);
+      mot.textContent = String(d.mot || "").slice(0, limiteMot(carte));
+      ajuster(carte, mot, C.mot);
     }
 
     if (code) {
       code.textContent = String(d.code || "");
-      poserCorps(carte, code, CORPS.code);
+      poserCorps(carte, code, C.code);
     }
+
+    /* Les deux champs propres à la carte habituelle. Ils n'existent pas
+       sur celle de Noël, dont la durée et le mode sont gravés dans le
+       visuel : on ne fait rien s'ils sont absents. */
+    [[duree, d.duree, C.duree], [modalite, d.modalite, C.modalite]].forEach(function (p) {
+      if (!p[0]) return;
+      p[0].textContent = String(p[1] || "");
+      poserCorps(carte, p[0], p[2]);
+      var large = p[0].scrollWidth, dispo = p[0].clientWidth;
+      if (dispo && large > dispo) poserCorps(carte, p[0], p[2] * Math.max(0.6, dispo / large));
+    });
 
     // En mode pixels, les tailles doivent être refaites quand la carte
     // change de largeur — y compris juste avant l'impression.
@@ -119,6 +148,7 @@
   global.CarteNoel = {
     remplir: remplir,
     limites: LIMITES,
+    limiteMot: limiteMot,
     echapper: echapper,
     /** Normalise un code tapé à la main : « cc abc 123 » → « CC-ABC-123 ». */
     normaliserCode: function (v) {

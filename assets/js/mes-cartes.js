@@ -103,9 +103,14 @@
 
     return "<tr class='" + (faite ? "faite" : "") + "'>" +
       "<td data-titre='Code'><code>" + CarteNoel.echapper(c.reference) + "</code>" +
+        (c.canal === "noel" ? "<span title='Offre de Noël' style='margin-left:6px'>🎄</span>" : "") +
+        "<div style='color:var(--noel-or-clair);font-size:.78rem;margin-top:3px;'>" + (c.montant || 0) + " €</div>" +
         (c.mot ? "<div style='color:var(--noel-gris);font-size:.78rem;margin-top:5px;max-width:250px;'>« " +
                  CarteNoel.echapper(c.mot) + " »</div>" : "") + "</td>" +
-      "<td data-titre='Pour'>" + CarteNoel.echapper(c.destinataire) + "</td>" +
+      "<td data-titre='Pour'>" + CarteNoel.echapper(c.destinataire) +
+        "<div style='color:var(--noel-gris);font-size:.78rem;margin-top:4px;'>" +
+        CarteNoel.echapper([c.formule_nom, c.duree_texte, c.mode_label].filter(Boolean).join(" · ") ||
+          "Une heure · par téléphone") + "</div></td>" +
       "<td data-titre='Offert par'>" + CarteNoel.echapper(c.offrant) +
         "<div style='color:var(--noel-gris);font-size:.78rem;'>" + CarteNoel.echapper(c.email || "") +
         (c.telephone ? "<br>" + CarteNoel.echapper(c.telephone) : "") + "</div></td>" +

@@ -112,6 +112,70 @@
   color: #3a2410;
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   LA CARTE HABITUELLE — quatre champs au lieu de deux
+
+   Visuel différent du cadeau de Noël : 1672 × 941 (16/9) au lieu de
+   1536 × 1024, et il porte « Durée » et « Modalité » en plus, pour
+   coller à la formule et au mode choisis.
+
+   Toutes les positions sont relevées au pixel sur l'original, puis
+   exprimées en pourcentage — la carte reste juste à n'importe quelle
+   taille, vignette comme feuille A4.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.carte--standard { aspect-ratio: 1672 / 941; }
+
+/* « Pour : » — le trait d'écriture est à y = 402 px */
+.carte--standard .carte-pour {
+  left: 34.1%; right: 24%;
+  top: 36.5%; height: 7%;
+  font-size: 2.5cqw;
+}
+
+/* « Un petit mot : » — attention, l'encadré ne fait que 96 px de haut
+   ici, contre 185 sur la carte de Noël. Deux lignes y tiennent, pas
+   trois : d'où une limite de saisie bien plus courte côté serveur. */
+.carte--standard .carte-mot {
+  left: 23.9%; right: 22.8%;
+  top: 50.2%; height: 8.6%;
+  font-size: 1.95cqw;
+  line-height: 1.32;
+  text-indent: 28%;
+}
+
+/* « Durée : » — trait à y = 624 px */
+.carte--standard .carte-duree {
+  left: 35.3%; right: 24%;
+  top: 60.1%; height: 7%;
+  font-size: 2.5cqw;
+}
+
+/* « Modalité : » — trait à y = 720 px */
+.carte--standard .carte-modalite {
+  left: 37.1%; right: 24%;
+  top: 70.3%; height: 7%;
+  font-size: 2.5cqw;
+}
+
+.carte--standard .carte-code {
+  left: 36.5%; width: 20.2%;
+  top: 81.8%; height: 7.9%;
+  font-size: 2cqw;
+}
+
+/* Les deux champs propres à cette carte se comportent comme « Pour » :
+   une ligne, posée sur le trait gravé. */
+.carte-duree, .carte-modalite {
+  position: absolute;
+  color: var(--noel-encre);
+  font-family: Georgia, "Times New Roman", serif;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  white-space: nowrap;
+}
+
 /* Les navigateurs d'avant 2023 ne connaissent pas cqw : le script pose
    alors une taille en pixels, et cette classe lui laisse la main. */
 .carte.sans-cqw .carte-pour,
@@ -315,6 +379,59 @@ body.noel-body {
 }
 .noel-erreur[hidden] { display: none; }
 
+/* ── Le choix de la formule (page carte cadeau) ──────────────────────
+   Deux groupes bien séparés : « par téléphone » et « chez elle » ne
+   s'adressent pas aux mêmes gens et n'ont pas le même prix. Tout en
+   vrac, personne ne s'y retrouve. */
+.cc-groupe { margin: 0 0 18px; }
+.cc-groupe-titre {
+  margin: 0 0 9px;
+  font-family: "Cinzel", serif;
+  font-size: .95rem;
+  color: var(--noel-or-clair);
+}
+.cc-groupe-titre span {
+  display: block;
+  font-family: "Raleway", system-ui, sans-serif;
+  font-size: .76rem;
+  color: var(--noel-gris);
+  margin-top: 2px;
+}
+.cc-groupe-cartes { display: grid; gap: 8px; }
+
+.cc-formule {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "nom prix" "duree prix";
+  align-items: center;
+  gap: 1px 12px;
+  width: 100%;
+  text-align: left;
+  background: #0f0c14;
+  border: 1px solid rgba(201, 162, 77, .28);
+  border-radius: 11px;
+  padding: 12px 15px;
+  color: var(--noel-creme);
+  font-family: "Raleway", system-ui, sans-serif;
+  cursor: pointer;
+  transition: border-color .16s, background .16s;
+}
+.cc-formule:hover { border-color: rgba(201, 162, 77, .6); }
+.cc-formule.retenue {
+  border-color: var(--noel-or);
+  background: rgba(201, 162, 77, .1);
+  box-shadow: inset 0 0 0 1px rgba(201, 162, 77, .35);
+}
+.cc-formule-nom   { grid-area: nom;   font-size: .97rem; font-weight: 500; }
+.cc-formule-duree { grid-area: duree; font-size: .78rem; color: var(--noel-gris); }
+.cc-formule-prix  {
+  grid-area: prix;
+  font-family: "Cinzel", serif;
+  font-size: 1.3rem;
+  color: var(--noel-or-clair);
+  white-space: nowrap;
+}
+
 /* ── Les questions ──────────────────────────────────────────────────── */
 .noel-questions { padding: 56px 16px 0; max-width: 760px; margin: 0 auto; }
 .noel-questions h2 { font-family: "Cinzel", serif; font-weight: 500; text-align: center; font-size: 1.4rem; margin: 0 0 24px; }
@@ -427,10 +544,32 @@ body.noel-body {
   .bon-attente, .bon-absent,
   .site-header, .nav-burger, .floating-actions { display: none !important; }
 
-  /* Les parents gardent leur affichage et perdent seulement leurs marges.
-     La réserve sous l'en-tête saute aussi : l'en-tête ne s'imprime pas,
-     elle laisserait une bande blanche de 99 px en haut de la feuille. */
-  .bon-page { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+  /* styles.css pose un halo décoratif en dégradé sur body::before. Sur
+     une page web il est invisible ; sur une feuille, si l'imprimante a
+     « graphiques d'arrière-plan » coché, il couvre toute la page d'un
+     aplat sombre derrière la carte. Aucun pseudo-élément décoratif n'a
+     sa place sur un bon à imprimer. */
+  body::before, body::after,
+  .bon-page::before, .bon-page::after { display: none !important; content: none !important; }
+
+  /* Les parents gardent leur affichage et perdent leurs marges. La
+     réserve sous l'en-tête saute aussi : l'en-tête ne s'imprime pas,
+     elle laisserait une bande blanche en haut de la feuille.
+
+     Le conteneur devient une boîte centrée haute de 180 mm, au lieu de
+     pousser la carte avec une grosse marge fixe. C'est ce qui permet
+     aux DEUX cartes d'être centrées : celle de Noël fait 120 mm de haut
+     à 180 mm de large, l'habituelle seulement 101 mm (elle est en 16/9).
+     Une marge unique en aurait forcément décentré une. */
+  .bon-page {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 180mm !important;
+  }
   .bon-page.avec-entete { padding-top: 0 !important; }
 
   /* La carte, seule au milieu de la feuille.
@@ -442,11 +581,11 @@ body.noel-body {
      tient encore sur une seule feuille. */
   .bon-impression {
     width: 180mm;
-    /* 28 mm plutôt que 32 : la carte fait 120 mm de haut, une A4 paysage
-       en offre 190 utilisables. 28 + 120 + 28 = 176 mm, ce qui laisse
-       14 mm de réserve — assez pour que la feuille tienne même si
+    /* Plus de marge verticale : c'est le conteneur ci-dessus qui centre.
+       180 mm de large donne 217 points par pouce sur un visuel de
+       1672 px — net — et laisse de la réserve sur la hauteur, même si
        l'imprimante ajoute ses propres marges. */
-    margin: 28mm auto !important;
+    margin: 0 auto !important;
     padding: 0;
     border: 0;
     background: none;

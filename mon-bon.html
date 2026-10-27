@@ -54,12 +54,19 @@ sitemap: false
 
     <!-- C'est ce bloc, et lui seul, qui part à l'imprimante. -->
     <div class="bon-impression">
+      <!-- Le visuel et les champs dépendent de la carte : celle de Noël
+           n'a que deux champs (sa durée et son mode sont gravés dans
+           l'image), les habituelles en ont quatre. Le script pose la
+           classe, l'image et les champs utiles d'après la réponse du
+           serveur ; « Durée » et « Modalité » restent vides et
+           invisibles sur une carte de Noël. -->
       <div class="carte noel-cadre" id="carte" style="padding:0;border:0;">
-        <img class="carte-fond" id="carte-fond"
-             src="/assets/images/carte-noel.jpg"
-             alt="Carte cadeau Natacha Laure Voyance : une heure de voyance par téléphone">
+        <img class="carte-fond" id="carte-fond" src="/assets/images/carte-noel.jpg"
+             alt="Carte cadeau Natacha Laure Voyance">
         <div class="carte-champ carte-pour" id="carte-pour"></div>
         <div class="carte-champ carte-mot"  id="carte-mot"></div>
+        <div class="carte-duree"            id="carte-duree"></div>
+        <div class="carte-modalite"         id="carte-modalite"></div>
         <div class="carte-champ carte-code" id="carte-code"></div>
       </div>
     </div>
