@@ -13,6 +13,8 @@ related:
   - deroulement-consultation
   - comment-poser-une-bonne-question-au-tarot
   - qui-consulter-voyance-nice
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Changement de vie à Nice : le Tarot pour repartir"
 ---
 
 Il existe des périodes où tout paraît bouger en même temps. Une relation s'achève, un projet de déménagement apparaît, la famille change, ou l'on réalise simplement que la vie construite jusque-là ne nous correspond plus tout à fait. Dans ces moments-là, on a parfois moins besoin d'une réponse spectaculaire que d'un temps pour mettre des mots sur ce qui se passe. En tant que **voyante, cartomancienne et tarologue à Nice**, je reçois des personnes qui souhaitent explorer ces transitions avec le Tarot de Marseille. Une séance ne décide pas de l'avenir à votre place. Elle offre un espace de parole et une lecture symbolique pour envisager les directions possibles, sans les présenter comme des certitudes. Si vous recherchez une [voyance à Nice](/), voici comment aborder un nouveau départ dans un cadre bienveillant.

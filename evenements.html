@@ -1,5 +1,7 @@
 ---
 title: "Animation voyance & tarot pour vos événements | Nice, Cannes, Monaco"
+# Titre court pour Google ; le titre ci-dessus reste celui de la page.
+seo_title: "Animation voyance & tarot — Nice, Cannes, Monaco"
 description: "Cartomancienne à Nice, j'anime vos soirées d'entreprise, mariages et événements privés au Tarot de Marseille. Dès 450 € tout compris, de Cannes à Monaco."
 permalink: /evenements/
 ---
@@ -8,7 +10,7 @@ permalink: /evenements/
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ page.title }}</title>
+<title>{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}</title>
 <meta name="description" content="{{ page.description }}">
 <link rel="canonical" href="https://natachalaurevoyance.fr/evenements/">
 <meta name="robots" content="index, follow, max-image-preview:large">

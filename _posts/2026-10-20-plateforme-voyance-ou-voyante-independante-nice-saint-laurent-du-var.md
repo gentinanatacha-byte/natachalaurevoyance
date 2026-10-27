@@ -13,6 +13,8 @@ related:
   - preparer-consultation-voyance-nice-saint-laurent-du-var
   - qui-consulter-voyance-nice
   - tirage-tarot-gratuit-ou-lecture-personnalisee
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Site de voyance ou voyante indépendante à Nice ?"
 ---
 Je suis Natacha Laure, voyante et cartomancienne à Nice. Quand on cherche une consultation de voyance à Nice ou à Saint-Laurent-du-Var, on hésite parfois entre une grande plateforme de mise en relation et le site d’une professionnelle indépendante. Voici comment comparer les deux approches sans idées reçues.
 

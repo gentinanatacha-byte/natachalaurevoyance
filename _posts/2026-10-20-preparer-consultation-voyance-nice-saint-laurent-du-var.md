@@ -2,7 +2,7 @@
 title: "Comment préparer sa consultation de voyance avec moi à Nice ou Saint-Laurent-du-Var ?"
 title_html: "Comment <em>préparer sa consultation</em> de voyance à Nice ou Saint-Laurent-du-Var ?"
 lead: "Deux ou trois questions notées la veille changent tout à une séance d'une heure. Voici comment je vous conseille de préparer notre rendez-vous — et ce qui, au contraire, ne sert à rien."
-meta_desc: "Avant votre consultation de voyance à Nice ou Saint-Laurent-du-Var, découvrez comment préparer vos questions, votre rendez-vous et votre séance de tarot avec Natacha Laure."
+meta_desc: "Préparer sa consultation de voyance à Nice ou Saint-Laurent-du-Var : vos questions, le déroulement du rendez-vous et de la séance de tarot."
 category: Pratique
 date: 2026-10-20T08:30:00.000+02:00
 read_time: 8 min
@@ -13,6 +13,8 @@ related:
   - plateforme-voyance-ou-voyante-independante-nice-saint-laurent-du-var
   - deroulement-consultation
   - comment-poser-une-bonne-question-au-tarot
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Préparer sa consultation de voyance à Nice"
 ---
 Je suis Natacha Laure, voyante et cartomancienne à Nice. Vous cherchez une consultation de voyance à Nice, une tarologue près de Saint-Laurent-du-Var ou un rendez-vous de tarot par téléphone ? Voici mes conseils pour aborder ce moment avec confiance.
 

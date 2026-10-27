@@ -4,9 +4,7 @@ title_html: "Qui consulter pour une <em>voyance à Nice</em> ? Comment choisir s
 lead: "Voyante, cartomancienne, tarologue, médium : les mots se ressemblent et
   on s'y perd. Voici, sans détour, ce qui les distingue et les questions à
   poser avant de confier une heure de sa vie à quelqu'un."
-meta_desc: "Qui consulter pour une voyance à Nice ? Les différences entre
-  voyante, cartomancienne, tarologue et médium, les questions à poser et les
-  formules possibles, par Natacha Laure, cartomancienne à Nice."
+meta_desc: "Voyante, cartomancienne, tarologue ou médium à Nice : les différences, les questions à poser et les formules possibles, par Natacha Laure."
 category: Pratique
 date: 2026-10-20T10:00:00.000+02:00
 read_time: 12 min
@@ -17,6 +15,8 @@ related:
   - voyance-nice-question-tarot-10-euros-aurea
   - deroulement-consultation
   - comment-poser-une-bonne-question-au-tarot
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Qui consulter pour une voyance à Nice ?"
 ---
 
 On me demande souvent par quoi commencer. **« Je voudrais consulter, mais je ne sais pas qui choisir. »** C'est une phrase que j'entends au téléphone presque chaque semaine, et elle est parfaitement légitime : entre les cabinets, les plateformes, les numéros surtaxés et les dizaines d'annonces en ligne, le paysage est opaque. Je ne vais pas vous dire de venir me voir — pas tout de suite, en tout cas. Je vais d'abord vous donner ce que j'aurais aimé qu'on m'explique : ce que recouvrent vraiment ces mots, ce qui doit vous alerter, et ce qui doit vous rassurer.

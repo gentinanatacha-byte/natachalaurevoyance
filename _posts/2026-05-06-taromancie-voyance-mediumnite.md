@@ -15,6 +15,8 @@ related:
   - outils-divinatoires
   - tarot-predit-avenir
   - origines-divination
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Taromancie, voyance, médiumnité : les différences"
 ---
 "Vous êtes voyante ou médium ?" Cette question revient souvent, et elle est très légitime. Dans le langage courant, voyance, taromancie et médiumnité sont parfois utilisées comme synonymes. Pourtant, elles désignent des **pratiques différentes**, qui mobilisent des facultés différentes. Comprendre ces distinctions vous aidera à choisir vers qui vous tourner selon votre besoin.
 

@@ -15,6 +15,8 @@ related:
   - deroulement-consultation
   - outils-divinatoires
   - tarot-fascine-siecles
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Saison Gémeaux 2026 : l'arcane de L'Amoureux"
 ---
 Chaque année, du 20 mai au 21 juin, le soleil traverse le signe des Gémeaux. Et chaque année, dans la tradition hermétique du Tarot, c'est l'arcane VI — L'Amoureux — qui vient escorter cette saison. Cette correspondance n'est pas un hasard romantique. Elle plonge ses racines dans des siècles de pensée symbolique, et elle a beaucoup à nous dire en ce mois où la lumière s'étire vers son sommet.
 

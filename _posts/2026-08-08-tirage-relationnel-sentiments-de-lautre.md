@@ -18,6 +18,8 @@ related:
   - voyance-sentimentale-tarot
   - les-principaux-tirages-de-tarot-lequel-choisir-selon-votre-question
   - tarot-predit-avenir
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Tirage relationnel : les sentiments de l'autre"
 ---
 S'il fallait ne retenir qu'une question de toutes celles qu'on me pose en consultation, ce serait celle-ci, dans ses mille variantes :
 

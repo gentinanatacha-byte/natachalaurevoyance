@@ -6,11 +6,13 @@ description: Voyante spécialiste du Tarot de Marseille à Nice et par télépho
 url: https://natachalaurevoyance.fr
 baseurl: ""
 
-# Ne traite que le blog avec Jekyll, le reste du site reste statique
+# ⚠ NE JAMAIS remettre _posts, _layouts ou _includes dans « include ».
+# Jekyll les traite déjà tout seul : _posts via la collection ci-dessous,
+# _layouts et _includes quand une page les appelle. Les lister ici lui
+# demandait EN PLUS de publier les fichiers bruts, ce qui créait 26 pages
+# fantômes — dont une copie de chaque article de blog, concurrente du vrai
+# article aux yeux de Google.
 include:
-  - _posts
-  - _layouts
-  - _includes
   - admin
 
 # Permaliens : URLs propres pour les articles
@@ -46,3 +48,15 @@ exclude:
   - node_modules
   - vendor
   - .gitignore
+  # Notes techniques internes : elles étaient publiées et indexables.
+  - LISEZ-MOI.md
+  - LISEZ-MOI-CARTE-CADEAU.md
+  - LISEZ-MOI-RENDEZ-VOUS.md
+  - LISEZ-MOI-ROUE.md
+  - MODIF-INDEX-HTML.md
+  # Copies de téléchargement laissées dans le dépôt. À supprimer aussi sur
+  # GitHub ; en attendant, elles ne seront plus publiées.
+  - "index (1).html"
+  - "index (2).html"
+  - "carte-cadeau (1).html"
+  - "reserver (1).html"

@@ -4,9 +4,7 @@ title_html: "Voyance à Nice et en ligne : <em>votre tirage interprété par mes
 lead: Vous posez votre question, vous tirez vos cartes vous-même dans Auréa,
   et c'est moi qui lis le tirage et vous écris. Pas une réponse automatique
   mais ma lecture, envoyée sous 48 heures, pour 10 €.
-meta_desc: "Voyance à Nice et en ligne : tirez vos cartes sur Auréa pour 10 €.
-  Natacha Laure interprète personnellement votre tirage et vous l'envoie
-  sous 48 h. Tarologue et cartomancienne à Nice."
+meta_desc: "Voyance à Nice et en ligne : tirez vos cartes sur Auréa pour 10 €. Natacha Laure interprète votre tirage et vous l'envoie sous 48 heures."
 category: Actualités
 date: 2026-10-19T19:30:00.000+02:00
 read_time: 8 min
@@ -17,6 +15,8 @@ related:
   - tirage-tarot-gratuit-ou-lecture-personnalisee
   - comment-poser-une-bonne-question-au-tarot
   - application-voyance-tarot-aurea
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Voyance à Nice : votre tirage interprété pour 10 €"
 ---
 
 **Une question, vos cartes, mon interprétation.** J'ai imaginé une nouvelle formule pour celles et ceux qui souhaitent consulter une voyante à Nice ou à distance sans forcément réserver une séance complète. Pour **10 €**, vous tirez vous-même vos cartes dans [Auréa, mon application de tarot en ligne](/aurea/), puis **je rédige personnellement une lecture précise de votre tirage, envoyée sous 48 heures**. Ce n'est pas une réponse automatique de l'application : c'est mon regard de tarologue, posé sur vos cartes et votre question. Voici comment profiter de cette nouveauté, à quoi elle sert et comment choisir la formule qui vous correspond.

@@ -22,6 +22,8 @@ related:
   - deroulement-consultation
   - tarot-predit-avenir
   - outils-divinatoires
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Auréa : l'application de tirage de tarot personnalisé"
 ---
 Il y a une question que l'on me pose plus souvent que toutes les autres, et elle n'a rien à voir avec l'avenir. La voici : **« Est-ce que je peux tirer les cartes moi-même, entre deux consultations ? »**
 

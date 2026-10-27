@@ -19,6 +19,8 @@ related:
   - tarot-fascine-siecles
   - comment-poser-une-bonne-question-au-tarot
   - tirage-relationnel-sentiments-de-lautre
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Les principaux tirages de Tarot : lequel choisir ?"
 ---
 Vous envisagez de consulter une voyante, ou simplement de mieux comprendre comment le Tarot fonctionne. Très vite, une question revient : **combien de cartes va-t-on tirer ? Et pourquoi celles-là plutôt que d'autres ?**
 

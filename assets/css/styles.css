@@ -2275,3 +2275,19 @@ section li a:not([class]):visited {
 /* Bouton flottant de réservation, au-dessus de WhatsApp et Instagram. */
 .float-reserver { background: linear-gradient(145deg, var(--or), #96682b); color: #fff; }
 .float-reserver:hover { background: linear-gradient(145deg, var(--or-cl), var(--or)); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   ZONES TACTILES DU MENU SUR TÉLÉPHONE
+   ⚠ Plus haut dans ce fichier, « @media (max-width:1200px) » réduit le
+   padding des liens du menu à 0.45rem. Cette règle s'applique AUSSI au
+   téléphone et écrasait le padding de 1rem prévu pour le tiroir, parce
+   qu'elle est écrite après lui. Résultat : des liens de 37 px de haut,
+   sous le seuil des 48 px recommandé pour le tactile — c'est ce que
+   relevait l'audit. On rétablit ici, en dernier, donc c'est elle qui gagne.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .main-nav a {
+    display: block;
+    padding: 0.95rem 1rem;
+  }
+}

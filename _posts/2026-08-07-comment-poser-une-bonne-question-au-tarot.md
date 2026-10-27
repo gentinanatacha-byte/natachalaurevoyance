@@ -4,9 +4,7 @@ title_html: Comment poser une <em>bonne question</em> au Tarot ?
 lead: La qualité d'un tirage dépend d'abord de la question. Voici les
   formulations qui ouvrent une vraie lecture — et celles qui la referment
   aussitôt.
-meta_desc: Comment formuler une bonne question au Tarot de Marseille pour obtenir
-  une lecture juste. Les erreurs fréquentes et les bonnes formulations, par
-  Natacha Laure, voyante à Nice.
+meta_desc: "Comment formuler une bonne question au Tarot de Marseille : les erreurs fréquentes et les bonnes tournures, par Natacha Laure, voyante à Nice."
 category: Pratique
 date: 2026-08-07T10:00:00.000+02:00
 read_time: 6 min
@@ -17,6 +15,8 @@ related:
   - les-principaux-tirages-de-tarot-lequel-choisir-selon-votre-question
   - tarot-predit-avenir
   - deroulement-consultation
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Comment poser une bonne question au Tarot ?"
 ---
 En consultation, il m'arrive de passer plusieurs minutes sur la question avant même de toucher les cartes. Ce n'est pas du temps perdu — c'est souvent le moment le plus utile de la séance.
 

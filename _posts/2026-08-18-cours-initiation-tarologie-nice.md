@@ -4,9 +4,7 @@ title_html: "Nouveau : <em>cours d'initiation à la tarologie</em> à Nice et en
 lead: Vous êtes nombreux à me demander, en fin de consultation, comment
   j'arrive à faire parler les cartes. À partir d'aujourd'hui, je vous
   l'enseigne — en leçon particulière, d'une heure, sur mesure.
-meta_desc: "Cours d'initiation à la tarologie avec le Tarot de Marseille, à
-  Nice et Saint-Laurent-du-Var ou en visio. Leçon particulière d'1h : arcanes
-  majeurs, tirages, lecture croisée. 40 € visio, 45 € à domicile."
+meta_desc: "Cours d'initiation à la tarologie à Nice, Saint-Laurent-du-Var ou en visio. Leçon particulière d'une heure : arcanes majeurs, tirages, lecture croisée."
 category: Actualités
 date: 2026-08-18T10:00:00.000+02:00
 read_time: 6 min
@@ -17,6 +15,8 @@ related:
   - les-principaux-tirages-de-tarot-lequel-choisir-selon-votre-question
   - comment-poser-une-bonne-question-au-tarot
   - histoire-tarot-marseille
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Cours d'initiation à la tarologie à Nice et en visio"
 ---
 C'est une phrase que j'entends presque à chaque fin de séance, souvent au moment où l'on range les cartes :
 

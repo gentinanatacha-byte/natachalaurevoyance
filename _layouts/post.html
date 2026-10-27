@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ page.title | strip_html }} — Natacha Laure Voyance</title>
+<title>{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title | strip_html }} — Natacha Laure Voyance{% endif %}</title>
 <meta name="description" content="{{ page.meta_desc }}">
 <link rel="canonical" href="https://natachalaurevoyance.fr{{ page.url }}">
 <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
@@ -11,7 +11,7 @@
 
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://natachalaurevoyance.fr{{ page.url }}">
-<meta property="og:title" content="{{ page.title | strip_html }} — Natacha Laure Voyance">
+<meta property="og:title" content="{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title | strip_html }} — Natacha Laure Voyance{% endif %}">
 <meta property="og:description" content="{{ page.meta_desc }}">
 <meta property="og:image" content="https://natachalaurevoyance.fr{{ page.hero_image }}">
 <meta property="article:author" content="Natacha Laure">
@@ -38,7 +38,6 @@
 <link rel="stylesheet" href="/assets/css/styles.css">
 <link rel="stylesheet" href="/assets/css/blog.css">
 
-{% include netlify-identity.html %}
 </head>
 <body>
 
@@ -49,7 +48,7 @@
 <!-- HERO ARTICLE -->
 <section class="article-hero">
   <div class="article-hero-bg" aria-hidden="true">
-    <img src="{{ page.hero_image }}" alt="" loading="eager" fetchpriority="high">
+    <img src="{{ page.hero_image }}" alt="" loading="eager" fetchpriority="high" width="1400" height="900">
   </div>
   <div class="article-hero-inner">
     <nav class="article-breadcrumb" aria-label="Fil d'Ariane">

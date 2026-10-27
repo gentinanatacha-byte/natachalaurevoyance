@@ -16,6 +16,8 @@ related:
   - taromancie-voyance-mediumnite
   - histoire-tarot-marseille
   - application-voyance-tarot-aurea
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Tarot, pendule, oracles : mes outils divinatoires"
 ---
 Le Tarot de Marseille est mon outil principal, celui dont je connais chaque lame depuis l'enfance. Mais ce n'est pas le seul. Au fil des années, j'ai intégré d'autres supports qui **complètent ma pratique** et permettent, selon les situations, d'affiner ou de préciser une lecture. Petit tour d'horizon des outils que vous pouvez rencontrer dans mes consultations, et de la philosophie qui les sous-tend.
 

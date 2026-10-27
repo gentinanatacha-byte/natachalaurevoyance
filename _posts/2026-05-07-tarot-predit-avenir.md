@@ -16,6 +16,8 @@ related:
   - voyance-sentimentale-tarot
   - taromancie-voyance-mediumnite
   - tirage-tarot-gratuit-ou-lecture-personnalisee
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Le Tarot prédit-il vraiment l'avenir ? — Natacha Laure"
 ---
 Si je devais nommer la question la plus posée en consultation, ce serait celle-ci : **"Est-ce que ça va arriver ?"**. Question légitime, qui pose en filigrane une autre, plus profonde : le Tarot peut-il vraiment prédire l'avenir ? Et si oui, comment ? Et si non, à quoi sert-il ?
 

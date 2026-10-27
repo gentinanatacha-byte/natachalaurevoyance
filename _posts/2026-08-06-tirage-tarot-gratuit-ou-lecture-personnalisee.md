@@ -18,6 +18,8 @@ related:
   - tarot-predit-avenir
   - outils-divinatoires
   - deroulement-consultation
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Tirage de tarot gratuit ou lecture personnalisée"
 ---
 Vous avez sans doute déjà fait un **tirage de tarot gratuit en ligne**. Vous cliquez, trois cartes se retournent, un texte apparaît. Et souvent, une impression étrange s'installe : c'est joli, c'est plausible… mais ça pourrait s'appliquer à n'importe qui.
 

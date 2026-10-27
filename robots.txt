@@ -1,18 +1,8 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Le back-office et l'application privée n'ont rien à faire dans Google.
+Disallow: /admin/
+Disallow: /registre/
+
 Sitemap: https://natachalaurevoyance.fr/sitemap.xml
-
-# Crawl-delay pour éviter la surcharge
-Crawl-delay: 1
-
-# Autoriser tous les bots Google
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Bingbot
-Allow: /

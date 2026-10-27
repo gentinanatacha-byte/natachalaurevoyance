@@ -15,6 +15,8 @@ related:
   - voyance-sentimentale-tarot
   - tarot-predit-avenir
   - histoire-tarot-marseille
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Pourquoi le Tarot nous fascine depuis des siècles"
 ---
 Depuis bientôt six siècles, ces vingt-deux arcanes majeurs et leurs cinquante-six compagnons mineurs continuent d'intriguer, de rassurer, d'éclairer. Aucune autre méthode divinatoire occidentale n'a connu pareille longévité ni pareille universalité. Comment expliquer cette permanence dans un monde qui change si vite ?
 

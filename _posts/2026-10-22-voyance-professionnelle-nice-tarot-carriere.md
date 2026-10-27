@@ -13,6 +13,8 @@ related:
   - qui-consulter-voyance-nice
   - comment-poser-une-bonne-question-au-tarot
   - deroulement-consultation
+# Titre court pour Google : le H1 de la page reste « title ».
+seo_title: "Voyance professionnelle à Nice : Tarot et carrière"
 ---
 
 Changer de métier, accepter une proposition, quitter un poste qui ne nous correspond plus ou reprendre confiance après une période difficile : notre vie professionnelle nous confronte à des choix parfois épuisants. Lorsqu'une décision occupe toutes nos pensées, on finit par regarder les mêmes possibilités sous les mêmes angles. En tant que **voyante et cartomancienne à Nice**, je propose une autre manière d'explorer les questions de travail : un temps d'échange, un tirage du Tarot de Marseille et une interprétation personnalisée. Il ne s'agit ni d'un recrutement, ni d'un bilan de compétences, ni d'une prédiction garantie. L'objectif est de mieux formuler ce qui compte pour vous et d'examiner, à travers le langage symbolique des cartes, les pistes que vous pouvez décider de suivre. Si vous cherchez une [consultation de voyance à Nice](/), cet article vous aide à comprendre comment aborder les sujets professionnels avec moi.
