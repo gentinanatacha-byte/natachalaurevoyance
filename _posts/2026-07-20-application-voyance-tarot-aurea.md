@@ -70,7 +70,7 @@ Quand vous demandez une lecture personnalisée, l'interprétation est **génér�
 
 Concrètement, cela signifie que :
 
-- Vous êtes nommée dans votre lecture
+- Vous êtes nommé·e dans votre lecture
 - Chaque carte est lue **à sa place**, pas dans l'absolu
 - Les cartes se répondent entre elles et forment un récit suivi
 - La lecture se conclut par une **synthèse** et un **conseil** qui n'existent que pour ce tirage-là

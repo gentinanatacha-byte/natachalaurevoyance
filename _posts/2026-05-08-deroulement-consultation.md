@@ -74,4 +74,4 @@ Dans les jours qui suivent, il est fréquent que les éléments du tirage contin
 
 ---
 
-**Prête à franchir le pas ?** Choisissez votre formule [à domicile sur Nice](/#nice) ou [par téléphone](/#telephone) — et si une question vous retient encore, la réponse est peut-être déjà dans [la FAQ](/#faq).
+**Prêt·e à franchir le pas ?** Choisissez votre formule [à domicile sur Nice](/#nice) ou [par téléphone](/#telephone) — et si une question vous retient encore, la réponse est peut-être déjà dans [la FAQ](/#faq).

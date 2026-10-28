@@ -107,7 +107,7 @@ Auréa propose déjà des expériences de découverte, avec notamment des tirage
        width="302" height="507" loading="lazy" decoding="async">
 </figure>
 
-## 10. Prête à poser votre question ? Découvrez la nouvelle offre Auréa
+## 10. Prêt·e à poser votre question ? Découvrez la nouvelle offre Auréa
 
 Vous habitez Nice ou vous cherchez simplement une **consultation de voyance en ligne** qui laisse une vraie place à l'humain ? Ma nouvelle prestation propose un parcours clair : **vous posez une question, vous tirez vos cartes dans Auréa, je rédige votre interprétation et vous la transmets sous 48 heures, pour 10 €**. Vous conservez la spontanéité d'un tirage en ligne tout en bénéficiant de mon travail personnel de cartomancienne. Pour découvrir l'offre et commencer, rendez-vous sur [la page de la lecture de tirage](/lecture-de-tirage/). Et si vous souhaitez d'abord en savoir plus sur mon parcours et sur les autres façons de consulter, visitez [natachalaurevoyance.fr](/) ou explorez [mes articles sur la voyance et le tarot](/blog/). **Une question peut parfois suffire à ouvrir une nouvelle réflexion.**
 

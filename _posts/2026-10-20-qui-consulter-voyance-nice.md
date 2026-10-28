@@ -117,7 +117,7 @@ Un point de vigilance, en revanche : vérifiez **avec qui** vous allez parler. E
 
 ## 7. Ma façon de travailler, en quelques lignes
 
-Puisque vous êtes arrivée jusqu'ici, voici ce que je propose, dit simplement.
+Puisque vous êtes arrivé·e jusqu'ici, voici ce que je propose, dit simplement.
 
 J'accompagne surtout des questions sentimentales, des périodes de transition, des interrogations professionnelles et des choix personnels qui traînent depuis trop longtemps. Je travaille au Tarot de Marseille, avec le pendule et l'Oracle de Belline en appui. Je ne promets pas de réponse magique et je ne prédis pas un avenir fixé : ce que je fais, c'est mettre à plat ce qui vous occupe et vous aider à regarder autrement les options qui s'offrent à vous.
 
@@ -133,7 +133,7 @@ Si vous voulez vous faire une idée de ma manière avant de réserver, [le déro
 
 ## 8. Une seule question, 10 € : la porte d'entrée la plus douce
 
-Vous n'êtes pas obligée de réserver une heure pour une seule interrogation. C'est exactement pour cela que j'ai créé cette formule.
+Vous n'êtes pas obligé·e de réserver une heure pour une seule interrogation. C'est exactement pour cela que j'ai créé cette formule.
 
 Le principe : vous tirez vous-même vos cartes dans [Auréa, mon application de tarot](/aurea/), puis **je lis votre tirage et je vous écris personnellement**, sous 48 heures, pour **10 €**. Ce n'est pas une interprétation automatique — je tiens à la distinction, j'y reviens juste après. C'est mon regard, posé sur vos cartes et sur votre question.
 
@@ -228,7 +228,7 @@ Non. C'est sans doute l'idée la plus tenace et la moins fondée.
 
 Une recherche sur **voyance Nice 06** ou **cartomancienne Alpes-Maritimes** fait remonter des praticiennes qui reçoivent sur place, mais beaucoup proposent aussi le téléphone et la visio. Le choix dépend de votre emploi du temps, de votre confort, et de l'importance que vous accordez à la présence physique — rien d'autre.
 
-Si vous préférez explorer seule avant de parler à quelqu'un, [Auréa](/aurea/) fonctionne directement dans le navigateur, sur téléphone comme sur ordinateur, et [son guide pas à pas](/aurea/guide/) vous accompagne pour le premier tirage.
+Si vous préférez explorer seul·e avant de parler à quelqu'un, [Auréa](/aurea/) fonctionne directement dans le navigateur, sur téléphone comme sur ordinateur, et [son guide pas à pas](/aurea/guide/) vous accompagne pour le premier tirage.
 
 ## 16. Questions fréquentes
 

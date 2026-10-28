@@ -22,7 +22,7 @@ C'est une phrase que j'entends presque à chaque fin de séance, souvent au mome
 
 **« Mais comment vous faites pour lire tout ça ? »**
 
-Pendant longtemps, j'ai répondu par une pirouette. Puis les demandes se sont accumulées — des consultantes régulières, des curieux venus une fois, des personnes qui possédaient déjà un jeu sans jamais oser l'ouvrir. Alors j'ai fini par céder.
+Pendant longtemps, j'ai répondu par une pirouette. Puis les demandes se sont accumulées — des personnes qui consultent régulièrement, d'autres venues une fois par curiosité, des personnes qui possédaient déjà un jeu sans jamais oser l'ouvrir. Alors j'ai fini par céder.
 
 À partir d'aujourd'hui, je propose des **cours d'initiation à la tarologie**, en leçon particulière d'une heure, avec le **Tarot de Marseille**.
 

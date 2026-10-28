@@ -116,7 +116,7 @@ Dans [**Auréa**](/aurea/), certains tirages vous demandent explicitement votre 
 
 C'est aussi la meilleure façon de vérifier ce que je décris ici. Posez la même situation sous deux formulations différentes, et comparez les deux lectures. La différence saute aux yeux.
 
-Et si votre question est de celles qu'on n'arrive pas à formuler seule — cela arrive, et c'est souvent le signe qu'elle touche à quelque chose d'important — [nous pouvons en parler ensemble](/#contact). Une bonne partie de mon travail en consultation consiste précisément à aider à nommer la vraie question.
+Et si votre question est de celles qu'on n'arrive pas à formuler seul·e — cela arrive, et c'est souvent le signe qu'elle touche à quelque chose d'important — [nous pouvons en parler ensemble](/#contact). Une bonne partie de mon travail en consultation consiste précisément à aider à nommer la vraie question.
 
 ---
 
