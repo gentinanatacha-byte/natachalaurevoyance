@@ -65,7 +65,7 @@ C'est le passage le plus difficile à franchir seul. C'est aussi celui où une h
 Deux formules, même contenu, même durée :
 
 - **En visio — 40 €** pour une heure. Où que vous soyez. Il suffit d'une table, d'un jeu et d'un peu de calme.
-- **À domicile — 45 €** pour une heure, **entre Nice et Saint-Laurent-du-Var**.
+- **À domicile — 50 €** pour une heure, **entre Nice et Saint-Laurent-du-Var**.
 
 Une précision honnête sur le déplacement : je me limite volontairement à cette zone, de Nice à Saint-Laurent-du-Var en passant par Cagnes-sur-Mer. Au-delà, le trajet mangerait la leçon. Si vous habitez plus loin, la visio donne exactement le même cours — et beaucoup de mes élèves la préfèrent, parce qu'ils travaillent sur leur propre jeu, dans leur propre décor.
 

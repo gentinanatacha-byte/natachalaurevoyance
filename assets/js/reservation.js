@@ -220,7 +220,7 @@
     // Un seul mode proposé : pas de titre de groupe, ce serait du bruit.
     var html = (domicile.length && telephone.length)
       ? groupeFormules("Chez vous", "dans un rayon de 15 km autour de Saint-Laurent-du-Var", domicile) +
-        groupeFormules("Par téléphone", "partout en France", telephone)
+        groupeFormules("Par téléphone ou en visio", "partout en France", telephone)
       : groupeFormules("", "", domicile.concat(telephone))
           .replace(/<p class="rv-groupe-titre">.*?<\/p>/, "");
     el.formules.innerHTML = html;
