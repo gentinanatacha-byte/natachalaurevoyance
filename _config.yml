@@ -48,11 +48,14 @@ exclude:
   - node_modules
   - vendor
   - .gitignore
-  # Notes techniques internes : elles étaient publiées et indexables.
-  - LISEZ-MOI.md
-  - LISEZ-MOI-CARTE-CADEAU.md
-  - LISEZ-MOI-RENDEZ-VOUS.md
-  - LISEZ-MOI-ROUE.md
+  # ⚠ Notes techniques internes : NE JAMAIS les publier.
+  # Les jokers ci-dessous valent pour tout fichier déposé plus tard : si un
+  # A-LIRE ou un LISEZ-MOI atterrit par mégarde dans le dépôt, il ne
+  # deviendra pas une page du site. C'est exactement ce qui était arrivé à
+  # A-LIRE-COMPTEURS.md, publié et envoyé à Google sans qu'on le veuille.
+  - "LISEZ-MOI*.md"
+  - "A-LIRE*.md"
+  - "A-LIRE*.txt"
   - MODIF-INDEX-HTML.md
   # Copies de téléchargement laissées dans le dépôt. À supprimer aussi sur
   # GitHub ; en attendant, elles ne seront plus publiées.
