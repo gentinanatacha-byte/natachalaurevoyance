@@ -1,0 +1,116 @@
+---
+layout: null
+permalink: /merci/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merci — votre lecture est lancée | Natacha Laure Voyance</title>
+<meta name="description" content="Votre paiement est bien reçu. Je me mets à votre tirage : votre lecture écrite vous parvient sous 48 heures.">
+<!-- Page d'arrivée après paiement : elle n'a rien à faire dans Google,
+     et une page de remerciement indexée ferait doublon avec la page de
+     vente aux yeux du moteur. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<style>
+  /* Styles propres à cette page — rien qui déborde sur le reste du site. */
+  .merci-page { padding-block: clamp(4rem, 12vw, 8rem); text-align: center; }
+  .merci-inner { max-width: 40rem; margin-inline: auto; }
+
+  /* Le sceau : un cercle d'or qui se dessine, puis la coche.
+     Pas de bibliothèque, pas d'image : deux traits en SVG. */
+  .merci-sceau { width: 5.5rem; height: 5.5rem; margin: 0 auto 2rem; display: block; }
+  .merci-sceau circle, .merci-sceau path {
+    fill: none; stroke: var(--or); stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+  .merci-sceau circle {
+    stroke-dasharray: 189; stroke-dashoffset: 189;
+    animation: merci-trait 1.1s cubic-bezier(.4,0,.2,1) forwards;
+  }
+  .merci-sceau path {
+    stroke: var(--or-pale); stroke-width: 2.5;
+    stroke-dasharray: 36; stroke-dashoffset: 36;
+    animation: merci-trait .5s cubic-bezier(.4,0,.2,1) .8s forwards;
+  }
+  @keyframes merci-trait { to { stroke-dashoffset: 0; } }
+
+  .merci-inner h1 { margin-bottom: 1.25rem; }
+  .merci-chapo { color: var(--blanc); font-size: 1.05rem; margin-bottom: 1.5rem; }
+  .merci-inner p { color: var(--beige-cl); }
+
+  .merci-delai {
+    margin: 2.5rem auto; padding: 1.5rem 1.25rem; max-width: 30rem;
+    border: 1px solid var(--brun-cl); border-radius: .4rem;
+    background: rgba(26, 21, 16, .6);
+  }
+  .merci-delai strong {
+    display: block; font-family: var(--font-display);
+    font-size: 1.5rem; color: var(--or-pale); margin-bottom: .4rem;
+  }
+  .merci-delai span { font-size: .9rem; color: var(--beige-cl); }
+
+  .merci-suite { margin-top: 2.5rem; font-size: .92rem; }
+  .merci-suite a { color: var(--or-cl); }
+  .merci-liens { margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .merci-sceau circle, .merci-sceau path { animation: none; stroke-dashoffset: 0; }
+  }
+</style>
+</head>
+<body>
+{% include header.html %}
+
+<main class="merci-page">
+  <div class="container merci-inner">
+
+    <svg class="merci-sceau" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="32" r="30"></circle>
+      <path d="M20 33 l9 9 l16 -19"></path>
+    </svg>
+
+    <p class="eyebrow">Paiement reçu</p>
+    <h1 class="section-title">Merci, je me mets <em>à votre tirage</em></h1>
+    <div class="gold-divider center"></div>
+
+    <p class="merci-chapo">
+      Votre règlement est bien arrivé. Je prends maintenant vos cinq cartes
+      et votre question, et je vous écris — moi, pas une machine.
+    </p>
+
+    <div class="merci-delai">
+      <strong>Sous 48 heures</strong>
+      <span>
+        Votre lecture part à l'adresse que vous m'avez indiquée.
+        Si vous ne voyez rien venir, regardez vos indésirables : c'est presque
+        toujours là qu'elle se cache.
+      </span>
+    </div>
+
+    <p class="merci-suite">
+      Une question d'ici là ? Écrivez-moi, je réponds moi-même :
+      <a href="mailto:natachalaure.voyance@gmail.com">natachalaure.voyance@gmail.com</a>
+    </p>
+
+    <p class="merci-liens">
+      <a class="btn btn-gold" href="/"><span>Revenir à l'accueil</span></a>
+      <a class="btn btn-ghost" href="/aurea/?site=fr"><span>Découvrir Auréa</span></a>
+    </p>
+
+  </div>
+</main>
+
+{% include footer.html %}
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>
