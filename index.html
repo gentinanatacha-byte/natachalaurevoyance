@@ -852,7 +852,7 @@ sitemap: true
           Au-delà, la leçon se donne en visio, avec le même contenu.
         </p>
 
-        <a href="/reserver/" class="btn btn-gold"><span>Réserver ma leçon</span></a>
+        <a href="#contact" class="btn btn-gold" data-formule="Cours d'initiation à la tarologie (1h) — 40 € en visio / 50 € à domicile"><span>Organiser ma leçon</span></a>
       </div>
     </article>
 
@@ -903,7 +903,7 @@ sitemap: true
           à Nice. Il suffit d'une table, de chaises et d'un peu de calme.
         </p>
 
-        <a href="#contact" class="btn btn-gold"><span>Organiser une journée</span></a>
+        <a href="#contact" class="btn btn-gold" data-formule="Journée de formation en groupe (4 personnes minimum) — 120 € par personne en visio / 140 € en présentiel"><span>Organiser une journée</span></a>
       </div>
     </article>
 
@@ -1387,5 +1387,25 @@ sitemap: true
 <script src="/assets/js/main.js" defer></script>
 <script src="/assets/js/roue.js" defer></script>
 <script src="/assets/js/tirage-croix.js" defer></script>
+<script>
+/* Les deux boutons « Organiser… » descendent au formulaire de contact ET y
+   pré-sélectionnent la bonne formule. Sans ça, Natacha reçoit des demandes
+   de formation sans savoir si c'est pour une leçon ou pour une journée,
+   et il lui faut un aller-retour de plus avant de pouvoir répondre. */
+(function () {
+  var liens = document.querySelectorAll('a[data-formule][href="#contact"]');
+  if (!liens.length) return;
+  Array.prototype.forEach.call(liens, function (a) {
+    a.addEventListener('click', function () {
+      var sel = document.getElementById('form-formule');
+      if (!sel) return;
+      var vise = a.getAttribute('data-formule');
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === vise) { sel.selectedIndex = i; break; }
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

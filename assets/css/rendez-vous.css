@@ -606,3 +606,27 @@
 @media (max-width: 420px) {
   .rv-groupe-titre { font-size: .88rem; }
 }
+
+/* ─── BARRE DE RETOUR (06.11.2026) ──────────────────────────────────
+   La page n'avait aucune sortie avant son tout dernier paragraphe.
+   Barre fine, collée en haut, assez haute pour être touchée du pouce
+   (52 px de zone tactile, comme le reste de la page). */
+.rv-barre {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 0 16px; min-height: 52px;
+  background: var(--rv-noir-2); border-bottom: 1px solid var(--rv-brun-cl);
+}
+.rv-barre a { text-decoration: none; display: flex; align-items: center; min-height: 52px; }
+.rv-barre-marque {
+  font-family: var(--rv-serif); font-size: 17px; letter-spacing: .08em;
+  color: var(--rv-or-pale);
+}
+.rv-barre-retour {
+  font-family: var(--rv-sans); font-size: 16px; font-weight: 600;
+  color: var(--rv-or-cl);
+}
+.rv-barre-retour:hover, .rv-barre-marque:hover { color: var(--rv-blanc); }
+@media (max-width: 380px) {
+  .rv-barre-marque { font-size: 15px; }
+  .rv-barre-retour { font-size: 15px; }
+}

@@ -1,123 +1,65 @@
 ═══════════════════════════════════════════════════════════════════
-  SITE FRANÇAIS — natachalaurevoyance.fr
-  Fichiers à déposer. Les dossiers de l'archive = ceux du dépôt.
+  SITE FRANÇAIS — 6 fichiers
+  Journée de formation · parcours des formations · bouton de retour
 ═══════════════════════════════════════════════════════════════════
 
-CE QUI ARRIVE SUR LE SITE
+Cette archive REMPLACE celle de 10h43 (livraison-06-11.zip) pour la
+partie française. Si tu ne l'as pas encore déposée, oublie-la et
+prends celle-ci : elle contient tout, plus les corrections de ce
+que tu viens de signaler.
+
+⚠ Les quatre fichiers du dossier SUISSE de la livraison précédente
+  restent valables et ne sont PAS dans celle-ci. Dépose-les aussi.
+
+
+OÙ DÉPOSER CHAQUE FICHIER  (dépôt natachalaurevoyance.fr)
 ─────────────────────────
-1. LE TIRAGE EN CROIX sur la page d'accueil, entre « Domaines de
-   guidance » et la bande « Lecture écrite ».
-   Cinq cartes de TON jeu animalier, face cachée. On pense à sa
-   question, on les retourne une à une :
-       1. le passé · 2. l'avantage · 3. le blocage
-       4. la situation actuelle · 5. conclusion
-   Quand les cinq sont là, le bouton « Faire lire mon tirage — 10 € »
-   mène à /lecture-de-tirage/ — ton parcours Auréa, inchangé.
-
-2. LA PRÉCOMMANDE DU JEU à 50 €, juste après le bloc Auréa.
-   ⚠ Elle est INVISIBLE tant que tu n'as pas rempli les trois clés
-   deck_* dans _config.yml (voir plus bas). C'est volontaire : mieux
-   vaut rien qu'une précommande qu'on ne peut pas payer.
-
-3. UNE CORRECTION QUE TU N'AS PAS DEMANDÉE, mais que je te dois.
-   En testant, j'ai vu que des blocs entiers de ta page d'accueil
-   restaient INVISIBLES quand on descend vite : la citation, le bloc
-   Auréa, les cartes de contact. Opacité zéro, définitivement. Un
-   visiteur pressé voyait des trous blancs à la place de ton appli.
-   C'est réparé dans assets/js/main.js. Rien d'autre n'y a été touché.
-
-4. LE RETOUR DEPUIS AURÉA. Depuis le site suisse, le bouton « retour
-   au site » des pages /aurea/ renvoie sur tarot-events.ch ; depuis le
-   site français, sur natachalaurevoyance.fr. Automatique.
+  index.html                    →  à la racine
+  reserver.html                 →  à la racine
+  rendez-vous.html              →  à la racine
+  rendez-vous-mira.html         →  à la racine
+  assets/css/styles.css         →  assets/css/
+  assets/css/rendez-vous.css    →  assets/css/
 
 
-OÙ DÉPOSER CHAQUE FICHIER
-─────────────────────────
-  FICHIER                 →  DOSSIER DANS LE DÉPÔT
-  ─────────────────────────────────────────────────
-  _config.yml             →  à la racine
-  index.html              →  à la racine
-  cgv.html                →  à la racine
-  confidentialite.html    →  à la racine
-  header.html             →  _includes/
-  footer.html             →  _includes/
-  motif-carte.html        →  _includes/   (NOUVEAU — le dos des cartes)
-  arcanes.yml             →  _data/       (NOUVEAU — le dossier aussi)
-  index.html              →  aurea/
-  index.html              →  aurea/guide/
-  main.js                 →  assets/js/   (correction des blocs invisibles)
-  tirage-croix.css        →  assets/css/  (NOUVEAU)
-  tirage-croix.js         →  assets/js/   (NOUVEAU)
-  provenance.js           →  assets/js/   (NOUVEAU)
-  les 44 .webp            →  assets/cartes/ (NOUVEAU — le dossier aussi)
+1. LE BOUTON DE RETOUR QUI MANQUAIT
+───────────────────────────────────
+Tes trois pages de rendez-vous n'avaient aucune sortie avant leur
+tout dernier paragraphe. Quelqu'un qui arrive par un lien WhatsApp
+et veut simplement voir le site n'avait que le bouton « précédent »
+du navigateur. Une page sans porte de sortie est une page qu'on
+quitte pour de bon.
 
-⚠ Il y a TROIS fichiers nommés index.html, dans trois dossiers
-  différents (racine, aurea/, aurea/guide/). Ouvre bien le bon dossier
-  avant de déposer. Même chose pour les deux footer.html si tu fais les
-  deux sites dans la foulée.
+Une barre fine est maintenant collée en haut des trois pages :
+« Natacha Laure » à gauche, « ← Retour au site » à droite. Elle fait
+52 px de haut, comme toutes les zones à toucher de ces pages — c'est
+la hauteur en dessous de laquelle un pouce rate sa cible.
+
+Je n'ai PAS remis le menu complet du site : ces pages ont leur propre
+feuille de style, volontairement légère pour les téléphones en 4G
+médiocre. Y greffer le menu aurait alourdi la page qui doit justement
+rester la plus rapide du site.
 
 
-L'ORDRE LE PLUS SIMPLE
-──────────────────────
-  1. assets/cartes/ : crée le dossier en déposant les 44 images d'un coup
-     (4 Mo au total, ça passe largement)
-  2. assets/css/ : tirage-croix.css
-  3. assets/js/ : main.js, tirage-croix.js et provenance.js ensemble
-  4. _data/ : arcanes.yml
-  5. _includes/ : les trois fichiers ensemble
-  6. aurea/index.html, puis aurea/guide/index.html
-  7. la racine en dernier : _config.yml, index.html, cgv.html,
-     confidentialite.html
+2. LES FORMATIONS NE RENVOIENT PLUS VERS /reserver/
+───────────────────────────────────────────────────
+Tu as raison : cette page est faite pour choisir un créneau de
+cartomancie, pas pour organiser une formation. Les deux boutons
+mènent désormais au formulaire de contact :
 
-Le site est sur Netlify : il se reconstruit tout seul après chaque
-dépôt. Compte une à deux minutes, puis recharge avec Ctrl+Maj+R
-(Cmd+Maj+R sur Mac).
+  « Organiser ma leçon »     (cours particulier)
+  « Organiser une journée »  (journée de groupe)
+
+ET ILS PRÉ-REMPLISSENT LA FORMULE dans le menu déroulant. Sans ça,
+tu recevrais des demandes de formation sans savoir s'il s'agit d'une
+leçon d'une heure ou d'une journée à quatre — un aller-retour de plus
+avant de pouvoir répondre quoi que ce soit.
 
 
-POUR ALLUMER LA PRÉCOMMANDE DU JEU
-──────────────────────────────────
-Dans _config.yml, les lignes commençant par deck_ :
-    deck_prix: 50
-    deck_stripe: ""        ← colle ici ton lien de paiement Stripe
-    deck_expedition: ""    ← ex. "Printemps 2027"
-    deck_livraison: ""     ← ex. "France métropolitaine incluse"
-Il faut les TROIS vides remplies. S'il en manque une, le bloc reste
-caché. Garde bien les guillemets.
+3. LA JOURNÉE DE FORMATION (rappel de la livraison de 10h43)
+────────────────────────────────────────────────────────────
+  En visio          120 € par personne
+  En présentiel     140 € par personne  (chez eux, ou en cabinet à Nice)
+  Plancher          à partir de 480 €, soit quatre personnes
 
-
-SI TU VEUX CHANGER LE PARCOURS DU TIRAGE
-────────────────────────────────────────
-Dans _config.yml, ligne croix_parcours :
-    "aurea"       ← réglage actuel : le bouton mène à /lecture-de-tirage/
-                    et le client tire à nouveau dans Auréa.
-    "formulaire"  ← la personne remplit un formulaire sur place ; tu
-                    reçois sa croix exacte par e-mail (les 5 cartes dans
-                    l'ordre, sa question, son adresse) et elle règle
-                    ensuite sur Stripe. Aucun passage par Auréa.
-Le formulaire est déjà écrit et testé : il suffit de changer le mot.
-Si tu choisis "formulaire", remplis aussi stripe_lecture juste au-dessus.
-
-
-CE QUE JE N'AI PAS PU FAIRE
-───────────────────────────
-L'application Auréa elle-même (aurea.natachalaurevoyance.fr) est un
-projet Vercel à part, dont je n'ai pas le code. Son propre bouton de
-retour renverra toujours sur le site français. Pour qu'il suive aussi
-le marqueur ?site=, envoie-moi ce dépôt et je m'en occupe.
-
-
-DEUX AUTRES CHOSES VUES EN PASSANT (je n'y ai pas touché)
-─────────────────────────────────────────────────────────
-  • Les pages /mes-cartes/ et /mon-bon/ ont deux titres <h1> chacune.
-    Google n'aime pas, mais ces deux pages sont en noindex, donc
-    l'impact est nul. Je peux corriger si tu veux.
-  • Rien d'autre : aucune erreur sur les 20 autres pages, ordinateur
-    et téléphone.
-
-
-UN POINT QUE JE DOIS TE DIRE
-────────────────────────────
-Le site suisse affiche encore « Le Tarot de Marseille, et rien d'autre »
-alors que la page d'accueil montre maintenant ton jeu animalier, et que
-la vidéo montre un troisième jeu. Ça se remarque. Dis-moi quel jeu tu
-veux revendiquer et je réaligne les textes des deux sites d'un coup.
+Et la ligne correspondante ajoutée au menu déroulant du formulaire.
