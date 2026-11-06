@@ -2291,3 +2291,10 @@ section li a:not([class]):visited {
     padding: 0.95rem 1rem;
   }
 }
+
+/* ─── JOURNÉE DE FORMATION (06.11.2026) ───────────────────────────
+   Variante du bloc « cours de tarot » sans visuel : une seule colonne,
+   contenu centré, même cadre doré. Elle n'existe que pour ce bloc et
+   ne change rien au cours particulier qui la précède. */
+.cours-tarot.journee-formation { grid-template-columns: 1fr; max-width: 820px; }
+.cours-tarot.journee-formation .cours-tarot-content { padding-block: clamp(2rem, 5vw, 3rem); }
