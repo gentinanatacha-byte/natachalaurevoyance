@@ -3,12 +3,11 @@
   Journée de formation · parcours des formations · bouton de retour
 ═══════════════════════════════════════════════════════════════════
 
-Cette archive REMPLACE celle de 10h43 (livraison-06-11.zip) pour la
-partie française. Si tu ne l'as pas encore déposée, oublie-la et
-prends celle-ci : elle contient tout, plus les corrections de ce
-que tu viens de signaler.
+Cette archive REMPLACE les deux précédentes pour la partie française
+(livraison-06-11.zip de 10h43 et FRANCE-formations.zip de 10h55).
+Si tu ne les as pas encore déposées, oublie-les et prends celle-ci.
 
-⚠ Les quatre fichiers du dossier SUISSE de la livraison précédente
+⚠ Les quatre fichiers du dossier SUISSE/ de la livraison de 10h43
   restent valables et ne sont PAS dans celle-ci. Dépose-les aussi.
 
 
@@ -24,11 +23,11 @@ OÙ DÉPOSER CHAQUE FICHIER  (dépôt natachalaurevoyance.fr)
 
 1. LE BOUTON DE RETOUR QUI MANQUAIT
 ───────────────────────────────────
-Tes trois pages de rendez-vous n'avaient aucune sortie avant leur
-tout dernier paragraphe. Quelqu'un qui arrive par un lien WhatsApp
-et veut simplement voir le site n'avait que le bouton « précédent »
-du navigateur. Une page sans porte de sortie est une page qu'on
-quitte pour de bon.
+Tes trois pages de rendez-vous n'avaient aucune sortie avant leur tout
+dernier paragraphe. Quelqu'un qui arrive par un lien WhatsApp et veut
+simplement voir le site n'avait que le bouton « précédent » du
+navigateur. Une page sans porte de sortie est une page qu'on quitte
+pour de bon.
 
 Une barre fine est maintenant collée en haut des trois pages :
 « Natacha Laure » à gauche, « ← Retour au site » à droite. Elle fait
@@ -41,25 +40,60 @@ médiocre. Y greffer le menu aurait alourdi la page qui doit justement
 rester la plus rapide du site.
 
 
-2. LES FORMATIONS NE RENVOIENT PLUS VERS /reserver/
-───────────────────────────────────────────────────
-Tu as raison : cette page est faite pour choisir un créneau de
-cartomancie, pas pour organiser une formation. Les deux boutons
-mènent désormais au formulaire de contact :
+2. LES FORMATIONS MÈNENT AU FORMULAIRE, ET AU BON ENDROIT
+─────────────────────────────────────────────────────────
+Les deux boutons « Organiser ma leçon » et « Organiser une journée »
+ne renvoient plus vers /reserver/ : cette page sert à choisir un
+créneau de cartomancie, pas à monter une formation.
 
-  « Organiser ma leçon »     (cours particulier)
-  « Organiser une journée »  (journée de groupe)
+Ils visent maintenant le FORMULAIRE LUI-MÊME, et non le haut de la
+section contact. Avant, on atterrissait sur « Choisissez votre créneau
+en ligne » et il fallait encore descendre. Vérifié sur ordinateur et
+sur téléphone : le premier champ est à l'écran, dégagé de l'en-tête.
 
-ET ILS PRÉ-REMPLISSENT LA FORMULE dans le menu déroulant. Sans ça,
-tu recevrais des demandes de formation sans savoir s'il s'agit d'une
-leçon d'une heure ou d'une journée à quatre — un aller-retour de plus
-avant de pouvoir répondre quoi que ce soit.
+Et ils PRÉ-REMPLISSENT la formule dans le menu déroulant. Sans ça, tu
+recevrais des demandes sans savoir s'il s'agit d'une leçon d'une heure
+ou d'une journée à quatre — un aller-retour de plus avant de pouvoir
+organiser quoi que ce soit.
+
+Un titre « Ou écrivez-moi · Dites-moi ce que vous cherchez » a été
+ajouté juste au-dessus du formulaire : arriver directement sur un
+champ « Prénom / Nom » sans un mot d'explication est désagréable.
 
 
-3. LA JOURNÉE DE FORMATION (rappel de la livraison de 10h43)
-────────────────────────────────────────────────────────────
+3. LA JOURNÉE DE FORMATION
+──────────────────────────
   En visio          120 € par personne
   En présentiel     140 € par personne  (chez eux, ou en cabinet à Nice)
   Plancher          à partir de 480 €, soit quatre personnes
 
-Et la ligne correspondante ajoutée au menu déroulant du formulaire.
+POURQUOI 140 € EN PRÉSENTIEL
+Ton barème français facture déjà le déplacement 10 € de plus par heure
+(80 € à domicile contre 70 € par téléphone, 105 contre 95…). Les 20 €
+d'écart sur une journée entière suivent la même logique, et ils
+couvrent ton trajet ou la location de la salle — qui, à 120 € partout,
+sortaient de ta poche.
+
+POURQUOI LE PLANCHER EST ÉCRIT EN TOUTES LETTRES
+Un minimum de quatre personnes qui n'est pas chiffré se renégocie
+toujours la veille, quand quelqu'un se décommande. « À partir de
+480 € » est une somme : elle ne se discute pas.
+
+
+4. DEUX CORRECTIONS AU PASSAGE
+──────────────────────────────
+  • Les données structurées de ta page (celles que Google lit)
+    annonçaient ton cours à domicile à 45 €, alors que la page affiche
+    50 €. Google n'aime pas être contredit par la page qu'il indexe.
+  • L'aide sous « Formule souhaitée » disait « le premier prix
+    correspond au déplacement à domicile, le second à distance » —
+    vrai pour les consultations, faux pour la journée (120 € en visio,
+    140 € en présentiel). Reformulée de façon neutre.
+
+
+CE QUI RESTE, SI TU LE VEUX
+───────────────────────────
+  ▢ Une photo pour le bloc « journée de formation ». Il n'en a pas :
+    je n'allais pas générer un faux groupe de visages juste à côté
+    d'une vraie photo de toi. Prends-en une lors de ta première
+    journée, je l'intègre.

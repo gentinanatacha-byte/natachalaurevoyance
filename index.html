@@ -852,7 +852,7 @@ sitemap: true
           Au-delà, la leçon se donne en visio, avec le même contenu.
         </p>
 
-        <a href="#contact" class="btn btn-gold" data-formule="Cours d'initiation à la tarologie (1h) — 40 € en visio / 50 € à domicile"><span>Organiser ma leçon</span></a>
+        <a href="#contact-form" class="btn btn-gold" data-formule="Cours d'initiation à la tarologie (1h) — 40 € en visio / 50 € à domicile"><span>Organiser ma leçon</span></a>
       </div>
     </article>
 
@@ -903,7 +903,7 @@ sitemap: true
           à Nice. Il suffit d'une table, de chaises et d'un peu de calme.
         </p>
 
-        <a href="#contact" class="btn btn-gold" data-formule="Journée de formation en groupe (4 personnes minimum) — 120 € par personne en visio / 140 € en présentiel"><span>Organiser une journée</span></a>
+        <a href="#contact-form" class="btn btn-gold" data-formule="Journée de formation en groupe (4 personnes minimum) — 120 € par personne en visio / 140 € en présentiel"><span>Organiser une journée</span></a>
       </div>
     </article>
 
@@ -1216,6 +1216,9 @@ sitemap: true
       </a>
     </div>
 
+      <p class="eyebrow text-center reveal" style="margin-top:3rem">Ou écrivez-moi</p>
+      <h3 class="section-title text-center reveal" data-delay="100" style="margin-bottom:2rem">Dites-moi ce que vous <em>cherchez</em></h3>
+
       <form class="contact-form" id="contact-form" action="https://formspree.io/f/mvzerbkz" method="POST" novalidate>
         <div class="form-row">
           <label class="form-field">
@@ -1254,7 +1257,7 @@ sitemap: true
               </optgroup>
               <option value="Je ne sais pas encore">Je ne sais pas encore</option>
             </select>
-            <small class="form-hint">Le premier prix correspond au déplacement à domicile, le second à distance.</small>
+            <small class="form-hint">Quand deux prix sont affichés, ils correspondent aux deux formats possibles : à distance et en déplacement.</small>
           </label>
           <label class="form-field">
             <span class="form-label">Mode</span>
@@ -1393,7 +1396,7 @@ sitemap: true
    de formation sans savoir si c'est pour une leçon ou pour une journée,
    et il lui faut un aller-retour de plus avant de pouvoir répondre. */
 (function () {
-  var liens = document.querySelectorAll('a[data-formule][href="#contact"]');
+  var liens = document.querySelectorAll('a[data-formule][href="#contact-form"]');
   if (!liens.length) return;
   Array.prototype.forEach.call(liens, function (a) {
     a.addEventListener('click', function () {

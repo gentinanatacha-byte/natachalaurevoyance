@@ -2298,3 +2298,9 @@ section li a:not([class]):visited {
    ne change rien au cours particulier qui la précède. */
 .cours-tarot.journee-formation { grid-template-columns: 1fr; max-width: 820px; }
 .cours-tarot.journee-formation .cours-tarot-content { padding-block: clamp(2rem, 5vw, 3rem); }
+
+/* Les boutons « Organiser ma leçon / une journée » visent le formulaire
+   lui-même et non la section entière : sans ça, on atterrissait sur
+   « Choisissez votre créneau en ligne » et il fallait encore descendre.
+   La marge évite que l'en-tête fixe recouvre le haut du formulaire. */
+#contact-form { scroll-margin-top: 7rem; }
