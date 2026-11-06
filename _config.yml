@@ -15,6 +15,45 @@ baseurl: ""
 include:
   - admin
 
+# ─────────────────────────────────────────────────────────────────
+#  TIRAGE EN CROIX & PRÉCOMMANDE DU JEU  —  à remplir par Natacha
+# ─────────────────────────────────────────────────────────────────
+# Le formulaire du tirage en croix part sur ce Formspree (le même que
+# le formulaire de contact de la page d'accueil).
+formspree_id: "mvzerbkz"
+
+# QUE SE PASSE-T-IL QUAND LES CINQ CARTES SONT RETOURNÉES ?
+#   "aurea"      → on renvoie vers /lecture-de-tirage/, ton parcours
+#                  actuel qui passe par l'application Auréa. (réglage
+#                  en place, c'est ce que tu m'as demandé)
+#   "formulaire" → la personne remplit un formulaire sur place, tu
+#                  reçois sa croix exacte par e-mail et elle règle
+#                  ensuite sur Stripe. Aucun passage par Auréa.
+# Change juste le mot entre guillemets, rien d'autre à toucher.
+croix_parcours: "aurea"
+
+# Lecture écrite du tirage en croix. Les deux prix sont affichés
+# ensemble (29 € barré, 10 € en gros) : mets lecture_prix_barre à ""
+# pour faire disparaître le prix barré quand l'offre de lancement
+# sera terminée.
+lecture_prix: 10
+lecture_prix_barre: 29
+
+# Lien de paiement Stripe pour cette lecture écrite.
+# TANT QUE C'EST VIDE : l'étape de paiement n'apparaît pas du tout, et
+# le message de confirmation dit que tu réponds avec le lien. Dès que
+# tu colles un lien ici, le bouton « Régler » apparaît après l'envoi.
+stripe_lecture: ""
+
+# ── Précommande du jeu animalier ──
+# Les quatre clés doivent être remplies pour que le bloc s'affiche.
+# S'il en manque une seule, la section reste invisible sur le site :
+# comme ça, rien de bancal n'est montré aux visiteurs.
+deck_prix: 50
+deck_stripe: ""        # ex. https://buy.stripe.com/xxxxxxxx
+deck_expedition: ""    # ex. « Printemps 2027 » (le mot « Expédition » est déjà affiché)
+deck_livraison: ""     # ex. « France métropolitaine incluse » (le mot « Livraison » est déjà affiché)
+
 # Permaliens : URLs propres pour les articles
 permalink: /blog/:slug/
 

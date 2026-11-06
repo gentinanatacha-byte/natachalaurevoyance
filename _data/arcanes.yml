@@ -1,0 +1,96 @@
+# Les 22 arcanes majeurs du jeu fait maison de Natacha (deck animalier).
+# `id` = le préfixe du fichier image dans /assets/cartes/ (00 → 21).
+# Les noms sont ceux de SON jeu, pas ceux de la tradition marseillaise :
+# son XIII s'appelle « La Mort » (le Marseille le laisse sans nom) et son XVI
+# « La Tour » (le Marseille dit « La Maison Dieu »). On garde les siens.
+#
+# Aucune interprétation ici : le tirage révèle la carte, la lecture vient
+# de Natacha.
+
+- id: "00"
+  num: "0"
+  nom: "Le Mat"
+
+- id: "01"
+  num: "I"
+  nom: "Le Bateleur"
+
+- id: "02"
+  num: "II"
+  nom: "La Papesse"
+
+- id: "03"
+  num: "III"
+  nom: "L'Impératrice"
+
+- id: "04"
+  num: "IV"
+  nom: "L'Empereur"
+
+- id: "05"
+  num: "V"
+  nom: "Le Pape"
+
+- id: "06"
+  num: "VI"
+  nom: "L'Amoureux"
+
+- id: "07"
+  num: "VII"
+  nom: "Le Chariot"
+
+- id: "08"
+  num: "VIII"
+  nom: "La Justice"
+
+- id: "09"
+  num: "IX"
+  nom: "L'Ermite"
+
+- id: "10"
+  num: "X"
+  nom: "La Roue de Fortune"
+
+- id: "11"
+  num: "XI"
+  nom: "La Force"
+
+- id: "12"
+  num: "XII"
+  nom: "Le Pendu"
+
+- id: "13"
+  num: "XIII"
+  nom: "La Mort"
+
+- id: "14"
+  num: "XIV"
+  nom: "La Tempérance"
+
+- id: "15"
+  num: "XV"
+  nom: "Le Diable"
+
+- id: "16"
+  num: "XVI"
+  nom: "La Tour"
+
+- id: "17"
+  num: "XVII"
+  nom: "L'Étoile"
+
+- id: "18"
+  num: "XVIII"
+  nom: "La Lune"
+
+- id: "19"
+  num: "XIX"
+  nom: "Le Soleil"
+
+- id: "20"
+  num: "XX"
+  nom: "Le Jugement"
+
+- id: "21"
+  num: "XXI"
+  nom: "Le Monde"

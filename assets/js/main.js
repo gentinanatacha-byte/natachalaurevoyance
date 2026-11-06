@@ -360,18 +360,44 @@
   }
 
   // ─── SCROLL REVEAL ───────────────────────────────────
+  // ⚠ Deux filets de sécurité ont été ajoutés le 06.11.2026, après avoir
+  // constaté que des blocs entiers restaient INVISIBLES À JAMAIS quand on
+  // descend vite (molette rapide, touche Fin, lien d'ancre) : la citation,
+  // le bloc Auréa et les cartes de contact, entre autres.
+  // Cause : l'observateur ne se déclenche qu'au moment où un bloc croise
+  // l'écran. Un bloc survolé en une seule image n'est jamais vu, et comme
+  // on l'arrête d'observer juste après, il reste à opacité 0 pour toujours.
+  //   1. on révèle aussi tout bloc DÉJÀ PASSÉ au-dessus de l'écran ;
+  //   2. une passe de rattrapage au défilement, qui s'arrête d'elle-même
+  //      quand il ne reste plus rien à révéler (zéro coût ensuite).
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {
+    const montrer = el => {
+      const delay = parseInt(el.dataset.delay || '0', 10);
+      setTimeout(() => el.classList.add('is-visible'), delay);
+    };
     const io = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const delay = parseInt(entry.target.dataset.delay || '0', 10);
-          setTimeout(() => entry.target.classList.add('is-visible'), delay);
+        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+          montrer(entry.target);
           io.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
     revealEls.forEach(el => io.observe(el));
+
+    let restants = Array.prototype.slice.call(revealEls);
+    const rattrapage = () => {
+      restants = restants.filter(el => {
+        if (el.classList.contains('is-visible')) return false;
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.9) { montrer(el); io.unobserve(el); return false; }
+        return true;
+      });
+      if (!restants.length) window.removeEventListener('scroll', rattrapage);
+    };
+    window.addEventListener('scroll', rattrapage, { passive: true });
+    rattrapage();
   } else {
     revealEls.forEach(el => el.classList.add('is-visible'));
   }

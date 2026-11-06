@@ -133,6 +133,7 @@ sitemap: true
 <!-- Offre de Noël — à retirer après le 25 décembre, avec le bloc
      <a class="noel-promo"> dans le hero. -->
 <link rel="stylesheet" href="/assets/css/noel-bandeau.css">
+<link rel="stylesheet" href="/assets/css/tirage-croix.css">
 </head>
 <body>
 
@@ -160,7 +161,7 @@ sitemap: true
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#a-propos">À propos</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="/aurea/">Auréa</a></li>
+      <li><a href="/aurea/?site=fr">Auréa</a></li>
       <li><a href="/lecture-de-tirage/" class="nav-phare">Lecture écrite <span>10&nbsp;€</span></a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -302,7 +303,7 @@ sitemap: true
       <p>J'ai grandi dans un univers où la perception subtile était naturelle et transmise. Ma grand-mère, taromancienne reconnue à Genève, m'a initiée dès l'enfance aux richesses du Tarot de Marseille et à l'écoute des énergies.</p>
       <p>Depuis plus de 10 ans, j'accompagne mes consultants à Nice et partout en France, dans un cadre <strong>confidentiel, respectueux et sans jugement</strong>. Chaque séance est un espace de vérité, d'écoute et de lumière.</p>
       <p>Ma spécialité : la <strong>guidance sentimentale et amoureuse</strong>, les périodes de transition, et les questions professionnelles. Je travaille principalement avec le Tarot de Marseille, le pendule et l'Oracle de Belline.</p>
-      <p>J'ai aussi voulu rendre le tarot accessible entre deux consultations : je suis à l'origine d'<a href="/aurea/"><strong>Auréa</strong></a>, une application de tirage qui reprend ma façon de lire les cartes. <a href="/aurea/">Trois tirages y sont offerts</a>, sans inscription.</p>
+      <p>J'ai aussi voulu rendre le tarot accessible entre deux consultations : je suis à l'origine d'<a href="/aurea/?site=fr"><strong>Auréa</strong></a>, une application de tirage qui reprend ma façon de lire les cartes. <a href="/aurea/?site=fr">Trois tirages y sont offerts</a>, sans inscription.</p>
       <a href="/reserver/" class="btn btn-gold" style="margin-top:1.5rem">
         <span>Prendre rendez-vous</span>
       </a>
@@ -349,6 +350,175 @@ sitemap: true
         <p>Spécialiste du Tarot de Marseille depuis l'enfance, j'utilise sa richesse symbolique pour des lectures précises, structurées et personnalisées.</p>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ═══ TIRAGE EN CROIX ═══════════════════════════════════════════
+     Cinq cartes du jeu fait maison de Natacha, face cachée. On les
+     retourne une à une ; quand les cinq sont là, le formulaire apparaît
+     avec la croix exacte en champs cachés.
+
+     Les positions viennent d'elle : 1 le passé · 2 l'avantage ·
+     3 le blocage · 4 la situation actuelle · 5 conclusion.
+
+     Les images ne sont chargées que pour les cinq cartes distribuées,
+     et seulement quand la section arrive à l'écran. Styles et script
+     sont dans des fichiers à part (tirage-croix.css / .js) : styles.css
+     et main.js ne sont pas touchés. ════════════════════════════════ -->
+<section class="croix-section" id="tirage">
+  <div class="container">
+    <p class="eyebrow reveal">Votre tirage, maintenant</p>
+    <h2 class="section-title reveal" data-delay="100">Tirez votre <em>croix</em></h2>
+    <div class="gold-divider center reveal" data-delay="150"></div>
+    <p class="croix-chapo reveal" data-delay="200">
+      Pensez à votre question, puis retournez les cinq cartes. Elles sont
+      tirées dans mon propre jeu, celui que j'ai dessiné et dont j'ai écrit
+      chaque interprétation.
+    </p>
+
+    <script type="application/json" data-arcanes>
+      [{% for a in site.data.arcanes %}{"id":{{ a.id | jsonify }},"num":{{ a.num | jsonify }},"nom":{{ a.nom | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]
+    </script>
+
+    {% assign positions = "le passé,l'avantage,le blocage,la situation actuelle,conclusion" | split: "," %}
+
+    <div class="croix" data-tirage>
+      {% for pos in positions %}
+      <div class="croix-case croix-{{ forloop.index }}">
+        <button class="carte" type="button" data-rang="{{ forloop.index }}"
+                aria-label="{{ forloop.index }}. {{ pos }} — retourner la carte">
+          <span class="carte-inner">
+            <span class="carte-dos">{% include motif-carte.html %}</span>
+            <span class="carte-face"><img alt="" width="340" height="631" decoding="async"></span>
+          </span>
+        </button>
+        <p class="croix-position"><span class="rang">{{ forloop.index }}</span> {{ pos }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <p class="croix-invite" data-tirage-invite>Touchez une carte pour la retourner</p>
+
+    <div class="croix-suite" data-tirage-suite hidden>
+      <div class="croix-fini">
+        <h3>Votre croix est tirée</h3>
+        <p class="croix-note">
+          Les cartes sont sorties dans cet ordre, et elles ne bougeront plus.
+          Si vous voulez savoir ce qu'elles racontent, je vous l'écris.
+        </p>
+      </div>
+
+      {%- if site.croix_parcours == "formulaire" %}
+      <!-- Parcours « formulaire » : la croix part directement par e-mail,
+           sans passer par Auréa. (voir croix_parcours dans _config.yml) -->
+      <div class="croix-offre">
+        <p class="eyebrow">Lecture écrite de votre tirage</p>
+        <p class="croix-prix">
+          {%- if site.lecture_prix_barre != "" and site.lecture_prix_barre %}<s>{{ site.lecture_prix_barre }} €</s>{% endif -%}
+          {{ site.lecture_prix }} €
+          {%- if site.lecture_prix_barre != "" and site.lecture_prix_barre %}<em>offre de lancement</em>{% endif -%}
+        </p>
+        <p class="croix-offre-detail">
+          Je lis votre croix position par position et je vous écris la lecture
+          complète par e-mail, sous 48 heures. C'est bien moi qui écris, pas une machine.
+        </p>
+
+        <form class="croix-form" data-form-croix
+              action="https://formspree.io/f/{{ site.formspree_id }}" method="POST" novalidate
+              data-ok="{% if site.stripe_lecture != '' %}C’est bien arrivé. Dernière étape : le règlement, juste en dessous.{% else %}C’est bien arrivé, avec votre croix. Je vous réponds très vite avec le lien de règlement.{% endif %}"
+              data-ko="L’envoi a échoué. Réessayez, ou écrivez-moi directement à contact@natachalaurevoyance.fr.">
+          <input type="hidden" name="_subject" value="Tirage en croix — natachalaurevoyance.fr">
+          <input type="hidden" name="origine" value="natachalaurevoyance.fr · tirage en croix (accueil)">
+          <input type="hidden" name="Tarif" value="{{ site.lecture_prix }} €">
+          <input type="hidden" name="Référence" value="" data-reference>
+          {% for pos in positions %}
+          <input type="hidden" name="{{ forloop.index }}. {{ pos }}" value="" data-carte-tiree="{{ forloop.index }}">
+          {% endfor %}
+          <p style="position:absolute;left:-9999px" aria-hidden="true">
+            <label>Laissez ce champ vide <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+          </p>
+
+          <div class="form-row">
+            <label class="form-field">
+              <span class="form-label">Prénom / Nom *</span>
+              <input type="text" name="nom" required autocomplete="name">
+            </label>
+            <label class="form-field">
+              <span class="form-label">Email *</span>
+              <input type="email" name="email" required autocomplete="email" placeholder="vous@exemple.com">
+            </label>
+          </div>
+
+          <label class="form-field">
+            <span class="form-label">Votre entreprise</span>
+            <input type="text" name="entreprise" autocomplete="organization">
+            <small class="form-hint">Facultatif.</small>
+          </label>
+
+          <label class="form-field">
+            <span class="form-label">Votre question *</span>
+            <textarea name="question" rows="4" required
+                      placeholder="Celle que vous avez gardée en tête pendant le tirage."></textarea>
+            <small class="form-hint">Plus elle est précise, plus la lecture le sera.</small>
+          </label>
+
+          <button type="submit" class="btn btn-gold btn-block btn-form">
+            <span>Recevoir ma lecture — {{ site.lecture_prix }} €</span>
+          </button>
+          <p class="croix-statut" role="status" aria-live="polite"></p>
+          <p class="croix-confid">
+            Votre question et votre tirage ne servent qu'à vous répondre. Rien n'est publié, rien n'est transmis.
+          </p>
+        </form>
+
+        {%- if site.stripe_lecture != "" %}
+        <div class="croix-paiement" data-etape-paiement hidden>
+          <p>Votre demande m'est parvenue. Il ne reste qu'à régler la lecture :</p>
+          <span class="croix-reference">
+            <span class="libelle">Votre référence</span>
+            <strong class="code" data-reference-affichee></strong>
+            <span class="note">Elle est déjà reportée sur le paiement, vous n'avez rien à recopier.</span>
+          </span>
+          <a class="btn btn-gold" href="{{ site.stripe_lecture }}" rel="noopener"
+             data-lien-paiement="{{ site.stripe_lecture }}">
+            <span>Régler — {{ site.lecture_prix }} €</span>
+          </a>
+        </div>
+        {%- endif %}
+      </div>
+      {%- else %}
+      <!-- Parcours « aurea » : la croix se poursuit dans l'application,
+           là où la lecture écrite se commande déjà. -->
+      <div class="croix-offre croix-offre-aurea">
+        <p class="eyebrow">Lecture écrite de votre tirage</p>
+        <p class="croix-prix">
+          {%- if site.lecture_prix_barre != "" and site.lecture_prix_barre %}<s>{{ site.lecture_prix_barre }} €</s>{% endif -%}
+          {{ site.lecture_prix }} €
+          {%- if site.lecture_prix_barre != "" and site.lecture_prix_barre %}<em>offre de lancement</em>{% endif -%}
+        </p>
+        <p class="croix-offre-detail">
+          Vous venez de voir mes cartes. Pour une lecture écrite, on reprend le
+          tirage ensemble dans Auréa — vous posez votre question, et je vous
+          écris ce que les cartes racontent, sous 48 heures. C'est bien moi qui
+          écris, pas une machine.
+        </p>
+        <p class="croix-cta">
+          <a class="btn btn-gold" href="/lecture-de-tirage/"><span>Faire lire mon tirage — {{ site.lecture_prix }} €</span></a>
+        </p>
+        <p class="croix-confid">Réponse par e-mail sous 48 heures, ou remboursé·e.</p>
+      </div>
+      {%- endif %}
+
+      <p class="croix-autre">
+        <button class="croix-relance" type="button" data-tirage-reset>Tirer une nouvelle croix</button>
+      </p>
+    </div>
+
+    <noscript>
+      <p class="croix-noscript">
+        <a class="btn btn-gold" href="/lecture-de-tirage/"><span>Faire lire votre tirage — {{ site.lecture_prix }} €</span></a>
+      </p>
+    </noscript>
   </div>
 </section>
 
@@ -746,12 +916,49 @@ sitemap: true
         <li>Une lecture personnalisée offerte à l'inscription</li>
         <li>Rien à installer — sur téléphone comme sur ordinateur</li>
       </ul>
-      <a href="/aurea/" class="btn btn-gold" style="margin-top:1.5rem">
+      <a href="/aurea/?site=fr" class="btn btn-gold" style="margin-top:1.5rem">
         <span>Découvrir Auréa</span>
       </a>
     </div>
   </div>
 </section>
+
+<!-- ═══ PRÉCOMMANDE DU JEU ANIMALIER ═══════════════════════════════
+     Bloc VERROUILLÉ : il ne s'affiche que si les quatre clés deck_* du
+     fichier _config.yml sont remplies (prix, lien Stripe, expédition,
+     livraison). Tant qu'il en manque une, la section n'existe pas dans
+     la page — mieux vaut rien qu'une précommande qu'on ne peut pas
+     payer ou dont on ne sait pas quand elle arrive. ════════════════ -->
+{%- if site.deck_prix and site.deck_stripe != "" and site.deck_expedition != "" and site.deck_livraison != "" %}
+<section class="deck-section" id="deck">
+  <div class="container deck-grille">
+    <div class="deck-visuel reveal from-left" aria-hidden="true">
+      <img class="eventail-1" src="/assets/cartes/19-620.webp" alt="" loading="lazy" width="620" height="1151">
+      <img class="eventail-2" src="/assets/cartes/17-620.webp" alt="" loading="lazy" width="620" height="1151">
+      <img class="eventail-3" src="/assets/cartes/06-620.webp" alt="" loading="lazy" width="620" height="1151">
+    </div>
+    <div class="deck-texte reveal from-right">
+      <p class="eyebrow">Précommande</p>
+      <h2 class="section-title">Mon jeu, <em>fait maison</em></h2>
+      <div class="gold-divider"></div>
+      <p>
+        Un deck unique, exclusif à Natacha Laure Voyance, fait maison et
+        réfléchi par mes propres interprétations. Vingt-deux arcanes majeurs
+        que j'ai dessinés un par un — ce sont ces cartes-là que vous venez
+        de retourner plus haut.
+      </p>
+      <dl class="deck-infos">
+        <div><dt>Expédition</dt><dd>{{ site.deck_expedition }}</dd></div>
+        <div><dt>Livraison</dt><dd>{{ site.deck_livraison }}</dd></div>
+      </dl>
+      <p class="deck-prix">{{ site.deck_prix }} €</p>
+      <a class="btn btn-gold" href="{{ site.deck_stripe }}" rel="noopener">
+        <span>Précommander le jeu</span>
+      </a>
+    </div>
+  </div>
+</section>
+{%- endif %}
 
 <!-- ═══ FAQ ═══ -->
 <section class="faq-section" id="faq">
@@ -773,7 +980,7 @@ sitemap: true
           <p><strong>Auréa</strong> est l'application de tirage de tarot que j'ai créée, pour celles et ceux qui veulent interroger les cartes entre deux consultations, à toute heure. Dix tirages y sont proposés — Situation générale, Amour, Croix, Karmique, Relationnel, Éventail… — et chaque lecture est écrite à partir des cartes que vous avez vous-même tirées et de la question que vous avez posée.</p>
           <p>Trois tirages sont accessibles gratuitement et sans limite, et il n'y a rien à installer : Auréa s'ouvre dans votre navigateur, sur téléphone comme sur ordinateur.</p>
           <p>Cela dit, une application ne remplace pas une séance : elle éclaire, elle ne dialogue pas. Pour une vraie consultation, je vous reçois.</p>
-          <p><a href="/aurea/"><strong>Découvrir Auréa →</strong></a></p>
+          <p><a href="/aurea/?site=fr"><strong>Découvrir Auréa →</strong></a></p>
         </div>
       </details>
 
@@ -1022,7 +1229,7 @@ sitemap: true
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#a-propos">À propos</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="/aurea/">Auréa · l'application</a></li>
+          <li><a href="/aurea/?site=fr">Auréa · l'application</a></li>
           <li><a href="/lecture-de-tirage/">Lecture de tirage écrite</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -1103,5 +1310,6 @@ sitemap: true
 
 <script src="/assets/js/main.js" defer></script>
 <script src="/assets/js/roue.js" defer></script>
+<script src="/assets/js/tirage-croix.js" defer></script>
 </body>
 </html>

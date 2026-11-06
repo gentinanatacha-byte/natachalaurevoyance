@@ -1,0 +1,208 @@
+/* ═══════════════════════════════════════════════════════════════
+   TIRAGE EN CROIX + PRÉCOMMANDE DU JEU
+   Fichier autonome : il ne touche pas à styles.css.
+   Il réutilise les jetons de couleur et les classes du site
+   (.container, .eyebrow, .section-title, .btn, .gold-divider).
+   ═══════════════════════════════════════════════════════════════ */
+
+.croix-section {
+  position: relative;
+  padding-block: clamp(3rem, 7vw, 5rem);
+  background: var(--noir-2);
+  border-block: 1px solid var(--brun-cl);
+  overflow: hidden;
+}
+.croix-section > .container { position: relative; z-index: 1; }
+.croix-section .eyebrow,
+.croix-section .section-title { text-align: center; }
+.croix-chapo {
+  max-width: 38rem; margin: 0 auto; text-align: center; color: var(--beige-cl);
+}
+
+/* ---------- La croix ---------- */
+.croix {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.35rem, 1vw, .6rem) clamp(.35rem, 1vw, .7rem);
+  justify-items: center;
+  max-width: 30rem;
+  margin: 1.75rem auto 0;
+  perspective: 1600px;
+}
+.croix-case { display: flex; flex-direction: column; align-items: center; gap: .35rem; width: 100%; }
+.croix-1 { grid-area: 2 / 1; }
+.croix-2 { grid-area: 1 / 2; }
+.croix-3 { grid-area: 3 / 2; }
+.croix-4 { grid-area: 2 / 2; }
+.croix-5 { grid-area: 2 / 3; }
+
+.croix-position {
+  margin: 0; font-size: .6rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--beige-cl); text-align: center; line-height: 1.25;
+  text-shadow: 0 1px 6px rgba(14, 11, 8, .95);
+}
+.croix-position .rang {
+  display: inline-block; min-width: .9rem; color: var(--or-cl);
+  font-family: var(--font-display); font-size: .72rem;
+}
+
+/* ---------- Une carte ---------- */
+.croix .carte {
+  width: 100%; max-width: 7.4rem; aspect-ratio: 600 / 1114;
+  background: none; border: 0; padding: 0; cursor: pointer;
+  transition: transform .5s cubic-bezier(.22, .68, .24, 1);
+}
+.croix .carte:hover:not(.est-tiree) { transform: translateY(-9px) rotate(-1.5deg); }
+.croix .carte:focus-visible { outline: 2px solid var(--or-pale); outline-offset: 6px; }
+.croix .carte-inner {
+  position: relative; display: block; width: 100%; height: 100%;
+  transform-style: preserve-3d; transition: transform .9s cubic-bezier(.3, .85, .35, 1);
+}
+.croix .carte.est-tiree { cursor: default; }
+.croix .carte.est-tiree .carte-inner { transform: rotateY(180deg); }
+.croix .carte-dos, .croix .carte-face {
+  position: absolute; inset: 0; border-radius: .4rem;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(158deg, #241b13 0%, #15100b 55%, #0b0806 100%);
+  box-shadow: 0 16px 38px -16px rgba(0, 0, 0, .95), inset 0 0 36px rgba(0, 0, 0, .55);
+}
+.croix .carte-dos svg { width: 100%; height: 100%; display: block; }
+.croix .carte-face {
+  transform: rotateY(180deg); overflow: hidden; padding: 0;
+  border: 1px solid rgba(184, 132, 58, .55); background: var(--noir);
+}
+.croix .carte-face img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.croix-invite {
+  margin-top: 1.1rem; text-align: center;
+  font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gris);
+}
+.croix-invite[hidden] { display: none; }
+
+/* ---------- Ce qui suit la croix ---------- */
+.croix-suite { max-width: 40rem; margin: 2.5rem auto 0; }
+.croix-suite[hidden] { display: none; }
+.croix-suite .croix-fini { text-align: center; }
+.croix-suite .croix-fini h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(1.3rem, 3.4vw, 1.75rem); color: var(--or-pale); margin-bottom: .6rem;
+}
+.croix-suite .croix-note { color: var(--beige-cl); font-size: .92rem; }
+
+/* L'offre */
+.croix-offre {
+  margin-top: 2rem; padding: clamp(1.5rem, 4vw, 2.25rem);
+  border: 1px solid var(--brun-cl); border-radius: .4rem;
+  background: rgba(26, 21, 16, .72);
+}
+.croix-offre .eyebrow { text-align: center; }
+.croix-prix {
+  font-family: var(--font-display); text-align: center;
+  font-size: clamp(1.9rem, 5vw, 2.5rem); color: var(--or-pale); margin: .3rem 0 .2rem;
+}
+.croix-prix s { color: var(--gris); font-size: .5em; margin-right: .35em; }
+.croix-prix em { display: block; font-style: normal;
+  font-family: var(--font-body); font-size: .32em; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--or); margin-top: .3rem; }
+.croix-offre-detail { text-align: center; color: var(--beige-cl); font-size: .88rem; margin-bottom: 1.5rem; }
+
+.croix-offre .form-field { margin-bottom: 1rem; }
+.croix-statut { margin-top: .9rem; font-size: .88rem; min-height: 1.2em; }
+.croix-statut.est-ok { color: var(--or-pale); }
+.croix-statut.est-ko { color: #e08a7a; }
+.croix-confid { margin-top: .8rem; color: var(--gris); font-size: .78rem; text-align: center; }
+
+/* L'étape de paiement, après l'envoi du formulaire */
+.croix-paiement { margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid var(--brun-cl); text-align: center; }
+.croix-paiement[hidden] { display: none; }
+.croix-reference {
+  display: block; margin: 1rem auto 1.25rem; max-width: 24rem;
+  padding: .8rem 1rem; border: 1px dashed var(--or); border-radius: .3rem;
+}
+.croix-reference .libelle {
+  display: block; font-size: .64rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--or);
+}
+.croix-reference .code {
+  display: block; font-family: var(--font-display); font-size: 1.4rem;
+  color: var(--or-pale); letter-spacing: .08em; margin: .25rem 0;
+}
+.croix-reference .note { display: block; font-size: .74rem; color: var(--gris); }
+
+.croix-suite .carte-liste {
+  list-style: none; margin: 1.5rem 0; padding: 0;
+  display: grid; gap: .45rem; text-align: left;
+}
+.croix-suite .carte-liste li {
+  display: flex; gap: .75rem; align-items: baseline;
+  padding: .55rem .9rem; border: 1px solid var(--brun-cl); border-radius: .3rem;
+  background: rgba(14, 11, 8, .5);
+}
+.croix-suite .carte-liste .pos {
+  font-size: .64rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--or); min-width: 9.5rem;
+}
+.croix-suite .carte-liste .val {
+  font-family: var(--font-display); color: var(--or-pale); font-size: .95rem;
+}
+.croix-offre-aurea { text-align: center; }
+.croix-cta { margin: 1.5rem 0 0; }
+.croix-autre { text-align: center; margin-top: 1.75rem; }
+.croix-relance {
+  background: none; border: 0; padding: 0; margin-top: 1rem;
+  color: var(--gris); font: inherit; font-size: .82rem; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 4px;
+}
+.croix-relance:hover { color: var(--or-cl); }
+.croix-noscript { text-align: center; margin-top: 2rem; }
+
+/* ---------- Précommande du jeu ---------- */
+.deck-section { padding-block: clamp(3rem, 7vw, 5rem); background: var(--brun-prof); }
+.deck-grille {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem); align-items: center;
+}
+.deck-visuel { position: relative; min-height: clamp(16rem, 34vw, 23rem); }
+.deck-visuel img {
+  position: absolute; top: 50%; left: 50%;
+  width: clamp(8rem, 17vw, 11.5rem); height: auto;
+  border: 1px solid rgba(184, 132, 58, .5); border-radius: .4rem;
+  box-shadow: 0 22px 46px -20px rgba(0, 0, 0, .95);
+  transition: transform .7s cubic-bezier(.22, .68, .24, 1);
+}
+.deck-visuel .eventail-1 { transform: translate(-85%, -50%) rotate(-11deg); z-index: 1; }
+.deck-visuel .eventail-2 { transform: translate(-50%, -54%); z-index: 3; }
+.deck-visuel .eventail-3 { transform: translate(-15%, -50%) rotate(11deg); z-index: 1; }
+.deck-section:hover .eventail-1 { transform: translate(-95%, -52%) rotate(-15deg); }
+.deck-section:hover .eventail-3 { transform: translate(-5%, -52%) rotate(15deg); }
+
+.deck-infos { margin: 1.75rem 0; padding: 0; display: grid; gap: .5rem; }
+.deck-infos > div { display: flex; gap: .6rem; align-items: baseline; flex-wrap: wrap; }
+.deck-infos dt {
+  margin: 0; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--or);
+}
+.deck-infos dd { margin: 0; color: var(--beige-cl); font-size: .9rem; }
+.deck-prix {
+  font-family: var(--font-display); font-size: clamp(1.8rem, 4.5vw, 2.4rem);
+  color: var(--or-pale); margin: 0 0 1rem;
+}
+
+@media (max-width: 760px) {
+  .deck-grille { grid-template-columns: 1fr; }
+  .deck-visuel { min-height: 15rem; order: -1; }
+  .deck-visuel img { width: 7.5rem; }
+  .croix { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 22rem; }
+  .croix-1, .croix-2, .croix-3, .croix-4, .croix-5 { grid-area: auto; }
+  .croix-5 { grid-column: span 2; }
+  .croix-5 .carte { max-width: 9rem; margin-inline: auto; }
+  .croix-suite .carte-liste li { flex-direction: column; gap: .15rem; }
+  .croix-suite .carte-liste .pos { min-width: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .croix .carte-inner, .croix .carte, .deck-visuel img { transition: none; }
+  .croix .carte:hover:not(.est-tiree),
+  .deck-section:hover .eventail-1, .deck-section:hover .eventail-3 { transform: none; }
+  .croix .carte.est-tiree .carte-inner { transform: rotateY(180deg); }
+}
