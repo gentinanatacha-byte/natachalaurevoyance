@@ -1,8 +1,98 @@
+# ═══════════════════════════════════════════════════════════════════
+# robots.txt — natachalaurevoyance.fr
+# Mis à jour le 19 novembre 2026
+#
+# ⚠ LA RÈGLE QU'ON OUBLIE TOUJOURS
+# Un robot n'obéit QU'À UN SEUL groupe : le plus précis qui le
+# nomme. Dès qu'on écrit « User-agent: OAI-SearchBot », ce robot
+# arrête de lire le groupe « User-agent: * » et n'applique plus que
+# le sien. Les deux interdictions (/admin/ et /registre/) doivent
+# donc être répétées dans CHAQUE groupe, sinon le back-office et le
+# registre des client·es redeviennent visibles pour le robot nommé.
+#
+# Plusieurs lignes « User-agent: » qui se suivent forment un seul
+# groupe : les règles en dessous s'appliquent à tous ces robots.
+#
+# Ce fichier donne une PERMISSION, il ne fait pas de publicité.
+# Autoriser un robot ne garantit pas d'être cité ; l'interdire
+# garantit de ne pas l'être.
+# ═══════════════════════════════════════════════════════════════════
+
+
+# ─── TOUS LES ROBOTS ───────────────────────────────────────────────
+# Google, Bing (qui alimente Copilot) et tout ce qui n'est pas nommé
+# plus bas. Ce groupe est aussi celui qui fait apparaître le site
+# dans les « AI Overviews » de Google : elles sont construites à
+# partir de l'index classique de Googlebot, pas d'un robot séparé.
 User-agent: *
 Allow: /
-
-# Le back-office et l'application privée n'ont rien à faire dans Google.
 Disallow: /admin/
 Disallow: /registre/
+
+
+# ─── ROBOTS DE RECHERCHE DES IA : AUTORISÉS ────────────────────────
+# Ce sont EUX qui décident si le site peut être cité dans une réponse
+# de ChatGPT, de Perplexity ou de Claude. Ils ne servent pas à
+# entraîner les modèles — c'est une autre famille de robots, plus
+# bas. Les refuser, c'est disparaître de ces réponses.
+#
+# OAI-SearchBot     ChatGPT — index de recherche
+# ChatGPT-User      ChatGPT — va chercher la page quand quelqu'un pose
+#                   la question (OpenAI précise que robots.txt « peut
+#                   ne pas s'appliquer » à celui-ci : on l'autorise
+#                   par cohérence, pas par illusion de contrôle)
+# Claude-SearchBot  Claude — index de recherche
+# Claude-User       Claude — récupération déclenchée par un·e
+#                   utilisateur·rice
+# PerplexityBot     Perplexity — index ; Perplexity recommande
+#                   explicitement de l'autoriser
+# Perplexity-User   Perplexity — récupération à la demande (ignore
+#                   généralement robots.txt, de leur propre aveu)
+# Applebot          Siri et Spotlight
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot
+Allow: /
+Disallow: /admin/
+Disallow: /registre/
+
+
+# ─── GOOGLE-EXTENDED : VOLONTAIREMENT ABSENT ───────────────────────
+# Ne pas l'ajouter en « Disallow ».
+#
+# Google-Extended ne commande pas seulement l'entraînement de Gemini :
+# il commande aussi le « grounding », c'est-à-dire le moment où Gemini
+# va chercher des sources pour construire sa réponse. Le refuser, ce
+# serait sortir des réponses de Gemini — exactement l'inverse du but.
+# Son absence ici vaut autorisation.
+
+
+# ─── ROBOTS D'ENTRAÎNEMENT : REFUSÉS ───────────────────────────────
+# Ceux-ci ne servent qu'à nourrir l'entraînement des modèles. Les
+# refuser n'enlève rien à la visibilité dans ChatGPT ni dans Claude :
+# chacun de ces deux services a son robot de recherche séparé,
+# autorisé plus haut.
+#
+# GPTBot     OpenAI — entraînement
+# ClaudeBot  Anthropic — entraînement
+# CCBot      Common Crawl — corpus public réutilisé par beaucoup
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: CCBot
+Disallow: /
+
+
+# ─── À NE PAS « CORRIGER » ─────────────────────────────────────────
+# Les pages /rendez-vous/, /mes-cartes/, /mon-bon/, /merci/ et
+# /reglement-jeu/ ne sont PAS interdites ici, et c'est voulu : elles
+# portent une balise <meta name="robots" content="noindex">. Un robot
+# doit pouvoir LIRE la page pour voir cette balise. L'interdire ici
+# l'empêcherait de la lire, et l'URL pourrait rester dans l'index.
+# Interdiction dans robots.txt et noindex ne se cumulent pas : il
+# faut choisir l'un ou l'autre, jamais les deux.
 
 Sitemap: https://natachalaurevoyance.fr/sitemap.xml
