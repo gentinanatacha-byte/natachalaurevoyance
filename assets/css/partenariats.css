@@ -31,7 +31,9 @@
 }
 .pa-hero-photo img {
   object-fit: cover;
-  object-position: 18% center;
+  /* Même correction que le bandeau citation : vertical à 20 %, sinon le
+     haut du visage passe sous le bord supérieur. */
+  object-position: 18% 20%;
 }
 .pa-hero-voile {
   position: absolute;
@@ -234,7 +236,7 @@
 @media (max-width: 760px) {
   /* Une fois l'image recadrée en portrait, il n'y a plus de zone libre :
      on centre le texte et on assombrit franchement. */
-  .pa-hero-photo img { object-position: 36% center; }
+  .pa-hero-photo img { object-position: 34% 14%; }
   .pa-hero-voile {
     background: linear-gradient(180deg, rgba(14, 11, 8, 0.72), rgba(14, 11, 8, 0.92));
   }

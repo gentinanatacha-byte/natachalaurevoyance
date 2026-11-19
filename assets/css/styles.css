@@ -2450,6 +2450,10 @@ section li a:not([class]):visited {
   isolation: isolate;
   overflow: hidden;
   padding-block: clamp(4rem, 11vw, 8rem);
+  /* Plus la bande est haute, moins la photo est rognée. */
+  min-height: clamp(360px, 36vw, 580px);
+  display: flex;
+  align-items: center;
   background: var(--noir);
 }
 .quote-bandeau .quote-photo,
@@ -2462,19 +2466,33 @@ section li a:not([class]):visited {
 }
 .quote-bandeau .quote-photo img {
   object-fit: cover;
-  object-position: 78% center;
+  /* ⚠ 19.11.2026 — vertical à 20 %, surtout pas « center ».
+     La bande est beaucoup plus large que la photo : c'est la hauteur qui
+     est rognée, et un centrage au milieu coupait le haut du visage. */
+  object-position: 74% 20%;
 }
 .quote-bandeau .quote-voile {
   position: absolute;
   inset: 0;
-  background: linear-gradient(100deg, rgba(14, 11, 8, 0.9) 0%, rgba(14, 11, 8, 0.78) 34%, rgba(14, 11, 8, 0.18) 62%, rgba(14, 11, 8, 0.05) 100%);
+  background: linear-gradient(100deg, rgba(14, 11, 8, 0.93) 0%, rgba(14, 11, 8, 0.86) 40%, rgba(14, 11, 8, 0.35) 58%, rgba(14, 11, 8, 0.05) 82%);
 }
-.quote-bandeau .container { position: relative; z-index: 2; }
+/* Le texte est enfermé dans la moitié gauche par une grille, et non par un
+   simple max-width : une largeur en rem suit la taille de police et finissait
+   par mordre sur le visage dès que la bande s'élargissait. Une fraction de la
+   largeur, elle, tient à toutes les tailles d'écran. */
+.quote-bandeau .container {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 44%) 1fr;
+}
 .quote-bandeau blockquote {
-  max-width: 34rem;
+  grid-column: 1;
+  max-width: 100%;
   margin: 0;
   text-align: left;
 }
+.quote-bandeau blockquote p { max-width: 100%; }
 .quote-bandeau blockquote p { color: var(--beige-cl); }
 .quote-bandeau blockquote footer { color: var(--or-pale); }
 
@@ -2482,11 +2500,12 @@ section li a:not([class]):visited {
   /* Plus de zone libre une fois l'image recadrée en portrait : on centre
      le texte et on assombrit franchement, sinon la citation devient
      illisible sur le mur clair. */
-  .quote-bandeau .quote-photo img { object-position: 62% center; }
+  .quote-bandeau .quote-photo img { object-position: 60% 16%; }
   .quote-bandeau .quote-voile {
     background: linear-gradient(180deg, rgba(14, 11, 8, 0.82), rgba(14, 11, 8, 0.88));
   }
-  .quote-bandeau blockquote { max-width: none; text-align: center; }
+  .quote-bandeau .container { grid-template-columns: 1fr; }
+  .quote-bandeau blockquote { grid-column: 1; max-width: none; text-align: center; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
