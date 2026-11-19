@@ -6,21 +6,67 @@
       <span class="brand-tagline">Voyante · Cartomancienne · Nice</span>
     </span>
   </a>
+
+  <!-- ═══ NAVIGATION ══════════════════════════════════════════════════
+       Onze entrées tenaient sur deux lignes et se chevauchaient dès que
+       la fenêtre rétrécissait. Six restent en haut ; le reste descend
+       dans trois déroulants.
+
+       Les prix (« Lecture écrite 10 € », « Carte de Noël 50 € ») sont
+       sortis de la barre : un tarif dans une navigation donne l'allure
+       d'un site de promotions, et l'offre de Noël a déjà son bandeau en
+       haut de la page d'accueil, qui est le bon endroit pour une offre
+       saisonnière.
+
+       Le bouton de groupe est un <button>, pas un <a> : c'est ce qui le
+       rend utilisable au clavier et ce qui empêche le script du menu
+       mobile (qui referme le tiroir au clic sur un <a>) de le refermer
+       dès qu'on ouvre un déroulant. ═══════════════════════════════ -->
   <nav class="main-nav" aria-label="Navigation principale">
     <ul>
       <li><a href="/">Accueil</a></li>
-      <li><a href="/#a-propos">À propos</a></li>
-      <li><a href="/#services">Services</a></li>
+
+      <li class="nav-groupe">
+        <button type="button" class="nav-groupe-titre" aria-expanded="false">
+          Prestations<span class="nav-fleche" aria-hidden="true"></span>
+        </button>
+        <ul class="nav-sous">
+          <li><a href="/#services">Consultations &amp; formules</a></li>
+          <li><a href="/lecture-de-tirage/">Lecture écrite à distance</a></li>
+          <li><a href="/#cours-tarot">Cours &amp; formations</a></li>
+          <li><a href="/carte-cadeau/">Carte cadeau</a></li>
+          <li><a href="/carte-noel/">Carte de Noël</a></li>
+        </ul>
+      </li>
+
       <li><a href="/aurea/?site=fr">Auréa</a></li>
-      <li><a href="/lecture-de-tirage/" class="nav-phare">Lecture écrite <span>10&nbsp;€</span></a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/#faq">FAQ</a></li>
+
+      <li class="nav-groupe">
+        <button type="button" class="nav-groupe-titre" aria-expanded="false">
+          Partenariats<span class="nav-fleche" aria-hidden="true"></span>
+        </button>
+        <ul class="nav-sous">
+          <li><a href="/partenariats/">Lieux qui accueillent du public</a></li>
+          <li><a href="/evenements/">Événements &amp; entreprises</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-groupe">
+        <button type="button" class="nav-groupe-titre" aria-expanded="false">
+          Infos<span class="nav-fleche" aria-hidden="true"></span>
+        </button>
+        <ul class="nav-sous">
+          <li><a href="/#a-propos">À propos</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/#faq">Questions fréquentes</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </li>
+
       <li><a href="/reserver/" class="nav-cta">Réserver</a></li>
-      <li><a href="/carte-noel/" class="nav-phare">Carte de Noël <span>50&nbsp;€</span></a></li>
-      <li><a href="/carte-cadeau/">Carte cadeau</a></li>
-      <li><a href="/evenements/">Événements</a></li>
     </ul>
   </nav>
+
   <button class="nav-burger" id="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>

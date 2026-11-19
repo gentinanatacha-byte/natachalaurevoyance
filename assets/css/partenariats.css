@@ -1,0 +1,249 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PAGE PARTENARIATS (19.11.2026)
+
+   S'appuie sur styles.css et sur evenements.css, qui fournissent déjà le
+   gabarit de section (.ev-section), la note (.ev-note), le bloc final
+   (.ev-final) et la typographie. Ce fichier ne contient que ce qui est
+   propre à la page : le bandeau d'ouverture, la grille de lieux, les
+   atouts, les étapes et le bandeau photo.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── BANDEAU D'OUVERTURE ──────────────────────────────────────────
+   La photo porte sa zone libre à DROITE. Le texte s'y installe, et
+   l'image est ancrée à GAUCHE : le recadrage rogne le velours, jamais
+   le visage. */
+.pa-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(520px, 82vh, 700px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--noir);
+}
+.pa-hero-photo,
+.pa-hero-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.pa-hero-photo img {
+  object-fit: cover;
+  object-position: 18% center;
+}
+.pa-hero-voile {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(265deg, rgba(14, 11, 8, 0.9) 0%, rgba(14, 11, 8, 0.8) 30%, rgba(14, 11, 8, 0.3) 62%, rgba(14, 11, 8, 0.1) 100%);
+}
+.pa-hero .container { position: relative; z-index: 2; }
+
+.pa-hero-inner {
+  max-width: 34rem;
+  margin-left: auto;   /* le texte se range à droite, sur la zone libre */
+  text-align: left;
+}
+.pa-hero-inner h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4.4vw, 3.1rem);
+  line-height: 1.18;
+  color: var(--blanc);
+  margin: 0.6rem 0 1.1rem;
+}
+.pa-hero-inner h1 em {
+  font-style: normal;
+  color: var(--or-pale);
+}
+.pa-hero-inner .ev-hero-lead {
+  color: var(--beige-cl);
+  font-size: clamp(0.98rem, 1.4vw, 1.08rem);
+  line-height: 1.85;
+  margin-bottom: 1.9rem;
+}
+
+/* ─── LES LIEUX ────────────────────────────────────────────────────
+   Pas de pictogrammes : six icônes décoratives alignées auraient fait
+   catalogue. Le nom du lieu suffit, c'est lui qu'on cherche des yeux. */
+.pa-lieux {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.1rem;
+  margin-top: 2.8rem;
+}
+.pa-lieux article {
+  padding: 1.6rem 1.5rem;
+  border: 1px solid rgba(184, 132, 58, 0.22);
+  border-radius: 3px;
+  background: linear-gradient(170deg, rgba(34, 26, 18, 0.55), rgba(14, 11, 8, 0.4));
+  transition: border-color var(--transition), transform var(--transition);
+}
+.pa-lieux article:hover {
+  border-color: rgba(184, 132, 58, 0.5);
+  transform: translateY(-3px);
+}
+.pa-lieux h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--or-pale);
+  margin: 0 0 0.6rem;
+  line-height: 1.35;
+}
+.pa-lieux p {
+  color: var(--gris);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin: 0;
+}
+.pa-note { margin-top: 2.4rem; }
+
+/* ─── LES ATOUTS ───────────────────────────────────────────────── */
+.pa-atouts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 2rem;
+  margin-top: 2.8rem;
+}
+.pa-atouts article { position: relative; padding-top: 2.6rem; }
+.pa-atout-num {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: rgba(184, 132, 58, 0.38);
+  line-height: 1;
+}
+.pa-atouts h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--blanc);
+  margin: 0 0 0.7rem;
+  line-height: 1.35;
+}
+.pa-atouts p {
+  color: var(--gris);
+  font-size: 0.9rem;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ─── LES ÉTAPES ──────────────────────────────────────────────────
+   Numérotées par CSS : le compteur suit l'ordre réel des <li>, donc on
+   ne peut pas se retrouver avec deux « 3 » après une insertion. */
+.pa-etapes {
+  counter-reset: etape;
+  list-style: none;
+  margin: 2.8rem auto 0;
+  padding: 0;
+  max-width: 48rem;
+}
+.pa-etapes li {
+  counter-increment: etape;
+  position: relative;
+  padding: 0 0 2rem 4.2rem;
+}
+.pa-etapes li::before {
+  content: counter(etape, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: -0.15rem;
+  width: 2.9rem;
+  height: 2.9rem;
+  border: 1px solid rgba(184, 132, 58, 0.45);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--or-pale);
+}
+/* Le trait qui relie les étapes, sauf sous la dernière. */
+.pa-etapes li::after {
+  content: '';
+  position: absolute;
+  left: 1.45rem;
+  top: 3.1rem;
+  bottom: 0.6rem;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(184, 132, 58, 0.35), transparent);
+}
+.pa-etapes li:last-child { padding-bottom: 0; }
+.pa-etapes li:last-child::after { display: none; }
+.pa-etapes h3 {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  color: var(--or-pale);
+  margin: 0 0 0.6rem;
+  line-height: 1.35;
+}
+.pa-etapes p {
+  color: var(--gris);
+  font-size: 0.9rem;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ─── BANDEAU PHOTO ───────────────────────────────────────────────
+   Pleine largeur, sans texte incrusté : la scène se suffit, et une
+   légende posée dessous reste lisible quelle que soit la luminosité de
+   la photo. */
+.pa-bandeau { position: relative; }
+.pa-bandeau img {
+  display: block;
+  width: 100%;
+  height: clamp(260px, 46vw, 520px);
+  object-fit: cover;
+  object-position: center 42%;
+}
+.pa-bandeau-legende {
+  max-width: 44rem;
+  margin: 1.2rem auto 0;
+  padding: 0 var(--gutter);
+  text-align: center;
+  color: var(--gris);
+  font-size: 0.86rem;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+/* ─── LES CONDITIONS ──────────────────────────────────────────────── */
+.pa-conditions {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+.pa-conditions p {
+  color: var(--gris);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  margin-bottom: 1.1rem;
+}
+
+/* ─── FORMULAIRE ──────────────────────────────────────────────────── */
+.pa-form {
+  max-width: 46rem;
+  margin: 2.4rem auto 0;
+}
+.pa-form .btn-block {
+  width: 100%;
+  margin-top: 1.4rem;
+}
+
+/* ─── TÉLÉPHONE ───────────────────────────────────────────────────── */
+@media (max-width: 760px) {
+  /* Une fois l'image recadrée en portrait, il n'y a plus de zone libre :
+     on centre le texte et on assombrit franchement. */
+  .pa-hero-photo img { object-position: 36% center; }
+  .pa-hero-voile {
+    background: linear-gradient(180deg, rgba(14, 11, 8, 0.72), rgba(14, 11, 8, 0.92));
+  }
+  .pa-hero-inner {
+    max-width: none;
+    margin-left: 0;
+    text-align: center;
+  }
+  .pa-etapes li { padding-left: 3.6rem; }
+  .pa-etapes li::before { width: 2.5rem; height: 2.5rem; }
+  .pa-etapes li::after { left: 1.25rem; top: 2.7rem; }
+}

@@ -154,6 +154,7 @@ sitemap: true
      <a class="noel-promo"> dans le hero. -->
 <link rel="stylesheet" href="/assets/css/noel-bandeau.css">
 <link rel="stylesheet" href="/assets/css/tirage-croix.css">
+{% include analytics.html %}
 </head>
 <body>
 
@@ -168,38 +169,13 @@ sitemap: true
 <div class="progress-bar" aria-hidden="true"></div>
 
 <!-- ═══ NAVIGATION ═══ -->
-<header class="site-header">
-  <a href="#accueil" class="brand">
-    <img src="/assets/images/logo-natacha-laure-entete.webp" alt="" class="brand-logo" width="48" height="48">
-    <span class="brand-text">
-      <span class="brand-name">Natacha Laure</span>
-      <span class="brand-tagline">Voyante · Cartomancienne · Nice</span>
-    </span>
-  </a>
-  <nav class="main-nav" aria-label="Navigation principale">
-    <ul>
-      <li><a href="#accueil">Accueil</a></li>
-      <li><a href="#a-propos">À propos</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="/aurea/?site=fr">Auréa</a></li>
-      <li><a href="/lecture-de-tirage/" class="nav-phare">Lecture écrite <span>10&nbsp;€</span></a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <!-- Offre de Noël — à retirer après le 25 décembre.
-           Ce menu est recopié en dur ici : index.html n'utilise PAS
-           _includes/header.html comme les autres pages. Toute entrée
-           ajoutée au menu commun doit donc l'être ici aussi, sinon
-           elle n'apparaît nulle part sur l'accueil. -->
-      <li><a href="/carte-noel/" class="nav-phare">Carte de Noël <span>50&nbsp;€</span></a></li>
-      <li><a href="/carte-cadeau/">Carte cadeau</a></li>
-      <li><a href="/evenements/">Événements</a></li>
-      <li><a href="/reserver/" class="nav-cta">Réserver</a></li>
-    </ul>
-  </nav>
-  <button class="nav-burger" id="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</header>
+<!-- ═══ NAVIGATION ════════════════════════════════════════════════
+     19.11.2026 — le menu était écrit DEUX FOIS : une fois ici en dur, une
+     fois dans _includes/header.html pour toutes les autres pages. Les deux
+     avaient déjà divergé. On passe par l'include, comme le reste du site :
+     une seule version à maintenir, plus de risque d'oubli.
+     ═══════════════════════════════════════════════════════════════ -->
+{% include header.html %}
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="accueil">
@@ -308,7 +284,7 @@ sitemap: true
   <div class="container intro-grid">
     <div class="intro-visual reveal from-left">
       <div class="intro-image">
-        <img src="/assets/images/about-mains-tarot.webp" alt="Mains tenant le Tarot de Marseille - Natacha Laure voyante Nice" loading="lazy" width="600" height="600">
+        <img src="/assets/images/natacha-laure-portrait.webp" alt="Natacha Laure, voyante et cartomancienne à Nice" loading="lazy" width="620" height="775">
       </div>
       <div class="intro-frame" aria-hidden="true"></div>
       <div class="intro-badge">
@@ -811,9 +787,12 @@ sitemap: true
          brouillé les deux. -->
     <article class="cours-tarot reveal" id="cours-tarot" data-delay="150">
       <div class="cours-tarot-media">
-        <img src="/assets/images/cours-initiation-tarot-nice.webp"
-             alt="Cours d'initiation à la tarologie et au Tarot de Marseille à Nice avec Natacha Laure"
-             loading="lazy" width="1200" height="840">
+        <picture>
+          <source media="(max-width: 700px)" srcset="/assets/images/consultation-visio-tarot-mobile.webp">
+          <img src="/assets/images/consultation-visio-tarot.webp"
+               alt="Cours de tarologie en visio avec Natacha Laure, trois arcanes du Tarot de Marseille posés devant l'écran"
+               loading="lazy" width="1000" height="667">
+        </picture>
         <span class="cours-tarot-badge">Nouveauté</span>
       </div>
 
@@ -925,7 +904,10 @@ sitemap: true
     <div class="modes-grid">
       <article class="mode-card reveal from-left" id="nice">
         <div class="mode-image">
-          <img src="/assets/images/consultation-nice-seance.webp" alt="Consultation de voyance Tarot à domicile Nice - Natacha Laure" loading="lazy" width="600" height="400">
+          <picture>
+            <source media="(max-width: 700px)" srcset="/assets/images/consultation-tarot-face-a-face-mobile.webp">
+            <img src="/assets/images/consultation-tarot-face-a-face.webp" alt="Natacha Laure retourne la carte du Soleil pendant une consultation de Tarot de Marseille" loading="lazy" width="1000" height="667">
+          </picture>
         </div>
         <div class="mode-content">
           <h3>Consultation à domicile · Nice</h3>
@@ -961,15 +943,29 @@ sitemap: true
 </section>
 
 <!-- ═══ CITATION ═══ -->
-<section class="quote-section">
-  <div class="container">
-    <blockquote class="reveal">
-      <span class="quote-mark" aria-hidden="true">"</span>
-      <p>Le Tarot ne prédit pas un destin figé. Il éclaire les chemins possibles et vous redonne la liberté de choisir le vôtre.</p>
-      <footer>— Natacha Laure</footer>
-    </blockquote>
-  </div>
-</section>
+  <!-- ═══ BANDEAU CITATION ══════════════════════════════════════════
+       La photo a volontairement une grande zone murale vide sur sa
+       GAUCHE : c'est là que se pose la citation. L'image est donc ancrée
+       à DROITE (object-position) pour que le recadrage mange le mur et
+       jamais le visage. Sur téléphone, le cadrage ne laisse plus de zone
+       libre : on repasse en texte centré sur un voile plus dense.
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="quote-section quote-bandeau">
+    <picture class="quote-photo">
+      <source media="(max-width: 760px)" srcset="/assets/images/bandeau-natacha-studio-mobile.webp">
+      <img src="/assets/images/bandeau-natacha-studio.webp"
+           alt="Natacha Laure à sa table de tarot, trois arcanes du Tarot de Marseille posés devant elle"
+           loading="lazy" width="1600" height="900">
+    </picture>
+    <div class="quote-voile" aria-hidden="true"></div>
+    <div class="container">
+      <blockquote class="reveal">
+        <span class="quote-mark" aria-hidden="true">"</span>
+        <p>Le Tarot ne prédit pas un destin figé. Il éclaire les chemins possibles et vous redonne la liberté de choisir le vôtre.</p>
+        <footer>— Natacha Laure</footer>
+      </blockquote>
+    </div>
+  </section>
 
 <!-- ═══ AURÉA — L'APPLICATION ═══ -->
 <section class="aurea-teaser">

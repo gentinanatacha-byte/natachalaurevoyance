@@ -120,6 +120,54 @@
     });
   }
 
+  // ─── GROUPES DÉROULANTS DU MENU ──────────────────────
+  //
+  // Sur ordinateur, le survol suffit (CSS). Le clic est là pour les
+  // écrans tactiles et pour le clavier, où il n'y a pas de survol.
+  // Sur téléphone, c'est le seul moyen d'ouvrir un groupe : le menu
+  // devient un accordéon dans le tiroir.
+  const groupes = document.querySelectorAll('.nav-groupe-titre');
+  if (groupes.length) {
+    const toutFermer = (sauf) => {
+      groupes.forEach(b => { if (b !== sauf) b.setAttribute('aria-expanded', 'false'); });
+    };
+
+    groupes.forEach(bouton => {
+      bouton.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        const ouvert = bouton.getAttribute('aria-expanded') === 'true';
+        toutFermer(bouton);
+        bouton.setAttribute('aria-expanded', ouvert ? 'false' : 'true');
+      });
+    });
+
+    // Un clic ailleurs referme — sauf à l'intérieur du tiroir mobile, où
+    // refermer le groupe dès qu'on touche le panneau rendrait les liens
+    // inatteignables.
+    document.addEventListener('click', (ev) => {
+      if (ev.target.closest('.nav-groupe')) return;
+      toutFermer(null);
+    });
+
+    document.addEventListener('keydown', (ev) => {
+      if (ev.key !== 'Escape') return;
+      toutFermer(null);
+      if (nav) {
+        nav.classList.remove('open');
+        if (burger) burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Le tiroir mobile se referme sur un clic de lien : on remet les
+    // groupes à plat, sinon ils se rouvriraient déjà ouverts à la visite
+    // suivante.
+    if (nav) {
+      nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => toutFermer(null));
+      });
+    }
+  }
+
   // ─── ONGLETS MODE (Domicile / Téléphone) ───────────
   const modeTabs = document.querySelectorAll('.mode-tab');
   const modePanels = document.querySelectorAll('.mode-panel');

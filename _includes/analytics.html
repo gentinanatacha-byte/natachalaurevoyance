@@ -1,0 +1,98 @@
+<!-- ═══ MESURE D'AUDIENCE — Google Analytics 4 (19.11.2026) ═══════════
+     Balise G-6Q3G74YGBH, posée pour suivre la campagne Google Ads.
+
+     ⚠ ELLE NE SE CHARGE QU'APRÈS ACCORD DE LA VISITEUSE OU DU VISITEUR.
+     La CNIL n'exempte pas Google Analytics du consentement : la mesure
+     d'audience n'est dispensée de bandeau que si elle reste strictement
+     interne, or GA transmet les données à un tiers et permet des
+     recoupements. Tant que personne n'a cliqué « Accepter », aucun script
+     Google n'est appelé et aucun cookie n'est déposé — ce n'est pas un
+     réglage de GA, c'est le script qui n'est pas chargé du tout.
+
+     Conséquence à connaître : les refus ne sont pas comptés. Les chiffres
+     de GA seront donc inférieurs au trafic réel.
+
+     Pour retirer la mesure d'audience : supprimer l'appel
+     {% raw %}{% include analytics.html %}{% endraw %} des pages, et remettre la section 7
+     de /confidentialite/ dans son état d'origine.
+     ═══════════════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  var CLE = 'nlv_mesure_audience';
+  var ID  = 'G-6Q3G74YGBH';
+
+  function charger() {
+    if (window.__nlvGaCharge) return;
+    window.__nlvGaCharge = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', ID);
+  }
+
+  function lire() {
+    try { return localStorage.getItem(CLE); } catch (e) { return null; }
+  }
+  function ecrire(v) {
+    try { localStorage.setItem(CLE, v); } catch (e) { /* stockage bloqué */ }
+  }
+
+  var choix = lire();
+  if (choix === 'oui') { charger(); return; }
+  if (choix === 'non') { return; }
+
+  // Le bandeau n'est construit qu'au premier passage, et seulement une
+  // fois la page affichée : il ne doit jamais retarder le contenu.
+  function bandeau() {
+    var d = document.createElement('div');
+    d.className = 'nlv-cookies';
+    d.setAttribute('role', 'dialog');
+    d.setAttribute('aria-label', 'Mesure d’audience');
+    d.innerHTML =
+      '<p>Ce site peut mesurer sa fréquentation avec Google Analytics, pour savoir quelles pages vous sont utiles. ' +
+      'Rien n’est déposé sans votre accord. <a href="/confidentialite/">En savoir plus</a></p>' +
+      '<div class="nlv-cookies-actions">' +
+        '<button type="button" class="nlv-cookies-non">Refuser</button>' +
+        '<button type="button" class="nlv-cookies-oui">Accepter</button>' +
+      '</div>';
+    document.body.appendChild(d);
+
+    // Les boutons flottants (WhatsApp, Instagram, agenda) occupent le même
+    // coin que le bandeau : sur téléphone, ils passaient par-dessus le bouton
+    // « Accepter ». On les remonte de la hauteur réellement mesurée du
+    // bandeau — une valeur en dur serait fausse dès que le texte passe sur
+    // une ligne de plus.
+    var remonter = function () {
+      document.documentElement.style.setProperty('--nlv-cookies-h', d.offsetHeight + 'px');
+    };
+    remonter();
+    document.body.classList.add('nlv-cookies-ouvert');
+    window.addEventListener('resize', remonter);
+
+    var fermer = function () {
+      document.body.classList.remove('nlv-cookies-ouvert');
+      window.removeEventListener('resize', remonter);
+      d.remove();
+    };
+
+    requestAnimationFrame(function () { d.classList.add('visible'); });
+
+    d.querySelector('.nlv-cookies-oui').addEventListener('click', function () {
+      ecrire('oui'); charger(); fermer();
+    });
+    d.querySelector('.nlv-cookies-non').addEventListener('click', function () {
+      ecrire('non'); fermer();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bandeau);
+  } else {
+    bandeau();
+  }
+})();
+</script>
