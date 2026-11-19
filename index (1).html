@@ -34,6 +34,7 @@ sitemap: true
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://natachalaurevoyance.fr/#cabinet",
   "name": "Natacha Laure - Voyante & Cartomancienne à Nice",
   "image": "https://natachalaurevoyance.fr/assets/images/natacha-portrait.webp",
   "url": "https://natachalaurevoyance.fr/",
@@ -66,6 +67,8 @@ sitemap: true
   "priceRange": "€€",
   "description": "Voyante et cartomancienne à Nice, spécialiste du Tarot de Marseille. Consultations à domicile sur Nice et Saint-Laurent-du-Var, ou par téléphone partout en France.",
   "knowsAbout": ["Tarot de Marseille", "cartomancie", "tarologie", "voyance", "oracle de Belline"],
+  "founder": { "@id": "https://natachalaurevoyance.fr/#natacha-laure" },
+  "employee": { "@id": "https://natachalaurevoyance.fr/#natacha-laure" },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Consultations et cours",
@@ -91,6 +94,77 @@ sitemap: true
       }
     ]
   }
+}
+</script>
+
+<!-- Structured data : la PERSONNE (19.11.2026).
+     Le bloc ProfessionalService ci-dessus décrit une ACTIVITÉ. Celui-ci
+     décrit quelqu'un. Les deux sont reliés par "@id" : le cabinet déclare
+     Natacha Laure comme fondatrice, et la personne déclare y travailler.
+     C'est cette boucle qui permet à un moteur ou à une IA de répondre
+     « Natacha Laure, à Saint-Laurent-du-Var » plutôt que « une voyante ».
+     Sans elle, ce sont trois fiches sans lien entre elles.
+     ⚠ "sameAs" est la liste des endroits où cette même personne existe
+     ailleurs sur le web. Il n'y a qu'Instagram aujourd'hui ; chaque profil
+     ou fiche d'annuaire ajouté ici renforce l'identification. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://natachalaurevoyance.fr/#natacha-laure",
+  "name": "Natacha Laure",
+  "jobTitle": "Voyante et cartomancienne",
+  "description": "Voyante et cartomancienne installée à Saint-Laurent-du-Var, initiée dès l'enfance au Tarot de Marseille par sa grand-mère taromancienne. Depuis plus de dix ans, elle accompagne ses consultant·es à domicile sur Nice et Saint-Laurent-du-Var, et par téléphone partout en France. Elle est l'autrice d'Auréa, une application de tirage dont elle a dessiné le jeu et écrit chaque interprétation.",
+  "url": "https://natachalaurevoyance.fr/",
+  "mainEntityOfPage": "https://natachalaurevoyance.fr/",
+  "image": "https://natachalaurevoyance.fr/assets/images/natacha-portrait.webp",
+  "telephone": "+33627815276",
+  "email": "natachalaure.voyance@gmail.com",
+  "sameAs": [
+    "https://www.instagram.com/natachalaure.voyance/"
+  ],
+  "knowsLanguage": "fr",
+  "knowsAbout": [
+    "Tarot de Marseille",
+    "cartomancie",
+    "tarologie",
+    "voyance",
+    "médiumnité",
+    "oracle de Belline",
+    "pendule"
+  ],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Voyante et cartomancienne",
+    "occupationLocation": {
+      "@type": "City",
+      "name": "Nice"
+    }
+  },
+  "worksFor": {
+    "@id": "https://natachalaurevoyance.fr/#cabinet"
+  },
+  "workLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "70 avenue des Oliviers",
+      "postalCode": "06700",
+      "addressLocality": "Saint-Laurent-du-Var",
+      "addressRegion": "Alpes-Maritimes",
+      "addressCountry": "FR"
+    }
+  },
+  "areaServed": [
+    "Nice",
+    "Saint-Laurent-du-Var",
+    "Cagnes-sur-Mer",
+    "Villeneuve-Loubet",
+    "Antibes",
+    "Monaco",
+    "Alpes-Maritimes",
+    "France"
+  ]
 }
 </script>
 
