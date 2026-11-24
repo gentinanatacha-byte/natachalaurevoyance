@@ -14,8 +14,8 @@
      Ne colle JAMAIS ici la clé « service_role ».
    ═══════════════════════════════════════════════════════════════════ */
 
-const SUPABASE_URL = 'https://XXXXXXXXXXXX.supabase.co';
-const SUPABASE_CLE = 'COLLE_ICI_TA_CLE_ANON_PUBLIC';
+const SUPABASE_URL = 'https://cnxhehfngpwsrwdtqigq.supabase.co/';
+const SUPABASE_CLE = 'sb_publishable_namlfDcAhfb05G28r5kzDQ_Sbdk4e2B';
 
 
 /* ─────────────────────────────────────────────────────────────────── */
@@ -36,11 +36,48 @@ const SUPABASE_CLE = 'COLLE_ICI_TA_CLE_ANON_PUBLIC';
     return;
   }
 
-  const entetes = {
-    'apikey': SUPABASE_CLE,
-    'Authorization': 'Bearer ' + SUPABASE_CLE,
-    'Content-Type': 'application/json'
-  };
+  /* GARDE-FOU : une clé secrète n'a RIEN à faire dans un navigateur.
+     Si elle est collée ici par erreur, la page refuse de fonctionner
+     plutôt que de la publier à la terre entière. */
+  if (/^sb_secret_/.test(SUPABASE_CLE) || /service_role/.test(SUPABASE_CLE)) {
+    zone.innerHTML =
+      '<p class="fo-chargement">Configuration à corriger : la clé utilisée est ' +
+      'une clé secrète. Remplacez-la par la clé « publishable ».</p>';
+    if (window.console) {
+      console.error('formation.js : clé SECRÈTE détectée. Ne jamais la mettre ' +
+                    'dans une page publique. Utiliser la clé publishable.');
+    }
+    return;
+  }
+
+  /* Les clés récentes (sb_publishable_…) sont des chaînes opaques : elles
+     se placent dans l'en-tête « apikey » seulement. Les anciennes clés
+     « anon » sont des JWT (elles commencent par eyJ) et acceptent en plus
+     l'en-tête Authorization. On adapte selon le format reçu, et en cas de
+     refus on retente une fois avec l'autre combinaison — comme ça ta page
+     marche quelle que soit la clé que tu colles. */
+  const cleJWT = /^eyJ/.test(SUPABASE_CLE);
+
+  function entetes(avecAuth) {
+    const h = { 'apikey': SUPABASE_CLE, 'Content-Type': 'application/json' };
+    if (avecAuth) h['Authorization'] = 'Bearer ' + SUPABASE_CLE;
+    return h;
+  }
+
+  /* Appelle Supabase, et retente une seule fois avec l'autre jeu
+     d'en-têtes si l'authentification est refusée. */
+  function appel(chemin, options, avecAuth) {
+    if (avecAuth === undefined) avecAuth = cleJWT;
+    const o = Object.assign({}, options);
+    o.headers = Object.assign(entetes(avecAuth), options.extraHeaders || {});
+    delete o.extraHeaders;
+    return fetch(SUPABASE_URL + chemin, o).then(function (r) {
+      if ((r.status === 401 || r.status === 403) && avecAuth === cleJWT) {
+        return appel(chemin, options, !cleJWT);
+      }
+      return r;
+    });
+  }
 
   const jours = new Intl.DateTimeFormat('fr-FR',
     { weekday: 'long', day: 'numeric', month: 'long' });
@@ -186,9 +223,9 @@ const SUPABASE_CLE = 'COLLE_ICI_TA_CLE_ANON_PUBLIC';
         envoi.textContent = 'Envoi…';
         message(form, '', 'neutre');
 
-        fetch(SUPABASE_URL + '/rest/v1/inscriptions', {
+        appel('/rest/v1/inscriptions', {
           method: 'POST',
-          headers: Object.assign({ 'Prefer': 'return=minimal' }, entetes),
+          extraHeaders: { 'Prefer': 'return=minimal' },
           body: JSON.stringify({
             session_id: s.id,
             prenom:     String(d.get('prenom')).trim(),
@@ -232,9 +269,7 @@ const SUPABASE_CLE = 'COLLE_ICI_TA_CLE_ANON_PUBLIC';
   }
 
   function charger() {
-    fetch(SUPABASE_URL + '/rest/v1/rpc/sessions_ouvertes', {
-      method: 'POST', headers: entetes, body: '{}'
-    })
+    appel('/rest/v1/rpc/sessions_ouvertes', { method: 'POST', body: '{}' })
     .then(function (r) { if (!r.ok) throw new Error('rpc'); return r.json(); })
     .then(function (sessions) {
       if (!Array.isArray(sessions) || sessions.length === 0) {
