@@ -1,27 +1,45 @@
 /* ═══════════════════════════════════════════════════════════════════
-   PAGE FORMATION TAROT (22.11.2026)
+   PAGE FORMATION TAROT — révisée le 24.11.2026
 
-   S'appuie sur styles.css et evenements.css, qui fournissent déjà le
-   gabarit de section (.ev-section), la grille (.ev-grille), la note
-   (.ev-note), les formulaires et la typographie. Ce fichier ne contient
-   que ce qui est propre à la page : le bandeau, le programme, et
-   surtout les cartes de session.
+   S'appuie sur styles.css et evenements.css pour le gabarit de section,
+   les formulaires et la typographie. Ici : le bandeau animé, les blocs
+   texte/photo, les trois lieux illustrés, et les cartes de date.
    ═══════════════════════════════════════════════════════════════════ */
 
 
 /* ─── BANDEAU D'OUVERTURE ──────────────────────────────────────────
-   La photo de cours est en 10:7. On la pose en fond, assombrie, avec
-   le texte par-dessus : pas de colonne séparée, donc rien à recadrer
-   au millimètre selon la largeur de l'écran. */
+   L'image respire : un zoom très lent, sur trente secondes, qui donne
+   de la vie sans jamais attirer l'œil. Elle s'arrête complètement si la
+   personne a réglé son système sur « animations réduites » — c'est à la
+   fois une question de confort et d'accessibilité. */
 .fo-hero {
   position: relative;
   isolation: isolate;
-  padding-block: clamp(5rem, 13vw, 9rem);
-  background:
-    linear-gradient(180deg, rgba(14, 11, 8, 0.74) 0%, rgba(14, 11, 8, 0.88) 100%),
-    url('/assets/images/cours-initiation-tarot-nice.webp') center 38% / cover no-repeat;
-  background-color: var(--noir);
+  overflow: hidden;
+  padding-block: clamp(5.5rem, 14vw, 10rem);
+  background: var(--noir);
 }
+.fo-hero-img {
+  position: absolute;
+  inset: -4%;
+  background: url('/assets/images/cours-initiation-tarot-nice.webp') center 38% / cover no-repeat;
+  animation: fo-respire 30s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes fo-respire {
+  from { transform: scale(1);    }
+  to   { transform: scale(1.09); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fo-hero-img { animation: none; }
+}
+.fo-hero-voile {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 11, 8, 0.72) 0%, rgba(14, 11, 8, 0.9) 100%);
+}
+.fo-hero .container { position: relative; z-index: 2; }
+
 .fo-hero-inner {
   max-width: 44rem;
   text-align: center;
@@ -34,10 +52,7 @@
   color: var(--blanc);
   margin: 0.7rem 0 1.2rem;
 }
-.fo-hero-inner h1 em {
-  font-style: normal;
-  color: var(--or-pale);
-}
+.fo-hero-inner h1 em { font-style: normal; color: var(--or-pale); }
 .fo-hero-inner .ev-hero-lead {
   color: var(--beige-cl);
   font-size: clamp(0.98rem, 1.4vw, 1.08rem);
@@ -46,101 +61,155 @@
 }
 
 
-/* ─── LE PROGRAMME ─────────────────────────────────────────────────
-   Les durées sont dans une colonne fixe à gauche : l'œil descend le
-   long des durées et comprend d'un coup comment la journée est
-   répartie, sans avoir à lire. */
-.fo-programme {
-  list-style: none;
-  margin: 3rem auto 0;
-  padding: 0;
-  max-width: 48rem;
-}
-.fo-programme li {
+/* ─── BLOC TEXTE + PHOTO ───────────────────────────────────────────
+   Deux colonnes qui s'empilent sur téléphone. La photo garde ses
+   proportions : pas de recadrage, donc rien à surveiller quand on
+   change d'image. */
+.fo-duo {
   display: grid;
-  grid-template-columns: 5.5rem 1fr;
-  gap: 1.4rem;
-  padding: 1.5rem 0;
-  border-top: 1px solid rgba(184, 132, 58, 0.18);
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
 }
-.fo-programme li:last-child { border-bottom: 1px solid rgba(184, 132, 58, 0.18); }
+.fo-duo--inverse .fo-duo-img { order: -1; }
 
-.fo-duree {
-  font-family: var(--font-display);
-  font-size: 0.92rem;
-  color: var(--or-pale);
-  line-height: 1.5;
-  padding-top: 0.15rem;
-  white-space: nowrap;
-}
-.fo-programme h3 {
-  font-family: var(--font-display);
-  font-size: 1.02rem;
-  color: var(--blanc);
-  margin: 0 0 0.45rem;
-  line-height: 1.35;
-}
-.fo-programme p {
+.fo-duo-texte .section-title { text-align: left; margin-top: 0.6rem; }
+.fo-duo-texte p {
   color: var(--gris);
-  font-size: 0.9rem;
-  line-height: 1.8;
-  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.9;
+  margin-bottom: 1.1rem;
+}
+.fo-duo-texte strong { color: var(--or-pale); font-weight: 500; }
+
+/* La phrase sur la souplesse du déroulé : mise en valeur discrète,
+   c'est un argument, pas une note de bas de page. */
+.fo-souple {
+  padding-left: 1.1rem;
+  border-left: 2px solid rgba(184, 132, 58, 0.4);
+  font-style: italic;
 }
 
-/* La pause est un temps creux : elle s'efface au lieu de ponctuer. */
-.fo-pause .fo-duree,
-.fo-pause h3 { color: var(--beige-cl); opacity: 0.72; }
-.fo-pause p  { opacity: 0.72; }
+.fo-duo-img { margin: 0; }
+.fo-duo-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  border: 1px solid rgba(184, 132, 58, 0.22);
+}
 
 
-/* ─── CE QU'ON EMPORTE · OÙ ────────────────────────────────────── */
-.fo-emporte, .fo-lieux { margin-top: 2.8rem; }
-.fo-emporte article, .fo-lieux article {
-  padding: 1.6rem 1.5rem;
+/* ─── BANDEAU PHOTO PLEINE LARGEUR ───────────────────────────────── */
+.fo-bandeau img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 32vw, 420px);
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+
+/* ─── CE QU'ON EMPORTE ─────────────────────────────────────────── */
+.fo-emporte { margin-top: 2.8rem; }
+.fo-emporte article {
+  position: relative;
+  padding: 2.4rem 1.5rem 1.7rem;
   border: 1px solid rgba(184, 132, 58, 0.22);
   border-radius: 3px;
   background: linear-gradient(170deg, rgba(34, 26, 18, 0.55), rgba(14, 11, 8, 0.4));
 }
-.fo-emporte h3, .fo-lieux h3 {
+.fo-num {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+  color: rgba(184, 132, 58, 0.55);
+}
+.fo-emporte h3 {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
   color: var(--or-pale);
   margin: 0 0 0.6rem;
   line-height: 1.35;
 }
-.fo-emporte p, .fo-lieux p {
+.fo-emporte p {
   color: var(--gris);
-  font-size: 0.88rem;
-  line-height: 1.75;
+  font-size: 0.89rem;
+  line-height: 1.8;
   margin: 0;
 }
 
 
-/* ─── PARRAINAGE · PROFESSIONNELS ─────────────────────────────── */
-.fo-parrainage, .fo-pro {
+/* ─── LES TROIS LIEUX ──────────────────────────────────────────────
+   Chaque lieu a sa photo : on comprend la proposition avant d'avoir lu
+   le titre, ce qui est précisément le rôle d'une image. */
+.fo-lieux {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1.4rem;
+  margin-top: 2.8rem;
+}
+.fo-lieux article {
+  border: 1px solid rgba(184, 132, 58, 0.22);
+  border-radius: 3px;
+  overflow: hidden;
+  background: linear-gradient(170deg, rgba(34, 26, 18, 0.55), rgba(14, 11, 8, 0.4));
+  transition: border-color var(--transition), transform var(--transition);
+}
+.fo-lieux article:hover {
+  border-color: rgba(184, 132, 58, 0.5);
+  transform: translateY(-3px);
+}
+.fo-lieux img {
+  display: block;
+  width: 100%;
+  height: 11rem;
+  object-fit: cover;
+  object-position: center 40%;
+}
+.fo-lieux div { padding: 1.3rem 1.4rem 1.6rem; }
+.fo-lieux h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--or-pale);
+  margin: 0 0 0.55rem;
+  line-height: 1.35;
+}
+.fo-lieux p {
+  color: var(--gris);
+  font-size: 0.88rem;
+  line-height: 1.78;
+  margin: 0;
+}
+
+
+/* ─── PROPOSER UNE DATE · PROFESSIONNELS ───────────────────────── */
+.fo-proposer, .fo-pro {
   max-width: 44rem;
   margin-inline: auto;
   text-align: center;
 }
-.fo-parrainage p, .fo-pro p {
+.fo-proposer p, .fo-pro p {
   color: var(--gris);
   font-size: 0.97rem;
   line-height: 1.9;
   margin-bottom: 1.1rem;
 }
-.fo-parrainage strong { color: var(--or-pale); font-weight: 500; }
+.fo-proposer .fo-form { text-align: left; margin-top: 2rem; border-top: none; padding-top: 0; }
 .fo-pro .btn { margin-top: 0.8rem; }
 
 
-/* ─── LES SESSIONS ─────────────────────────────────────────────────
-   Une carte par date. La bordure gauche porte l'état : c'est le seul
-   endroit où la couleur dit quelque chose, donc elle se remarque.
-   On n'affiche jamais « 0 inscrit » (voir formation.js) : une date qui
-   vient d'ouvrir dirait « personne n'en veut », ce qui est faux et
-   décourageant pour la personne suivante. */
+/* ─── LES DATES ────────────────────────────────────────────────────
+   La bordure gauche porte l'état : c'est le seul endroit où la couleur
+   dit quelque chose, donc elle se remarque. On n'affiche jamais le
+   chiffre brut d'inscrit·es (voir formation.js) : une date qui vient
+   d'ouvrir dirait « personne n'en veut », ce qui est faux. */
 .fo-sessions {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   gap: 1.2rem;
   margin-top: 2.8rem;
   align-items: start;
@@ -165,10 +234,10 @@
 }
 .fo-session:hover { border-color: rgba(184, 132, 58, 0.45); }
 
-.fo-session--ouverte  { border-left-color: rgba(184, 132, 58, 0.5); }
-.fo-session--presque  { border-left-color: var(--or-cl); }
-.fo-session--confirmee{ border-left-color: #7fa86b; }
-.fo-session--complete { border-left-color: var(--brun-lt); opacity: 0.68; }
+.fo-session--ouverte   { border-left-color: rgba(184, 132, 58, 0.5); }
+.fo-session--presque   { border-left-color: var(--or-cl); }
+.fo-session--confirmee { border-left-color: #7fa86b; }
+.fo-session--complete  { border-left-color: var(--brun-lt); opacity: 0.68; }
 
 .fo-session-date {
   font-family: var(--font-display);
@@ -177,12 +246,27 @@
   margin: 0 0 0.3rem;
   line-height: 1.35;
 }
+.fo-annee { color: var(--gris); font-size: 0.82rem; }
 .fo-session-infos {
   color: var(--gris);
   font-size: 0.84rem;
   line-height: 1.6;
   margin: 0 0 1rem;
 }
+
+/* La jauge : un point par place nécessaire pour confirmer. */
+.fo-jauge { display: flex; gap: 0.38rem; margin-bottom: 0.7rem; }
+.fo-point {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 132, 58, 0.45);
+  background: transparent;
+  transition: background var(--transition);
+}
+.fo-point--pris { background: var(--or-cl); border-color: var(--or-cl); }
+.fo-session--confirmee .fo-point--pris { background: #7fa86b; border-color: #7fa86b; }
+
 .fo-session-etat {
   font-size: 0.88rem;
   line-height: 1.6;
@@ -193,11 +277,7 @@
 .fo-session--confirmee .fo-session-etat { color: #9bc487; }
 .fo-session--complete  .fo-session-etat { color: var(--beige-cl); }
 
-.fo-session-prix {
-  color: var(--gris);
-  font-size: 0.86rem;
-  margin: 0 0 1.3rem;
-}
+.fo-session-prix { color: var(--gris); font-size: 0.86rem; margin: 0 0 1.3rem; }
 .fo-session-close {
   color: var(--beige-cl);
   font-size: 0.84rem;
@@ -207,7 +287,7 @@
 .fo-session .btn { width: 100%; }
 
 
-/* ─── LE FORMULAIRE D'INSCRIPTION ─────────────────────────────── */
+/* ─── LES FORMULAIRES ──────────────────────────────────────────── */
 .fo-form {
   margin-top: 1.2rem;
   padding-top: 1.3rem;
@@ -237,9 +317,9 @@
 .fo-form-msg--erreur { color: #e0a38a; }
 .fo-form-msg--neutre { color: var(--gris); }
 
-/* Piège à robots : hors de l'écran, mais pas en display:none, que
-   certains automates savent détecter. Invisible pour les lecteurs
-   d'écran grâce à aria-hidden dans le HTML. */
+/* Piège à robots : hors écran plutôt que display:none, que certains
+   automates savent détecter. Masqué aux lecteurs d'écran par
+   aria-hidden dans le HTML. */
 .fo-piege {
   position: absolute;
   left: -9999px;
@@ -249,11 +329,18 @@
 }
 
 
-/* ─── TÉLÉPHONE ───────────────────────────────────────────────────── */
+/* ─── TABLETTE ET TÉLÉPHONE ───────────────────────────────────────── */
+@media (max-width: 860px) {
+  .fo-duo { grid-template-columns: 1fr; gap: 2rem; }
+  .fo-duo--inverse .fo-duo-img { order: 0; }
+  .fo-duo-texte .section-title { text-align: center; }
+  .fo-duo-texte { text-align: center; }
+  .fo-souple { text-align: left; }
+}
+
 @media (max-width: 640px) {
-  .fo-programme li { grid-template-columns: 4.4rem 1fr; gap: 1rem; }
-  .fo-duree { font-size: 0.84rem; }
   .fo-sessions { grid-template-columns: 1fr; }
+  .fo-lieux img { height: 9.5rem; }
   .fo-form .form-row { display: block; }
   .fo-form .form-row .form-field { margin-bottom: 0.8rem; }
 }
