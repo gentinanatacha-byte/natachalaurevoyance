@@ -1,0 +1,259 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PAGE FORMATION TAROT (22.11.2026)
+
+   S'appuie sur styles.css et evenements.css, qui fournissent déjà le
+   gabarit de section (.ev-section), la grille (.ev-grille), la note
+   (.ev-note), les formulaires et la typographie. Ce fichier ne contient
+   que ce qui est propre à la page : le bandeau, le programme, et
+   surtout les cartes de session.
+   ═══════════════════════════════════════════════════════════════════ */
+
+
+/* ─── BANDEAU D'OUVERTURE ──────────────────────────────────────────
+   La photo de cours est en 10:7. On la pose en fond, assombrie, avec
+   le texte par-dessus : pas de colonne séparée, donc rien à recadrer
+   au millimètre selon la largeur de l'écran. */
+.fo-hero {
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(5rem, 13vw, 9rem);
+  background:
+    linear-gradient(180deg, rgba(14, 11, 8, 0.74) 0%, rgba(14, 11, 8, 0.88) 100%),
+    url('/assets/images/cours-initiation-tarot-nice.webp') center 38% / cover no-repeat;
+  background-color: var(--noir);
+}
+.fo-hero-inner {
+  max-width: 44rem;
+  text-align: center;
+  margin-inline: auto;
+}
+.fo-hero-inner h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.95rem, 4.6vw, 3.15rem);
+  line-height: 1.16;
+  color: var(--blanc);
+  margin: 0.7rem 0 1.2rem;
+}
+.fo-hero-inner h1 em {
+  font-style: normal;
+  color: var(--or-pale);
+}
+.fo-hero-inner .ev-hero-lead {
+  color: var(--beige-cl);
+  font-size: clamp(0.98rem, 1.4vw, 1.08rem);
+  line-height: 1.85;
+  margin-bottom: 2rem;
+}
+
+
+/* ─── LE PROGRAMME ─────────────────────────────────────────────────
+   Les durées sont dans une colonne fixe à gauche : l'œil descend le
+   long des durées et comprend d'un coup comment la journée est
+   répartie, sans avoir à lire. */
+.fo-programme {
+  list-style: none;
+  margin: 3rem auto 0;
+  padding: 0;
+  max-width: 48rem;
+}
+.fo-programme li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1.4rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(184, 132, 58, 0.18);
+}
+.fo-programme li:last-child { border-bottom: 1px solid rgba(184, 132, 58, 0.18); }
+
+.fo-duree {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  color: var(--or-pale);
+  line-height: 1.5;
+  padding-top: 0.15rem;
+  white-space: nowrap;
+}
+.fo-programme h3 {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  color: var(--blanc);
+  margin: 0 0 0.45rem;
+  line-height: 1.35;
+}
+.fo-programme p {
+  color: var(--gris);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* La pause est un temps creux : elle s'efface au lieu de ponctuer. */
+.fo-pause .fo-duree,
+.fo-pause h3 { color: var(--beige-cl); opacity: 0.72; }
+.fo-pause p  { opacity: 0.72; }
+
+
+/* ─── CE QU'ON EMPORTE · OÙ ────────────────────────────────────── */
+.fo-emporte, .fo-lieux { margin-top: 2.8rem; }
+.fo-emporte article, .fo-lieux article {
+  padding: 1.6rem 1.5rem;
+  border: 1px solid rgba(184, 132, 58, 0.22);
+  border-radius: 3px;
+  background: linear-gradient(170deg, rgba(34, 26, 18, 0.55), rgba(14, 11, 8, 0.4));
+}
+.fo-emporte h3, .fo-lieux h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--or-pale);
+  margin: 0 0 0.6rem;
+  line-height: 1.35;
+}
+.fo-emporte p, .fo-lieux p {
+  color: var(--gris);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+
+/* ─── PARRAINAGE · PROFESSIONNELS ─────────────────────────────── */
+.fo-parrainage, .fo-pro {
+  max-width: 44rem;
+  margin-inline: auto;
+  text-align: center;
+}
+.fo-parrainage p, .fo-pro p {
+  color: var(--gris);
+  font-size: 0.97rem;
+  line-height: 1.9;
+  margin-bottom: 1.1rem;
+}
+.fo-parrainage strong { color: var(--or-pale); font-weight: 500; }
+.fo-pro .btn { margin-top: 0.8rem; }
+
+
+/* ─── LES SESSIONS ─────────────────────────────────────────────────
+   Une carte par date. La bordure gauche porte l'état : c'est le seul
+   endroit où la couleur dit quelque chose, donc elle se remarque.
+   On n'affiche jamais « 0 inscrit » (voir formation.js) : une date qui
+   vient d'ouvrir dirait « personne n'en veut », ce qui est faux et
+   décourageant pour la personne suivante. */
+.fo-sessions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: 1.2rem;
+  margin-top: 2.8rem;
+  align-items: start;
+}
+.fo-chargement {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--gris);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  padding: 2rem 0;
+}
+.fo-chargement a { color: var(--or-cl); }
+
+.fo-session {
+  padding: 1.6rem 1.5rem;
+  border: 1px solid rgba(184, 132, 58, 0.22);
+  border-left-width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(170deg, rgba(34, 26, 18, 0.6), rgba(14, 11, 8, 0.45));
+  transition: border-color var(--transition);
+}
+.fo-session:hover { border-color: rgba(184, 132, 58, 0.45); }
+
+.fo-session--ouverte  { border-left-color: rgba(184, 132, 58, 0.5); }
+.fo-session--presque  { border-left-color: var(--or-cl); }
+.fo-session--confirmee{ border-left-color: #7fa86b; }
+.fo-session--complete { border-left-color: var(--brun-lt); opacity: 0.68; }
+
+.fo-session-date {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  color: var(--blanc);
+  margin: 0 0 0.3rem;
+  line-height: 1.35;
+}
+.fo-session-infos {
+  color: var(--gris);
+  font-size: 0.84rem;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+.fo-session-etat {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+  color: var(--or-pale);
+}
+.fo-session--presque   .fo-session-etat { color: var(--or-cl); }
+.fo-session--confirmee .fo-session-etat { color: #9bc487; }
+.fo-session--complete  .fo-session-etat { color: var(--beige-cl); }
+
+.fo-session-prix {
+  color: var(--gris);
+  font-size: 0.86rem;
+  margin: 0 0 1.3rem;
+}
+.fo-session-close {
+  color: var(--beige-cl);
+  font-size: 0.84rem;
+  font-style: italic;
+  margin: 0;
+}
+.fo-session .btn { width: 100%; }
+
+
+/* ─── LE FORMULAIRE D'INSCRIPTION ─────────────────────────────── */
+.fo-form {
+  margin-top: 1.2rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid rgba(184, 132, 58, 0.2);
+  text-align: left;
+}
+.fo-form-titre {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--or-pale);
+  margin: 0 0 0.4rem;
+}
+.fo-form-rassure {
+  color: var(--gris);
+  font-size: 0.84rem;
+  line-height: 1.7;
+  margin: 0 0 1.2rem;
+}
+.fo-form .form-row { gap: 0.8rem; }
+
+.fo-form-msg {
+  font-size: 0.86rem;
+  line-height: 1.7;
+  margin: 0.9rem 0 0;
+  min-height: 1px;
+}
+.fo-form-msg--erreur { color: #e0a38a; }
+.fo-form-msg--neutre { color: var(--gris); }
+
+/* Piège à robots : hors de l'écran, mais pas en display:none, que
+   certains automates savent détecter. Invisible pour les lecteurs
+   d'écran grâce à aria-hidden dans le HTML. */
+.fo-piege {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
+/* ─── TÉLÉPHONE ───────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .fo-programme li { grid-template-columns: 4.4rem 1fr; gap: 1rem; }
+  .fo-duree { font-size: 0.84rem; }
+  .fo-sessions { grid-template-columns: 1fr; }
+  .fo-form .form-row { display: block; }
+  .fo-form .form-row .form-field { margin-bottom: 0.8rem; }
+}
