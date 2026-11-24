@@ -201,6 +201,23 @@
 .fo-proposer .fo-form { text-align: left; margin-top: 2rem; border-top: none; padding-top: 0; }
 .fo-pro .btn { margin-top: 0.8rem; }
 
+/* Le formulaire professionnels s'ouvre sous le bouton, dans le même bloc
+   centré : on le repasse à gauche, seul alignement lisible pour saisir. */
+.fo-pro .fo-form {
+  text-align: left;
+  margin-top: 2rem;
+  border-top: none;
+  padding-top: 0;
+  animation: fo-ouvre 0.35s ease both;
+}
+@keyframes fo-ouvre {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fo-pro .fo-form { animation: none; }
+}
+
 
 /* ─── LES DATES ────────────────────────────────────────────────────
    La bordure gauche porte l'état : c'est le seul endroit où la couleur
@@ -288,6 +305,13 @@
 
 
 /* ─── LES FORMULAIRES ──────────────────────────────────────────── */
+
+/* Quand le script masque un bouton (hidden) après avoir ouvert le
+   formulaire, la règle display:inline-block de .btn l'emporterait sur
+   le display:none implicite de [hidden]. On tranche explicitement,
+   sinon le bouton reste affiché au-dessus du formulaire qu'il a ouvert. */
+.fo-session .btn[hidden],
+.fo-pro .btn[hidden] { display: none !important; }
 .fo-form {
   margin-top: 1.2rem;
   padding-top: 1.3rem;

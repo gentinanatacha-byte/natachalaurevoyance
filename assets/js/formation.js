@@ -17,7 +17,8 @@
 
   const zone   = document.getElementById('fo-sessions');
   const zoneD  = document.getElementById('fo-demande');
-  if (!zone && !zoneD) return;
+  const zoneP  = document.getElementById('fo-demande-pro');
+  if (!zone && !zoneD && !zoneP) return;
 
   const cfg = window.NLV_SUPABASE || {};
   const URL_SB = (cfg.url || '').replace(/\/+$/, '');
@@ -26,6 +27,7 @@
   function stop(texte) {
     if (zone)  zone.innerHTML  = '<p class="fo-chargement">' + texte + '</p>';
     if (zoneD) zoneD.innerHTML = '';
+    if (zoneP) zoneP.innerHTML = '';
   }
 
   if (!URL_SB || !CLE_SB || /COLLE_ICI|XXXX/.test(URL_SB + CLE_SB)) {
@@ -210,6 +212,33 @@
     '</form>';
   }
 
+  /* Formulaire dédié aux lieux et aux professionnels : on ne leur
+     demande pas « quand êtes-vous disponible » comme à un particulier,
+     mais où, combien, et dans quel cadre. */
+  function formulaireDemandePro() {
+    return '' +
+    '<form class="contact-form fo-form fo-form--pro" novalidate>' +
+      '<p class="fo-form-titre">Recevoir la journée chez vous</p>' +
+      '<p class="fo-form-rassure">Dites-moi simplement où vous êtes et qui vous ' +
+        'réunissez. Je vous rappelle pour caler la date et les conditions ensemble.</p>' +
+      '<div class="form-row">' +
+        '<label class="form-field"><span class="form-label">Votre structure</span>' +
+          '<input type="text" name="structure" autocomplete="organization" ' +
+          'placeholder="salon, boutique, association, comité d’entreprise…"></label>' +
+        '<label class="form-field"><span class="form-label">Où êtes-vous ?</span>' +
+          '<input type="text" name="periode" autocomplete="address-level2" ' +
+          'placeholder="ville ou quartier"></label>' +
+      '</div>' +
+      champs() +
+      '<label class="form-field"><span class="form-label">Combien de personnes pensez-vous réunir ?</span>' +
+        '<input type="number" name="personnes" min="1" max="30" placeholder="même approximatif"></label>' +
+      '<label class="form-field"><span class="form-label">Votre message</span>' +
+        '<textarea name="message" rows="3" placeholder="Le cadre, la période qui vous arrangerait, vos questions…"></textarea></label>' +
+      '<button type="submit" class="btn btn-gold btn-block">Envoyer ma demande</button>' +
+      '<p class="fo-form-msg" role="status"></p>' +
+    '</form>';
+  }
+
   function message(form, texte, type) {
     const p = form.querySelector('.fo-form-msg');
     p.textContent = texte;
@@ -323,6 +352,53 @@
     });
   }
 
+  /* Le bouton « Parlons-en » ouvre le formulaire au lieu de renvoyer
+     vers le contact général du site : la personne reste dans son
+     contexte, et la demande arrive déjà étiquetée « professionnel ». */
+  function brancherDemandePro() {
+    if (!zoneP) return;
+    const bouton = document.querySelector('.fo-ouvrir-pro');
+    if (!bouton) return;
+
+    bouton.addEventListener('click', function () {
+      if (zoneP.querySelector('.fo-form')) return;
+
+      zoneP.innerHTML = formulaireDemandePro();
+      bouton.hidden = true;
+      bouton.setAttribute('aria-expanded', 'true');
+
+      const form = zoneP.querySelector('.fo-form');
+      const premier = form.querySelector('input[name="structure"]');
+      if (premier) premier.focus({ preventScroll: true });
+      zoneP.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      form.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        const d = new FormData(form);
+        if (d.get('site')) return;
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+
+        const n = parseInt(d.get('personnes'), 10);
+        envoyer(form, '/rest/v1/demandes', {
+          type:      'pro',
+          structure: String(d.get('structure') || '').trim(),
+          prenom:    String(d.get('prenom')).trim(),
+          nom:       String(d.get('nom')).trim(),
+          email:     String(d.get('email')).trim().toLowerCase(),
+          telephone: String(d.get('telephone') || '').trim(),
+          periode:   String(d.get('periode') || '').trim(),
+          personnes: isNaN(n) ? null : n,
+          message:   String(d.get('message') || '').trim()
+        }, function () {
+          form.innerHTML =
+            '<p class="fo-form-titre">Merci, c’est noté.</p>' +
+            '<p class="fo-form-rassure">Je vous recontacte rapidement pour voir ' +
+            'ensemble la date, le lieu et la façon dont on s’organise.</p>';
+        }, form.querySelector('button[type="submit"]'), 'Envoyer ma demande');
+      });
+    });
+  }
+
   /* ─── chargement ────────────────────────────────────────────── */
 
   function charger() {
@@ -351,4 +427,5 @@
 
   if (zone) charger();
   brancherDemande();
+  brancherDemandePro();
 })();
